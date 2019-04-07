@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consultorio.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Consultorio.View;
 
 namespace Consultorio
 {
@@ -23,6 +25,31 @@ namespace Consultorio
         public MainWindow()
         {
             InitializeComponent();
+
+
+            /* usando apenas para teste 
+            using(ConsultorioContext context = new ConsultorioContext())
+            {
+                GestorDeEstoque gestor = new GestorDeEstoque("GestorTeste", "TesteSobrenome", "TesteEmail", "TesteTelefone1", "TesteTelefone2", "teste", "teste");
+
+                context.Gestores.Add(gestor);
+                context.SaveChanges();
+            }
+
+            Console.WriteLine("Cliente salvo");*/
+        }
+
+        private void BtEntrar_Click(object sender, RoutedEventArgs e)
+        {
+            ViewOpcoes opcoes = new ViewOpcoes();
+            opcoes.Show();
+            this.Close(); //para fechar
+            //this.Hide(); //para esconder
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
