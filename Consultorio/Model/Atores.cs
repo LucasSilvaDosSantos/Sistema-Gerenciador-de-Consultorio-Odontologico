@@ -30,6 +30,10 @@ namespace Consultorio.Model
         [Required]
         public bool Ativo { get; set; }
 
+        protected Atores()
+        {
+        }
+
         protected Atores(string nome, string sobrenome, string email, string telefone1, string telefone2, string login, string senha)
         {
             Nome = nome;

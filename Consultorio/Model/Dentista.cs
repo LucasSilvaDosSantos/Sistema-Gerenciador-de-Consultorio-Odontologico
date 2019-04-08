@@ -16,6 +16,10 @@ namespace Consultorio.Model
         [Required]
         public string Crosp { get; set; }
 
+        public Dentista()
+        {
+        }
+
         public Dentista(string nome, string sobrenome, string email, string telefone1, string telefone2, string login, string senha, string crosp) :
             base(nome, sobrenome, email, telefone1, telefone2, login, senha)
         {

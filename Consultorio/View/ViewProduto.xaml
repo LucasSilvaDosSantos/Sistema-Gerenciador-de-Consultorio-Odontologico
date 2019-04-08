@@ -16,7 +16,7 @@
         <Rectangle Fill="#FF7FBEE2" Margin="59,128,-18.017,78" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,-37.017,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
         <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,67.983,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtSalvar_Click"/>
-        <DataGrid x:Name="dgProdutos" Margin="82,148,2.983,267"/>
+        <DataGrid x:Name="dgProdutos" Margin="82,148,2.983,267" IsReadOnly="True" />
         <Label x:Name="label" Content="ID" HorizontalAlignment="Left" Margin="82,0,0,217" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="22" Margin="109,0,0,221" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="43"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="157,0,0,217" VerticalAlignment="Bottom"/>

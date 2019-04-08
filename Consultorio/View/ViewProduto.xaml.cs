@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
+using Consultorio.ViewModel;
+using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Consultorio.View
 {
@@ -36,6 +39,8 @@ namespace Consultorio.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            dgProdutos.ItemsSource = ProdutoViewModel.ExibirProdutos();
+            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
