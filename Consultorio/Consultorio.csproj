@@ -101,7 +101,8 @@
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\ProdutosParaProcedimentos.cs" />
     <Compile Include="Model\Secretaria.cs" />
-    <Compile Include="ViewModel\ListaColaboradoresViewModel.cs" />
+    <Compile Include="ViewModel\ColaboradoresViewModel.cs" />
+    <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProdutoViewModel.cs" />
     <Compile Include="View\ViewCadastroDeClienteBase.xaml.cs">
       <DependentUpon>ViewCadastroDeClienteBase.xaml</DependentUpon>

@@ -2,14 +2,13 @@
 using Consultorio.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Consultorio.ViewModel
 {
-    class ListaColaboradoresViewModel
+    class ColaboradoresViewModel
     {
         static public List<Atores> ListarAtores()
         {

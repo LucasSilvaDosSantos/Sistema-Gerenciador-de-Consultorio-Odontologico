@@ -12,6 +12,6 @@
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
         <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-        <DataGrid x:Name="dgListaAtores" Margin="59,154,61,119"/>
+        <DataGrid x:Name="dgListaAtores" Margin="59,154,61,119" IsReadOnly="True"/>
     </Grid>
 </Window>

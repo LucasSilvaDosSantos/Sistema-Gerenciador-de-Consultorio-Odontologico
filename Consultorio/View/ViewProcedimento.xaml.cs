@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Consultorio.Data;
+using Consultorio.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +31,12 @@ namespace Consultorio.View
             ViewOpcoes opcoes = new ViewOpcoes();
             opcoes.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dgListaProcedimentos.ItemsSource = ProcedimentoViewModel.ExibirProcedimentos();
+            dgListaProcedimentos.Columns[4].Visibility = Visibility.Collapsed;
         }
     }
 }

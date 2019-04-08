@@ -13,11 +13,11 @@
         <Label x:Name="lbDentista" Content="&gt; Consultas" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="232"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
         <Calendar HorizontalAlignment="Left" Margin="46,169,0,130" d:LayoutOverrides="Height"/>
-        <DataGrid x:Name="dgConsultas" Margin="347,148,72,193"/>
+        <DataGrid x:Name="dgConsultas" Margin="347,148,72,193" IsReadOnly="True"/>
         <Label x:Name="label" Content="Cliente ID" HorizontalAlignment="Left" Margin="347,0,0,162" VerticalAlignment="Bottom"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="409,0,0,162" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="52"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Right" Margin="0,0,763,162" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbNome" Margin="514,188,387,162" TextWrapping="Wrap" Text=""/>
+        <TextBox x:Name="tbNome" Margin="514,0,387,162" TextWrapping="Wrap" Text="" Height="23" VerticalAlignment="Bottom"/>
         <Label x:Name="label2" Content="Dente" HorizontalAlignment="Right" Margin="0,0,340,162" VerticalAlignment="Bottom" RenderTransformOrigin="0.31,0.615"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Right" Height="23" Margin="0,0,220,162" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120"/>
         <CheckBox x:Name="checkBox" Content="Não Aplicavel" Margin="0,0,116,167" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="104"/>

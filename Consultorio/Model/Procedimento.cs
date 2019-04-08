@@ -22,6 +22,10 @@ namespace Consultorio.Model
         public double Preco { get; set; }
         public virtual ICollection<ProdutosParaProcedimentos> ListaProdutoProcedimento { get; set; }
 
+        public Procedimento()
+        {
+        }
+
         public Procedimento(string nome, string descricao, double preco)
         {
             Nome = nome;

@@ -40,6 +40,7 @@ namespace Consultorio.View
                 {
                     var consulta = ctx.Clientes;
                     dgListaDeClientes.ItemsSource = consulta.ToList();
+                    dgListaDeClientes.Columns[14].Visibility = Visibility.Collapsed;
                 }
             }
             catch (Exception ex)

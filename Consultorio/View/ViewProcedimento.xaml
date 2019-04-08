@@ -10,7 +10,7 @@
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
         <Label x:Name="lbProcedimento" Content="&gt; Procedimento" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="232"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-        <DataGrid x:Name="dataGrid" Margin="59,150,63,337"/>
+        <DataGrid x:Name="dgListaProcedimentos" Margin="59,150,63,337" Loaded="Window_Loaded" IsReadOnly="True"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
         <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12"/>
         <Label x:Name="label" Content="ID" HorizontalAlignment="Left" Margin="62,0,0,283" VerticalAlignment="Bottom"/>
@@ -20,8 +20,9 @@
         <Label x:Name="label2" Content="Preço" HorizontalAlignment="Left" Margin="517,0,0,283" VerticalAlignment="Bottom"/>
         <TextBox x:Name="textBox2" Height="23" Margin="557,0,0,286" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="71"/>
         <Label x:Name="label4" Content="Descrição" HorizontalAlignment="Left" Margin="71,0,0,255" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="161" Margin="137,0,0,117" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="491" Background="White"/>
         <DataGrid x:Name="dataGrid1" HorizontalAlignment="Right" Height="192" Margin="0,0,63,117" VerticalAlignment="Bottom" Width="554"/>
+        <TextBlock x:Name="textBlock" Margin="137,0,0,117" TextWrapping="Wrap" Text="TextBlock" HorizontalAlignment="Left" Height="161" VerticalAlignment="Bottom" Width="491"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="161" Margin="137,0,0,117" VerticalAlignment="Bottom" Width="491" />
 
     </Grid>
 </Window>
