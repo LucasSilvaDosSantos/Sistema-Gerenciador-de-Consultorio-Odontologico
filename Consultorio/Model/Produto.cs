@@ -21,7 +21,7 @@ namespace Consultorio.Model
         [Required]
         public int Quantidade { get; set; }
         public string Descricao { get; set; }
-        public DateTime Validade { get; set; }
+        public DateTime? Validade { get; set; }
         public virtual ICollection<ProdutosParaProcedimentos> ListaProdutoProcedimento { get; set; }
 
         public Produto()
@@ -35,16 +35,6 @@ namespace Consultorio.Model
             Descricao = descricao;
 
             ListaProdutoProcedimento = new HashSet<ProdutosParaProcedimentos>();
-        }
-
-        public override string ToString()
-        {
-            return ($"{Id} {Nome} {Quantidade} {Descricao} {Validade}");
-        }
-
-        public string getNome()
-        {
-            return Nome;
         }
     }
 }

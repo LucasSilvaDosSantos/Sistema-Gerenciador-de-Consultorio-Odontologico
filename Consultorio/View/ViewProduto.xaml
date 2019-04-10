@@ -15,19 +15,23 @@
         <Label x:Name="lbDentista" Content="&gt; Produto" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="232"/>
         <Rectangle Fill="#FF7FBEE2" Margin="59,128,-18.017,78" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,-37.017,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,67.983,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtSalvar_Click"/>
-        <DataGrid x:Name="dgProdutos" Margin="82,148,2.983,267" IsReadOnly="True" />
-        <Label x:Name="label" Content="ID" HorizontalAlignment="Left" Margin="82,0,0,217" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="22" Margin="109,0,0,221" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="43"/>
-        <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="157,0,0,217" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbNome" Height="23" Margin="205,0,560.983,220" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
-        <Label x:Name="label2" Content="Quantidade" HorizontalAlignment="Left" Margin="82,0,0,186" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbQuantidade" HorizontalAlignment="Left" Height="23" Margin="157,0,0,189" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
-        <Label x:Name="label3" Content="Validade" HorizontalAlignment="Left" Margin="282,0,0,186" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="342,0,0,189" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="192"/>
-        <CheckBox x:Name="checkBox" Content="Não Aplicável" HorizontalAlignment="Left" Margin="539,0,0,186" VerticalAlignment="Bottom"/>
-        <Label x:Name="label4" Content="Descrição" HorizontalAlignment="Right" Margin="0,0,483.983,209" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="tbDescricao" HorizontalAlignment="Right" Margin="0,0,3,108" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="124" Width="475" Background="White"/>
+        <Button x:Name="btSalvar" Content="Salvar alterações" HorizontalAlignment="Right" Margin="0,0,153,30" VerticalAlignment="Bottom" Width="133" Height="24" FontSize="12" Click="BtSalvar_Click"/>
+        <DataGrid x:Name="dgProdutos" Margin="82,172,3,243" IsReadOnly="True" MouseDoubleClick="DgProdutos_MouseDoubleClick" SelectionMode="Single" />
+        <Label x:Name="label" Content="ID" Margin="0,0,567,212" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <TextBox x:Name="tbId" HorizontalAlignment="Right" Height="22" Margin="0,0,519,216" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="43" IsReadOnly="True"/>
+        <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="82,0,0,186" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbNome" Height="23" Margin="128,0,0,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="443"/>
+        <Label x:Name="label2" Content="Quantidade" Margin="576,0,547,181" VerticalAlignment="Bottom" RenderTransformOrigin="0.25,0.577" d:LayoutOverrides="Width"/>
+        <TextBox x:Name="tbQuantidade" Height="23" Margin="0,0,367,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="175"/>
+        <Label x:Name="label3" Content="Validade" HorizontalAlignment="Right" Margin="0,0,307,181" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbValidade" Height="23" Margin="0,0,110,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="192"/>
+        <CheckBox x:Name="checkBoxValidade" Content="Não Aplicável" HorizontalAlignment="Left" Margin="1090,0,0,186" VerticalAlignment="Bottom"/>
+        <Label x:Name="label4" Content="Descrição" HorizontalAlignment="Left" Margin="82,0,0,155" VerticalAlignment="Bottom"/>
+        <Label x:Name="label5" Content="Produtos já cadastrados" HorizontalAlignment="Left" Margin="576,141,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbDescricao" Height="23" Margin="143,0,3,158" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom"/>
+        <Button x:Name="btCancelar" Content="Cancelar" Margin="0,0,58,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="90"/>
+        <Button x:Name="btCadastrarNovo" Content="Cadastrar novo" HorizontalAlignment="Right" Margin="0,0,291,30" VerticalAlignment="Bottom" Width="133" Height="24" FontSize="12" Click="BtCadastrarNovo_Click" />
+        <Button x:Name="btBuscar" Content="Buscar" HorizontalAlignment="Right" Margin="0,0,429,30" VerticalAlignment="Bottom" Width="75" Height="24" Click="Buscar_Click"/>
 
     </Grid>
 </Window>

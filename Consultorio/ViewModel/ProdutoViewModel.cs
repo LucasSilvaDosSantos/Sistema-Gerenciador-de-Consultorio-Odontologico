@@ -27,5 +27,28 @@ namespace Consultorio.ViewModel
                 return lista;
             }            
         }
+
+        public static bool AlterarProduto(Produto produtoChegada)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    Produto p = ctx.Produtos.Find(produtoChegada.Id);
+                    p.Nome = produtoChegada.Nome;
+                    p.Quantidade = produtoChegada.Quantidade;
+                    if (produtoChegada.Validade != null)
+                    {
+                        p.Validade = produtoChegada.Validade;
+                    }
+                    p.Descricao = produtoChegada.Descricao;
+                    ctx.SaveChanges();
+                    return true;
+                }
+            }catch(Exception e)
+            {
+                return false;
+            }          
+        }
     }
 }

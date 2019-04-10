@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201904071607562_códigos copiados.Designer.cs">
       <DependentUpon>201904071607562_códigos copiados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904081916536_Teste.cs" />
+    <Compile Include="Migrations\201904081916536_Teste.Designer.cs">
+      <DependentUpon>201904081916536_Teste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
     <Compile Include="Model\Cliente.cs" />
@@ -226,6 +230,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201904071607562_códigos copiados.resx">
       <DependentUpon>201904071607562_códigos copiados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904081916536_Teste.resx">
+      <DependentUpon>201904081916536_Teste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
