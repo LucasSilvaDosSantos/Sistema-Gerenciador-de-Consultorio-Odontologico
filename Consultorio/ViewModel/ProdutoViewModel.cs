@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel
 {
+    //-------------------------------------------*****Classe para interagir entre model e view****-------------------------------------------------------------
     class ProdutoViewModel
     {
+        // Exibe todos os prdutos cadastrados no banco de dados 
         public static List<Produto> ExibirProdutos()
         {
             try
@@ -49,6 +51,24 @@ namespace Consultorio.ViewModel
             {
                 return false;
             }          
+        }
+
+        // busca por produtos especificos utilizando id ou nome
+        public static List<Produto> BuscarProdutos(int id, string nome)
+        {
+            try
+            {
+                using(ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    List<Produto> lista = ctx.Produtos.Where(p => p.Id == id || p.Nome == nome).ToList();
+                    return lista;
+                }
+            }
+            catch (Exception)
+            {
+                List<Produto> lista = new List<Produto>();
+                return lista;
+            }
         }
     }
 }

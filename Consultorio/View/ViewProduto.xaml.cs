@@ -18,28 +18,22 @@ namespace Consultorio.View
             BotoesAtivados(1);
         }
 
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             ViewOpcoes opcoes = new ViewOpcoes();
             opcoes.Show();
             this.Close();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            RecarregarGrid();
-        }
-
-        private void RecarregarGrid()
-        {
-            dgProdutos.ItemsSource = ProdutoViewModel.ExibirProdutos();
-            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
-        }
-
+        
         //chamada para alterar um produto
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            if (tbId.Text != "") {
+            if (tbId.Text != "")
+            {
                 Produto produto = new Produto
                 {
                     Id = int.Parse(tbId.Text),
@@ -63,11 +57,17 @@ namespace Consultorio.View
                 }
                 RecarregarGrid();
                 LimparCampos();
+                InativarCampos();
             }
             else
-            {   
+            {
                 MessageBox.Show("Nenhum produto selecionado", "Erro");
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            RecarregarGrid();
         }
 
         private void DgProdutos_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -92,6 +92,55 @@ namespace Consultorio.View
             BotoesAtivados(2);
         }
 
+        private void BtCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            InativarCampos();
+            LimparCampos();
+            BotoesAtivados(1);
+            RecarregarGrid();
+        }
+
+        private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
+        {
+            LimparCampos();
+            AtivarCampos();
+            BotoesAtivados(2);
+            tbId.IsReadOnly = true;
+            RecarregarGrid();
+        }
+
+        private void Buscar_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbId.Text == "" && tbNome.Text == "")
+            {
+                InativarCampos();
+                BotoesAtivados(3);
+                btBuscar.IsEnabled = true;
+                tbId.IsEnabled = true;
+                tbNome.IsEnabled = true;
+                tbId.IsReadOnly = false;
+            }
+            else
+            {
+                //verifica se o id é um int
+                int.TryParse(tbId.Text, out int id);
+                ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
+
+                dgProdutos.ItemsSource = ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
+                dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
+            }
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void RecarregarGrid()
+        {
+            dgProdutos.ItemsSource = ProdutoViewModel.ExibirProdutos();
+            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
+        }
+
         private void LimparCampos()
         {
             tbId.Text = "";
@@ -102,19 +151,12 @@ namespace Consultorio.View
             checkBoxValidade.IsChecked = false;
         }
 
-        private void BtCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            InativarCampos();
-            LimparCampos();
-            BotoesAtivados(1);
-        }
-
-        // função para inativar todos os campos 
         private void InativarCampos()
         {
             tbDescricao.IsEnabled = false;
-            tbId.IsEnabled = false;
-            tbNome.IsEnabled = false;
+            btBuscar.IsEnabled = true;
+            tbId.IsEnabled = true;
+            tbId.IsReadOnly = false;
             tbQuantidade.IsEnabled = false;
             tbValidade.IsEnabled = false;
             checkBoxValidade.IsEnabled = false;
@@ -129,13 +171,6 @@ namespace Consultorio.View
             tbQuantidade.IsEnabled = true;
             tbValidade.IsEnabled = true;
             checkBoxValidade.IsEnabled = true;
-        }
-
-        private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
-        {
-            LimparCampos();
-            AtivarCampos();
-            BotoesAtivados(2);
         }
 
         private void BotoesAtivados(int op)
@@ -160,11 +195,6 @@ namespace Consultorio.View
                 btCadastrarNovo.IsEnabled = false;
             }
             
-        }
-
-        private void Buscar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        }        
     }
 }
