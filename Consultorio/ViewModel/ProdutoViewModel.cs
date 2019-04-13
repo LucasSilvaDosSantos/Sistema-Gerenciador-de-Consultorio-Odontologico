@@ -30,6 +30,7 @@ namespace Consultorio.ViewModel
             }            
         }
 
+        //Executa alteraçoes no produto selecionado e modificado
         public static bool AlterarProduto(Produto produtoChegada)
         {
             try
@@ -56,17 +57,26 @@ namespace Consultorio.ViewModel
         // busca por produtos especificos utilizando id ou nome
         public static List<Produto> BuscarProdutos(int id, string nome)
         {
+            List<Produto> lista = new List<Produto>();
             try
             {
                 using(ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    List<Produto> lista = ctx.Produtos.Where(p => p.Id == id || p.Nome.Contains(nome)).ToList();
+                    if (id != 0)
+                    {
+                        lista = ctx.Produtos.Where(p => p.Id == id).ToList();
+                        return lista;
+                    }
+                    else if (nome != "")
+                    {
+                        lista = ctx.Produtos.Where(p => p.Nome.Contains(nome)).ToList();
+                        return lista;
+                    }
                     return lista;
                 }
             }
             catch (Exception)
-            {
-                List<Produto> lista = new List<Produto>();
+            {               
                 return lista;
             }
         }
