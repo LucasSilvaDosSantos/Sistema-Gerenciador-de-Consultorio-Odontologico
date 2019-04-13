@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using Consultorio.Data;
 using Consultorio.Model;
 using Consultorio.ViewModel;
 
@@ -32,6 +33,7 @@ namespace Consultorio.View
         //chamada para alterar um produto
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
+            // executa quando o salvar vem de uma alteração;
             if (tbId.Text != "")
             {
                 Produto produto = new Produto
@@ -61,7 +63,25 @@ namespace Consultorio.View
             }
             else
             {
-                MessageBox.Show("Nenhum produto selecionado", "Erro");
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    Produto p = new Produto();
+                    p.Nome = tbNome.Text;
+                    p.Descricao = tbDescricao.Text;
+                    p.Quantidade = int.Parse(tbQuantidade.Text);
+                    p.Descricao = tbDescricao.Text;
+
+                    if (tbValidade.Text != "")
+                    {
+                        p.Validade = DateTime.Parse(tbValidade.Text);
+                    }
+
+                    ctx.Produtos.Add(p);
+                    ctx.SaveChanges();
+                    RecarregarGrid();
+                    LimparCampos();
+                    InativarCampos();
+                }
             }
         }
 

@@ -60,7 +60,7 @@ namespace Consultorio.ViewModel
             {
                 using(ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    List<Produto> lista = ctx.Produtos.Where(p => p.Id == id || p.Nome == nome).ToList();
+                    List<Produto> lista = ctx.Produtos.Where(p => p.Id == id || p.Nome.Contains(nome)).ToList();
                     return lista;
                 }
             }

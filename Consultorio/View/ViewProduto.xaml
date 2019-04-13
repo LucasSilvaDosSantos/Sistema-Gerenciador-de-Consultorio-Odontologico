@@ -21,7 +21,7 @@
         <TextBox x:Name="tbId" HorizontalAlignment="Right" Height="22" Margin="0,0,519,216" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="43" IsReadOnly="True"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="82,0,0,186" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbNome" Height="23" Margin="128,0,0,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="443"/>
-        <Label x:Name="label2" Content="Quantidade" Margin="576,0,547,181" VerticalAlignment="Bottom" RenderTransformOrigin="0.25,0.577" d:LayoutOverrides="Width"/>
+        <Label x:Name="label2" Content="Quantidade" Margin="576,0,542,181" VerticalAlignment="Bottom" RenderTransformOrigin="0.25,0.577"/>
         <TextBox x:Name="tbQuantidade" Height="23" Margin="0,0,367,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="175"/>
         <Label x:Name="label3" Content="Validade" HorizontalAlignment="Right" Margin="0,0,307,181" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbValidade" Height="23" Margin="0,0,110,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="192"/>
