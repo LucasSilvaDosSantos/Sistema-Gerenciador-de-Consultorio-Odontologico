@@ -42,13 +42,13 @@ namespace Consultorio.ViewModel
                     p.Quantidade = produtoChegada.Quantidade;
                     if (produtoChegada.Validade != null)
                     {
-                        p.Validade = produtoChegada.Validade;
+                        p.SetValidade(produtoChegada.Validade.ToString());
                     }
                     p.Descricao = produtoChegada.Descricao;
                     ctx.SaveChanges();
                     return true;
                 }
-            }catch(Exception e)
+            }catch(Exception)
             {
                 return false;
             }          
@@ -79,6 +79,25 @@ namespace Consultorio.ViewModel
             {               
                 return lista;
             }
+        }
+
+        // salva novo produto no banco de dados
+        public static bool SalvarProduto(Produto p)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    ctx.Produtos.Add(p);
+                    ctx.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+           
         }
     }
 }

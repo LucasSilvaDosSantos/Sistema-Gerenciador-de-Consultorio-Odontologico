@@ -47,7 +47,8 @@ namespace Consultorio.View
                 };
                 if (tbValidade.Text != "")
                 {
-                    produto.Validade = DateTime.Parse(tbValidade.Text).Date;
+                    /*produto.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);*/
+                    produto.SetValidade(tbValidade.Text);
                 }
 
                 string confirmação = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
@@ -68,35 +69,39 @@ namespace Consultorio.View
             // executa quando o salvar vem de um novo produto
             else if (tbNome.Text != "")
             {
-                using (ConsultorioContext ctx = new ConsultorioContext())
+                if (tbNome.Text != "" && tbQuantidade.Text != "")
                 {
+                    Produto p = new Produto();
+                    p.Nome = tbNome.Text;
+                    p.Descricao = tbDescricao.Text;
+                    p.Quantidade = int.Parse(tbQuantidade.Text);
+                    p.Descricao = tbDescricao.Text;
 
-                    if (tbNome.Text != "" && tbQuantidade.Text != "")
+                    if (tbValidade.Text != "")
                     {
-                        Produto p = new Produto();
-                        p.Nome = tbNome.Text;
-                        p.Descricao = tbDescricao.Text;
-                        p.Quantidade = int.Parse(tbQuantidade.Text);
-                        p.Descricao = tbDescricao.Text;
+                        p.SetValidade(tbValidade.Text);
+                    }
 
-                        if (tbValidade.Text != "")
-                        {
-                            p.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        }
+                    string confirmação = MessageBox.Show("Deseja salvar novo produto?", "Confirmação", MessageBoxButton.OKCancel).ToString();
 
-                        ctx.Produtos.Add(p);
-                        ctx.SaveChanges();
-
-                        RecarregarGrid();
-                        LimparCampos();
-                        InativarCampos();
-                        BotoesAtivados(1);
-                    }                  
+                    if (confirmação == "OK")
+                    {
+                        ProdutoViewModel.SalvarProduto(p);
+                    }
                     else
                     {
-                        ErroDeCampoEmBranco();
-                    }                   
-                }               
+                        MessageBox.Show("Operação cancelada pelo usuário", "Nenhuma alteração realizada");
+                    }
+
+                    RecarregarGrid();
+                    LimparCampos();
+                    InativarCampos();
+                    BotoesAtivados(1);
+                }                  
+                else
+                {
+                    ErroDeCampoEmBranco();
+                }                                                
             }
             else{
                 ErroDeCampoEmBranco();
@@ -183,6 +188,7 @@ namespace Consultorio.View
         {
             dgProdutos.ItemsSource = ProdutoViewModel.ExibirProdutos();
             dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
+            //dgProdutos.Columns[4].;
         }
 
         // limpa todos os campos que o usuario tem acesso de preencher
@@ -249,11 +255,5 @@ namespace Consultorio.View
         {
             MessageBox.Show("Campos obrigatórios não preenchidos", "Erro Informações Faltando");
         }
-
-        //Tratamento de String para Data
-       /* private string StringParaData(DateTime dataEntrada)
-        {
-            DateTime data = dataEntrada.ToString("dd/MM/yyyy");
-        }*/
     }
 }
