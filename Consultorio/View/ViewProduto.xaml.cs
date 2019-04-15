@@ -119,6 +119,7 @@ namespace Consultorio.View
         {
             if (dgProdutos.SelectedIndex >= 0)
             {
+                LimparCampos();
                 Produto c = (Produto)dgProdutos.Items[dgProdutos.SelectedIndex];
                 tbId.Text = c.Id.ToString();
                 tbNome.Text = c.Nome;
@@ -128,8 +129,12 @@ namespace Consultorio.View
                     checkBoxValidade.IsChecked = true;
                 }
                 else
-                {
-                    tbValidade.Text = c.Validade.ToString();
+                {   
+                    /*var teste = c.Validade.ToString().Split(' ');                    
+                    tbValidade.Text = teste[0];*/
+
+                    // metodo mais simples para solucionar o problema de mostrar a hora no textBox
+                    tbValidade.Text = string.Format("{0:dd/MM/yyyy}", c.Validade);
                 }
                 tbDescricao.Text = c.Descricao;
             }
@@ -188,7 +193,7 @@ namespace Consultorio.View
         {
             dgProdutos.ItemsSource = ProdutoViewModel.ExibirProdutos();
             dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
-            //dgProdutos.Columns[4].;
+            //dgProdutos.Columns[4].CellStyle = ;
         }
 
         // limpa todos os campos que o usuario tem acesso de preencher
@@ -255,5 +260,6 @@ namespace Consultorio.View
         {
             MessageBox.Show("Campos obrigatórios não preenchidos", "Erro Informações Faltando");
         }
+
     }
 }

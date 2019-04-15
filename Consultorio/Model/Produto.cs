@@ -22,12 +22,8 @@ namespace Consultorio.Model
         [Required]
         public int Quantidade { get; set; }
         public string Descricao { get; set; }
-        public DateTime? Validade { get; private set; }
 
-        /*public DateTime? Validade {
-            get { return Validade; }
-            private set { SetValidade(value); }
-        }*/
+        public DateTime? Validade { get; set; }
 
         public virtual ICollection<ProdutosParaProcedimentos> ListaProdutoProcedimento { get; set; }
 
@@ -47,12 +43,6 @@ namespace Consultorio.Model
         public void SetValidade(string validade)
         {
             Validade = DateTime.ParseExact(validade, "dd/MM/yyyy", CultureInfo.CurrentCulture);
-        }
-
-        public DateTime GetValidade()
-        {
-            string d = Validade.ToString();
-            return DateTime.ParseExact(d, "dd/MM/yyyy", CultureInfo.CurrentCulture);
         }
     }
 }

@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class códigoscopiados : DbMigration
+    public partial class resetandoobancodedados : DbMigration
     {
         public override void Up()
         {
@@ -126,7 +126,7 @@ namespace Consultorio.Migrations
                         Nome = c.String(nullable: false, unicode: false),
                         Quantidade = c.Int(nullable: false),
                         Descricao = c.String(unicode: false),
-                        Validade = c.DateTime(nullable: false, precision: 0),
+                        Validade = c.DateTime(precision: 0),
                     })
                 .PrimaryKey(t => t.Id);
             

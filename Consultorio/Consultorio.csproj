@@ -86,13 +86,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\201904071607562_códigos copiados.cs" />
-    <Compile Include="Migrations\201904071607562_códigos copiados.Designer.cs">
-      <DependentUpon>201904071607562_códigos copiados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904081916536_Teste.cs" />
-    <Compile Include="Migrations\201904081916536_Teste.Designer.cs">
-      <DependentUpon>201904081916536_Teste.cs</DependentUpon>
+    <Compile Include="Migrations\201904142245329_resetando o banco de dados.cs" />
+    <Compile Include="Migrations\201904142245329_resetando o banco de dados.Designer.cs">
+      <DependentUpon>201904142245329_resetando o banco de dados.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
@@ -228,11 +224,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904071607562_códigos copiados.resx">
-      <DependentUpon>201904071607562_códigos copiados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904081916536_Teste.resx">
-      <DependentUpon>201904081916536_Teste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904142245329_resetando o banco de dados.resx">
+      <DependentUpon>201904142245329_resetando o banco de dados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
