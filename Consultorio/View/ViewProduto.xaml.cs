@@ -177,7 +177,6 @@ namespace Consultorio.View
             {
                 //verifica se o id é um int
                 int.TryParse(tbId.Text, out int id);
-                ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
 
                 dgProdutos.ItemsSource = ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
                 dgProdutos.Columns[5].Visibility = Visibility.Collapsed;

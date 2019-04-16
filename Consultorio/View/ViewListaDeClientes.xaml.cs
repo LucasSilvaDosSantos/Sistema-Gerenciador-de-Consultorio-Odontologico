@@ -1,4 +1,6 @@
 ﻿using Consultorio.Data;
+using Consultorio.Model;
+using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,7 @@ namespace Consultorio.View
             InitializeComponent();
         }
 
+        // volta a tela anterior
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             ViewOpcoes opcoes = new ViewOpcoes();
@@ -32,21 +35,40 @@ namespace Consultorio.View
             this.Close();
         }
 
+        // inicia a tela juntamente com o datagrid
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
+            dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.ExibirCliente();
+            dgListaDeClientes.Columns[14].Visibility = Visibility.Collapsed;
+        }
+
+        // duplo click no dataGrid deve abrir outra tela para a edição de cliente
+        private void DgListaDeClientes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //duplo click deve abrir outra tela
+            /*if (dgListaDeClientes.SelectedIndex >= 0)
             {
-                using (ConsultorioContext ctx = new ConsultorioContext())
-                {
-                    var consulta = ctx.Clientes;
-                    dgListaDeClientes.ItemsSource = consulta.ToList();
-                    dgListaDeClientes.Columns[14].Visibility = Visibility.Collapsed;
-                }
-            }
-            catch (Exception ex)
-            {
-                tbNome.Text = (ex.Message);
-            }
+                LimparCampos();
+                Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
+                tbId.Text = c.Id.ToString();
+                tbNome.Text = c.Nome;
+            }*/
+            /*AtivarCampos();
+            BotoesAtivados(2);*/
+        }
+
+        // função do botao buscar
+        private void Buscar_Click(object sender, RoutedEventArgs e)
+        {
+            //verifica se o id é um int
+            int.TryParse(tbId.Text, out int id);
+
+            dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.BuscarCliente(id, tbNome.Text);
+            dgListaDeClientes.Columns[14].Visibility = Visibility.Collapsed;
+
+            /*dgProdutos.ItemsSource = ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
+            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;*/
+
         }
     }
 }
