@@ -7,13 +7,13 @@ namespace Consultorio.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class resetandoobancodedados : IMigrationMetadata
+    public sealed partial class Atualizacaodebanco16042019 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(resetandoobancodedados));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Atualizacaodebanco16042019));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904142245329_resetando o banco de dados"; }
+            get { return "201904161742313_Atualizacao de banco 16042019"; }
         }
         
         string IMigrationMetadata.Source

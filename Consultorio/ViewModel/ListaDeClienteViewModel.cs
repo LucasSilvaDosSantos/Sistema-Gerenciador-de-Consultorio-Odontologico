@@ -28,6 +28,7 @@ namespace Consultorio.ViewModel
             }
         }
 
+        // lista todos os clientes por id ou nome
         public static List<Cliente> BuscarCliente(int id, string nome)
         {
             List<Cliente> lista = new List<Cliente>();

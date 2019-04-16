@@ -3,6 +3,7 @@ using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,8 @@ namespace Consultorio.ViewModel
                     p.Quantidade = produtoChegada.Quantidade;
                     if (produtoChegada.Validade != null)
                     {
-                        p.SetValidade(produtoChegada.Validade.ToString());
+
+                        p.Validade = DateTime.ParseExact(produtoChegada.Validade.ToString(), "dd/MM/yyyy", CultureInfo.CurrentCulture);
                     }
                     p.Descricao = produtoChegada.Descricao;
                     ctx.SaveChanges();

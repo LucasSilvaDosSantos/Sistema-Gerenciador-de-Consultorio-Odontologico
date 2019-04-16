@@ -86,9 +86,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\201904142245329_resetando o banco de dados.cs" />
-    <Compile Include="Migrations\201904142245329_resetando o banco de dados.Designer.cs">
-      <DependentUpon>201904142245329_resetando o banco de dados.cs</DependentUpon>
+    <Compile Include="Migrations\201904161742313_Atualizacao de banco 16042019.cs" />
+    <Compile Include="Migrations\201904161742313_Atualizacao de banco 16042019.Designer.cs">
+      <DependentUpon>201904161742313_Atualizacao de banco 16042019.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
@@ -225,8 +225,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904142245329_resetando o banco de dados.resx">
-      <DependentUpon>201904142245329_resetando o banco de dados.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904161742313_Atualizacao de banco 16042019.resx">
+      <DependentUpon>201904161742313_Atualizacao de banco 16042019.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

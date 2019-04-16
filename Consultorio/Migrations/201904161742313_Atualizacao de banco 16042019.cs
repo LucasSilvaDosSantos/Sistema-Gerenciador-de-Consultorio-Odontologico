@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class resetandoobancodedados : DbMigration
+    public partial class Atualizacaodebanco16042019 : DbMigration
     {
         public override void Up()
         {

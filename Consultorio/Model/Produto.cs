@@ -40,9 +40,10 @@ namespace Consultorio.Model
             ListaProdutoProcedimento = new HashSet<ProdutosParaProcedimentos>();
         }
 
+        /*
         public void SetValidade(string validade)
         {
             Validade = DateTime.ParseExact(validade, "dd/MM/yyyy", CultureInfo.CurrentCulture);
-        }
+        }*/ //modificado para dentro do codigo
     }
 }

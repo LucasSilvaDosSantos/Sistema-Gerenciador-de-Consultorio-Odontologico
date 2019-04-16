@@ -38,8 +38,7 @@ namespace Consultorio.View
         // inicia a tela juntamente com o datagrid
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.ExibirCliente();
-            dgListaDeClientes.Columns[14].Visibility = Visibility.Collapsed;
+            ListarTodosOsCliente();
         }
 
         // duplo click no dataGrid deve abrir outra tela para a edição de cliente
@@ -64,11 +63,39 @@ namespace Consultorio.View
             int.TryParse(tbId.Text, out int id);
 
             dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.BuscarCliente(id, tbNome.Text);
+            TratamentoDoGrid();
+
+            btCancelar.IsEnabled = true;
+        }
+
+        private void BtCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            ResetarTela();
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        // todas as partes para tratar o grid para eibição correta
+        private void TratamentoDoGrid()
+        {
             dgListaDeClientes.Columns[14].Visibility = Visibility.Collapsed;
+            (dgListaDeClientes.Columns[2] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
+        }
 
-            /*dgProdutos.ItemsSource = ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
-            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;*/
-
+        private void ListarTodosOsCliente()
+        {
+            dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.ExibirCliente();
+            TratamentoDoGrid();
+            btCancelar.IsEnabled = false;
+        }
+        
+        private void ResetarTela()
+        {
+            ListarTodosOsCliente();
+            tbId.Text = "";
+            tbNome.Text = "";
+            
         }
     }
 }

@@ -5,6 +5,8 @@ using Consultorio.Data;
 using Consultorio.Model;
 using Consultorio.ViewModel;
 using System.Globalization;
+using System.Windows.Data;
+using System.Windows.Controls;
 
 namespace Consultorio.View
 {
@@ -47,8 +49,7 @@ namespace Consultorio.View
                 };
                 if (tbValidade.Text != "")
                 {
-                    /*produto.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);*/
-                    produto.SetValidade(tbValidade.Text);
+                    produto.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                 }
 
                 string confirmação = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
@@ -79,7 +80,7 @@ namespace Consultorio.View
 
                     if (tbValidade.Text != "")
                     {
-                        p.SetValidade(tbValidade.Text);
+                        p.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                     }
 
                     string confirmação = MessageBox.Show("Deseja salvar novo produto?", "Confirmação", MessageBoxButton.OKCancel).ToString();
@@ -179,8 +180,10 @@ namespace Consultorio.View
                 int.TryParse(tbId.Text, out int id);
 
                 dgProdutos.ItemsSource = ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
-                dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
+                TratamentoDoGrid();
             }
+            BotoesAtivados(1);
+            btCancelar.IsEnabled = true;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -191,8 +194,7 @@ namespace Consultorio.View
         private void RecarregarGrid()
         {
             dgProdutos.ItemsSource = ProdutoViewModel.ExibirProdutos();
-            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
-            //dgProdutos.Columns[4].CellStyle = ;
+            TratamentoDoGrid();
         }
 
         // limpa todos os campos que o usuario tem acesso de preencher
@@ -258,6 +260,13 @@ namespace Consultorio.View
         private void ErroDeCampoEmBranco()
         {
             MessageBox.Show("Campos obrigatórios não preenchidos", "Erro Informações Faltando");
+        }
+
+        // todas as partes para tratar o grid para eibição correta
+        private void TratamentoDoGrid()
+        {
+            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
+            (dgProdutos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
         }
 
     }

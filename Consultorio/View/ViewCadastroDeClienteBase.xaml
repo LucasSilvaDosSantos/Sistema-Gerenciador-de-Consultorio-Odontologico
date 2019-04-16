@@ -23,22 +23,23 @@
         <Label x:Name="label10" Content="UF" HorizontalAlignment="Left" Margin="538,0,0,263" VerticalAlignment="Bottom"/>
         <Label x:Name="label11" Content="Cidade" HorizontalAlignment="Left" Margin="91,0,0,235" VerticalAlignment="Bottom"/>
         <Label x:Name="label12" Content="CEP" HorizontalAlignment="Left" Margin="370,0,0,232" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="textBox" Height="23" Margin="139,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="488"/>
-        <TextBox x:Name="textBox_Copy" Height="23" Margin="214,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="413"/>
-        <TextBox x:Name="textBox_Copy1" Height="23" Margin="126,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255"/>
-        <TextBox x:Name="textBox_Copy2" Height="23" Margin="416,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211"/>
-        <TextBox x:Name="textBox_Copy3" Height="23" Margin="134,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="493"/>
-        <TextBox x:Name="textBox_Copy4" Margin="152,341,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="198"/>
-        <TextBox x:Name="textBox_Copy5" Margin="416,341,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="211"/>
-        <TextBox x:Name="textBox_Copy6" Margin="155,0,0,297" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="472" Height="20" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="textBox_Copy7" Height="23" Margin="137,0,0,266" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="396"/>
-        <TextBox x:Name="textBox_Copy8" Height="23" Margin="567,0,0,266" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="60"/>
-        <TextBox x:Name="textBox_Copy9" Height="23" Margin="143,0,0,235" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="222"/>
-        <TextBox x:Name="textBox_Copy10" Height="23" Margin="405,0,0,235" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="222"/>
+        <TextBox x:Name="tbNome" Height="23" Margin="139,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="488"/>
+        <TextBox x:Name="tbDataDeNascimento" Height="23" Margin="214,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="413"/>
+        <TextBox x:Name="tbCpf" Height="23" Margin="126,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255"/>
+        <TextBox x:Name="tbRg" Height="23" Margin="416,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211"/>
+        <TextBox x:Name="tbEmail" Height="23" Margin="134,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="493"/>
+        <TextBox x:Name="tbCelular1" Margin="152,341,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="198"/>
+        <TextBox x:Name="tbCelular2" Margin="416,341,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="211"/>
+        <TextBox x:Name="tbEndereco" Margin="155,0,0,297" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="472" Height="20" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbBairro" Height="23" Margin="137,0,0,266" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="396"/>
+        <TextBox x:Name="tbUf" Height="23" Margin="567,0,0,266" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="60"/>
+        <TextBox x:Name="tbCidade" Height="23" Margin="143,0,0,235" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="222"/>
+        <TextBox x:Name="tbCep" Height="23" Margin="405,0,0,235" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="222"/>
         <Label x:Name="label13" Content="OBS" HorizontalAlignment="Right" Margin="0,211,319,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Rectangle Fill="White" HorizontalAlignment="Right" Margin="0,242,82,235" Stroke="Black" Width="534"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,242,82,235" TextWrapping="Wrap" Width="534"/>
+        <TextBox x:Name="tbObs" HorizontalAlignment="Right" Margin="0,242,82,235" TextWrapping="Wrap" Text="" Width="534"/>
         <Label x:Name="label5_Copy" Content="Celular 1" HorizontalAlignment="Left" Margin="91,335,0,317"/>
         <Label x:Name="label5_Copy1" Content="Celular 2" HorizontalAlignment="Left" Margin="355,338,0,317"/>
+        
     </Grid>
 </Window>

@@ -22,7 +22,8 @@ namespace Consultorio.Migrations
                 "p09Compemeto", true, true, true, true, true, true, true, true, "p17comp", true, true, true, true, true, true, true, true, true, true, "Obs");
 
             //seed Cliente
-            Cliente cliente1 = new Cliente("Teste Cliente Nome", DateTime.Parse("16/02/1994"), "123.456.789-10", "10.123.4567", "testeemail@email.com", "91234-5678", "91234-5678", "Rua: perna longa", "Vila abc", "SP", "Campos", "12460-000");
+            Cliente cliente1 = new Cliente("Teste Cliente Nome", DateTime.Parse("16/02/1994"), "123.456.789-10", "28.919.716-8", "testeemail@email.com", "91234-5678", "91234-5678", "Rua: perna longa", "Vila abc", "SP", "Campos", "12460-000");
+            Cliente cliente2 = new Cliente("Teste Cliente Nome 2", DateTime.Parse("1/2/2003"), "987.654.321-11", "24.385.915-6", "testeemail@gmail.com", "9971234567", "9123912312", "Rua: 123", "Vila 2", "SP", "Taubate", "12356-123");
 
             //seed Dentista
             Dentista dentista1 = new Dentista("Teste Dentista", "Sobrenome dentista", "Dentista@dentista.com", "Telefone1", "Telefone2", "Logindentista", "Senha", "Numero Crosp");
@@ -41,6 +42,7 @@ namespace Consultorio.Migrations
 
             //seed Procedimento
             Procedimento procedimento1 = new Procedimento("Análise Clínica", "Análise inicial do paciente", 0.0);
+            Procedimento procedimento2 = new Procedimento("Teste de banco de dados", "controle de banco", 10.50);
 
             //seed ProdutosParaProcedimentos
             ProdutosParaProcedimentos pp1 = new ProdutosParaProcedimentos(produto1, procedimento1);
@@ -54,6 +56,7 @@ namespace Consultorio.Migrations
 
             context.Anamneses.Add(anamnese1);
             context.Clientes.Add(cliente1);
+            context.Clientes.Add(cliente2);
             context.Dentistas.Add(dentista1);
             context.GestoresDeEstoque.Add(gestor1);
             context.Secretarias.Add(secretaria1);
@@ -61,6 +64,7 @@ namespace Consultorio.Migrations
             context.Produtos.Add(produto2);
             context.Produtos.Add(produto3);
             context.Procedimentos.Add(procedimento1);
+            context.Procedimentos.Add(procedimento2);
             context.ProdutosProcedimentos.Add(pp1);
             context.ProdutosProcedimentos.Add(pp2);
             context.Consultas.Add(consulta1);

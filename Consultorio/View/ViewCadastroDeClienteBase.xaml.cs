@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Consultorio.Model;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +38,13 @@ namespace Consultorio.View
             ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese();
             anamnese.Show();
             this.Close();
+        }
+
+        private void PegarDadosDaTela()
+        {
+            Cliente cliente = new Cliente();
+            cliente.Nome = tbNome.Text;
+            cliente.Nascimento = DateTime.ParseExact(tbDataDeNascimento.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
         }
     }
 }
