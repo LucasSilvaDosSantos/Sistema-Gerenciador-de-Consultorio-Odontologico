@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Consultorio.Model
 {
-    class Anamnese
+    public class Anamnese
     {
         //[Required] Not Null
 
@@ -145,6 +145,10 @@ namespace Consultorio.Model
         public bool P27 { get; set; }
 
         public string Obs { get; set; }
+
+        public Anamnese()
+        {
+        }
 
         public Anamnese(bool p01, bool p02, bool p03, bool p04, bool p05, bool p06, bool p07, bool p08, bool p09,
             bool p10, bool p11, bool p12, bool p13, bool p14, bool p15, bool p16, bool p17, bool p18, bool p19,

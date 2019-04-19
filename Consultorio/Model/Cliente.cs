@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Consultorio.Model
 {
-    class Cliente
+    public class Cliente
     {
         //[Required] Not Null
 

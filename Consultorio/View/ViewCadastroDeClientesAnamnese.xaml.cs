@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consultorio.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,44 @@ namespace Consultorio.View
     /// </summary>
     public partial class ViewCadastroDeClientesAnamnese : Window
     {
-        public ViewCadastroDeClientesAnamnese()
+        public Cliente Cliente { get; set; }
+
+        public ViewCadastroDeClientesAnamnese(Cliente c)
         {
             InitializeComponent();
+            Cliente = c;
         }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
+            ViewCadastroDeClienteBase opcoes = new ViewCadastroDeClienteBase();
+            opcoes.IniciarCliente(Cliente);
             opcoes.Show();
             this.Close();
         }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+        /*private Anamnese PegarDadosDaTela()
+        {
+            Anamnese anamnese = new Anamnese();
+            anamnese.P01 = cbP10S.IsChecked.Value;
+            return
+        }
+
+        private bool SimOuNão(bool s)
+        {
+            if (s)
+            {
+                return true;
+            }
+            return false;
+        }*/
     }
 }

@@ -101,6 +101,7 @@
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\ProdutosParaProcedimentos.cs" />
     <Compile Include="Model\Secretaria.cs" />
+    <Compile Include="ViewModel\CadastroDeClienteBaseViewModel.cs" />
     <Compile Include="ViewModel\ColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\ListaDeClienteViewModel.cs" />
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />

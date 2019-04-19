@@ -11,7 +11,7 @@
         <Label x:Name="lbProcedimento" Content="&gt; Cliente - Ficha Geral" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="310"/>
         <Rectangle Fill="#FF7FBEE2" Margin="59,128,59,204" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
-        <Button x:Name="btSalvar" Content="Próximo" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtSalvar_Click"/>
+        <Button x:Name="btProximo" Content="Próximo" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtProximo_Click"/>
         <Label x:Name="label" Content="Dados Gerais" Margin="585,155,573,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" d:LayoutOverrides="Width"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="91,211,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Data de Nascimento" HorizontalAlignment="Left" Margin="91,242,0,0" VerticalAlignment="Top"/>
@@ -28,9 +28,9 @@
         <TextBox x:Name="tbCpf" Height="23" Margin="126,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255"/>
         <TextBox x:Name="tbRg" Height="23" Margin="416,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211"/>
         <TextBox x:Name="tbEmail" Height="23" Margin="134,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="493"/>
-        <TextBox x:Name="tbCelular1" Margin="152,341,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="198"/>
-        <TextBox x:Name="tbCelular2" Margin="416,341,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="211"/>
-        <TextBox x:Name="tbEndereco" Margin="155,0,0,297" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="472" Height="20" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbCelular1" Margin="152,330,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="198"/>
+        <TextBox x:Name="tbCelular2" Margin="416,330,0,325" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="211"/>
+        <TextBox x:Name="tbEndereco" Margin="155,0,0,297" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="472" Height="28" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbBairro" Height="23" Margin="137,0,0,266" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="396"/>
         <TextBox x:Name="tbUf" Height="23" Margin="567,0,0,266" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="60"/>
         <TextBox x:Name="tbCidade" Height="23" Margin="143,0,0,235" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="222"/>

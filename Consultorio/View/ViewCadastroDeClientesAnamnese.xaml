@@ -7,67 +7,174 @@
         mc:Ignorable="d"
         Title="Cadastro de Cliente" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
     <Grid>
+
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
-        <Label x:Name="lbProcedimento" Content="&gt; Cliente - Ficha Anamnese" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="387"/>
-        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12"/>
-        <Rectangle Fill="#FF7FBEE2" Margin="59,128,59,98" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
+        <Rectangle Fill="#FF7FBEE2" Margin="56,112,50,78" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
+        <Label x:Name="lbProcedimento" Content="&gt; Cliente - Ficha Anamnese" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="377"/>
+
         <Label x:Name="label" Content="Ficha Anamnese" Margin="570,140,563,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
         <Label x:Name="label1" Content="Sim" HorizontalAlignment="Left" Margin="86,171,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy" Content="Não" HorizontalAlignment="Left" Margin="121,171,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox" HorizontalAlignment="Left" Margin="92,197,0,0" VerticalAlignment="Top" Height="21"/>
-        <CheckBox x:Name="checkBox_Copy" HorizontalAlignment="Left" Margin="127,197,0,0" VerticalAlignment="Top" Height="21"/>
+        <Label x:Name="label1_Copy1" Content="Sim" HorizontalAlignment="Right" Margin="0,171,585,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="Não" HorizontalAlignment="Right" Margin="0,171,548,0" VerticalAlignment="Top" RenderTransformOrigin="0.479,0.154"/>
+
+        <!--P01-->
         <Label x:Name="label2" Content="01. No momento, está em tratamento médico?" HorizontalAlignment="Left" Margin="153,197,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="499,195,0,0" TextWrapping="Wrap" Width="129" Height="23" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Tel. do Médico" HorizontalAlignment="Left" Margin="407,197,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label4" Content="Por quê?" HorizontalAlignment="Left" Margin="150,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,0.256"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Margin="211,218,0,0" TextWrapping="Wrap" Width="417" Height="23" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox_Copy1" HorizontalAlignment="Left" Margin="92,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy2" HorizontalAlignment="Left" Margin="127,241,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.463,0.205"/>
+        <RadioButton x:Name="rbP1S" GroupName="p1" HorizontalAlignment="Left" Margin="92,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.833,1.722"/>
+        <RadioButton x:Name="rbP1N" GroupName="p1" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Height="21"/>
+        <TextBox x:Name="tbP1TelMedico" HorizontalAlignment="Left" Margin="499,195,0,0" TextWrapping="Wrap" Width="129" Height="23" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbP1PQ" HorizontalAlignment="Left" Margin="211,218,0,0" TextWrapping="Wrap" Width="417" Height="23" VerticalAlignment="Top"/>
+
+        <!--P02-->
         <Label x:Name="label5" Content="02. Está tomando algum remédio (receitado ou não)" HorizontalAlignment="Left" Margin="150,241,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label6" Content="Quais?" HorizontalAlignment="Left" Margin="441,241,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Margin="491,241,0,0" TextWrapping="Wrap" Width="137" Height="23" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbP2S" GroupName="p2" HorizontalAlignment="Left" Margin="92,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP2N" GroupName="p2" HorizontalAlignment="Left" Margin="127,244,0,0" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.463,0.205"/>
+        <TextBox x:Name="tbP2Quais" HorizontalAlignment="Left" Margin="491,241,0,0" TextWrapping="Wrap" Width="137" Height="23" VerticalAlignment="Top"/>
+
+        <!--P03-->
         <Label x:Name="label7" Content="03. Tem alergia a algum medicamento, Qual?" HorizontalAlignment="Left" Margin="150,264,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox_Copy3" HorizontalAlignment="Left" Margin="92,264,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy4" HorizontalAlignment="Left" Margin="127,264,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Margin="402,264,0,0" TextWrapping="Wrap" Width="226" Height="23" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbP3S" GroupName="p3" HorizontalAlignment="Left" Margin="92,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP3N" GroupName="p3" HorizontalAlignment="Left" Margin="127,270,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox x:Name="tbP3Qual" HorizontalAlignment="Left" Margin="402,264,0,0" TextWrapping="Wrap" Width="226" Height="23" VerticalAlignment="Top"/>
+
+        <!--P04-->
         <Label x:Name="label8" Content="04. Tem gânglios doloridos em alguma região do corpo?" HorizontalAlignment="Left" Margin="150,287,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Copy3" Margin="464,287,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="164"/>
-        <CheckBox x:Name="checkBox_Copy5" HorizontalAlignment="Left" Margin="92,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy6" HorizontalAlignment="Left" Margin="127,287,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+        <RadioButton x:Name="rbP4S" GroupName="p4" HorizontalAlignment="Left" Margin="92,292,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP4N" GroupName="p4" HorizontalAlignment="Left" Margin="127,292,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+        <TextBox x:Name="tbP4Aux" Margin="464,287,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="164"/>
+
+        <!--P05-->
         <Label x:Name="label9" Content="05. Estâ grâvida no momento? " HorizontalAlignment="Left" Margin="150,310,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Copy4" Margin="351,308,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="277"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="324,315,0,0" TextWrapping="Wrap" Text="Mês" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox_Copy7" HorizontalAlignment="Left" Margin="92,310,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy8" HorizontalAlignment="Left" Margin="127,310,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+        <RadioButton x:Name="rbP5S" GroupName="p5" HorizontalAlignment="Left" Margin="92,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP5N" GroupName="p5" HorizontalAlignment="Left" Margin="127,315,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+        <TextBox x:Name="tbP5Mes" Margin="351,308,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="277"/>
+
+        <!--P06-->
         <Label x:Name="label10" Content="06. As feridas demoram para cicatrizar?" HorizontalAlignment="Left" Margin="150,331,0,327"/>
-        <CheckBox x:Name="checkBox_Copy9" HorizontalAlignment="Left" Margin="92,331,0,332" RenderTransformOrigin="0.444,0.111"/>
-        <CheckBox x:Name="checkBox_Copy10" HorizontalAlignment="Left" Margin="127,331,0,332" RenderTransformOrigin="0.528,1.135"/>
+        <RadioButton x:Name="rbP6S" GroupName="p6" HorizontalAlignment="Left" Margin="92,336,0,327" RenderTransformOrigin="0.444,0.111"/>
+        <RadioButton x:Name="rbP6N" GroupName="p6" HorizontalAlignment="Left" Margin="127,336,0,327" RenderTransformOrigin="0.528,1.135"/>
+
+        <!--P07-->
         <Label x:Name="label11" Content="07. Sangra muito quando se fere ou extrai dente?" HorizontalAlignment="Left" Margin="150,0,0,309" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy11" HorizontalAlignment="Left" Margin="92,0,0,309" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy12" HorizontalAlignment="Left" Margin="127,0,0,309" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP7S" GroupName="p7" HorizontalAlignment="Left" Margin="92,0,0,304" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP7N" GroupName="p7" HorizontalAlignment="Left" Margin="127,0,0,304" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P08-->
         <Label x:Name="label12" Content="08. É fumante?" HorizontalAlignment="Left" Margin="150,0,0,283" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy13" HorizontalAlignment="Left" Margin="92,0,0,283" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy14" HorizontalAlignment="Left" Margin="127,0,0,283" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP8S" GroupName="p8" HorizontalAlignment="Left" Margin="92,0,0,278" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP8N" GroupName="p8" HorizontalAlignment="Left" Margin="127,0,0,278" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P09-->
         <Label x:Name="label13" Content="09. Você tem Diabetes? Se tem, é compensada?" HorizontalAlignment="Left" Margin="150,0,0,257" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy15" HorizontalAlignment="Left" Margin="92,0,0,257" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy16" HorizontalAlignment="Left" Margin="127,0,0,257" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="textBox_Copy5" Margin="411,0,0,260" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="217"/>
+        <RadioButton x:Name="rbP9S" GroupName="p9" HorizontalAlignment="Left" Margin="92,0,0,252" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP9N" GroupName="p9" HorizontalAlignment="Left" Margin="127,0,0,252" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbP9Aux" Margin="411,0,0,260" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="217"/>
+
+        <!--P10-->
         <Label x:Name="label14" Content="10. Tem dificuldade de digestão?" HorizontalAlignment="Left" Margin="150,0,0,231" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy17" HorizontalAlignment="Left" Margin="92,0,0,231" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy18" HorizontalAlignment="Left" Margin="127,0,0,231" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP10S" GroupName="p10" HorizontalAlignment="Left" Margin="92,0,0,226" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP10N" GroupName="p10" HorizontalAlignment="Left" Margin="127,0,0,226" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P11-->
         <Label x:Name="label15" Content="11. Alguma vez já tomou Penicilina ou outro antibiótico?" HorizontalAlignment="Left" Margin="150,0,0,205" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy19" HorizontalAlignment="Left" Margin="92,0,0,205" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy20" HorizontalAlignment="Left" Margin="127,0,0,205" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP11S" GroupName="p11" HorizontalAlignment="Left" Margin="92,0,0,200" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP11N" GroupName="p11" HorizontalAlignment="Left" Margin="127,0,0,200" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P12-->
         <Label x:Name="label16" Content="12. Teve alguma reação anormal?" HorizontalAlignment="Left" Margin="150,0,0,179" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy21" HorizontalAlignment="Left" Margin="92,0,0,179" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy22" HorizontalAlignment="Left" Margin="127,0,0,179" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP12S" GroupName="p12" HorizontalAlignment="Left" Margin="92,0,0,174" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP12N" GroupName="p12" HorizontalAlignment="Left" Margin="127,0,0,174" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P13-->
         <Label x:Name="label17" Content="13. Costuma sentir tontura ou desmaiar com frequência?" HorizontalAlignment="Left" Margin="150,0,0,153" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy23" HorizontalAlignment="Left" Margin="92,0,0,153" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy24" HorizontalAlignment="Left" Margin="127,0,0,153" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP13S" GroupName="p13" HorizontalAlignment="Left" Margin="92,0,0,148" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP13N" GroupName="p13" HorizontalAlignment="Left" Margin="127,0,0,148" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P14-->
         <Label x:Name="label18" Content="14. É portador de HIV (AIDS)?" HorizontalAlignment="Left" Margin="150,0,0,127" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy25" HorizontalAlignment="Left" Margin="92,0,0,127" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy26" HorizontalAlignment="Left" Margin="127,0,0,127" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP14S" GroupName="p14" HorizontalAlignment="Left" Margin="92,0,0,122" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP14N" GroupName="p14" HorizontalAlignment="Left" Margin="127,0,0,122" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P15-->
+        <Label x:Name="label19" Content="15. Tem contato com pessoas portadoras  de AIDS?" HorizontalAlignment="Right" Margin="0,197,264,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP15S" GroupName="p15" HorizontalAlignment="Right" Margin="0,202,588,0" VerticalAlignment="Top" Height="21"/>
+        <RadioButton x:Name="rbP15N" GroupName="p15" HorizontalAlignment="Right" Margin="0,202,553,0" VerticalAlignment="Top" Height="21"/>
+
+        <!--P16-->
+        <Label x:Name="label20" Content="16. É portador de distúrbios cardíacos?" HorizontalAlignment="Right" Margin="0,218,330,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbP16S" GroupName="p16" HorizontalAlignment="Right" Margin="0,223,588,0" VerticalAlignment="Top" Height="21"/>
+        <RadioButton x:Name="rbP16N" GroupName="p16" HorizontalAlignment="Right" Margin="0,223,553,0" VerticalAlignment="Top" Height="21"/>
+
+        <!--P17-->
+        <Label x:Name="label21" Content="17. Tem conhecimento de sua presão? Qual?" HorizontalAlignment="Right" Margin="0,241,300,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP17S" GroupName="p17" HorizontalAlignment="Right" Margin="0,246,588,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP17N" GroupName="p17" HorizontalAlignment="Right" Margin="0,246,553,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.463,0.205"/>
+        <TextBox x:Name="tbP17Aux" HorizontalAlignment="Right" Height="23" Margin="0,241,76,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
+
+        <!--P18-->
+        <Label x:Name="label22" Content="18. Sua mandíbula estala quando mastiga?" HorizontalAlignment="Right" Margin="0,264,309,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP18S" GroupName="p18" HorizontalAlignment="Right" Margin="0,269,588,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP18N" GroupName="p18" HorizontalAlignment="Right" Margin="0,269,553,0" VerticalAlignment="Top" Height="26"/>
+
+        <!--P19-->
+        <Label x:Name="label23" Content="19. Sente dor na articulação têmporo-mandibular (perto do ouvido)?" HorizontalAlignment="Right" Margin="0,287,172,0" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbP19S" GroupName="p19" HorizontalAlignment="Right" Margin="0,292,588,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP19N" GroupName="p19" HorizontalAlignment="Right" Margin="0,292,553,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+
+        <!--P20-->
+        <Label x:Name="label24" Content="20. Teve alguma reação anormal com anestesia local para tratar ou extrair dente?" HorizontalAlignment="Right" Margin="0,310,107,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP20S" GroupName="p20" HorizontalAlignment="Right" Margin="0,315,588,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP20N" GroupName="p20" HorizontalAlignment="Right" Margin="0,315,553,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+
+        <!--P21-->
+        <Label x:Name="label25" Content="21. Teve convulsões alguma vez?" HorizontalAlignment="Right" Margin="0,331,362,327"/>
+        <RadioButton x:Name="rbP21S" GroupName="p21" HorizontalAlignment="Right" Margin="0,336,588,327" RenderTransformOrigin="0.444,0.111"/>
+        <RadioButton x:Name="rbP21N" GroupName="p21" HorizontalAlignment="Right" Margin="0,336,553,327" RenderTransformOrigin="0.528,1.135"/>
+
+        <!--P22-->
+        <Label x:Name="label26" Content="22. Tem problemas no Fígado ou Rim?" HorizontalAlignment="Right" Margin="0,0,333,309" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP22S" GroupName="p22" HorizontalAlignment="Right" Margin="0,0,588,304" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP22N" GroupName="p22" HorizontalAlignment="Right" Margin="0,0,553,304" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P23-->
+        <Label x:Name="label27" Content="23. Teve Hepatite?" HorizontalAlignment="Right" Margin="0,0,439,283" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP23S" GroupName="p23" HorizontalAlignment="Right" Margin="0,0,588,278" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP23N" GroupName="p23" HorizontalAlignment="Right" Margin="0,0,553,278" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P24-->
+        <Label x:Name="label28" Content="24. Tem Asma?" HorizontalAlignment="Right" Margin="0,0,457,257" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP24S" GroupName="p24" HorizontalAlignment="Right" Margin="0,0,588,252" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP24N" GroupName="p24" HorizontalAlignment="Right" Margin="0,0,553,252" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P25-->
+        <Label x:Name="label29" Content="25. Sente sua gengiva inchada ou sangrando?" HorizontalAlignment="Right" Margin="0,0,293,231" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP25S" GroupName="p25" HorizontalAlignment="Right" Margin="0,0,588,226" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP25N" GroupName="p25" HorizontalAlignment="Right" Margin="0,0,553,226" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P26-->
+        <Label x:Name="label30" Content="26. Teve Sinusite?" HorizontalAlignment="Right" Margin="0,0,439,205" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP26S" GroupName="p26" HorizontalAlignment="Right" Margin="0,0,588,200" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP26N" GroupName="p26" HorizontalAlignment="Right" Margin="0,0,553,200" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--P27-->
+        <Label x:Name="label31" Content="27. Teve Febre Reumática?" HorizontalAlignment="Right" Margin="0,0,392,179" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP27S" GroupName="p27" HorizontalAlignment="Right" Margin="0,0,588,174" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP27N" GroupName="p27" HorizontalAlignment="Right" Margin="0,0,553,174" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+
+        <!--Obs-->
+        <Label x:Name="label32" Content="OBS" HorizontalAlignment="Right" Margin="0,0,574,153" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="tbObs" HorizontalAlignment="Right" Margin="0,0,85,127" TextWrapping="Wrap" Background="White" VerticalAlignment="Bottom" Height="47" Width="488"/>
+
+        <!--Não preencher-->
+        <CheckBox x:Name="cbNaoPreencher" Content="Não preencher agora!" HorizontalAlignment="Right" Margin="0,0,563,51" VerticalAlignment="Bottom"/>
+
+        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12"/>
+
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Margin="0,173,631,118" Width="2" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
@@ -78,51 +185,6 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Label x:Name="label1_Copy1" Content="Sim" HorizontalAlignment="Right" Margin="0,171,585,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy2" Content="Não" HorizontalAlignment="Right" Margin="0,171,548,0" VerticalAlignment="Top" RenderTransformOrigin="0.479,0.154"/>
-        <CheckBox x:Name="checkBox_Copy27" HorizontalAlignment="Right" Margin="0,197,591,0" VerticalAlignment="Top" Height="21"/>
-        <CheckBox x:Name="checkBox_Copy28" HorizontalAlignment="Right" Margin="0,197,556,0" VerticalAlignment="Top" Height="21"/>
-        <Label x:Name="label19" Content="15. Tem contato com pessoas portadoras  de AIDS?" HorizontalAlignment="Right" Margin="0,197,264,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
-        <Label x:Name="label20" Content="16. É portador de distúrbios cardíacos?" HorizontalAlignment="Right" Margin="0,218,330,0" VerticalAlignment="Top"/>
-        <Label x:Name="label21" Content="17. Tem conhecimento de sua presão? Qual?" HorizontalAlignment="Right" Margin="0,241,300,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
-        <Label x:Name="label22" Content="18. Sua mandíbula estala quando mastiga?" HorizontalAlignment="Right" Margin="0,264,309,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
-        <Label x:Name="label23" Content="19. Sente dor na articulação têmporo-mandibular (perto do ouvido)?" HorizontalAlignment="Right" Margin="0,287,172,0" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Right" Height="23" Margin="0,241,76,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
-        <Label x:Name="label24" Content="20. Teve alguma reação anormal com anestesia local para tratar ou extrair dente?" HorizontalAlignment="Right" Margin="0,310,107,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
-        <Label x:Name="label25" Content="21. Teve convulsões alguma vez?" HorizontalAlignment="Right" Margin="0,331,362,327"/>
-        <Label x:Name="label26" Content="22. Tem problemas no Fígado ou Rim?" HorizontalAlignment="Right" Margin="0,0,333,309" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
-        <Label x:Name="label27" Content="23. Teve Hepatite?" HorizontalAlignment="Right" Margin="0,0,439,283" VerticalAlignment="Bottom"/>
-        <Label x:Name="label28" Content="24. Tem Asma?" HorizontalAlignment="Right" Margin="0,0,457,257" VerticalAlignment="Bottom"/>
-        <Label x:Name="label29" Content="25. Sente sua gengiva inchada ou sangrando?" HorizontalAlignment="Right" Margin="0,0,293,231" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
-        <Label x:Name="label30" Content="26. Teve Sinusite?" HorizontalAlignment="Right" Margin="0,0,439,205" VerticalAlignment="Bottom"/>
-        <Label x:Name="label31" Content="27. Teve Febre Reumática?" HorizontalAlignment="Right" Margin="0,0,392,179" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy29" HorizontalAlignment="Right" Margin="0,220,591,0" VerticalAlignment="Top" Height="21"/>
-        <CheckBox x:Name="checkBox_Copy30" HorizontalAlignment="Right" Margin="0,220,556,0" VerticalAlignment="Top" Height="21"/>
-        <CheckBox x:Name="checkBox_Copy31" HorizontalAlignment="Right" Margin="0,241,591,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy32" HorizontalAlignment="Right" Margin="0,241,556,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.463,0.205"/>
-        <CheckBox x:Name="checkBox_Copy33" HorizontalAlignment="Right" Margin="0,264,591,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy34" HorizontalAlignment="Right" Margin="0,264,556,0" VerticalAlignment="Top" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy35" HorizontalAlignment="Right" Margin="0,287,591,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy36" HorizontalAlignment="Right" Margin="0,287,556,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
-        <CheckBox x:Name="checkBox_Copy37" HorizontalAlignment="Right" Margin="0,310,591,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <CheckBox x:Name="checkBox_Copy38" HorizontalAlignment="Right" Margin="0,310,556,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
-        <CheckBox x:Name="checkBox_Copy39" HorizontalAlignment="Right" Margin="0,331,591,332" RenderTransformOrigin="0.444,0.111"/>
-        <CheckBox x:Name="checkBox_Copy40" HorizontalAlignment="Right" Margin="0,331,556,332" RenderTransformOrigin="0.528,1.135"/>
-        <CheckBox x:Name="checkBox_Copy41" HorizontalAlignment="Right" Margin="0,0,591,309" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy42" HorizontalAlignment="Right" Margin="0,0,556,309" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy43" HorizontalAlignment="Right" Margin="0,0,591,283" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy44" HorizontalAlignment="Right" Margin="0,0,556,283" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy45" HorizontalAlignment="Right" Margin="0,0,591,257" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy46" HorizontalAlignment="Right" Margin="0,0,556,257" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy47" HorizontalAlignment="Right" Margin="0,0,591,231" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy48" HorizontalAlignment="Right" Margin="0,0,556,231" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy49" HorizontalAlignment="Right" Margin="0,0,591,205" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy50" HorizontalAlignment="Right" Margin="0,0,556,205" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy51" HorizontalAlignment="Right" Margin="0,0,591,179" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="checkBox_Copy52" HorizontalAlignment="Right" Margin="0,0,556,179" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <Label x:Name="label32" Content="OBS" HorizontalAlignment="Right" Margin="0,0,574,153" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Right" Margin="0,0,85,127" TextWrapping="Wrap" Background="White" VerticalAlignment="Bottom" Height="47" Width="488"/>
-        <CheckBox x:Name="checkBox1" Content="Não preencher agora!" HorizontalAlignment="Right" Margin="0,0,563,51" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>
