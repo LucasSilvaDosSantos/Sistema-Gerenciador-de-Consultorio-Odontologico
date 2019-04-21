@@ -44,16 +44,16 @@ namespace Consultorio.View
         // duplo click no dataGrid deve abrir outra tela para a edição de cliente
         private void DgListaDeClientes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //duplo click deve abrir outra tela
-            /*if (dgListaDeClientes.SelectedIndex >= 0)
+            if (dgListaDeClientes.SelectedIndex >= 0)
             {
-                LimparCampos();
                 Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
-                tbId.Text = c.Id.ToString();
-                tbNome.Text = c.Nome;
-            }*/
-            /*AtivarCampos();
-            BotoesAtivados(2);*/
+
+                ViewCadastroDeClienteBase clienteBase = new ViewCadastroDeClienteBase();
+                clienteBase.RetornarAListaDeClientes = true;
+                clienteBase.IniciarCliente(c);
+                clienteBase.Show();
+                this.Close();
+            }       
         }
 
         // função do botao buscar

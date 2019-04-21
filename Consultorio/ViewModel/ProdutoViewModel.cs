@@ -98,8 +98,7 @@ namespace Consultorio.ViewModel
             catch
             {
                 return false;
-            }
-           
+            }          
         }
     }
 }

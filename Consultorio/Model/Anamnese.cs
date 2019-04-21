@@ -43,6 +43,9 @@ namespace Consultorio.Model
         [Required]
         public bool P04 { get; set; }
 
+        // 04 regial do corpo
+        public string P04Complemento { get; set; }
+
         //05. Está grávida no momento?
         [Required]
         public bool P05 { get; set; }

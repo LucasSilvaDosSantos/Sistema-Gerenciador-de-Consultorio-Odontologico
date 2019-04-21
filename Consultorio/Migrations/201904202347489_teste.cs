@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Atualizacaodebanco16042019 : DbMigration
+    public partial class teste : DbMigration
     {
         public override void Up()
         {
@@ -20,6 +20,7 @@ namespace Consultorio.Migrations
                         P03 = c.Boolean(nullable: false),
                         P03Complemento = c.String(unicode: false),
                         P04 = c.Boolean(nullable: false),
+                        P04Complemento = c.String(unicode: false),
                         P05 = c.Boolean(nullable: false),
                         P05Complemento = c.String(unicode: false),
                         P06 = c.Boolean(nullable: false),

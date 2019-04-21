@@ -1,19 +1,8 @@
 ﻿using Consultorio.Model;
 using Consultorio.ViewModel;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Consultorio.View
 {
@@ -24,6 +13,7 @@ namespace Consultorio.View
     {
 
         public Cliente Cliente { get; set; }
+        public bool RetornarAListaDeClientes { get; set; }
 
 
         public ViewCadastroDeClienteBase()
@@ -37,12 +27,23 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
-            opcoes.Show();
-            this.Close();
+            if (RetornarAListaDeClientes)
+            {
+                ViewListaDeClientes lista = new ViewListaDeClientes();
+                lista.Show();
+                this.Close();
+            }
+            else
+            {
+                ViewOpcoes opcoes = new ViewOpcoes();
+                opcoes.Show();
+                this.Close();
+            }
+
+            
         }
 
-        private void BtProximo_Click(object sender, RoutedEventArgs e)
+        private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
             Cliente cliente = PegarDadosDaTela();
             CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(cliente);

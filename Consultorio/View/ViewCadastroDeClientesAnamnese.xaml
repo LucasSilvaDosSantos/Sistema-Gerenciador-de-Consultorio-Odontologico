@@ -22,82 +22,82 @@
         <Label x:Name="label2" Content="01. No momento, está em tratamento médico?" HorizontalAlignment="Left" Margin="153,197,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Tel. do Médico" HorizontalAlignment="Left" Margin="407,197,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label4" Content="Por quê?" HorizontalAlignment="Left" Margin="150,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,0.256"/>
-        <RadioButton x:Name="rbP1S" GroupName="p1" HorizontalAlignment="Left" Margin="92,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.833,1.722"/>
-        <RadioButton x:Name="rbP1N" GroupName="p1" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Height="21"/>
-        <TextBox x:Name="tbP1TelMedico" HorizontalAlignment="Left" Margin="499,195,0,0" TextWrapping="Wrap" Width="129" Height="23" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbP1PQ" HorizontalAlignment="Left" Margin="211,218,0,0" TextWrapping="Wrap" Width="417" Height="23" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbP01S" GroupName="p1" HorizontalAlignment="Left" Margin="92,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.481,0.5"/>
+        <RadioButton x:Name="rbP01N" GroupName="p1" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top" Height="21"/>
+        <TextBox x:Name="tb0P1TelMedico" HorizontalAlignment="Left" Margin="499,195,0,0" TextWrapping="Wrap" Width="129" Height="23" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbP01PQ" HorizontalAlignment="Left" Margin="211,218,0,0" TextWrapping="Wrap" Width="417" Height="23" VerticalAlignment="Top"/>
 
         <!--P02-->
         <Label x:Name="label5" Content="02. Está tomando algum remédio (receitado ou não)" HorizontalAlignment="Left" Margin="150,241,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label6" Content="Quais?" HorizontalAlignment="Left" Margin="441,241,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbP2S" GroupName="p2" HorizontalAlignment="Left" Margin="92,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <RadioButton x:Name="rbP2N" GroupName="p2" HorizontalAlignment="Left" Margin="127,244,0,0" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.463,0.205"/>
-        <TextBox x:Name="tbP2Quais" HorizontalAlignment="Left" Margin="491,241,0,0" TextWrapping="Wrap" Width="137" Height="23" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbP02S" GroupName="p2" HorizontalAlignment="Left" Margin="92,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP02N" GroupName="p2" HorizontalAlignment="Left" Margin="127,244,0,0" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.463,0.205"/>
+        <TextBox x:Name="tbP02Quais" HorizontalAlignment="Left" Margin="491,241,0,0" TextWrapping="Wrap" Width="137" Height="23" VerticalAlignment="Top"/>
 
         <!--P03-->
         <Label x:Name="label7" Content="03. Tem alergia a algum medicamento, Qual?" HorizontalAlignment="Left" Margin="150,264,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbP3S" GroupName="p3" HorizontalAlignment="Left" Margin="92,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <RadioButton x:Name="rbP3N" GroupName="p3" HorizontalAlignment="Left" Margin="127,270,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox x:Name="tbP3Qual" HorizontalAlignment="Left" Margin="402,264,0,0" TextWrapping="Wrap" Width="226" Height="23" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbP03S" GroupName="p3" HorizontalAlignment="Left" Margin="92,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP03N" GroupName="p3" HorizontalAlignment="Left" Margin="127,270,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox x:Name="tbP03Qual" HorizontalAlignment="Left" Margin="402,264,0,0" TextWrapping="Wrap" Width="226" Height="23" VerticalAlignment="Top"/>
 
         <!--P04-->
         <Label x:Name="label8" Content="04. Tem gânglios doloridos em alguma região do corpo?" HorizontalAlignment="Left" Margin="150,287,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbP4S" GroupName="p4" HorizontalAlignment="Left" Margin="92,292,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <RadioButton x:Name="rbP4N" GroupName="p4" HorizontalAlignment="Left" Margin="127,292,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
-        <TextBox x:Name="tbP4Aux" Margin="464,287,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="164"/>
+        <RadioButton x:Name="rbP04S" GroupName="p4" HorizontalAlignment="Left" Margin="92,292,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP04N" GroupName="p4" HorizontalAlignment="Left" Margin="127,292,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+        <TextBox x:Name="tbP04Aux" Margin="464,287,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="164"/>
 
         <!--P05-->
         <Label x:Name="label9" Content="05. Estâ grâvida no momento? " HorizontalAlignment="Left" Margin="150,310,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="324,315,0,0" TextWrapping="Wrap" Text="Mês" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbP5S" GroupName="p5" HorizontalAlignment="Left" Margin="92,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
-        <RadioButton x:Name="rbP5N" GroupName="p5" HorizontalAlignment="Left" Margin="127,315,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
-        <TextBox x:Name="tbP5Mes" Margin="351,308,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="277"/>
+        <RadioButton x:Name="rbP05S" GroupName="p5" HorizontalAlignment="Left" Margin="92,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Height="26"/>
+        <RadioButton x:Name="rbP05N" GroupName="p5" HorizontalAlignment="Left" Margin="127,315,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
+        <TextBox x:Name="tbP05Mes" Margin="351,308,0,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="277"/>
 
         <!--P06-->
-        <Label x:Name="label10" Content="06. As feridas demoram para cicatrizar?" HorizontalAlignment="Left" Margin="150,331,0,327"/>
-        <RadioButton x:Name="rbP6S" GroupName="p6" HorizontalAlignment="Left" Margin="92,336,0,327" RenderTransformOrigin="0.444,0.111"/>
-        <RadioButton x:Name="rbP6N" GroupName="p6" HorizontalAlignment="Left" Margin="127,336,0,327" RenderTransformOrigin="0.528,1.135"/>
+        <Label x:Name="label10" Content="06. As feridas demoram para cicatrizar?" HorizontalAlignment="Left" Margin="150,336,0,322"/>
+        <RadioButton x:Name="rbP06S" GroupName="p6" HorizontalAlignment="Left" Margin="92,341,0,327" RenderTransformOrigin="0.519,0.444"/>
+        <RadioButton x:Name="rbP06N" GroupName="p6" HorizontalAlignment="Left" Margin="127,341,0,327" RenderTransformOrigin="0.528,1.135"/>
 
         <!--P07-->
-        <Label x:Name="label11" Content="07. Sangra muito quando se fere ou extrai dente?" HorizontalAlignment="Left" Margin="150,0,0,309" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP7S" GroupName="p7" HorizontalAlignment="Left" Margin="92,0,0,304" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP7N" GroupName="p7" HorizontalAlignment="Left" Margin="127,0,0,304" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label11" Content="07. Sangra muito quando se fere ou extrai dente?" HorizontalAlignment="Left" Margin="150,0,0,301" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP07S" GroupName="p7" HorizontalAlignment="Left" Margin="92,0,0,301" RenderTransformOrigin="0.519,0.444" Height="21" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP07N" GroupName="p7" HorizontalAlignment="Left" Margin="127,0,0,301" RenderTransformOrigin="0.528,1.135" Height="21" VerticalAlignment="Bottom"/>
 
         <!--P08-->
-        <Label x:Name="label12" Content="08. É fumante?" HorizontalAlignment="Left" Margin="150,0,0,283" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP8S" GroupName="p8" HorizontalAlignment="Left" Margin="92,0,0,278" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP8N" GroupName="p8" HorizontalAlignment="Left" Margin="127,0,0,278" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label12" Content="08. É fumante?" HorizontalAlignment="Left" Margin="150,0,0,278" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP08S" GroupName="p8" HorizontalAlignment="Left" Margin="92,0,0,273" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP08N" GroupName="p8" HorizontalAlignment="Left" Margin="127,0,0,273" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P09-->
-        <Label x:Name="label13" Content="09. Você tem Diabetes? Se tem, é compensada?" HorizontalAlignment="Left" Margin="150,0,0,257" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP9S" GroupName="p9" HorizontalAlignment="Left" Margin="92,0,0,252" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP9N" GroupName="p9" HorizontalAlignment="Left" Margin="127,0,0,252" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbP9Aux" Margin="411,0,0,260" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="217"/>
+        <Label x:Name="label13" Content="09. Você tem Diabetes? Se tem, é compensada?" HorizontalAlignment="Left" Margin="150,0,0,252" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP09S" GroupName="p9" HorizontalAlignment="Left" Margin="92,0,0,247" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP09N" GroupName="p9" HorizontalAlignment="Left" Margin="127,0,0,247" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbP09Aux" Margin="411,0,0,255" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="217"/>
 
         <!--P10-->
-        <Label x:Name="label14" Content="10. Tem dificuldade de digestão?" HorizontalAlignment="Left" Margin="150,0,0,231" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP10S" GroupName="p10" HorizontalAlignment="Left" Margin="92,0,0,226" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP10N" GroupName="p10" HorizontalAlignment="Left" Margin="127,0,0,226" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label14" Content="10. Tem dificuldade de digestão?" HorizontalAlignment="Left" Margin="150,0,0,226" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP10S" GroupName="p10" HorizontalAlignment="Left" Margin="92,0,0,221" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP10N" GroupName="p10" HorizontalAlignment="Left" Margin="127,0,0,221" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P11-->
-        <Label x:Name="label15" Content="11. Alguma vez já tomou Penicilina ou outro antibiótico?" HorizontalAlignment="Left" Margin="150,0,0,205" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP11S" GroupName="p11" HorizontalAlignment="Left" Margin="92,0,0,200" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP11N" GroupName="p11" HorizontalAlignment="Left" Margin="127,0,0,200" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label15" Content="11. Alguma vez já tomou Penicilina ou outro antibiótico?" HorizontalAlignment="Left" Margin="150,0,0,200" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP11S" GroupName="p11" HorizontalAlignment="Left" Margin="92,0,0,195" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP11N" GroupName="p11" HorizontalAlignment="Left" Margin="127,0,0,195" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P12-->
-        <Label x:Name="label16" Content="12. Teve alguma reação anormal?" HorizontalAlignment="Left" Margin="150,0,0,179" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP12S" GroupName="p12" HorizontalAlignment="Left" Margin="92,0,0,174" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP12N" GroupName="p12" HorizontalAlignment="Left" Margin="127,0,0,174" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label16" Content="12. Teve alguma reação anormal?" HorizontalAlignment="Left" Margin="150,0,0,174" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP12S" GroupName="p12" HorizontalAlignment="Left" Margin="92,0,0,169" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP12N" GroupName="p12" HorizontalAlignment="Left" Margin="127,0,0,169" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P13-->
-        <Label x:Name="label17" Content="13. Costuma sentir tontura ou desmaiar com frequência?" HorizontalAlignment="Left" Margin="150,0,0,153" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP13S" GroupName="p13" HorizontalAlignment="Left" Margin="92,0,0,148" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP13N" GroupName="p13" HorizontalAlignment="Left" Margin="127,0,0,148" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label17" Content="13. Costuma sentir tontura ou desmaiar com frequência?" HorizontalAlignment="Left" Margin="150,0,0,148" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP13S" GroupName="p13" HorizontalAlignment="Left" Margin="92,0,0,143" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP13N" GroupName="p13" HorizontalAlignment="Left" Margin="127,0,0,143" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P14-->
-        <Label x:Name="label18" Content="14. É portador de HIV (AIDS)?" HorizontalAlignment="Left" Margin="150,0,0,127" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP14S" GroupName="p14" HorizontalAlignment="Left" Margin="92,0,0,122" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP14N" GroupName="p14" HorizontalAlignment="Left" Margin="127,0,0,122" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label18" Content="14. É portador de HIV (AIDS)?" HorizontalAlignment="Left" Margin="150,0,0,122" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP14S" GroupName="p14" HorizontalAlignment="Left" Margin="92,0,0,117" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP14N" GroupName="p14" HorizontalAlignment="Left" Margin="127,0,0,117" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P15-->
         <Label x:Name="label19" Content="15. Tem contato com pessoas portadoras  de AIDS?" HorizontalAlignment="Right" Margin="0,197,264,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
@@ -131,51 +131,51 @@
         <RadioButton x:Name="rbP20N" GroupName="p20" HorizontalAlignment="Right" Margin="0,315,553,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.528,1.135"/>
 
         <!--P21-->
-        <Label x:Name="label25" Content="21. Teve convulsões alguma vez?" HorizontalAlignment="Right" Margin="0,331,362,327"/>
-        <RadioButton x:Name="rbP21S" GroupName="p21" HorizontalAlignment="Right" Margin="0,336,588,327" RenderTransformOrigin="0.444,0.111"/>
-        <RadioButton x:Name="rbP21N" GroupName="p21" HorizontalAlignment="Right" Margin="0,336,553,327" RenderTransformOrigin="0.528,1.135"/>
+        <Label x:Name="label25" Content="21. Teve convulsões alguma vez?" HorizontalAlignment="Right" Margin="0,336,362,322"/>
+        <RadioButton x:Name="rbP21S" GroupName="p21" HorizontalAlignment="Right" Margin="0,341,589,329" RenderTransformOrigin="0.508,0.455"/>
+        <RadioButton x:Name="rbP21N" GroupName="p21" HorizontalAlignment="Right" Margin="0,341,553,327" RenderTransformOrigin="0.528,1.135"/>
 
         <!--P22-->
-        <Label x:Name="label26" Content="22. Tem problemas no Fígado ou Rim?" HorizontalAlignment="Right" Margin="0,0,333,309" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
-        <RadioButton x:Name="rbP22S" GroupName="p22" HorizontalAlignment="Right" Margin="0,0,588,304" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP22N" GroupName="p22" HorizontalAlignment="Right" Margin="0,0,553,304" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label26" Content="22. Tem problemas no Fígado ou Rim?" HorizontalAlignment="Right" Margin="0,0,333,301" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP22S" GroupName="p22" HorizontalAlignment="Right" Margin="0,0,588,301" RenderTransformOrigin="0.444,0.111" Height="21" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP22N" GroupName="p22" HorizontalAlignment="Right" Margin="0,0,553,301" RenderTransformOrigin="0.528,1.135" Height="21" VerticalAlignment="Bottom"/>
 
         <!--P23-->
-        <Label x:Name="label27" Content="23. Teve Hepatite?" HorizontalAlignment="Right" Margin="0,0,439,283" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP23S" GroupName="p23" HorizontalAlignment="Right" Margin="0,0,588,278" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP23N" GroupName="p23" HorizontalAlignment="Right" Margin="0,0,553,278" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label27" Content="23. Teve Hepatite?" HorizontalAlignment="Right" Margin="0,0,439,278" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP23S" GroupName="p23" HorizontalAlignment="Right" Margin="0,0,588,273" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP23N" GroupName="p23" HorizontalAlignment="Right" Margin="0,0,553,273" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P24-->
-        <Label x:Name="label28" Content="24. Tem Asma?" HorizontalAlignment="Right" Margin="0,0,457,257" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP24S" GroupName="p24" HorizontalAlignment="Right" Margin="0,0,588,252" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP24N" GroupName="p24" HorizontalAlignment="Right" Margin="0,0,553,252" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label28" Content="24. Tem Asma?" HorizontalAlignment="Right" Margin="0,0,457,252" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP24S" GroupName="p24" HorizontalAlignment="Right" Margin="0,0,588,247" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP24N" GroupName="p24" HorizontalAlignment="Right" Margin="0,0,553,247" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P25-->
-        <Label x:Name="label29" Content="25. Sente sua gengiva inchada ou sangrando?" HorizontalAlignment="Right" Margin="0,0,293,231" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
-        <RadioButton x:Name="rbP25S" GroupName="p25" HorizontalAlignment="Right" Margin="0,0,588,226" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP25N" GroupName="p25" HorizontalAlignment="Right" Margin="0,0,553,226" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label29" Content="25. Sente sua gengiva inchada ou sangrando?" HorizontalAlignment="Right" Margin="0,0,293,226" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="rbP25S" GroupName="p25" HorizontalAlignment="Right" Margin="0,0,588,221" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP25N" GroupName="p25" HorizontalAlignment="Right" Margin="0,0,553,221" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P26-->
-        <Label x:Name="label30" Content="26. Teve Sinusite?" HorizontalAlignment="Right" Margin="0,0,439,205" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP26S" GroupName="p26" HorizontalAlignment="Right" Margin="0,0,588,200" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP26N" GroupName="p26" HorizontalAlignment="Right" Margin="0,0,553,200" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label30" Content="26. Teve Sinusite?" HorizontalAlignment="Right" Margin="0,0,439,200" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP26S" GroupName="p26" HorizontalAlignment="Right" Margin="0,0,588,195" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP26N" GroupName="p26" HorizontalAlignment="Right" Margin="0,0,553,195" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--P27-->
-        <Label x:Name="label31" Content="27. Teve Febre Reumática?" HorizontalAlignment="Right" Margin="0,0,392,179" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP27S" GroupName="p27" HorizontalAlignment="Right" Margin="0,0,588,174" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
-        <RadioButton x:Name="rbP27N" GroupName="p27" HorizontalAlignment="Right" Margin="0,0,553,174" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="label31" Content="27. Teve Febre Reumática?" HorizontalAlignment="Right" Margin="0,0,392,174" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP27S" GroupName="p27" HorizontalAlignment="Right" Margin="0,0,588,169" RenderTransformOrigin="0.444,0.111" Height="26" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="rbP27N" GroupName="p27" HorizontalAlignment="Right" Margin="0,0,553,169" RenderTransformOrigin="0.528,1.135" Height="26" VerticalAlignment="Bottom"/>
 
         <!--Obs-->
-        <Label x:Name="label32" Content="OBS" HorizontalAlignment="Right" Margin="0,0,574,153" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="tbObs" HorizontalAlignment="Right" Margin="0,0,85,127" TextWrapping="Wrap" Background="White" VerticalAlignment="Bottom" Height="47" Width="488"/>
+        <Label x:Name="label32" Content="OBS" HorizontalAlignment="Right" Margin="0,0,574,148" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbObs" HorizontalAlignment="Right" Margin="0,0,85,122" TextWrapping="Wrap" Background="White" VerticalAlignment="Bottom" Height="47" Width="488"/>
 
         <!--Não preencher-->
         <CheckBox x:Name="cbNaoPreencher" Content="Não preencher agora!" HorizontalAlignment="Right" Margin="0,0,563,51" VerticalAlignment="Bottom"/>
 
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12"/>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtSalvar_Click"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Margin="0,173,631,118" Width="2" RenderTransformOrigin="0.5,0.5">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Margin="0,178,631,113" Width="2" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -185,6 +185,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
+
 
     </Grid>
 </Window>

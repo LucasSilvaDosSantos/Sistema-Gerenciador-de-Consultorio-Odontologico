@@ -8,20 +8,21 @@ using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel
 {
-    class CadastroDeClienteBaseViewModel
+    class CadastroDeClienteAnamneseViewModel
     {
-        public static void CadastroDeNovoCliente(Cliente cliente)
-        {
+        public static void CadastrarAnamnese(Cliente clienteEntrada, Anamnese anamnese) {
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    ctx.Clientes.Add(cliente);
+                    Cliente cliente = ctx.Clientes.Find(clienteEntrada.Id);
+                    cliente.Anamnese = anamnese;
                     ctx.SaveChanges();
                 }
             }
-            catch (Exception e){
-                Console.WriteLine(e.Message);
+            catch
+            {
+
             }
         }
     }
