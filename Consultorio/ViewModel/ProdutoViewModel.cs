@@ -32,27 +32,23 @@ namespace Consultorio.ViewModel
         }
 
         //Executa alteraçoes no produto selecionado e modificado
-        public static bool AlterarProduto(Produto produtoChegada)
+        public static void AlterarProduto(Produto produtoChegada)
         {
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
                     Produto p = ctx.Produtos.Find(produtoChegada.Id);
+
                     p.Nome = produtoChegada.Nome;
                     p.Quantidade = produtoChegada.Quantidade;
-                    if (produtoChegada.Validade != null)
-                    {
-
-                        p.Validade = DateTime.ParseExact(produtoChegada.Validade.ToString(), "dd/MM/yyyy", CultureInfo.CurrentCulture);
-                    }
+                    p.Validade = produtoChegada.Validade;
                     p.Descricao = produtoChegada.Descricao;
+
                     ctx.SaveChanges();
-                    return true;
                 }
             }catch(Exception)
             {
-                return false;
             }          
         }
 

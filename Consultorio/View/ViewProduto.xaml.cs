@@ -52,11 +52,11 @@ namespace Consultorio.View
                     produto.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                 }
 
-                string confirmação = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
+                string confirmacao = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
 
-                if (confirmação == "OK")
+                if (confirmacao.Equals("OK"))
                 {
-                    var salvo = ProdutoViewModel.AlterarProduto(produto);
+                    ProdutoViewModel.AlterarProduto(produto);
                 }
                 else
                 {

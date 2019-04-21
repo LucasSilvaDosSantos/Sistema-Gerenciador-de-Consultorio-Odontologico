@@ -55,8 +55,8 @@
 
         <!--P06-->
         <Label x:Name="label10" Content="06. As feridas demoram para cicatrizar?" HorizontalAlignment="Left" Margin="150,336,0,322"/>
-        <RadioButton x:Name="rbP06S" GroupName="p6" HorizontalAlignment="Left" Margin="92,341,0,327" RenderTransformOrigin="0.519,0.444"/>
-        <RadioButton x:Name="rbP06N" GroupName="p6" HorizontalAlignment="Left" Margin="127,341,0,327" RenderTransformOrigin="0.528,1.135"/>
+        <RadioButton x:Name="rbP06S" GroupName="p6" HorizontalAlignment="Left" Margin="92,341,0,322" RenderTransformOrigin="0.519,0.444"/>
+        <RadioButton x:Name="rbP06N" GroupName="p6" HorizontalAlignment="Left" Margin="127,341,0,322" RenderTransformOrigin="0.528,1.135"/>
 
         <!--P07-->
         <Label x:Name="label11" Content="07. Sangra muito quando se fere ou extrai dente?" HorizontalAlignment="Left" Margin="150,0,0,301" VerticalAlignment="Bottom"/>
@@ -132,8 +132,8 @@
 
         <!--P21-->
         <Label x:Name="label25" Content="21. Teve convulsões alguma vez?" HorizontalAlignment="Right" Margin="0,336,362,322"/>
-        <RadioButton x:Name="rbP21S" GroupName="p21" HorizontalAlignment="Right" Margin="0,341,589,329" RenderTransformOrigin="0.508,0.455"/>
-        <RadioButton x:Name="rbP21N" GroupName="p21" HorizontalAlignment="Right" Margin="0,341,553,327" RenderTransformOrigin="0.528,1.135"/>
+        <RadioButton x:Name="rbP21S" GroupName="p21" HorizontalAlignment="Right" Margin="0,341,589,322" RenderTransformOrigin="0.508,0.455"/>
+        <RadioButton x:Name="rbP21N" GroupName="p21" HorizontalAlignment="Right" Margin="0,341,553,322" RenderTransformOrigin="0.528,1.135"/>
 
         <!--P22-->
         <Label x:Name="label26" Content="22. Tem problemas no Fígado ou Rim?" HorizontalAlignment="Right" Margin="0,0,333,301" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>

@@ -49,7 +49,7 @@ namespace Consultorio.View
                 Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
 
                 ViewCadastroDeClienteBase clienteBase = new ViewCadastroDeClienteBase();
-                clienteBase.RetornarAListaDeClientes = true;
+                clienteBase.OrigemListaDeClientes = true;
                 clienteBase.IniciarCliente(c);
                 clienteBase.Show();
                 this.Close();

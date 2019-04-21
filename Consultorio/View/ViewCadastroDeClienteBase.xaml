@@ -23,6 +23,7 @@
         <Label x:Name="label10" Content="UF" HorizontalAlignment="Left" Margin="538,0,0,263" VerticalAlignment="Bottom"/>
         <Label x:Name="label11" Content="Cidade" HorizontalAlignment="Left" Margin="91,0,0,235" VerticalAlignment="Bottom"/>
         <Label x:Name="label12" Content="CEP" HorizontalAlignment="Left" Margin="370,0,0,232" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="116,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" IsReadOnly="True"/>
         <TextBox x:Name="tbNome" Height="23" Margin="139,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="488"/>
         <TextBox x:Name="tbDataDeNascimento" Height="23" Margin="214,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="413"/>
         <TextBox x:Name="tbCpf" Height="23" Margin="126,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255"/>
@@ -40,6 +41,8 @@
         <TextBox x:Name="tbObs" HorizontalAlignment="Right" Margin="0,242,82,235" TextWrapping="Wrap" Text="" Width="534"/>
         <Label x:Name="label5_Copy" Content="Celular 1" HorizontalAlignment="Left" Margin="91,335,0,317"/>
         <Label x:Name="label5_Copy1" Content="Celular 2" HorizontalAlignment="Left" Margin="355,338,0,317"/>
-        
+        <Label x:Name="lbId" Content="ID" HorizontalAlignment="Left" Margin="94,185,0,0" VerticalAlignment="Top"/>
+
+
     </Grid>
 </Window>

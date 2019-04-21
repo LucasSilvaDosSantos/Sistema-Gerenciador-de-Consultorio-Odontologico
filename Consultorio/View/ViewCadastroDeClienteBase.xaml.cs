@@ -1,7 +1,9 @@
 ﻿using Consultorio.Model;
 using Consultorio.ViewModel;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 using System.Windows;
 
 namespace Consultorio.View
@@ -13,21 +15,24 @@ namespace Consultorio.View
     {
 
         public Cliente Cliente { get; set; }
-        public bool RetornarAListaDeClientes { get; set; }
+        public bool OrigemListaDeClientes { get; set; }
 
 
         public ViewCadastroDeClienteBase()
         {
             InitializeComponent();
+            tbId.IsEnabled = false;
+            lbId.IsEnabled = false;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+        // botao de volta define pra qual pagina sera retornada 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            if (RetornarAListaDeClientes)
+            if (OrigemListaDeClientes)
             {
                 ViewListaDeClientes lista = new ViewListaDeClientes();
                 lista.Show();
@@ -38,26 +43,96 @@ namespace Consultorio.View
                 ViewOpcoes opcoes = new ViewOpcoes();
                 opcoes.Show();
                 this.Close();
-            }
-
-            
+            }       
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            Cliente cliente = PegarDadosDaTela();
-            CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(cliente);
-            ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese(cliente);
-            anamnese.Show();
-            this.Close();       
+            //quando a requisição vem da tela de listagem de clientes
+            if (OrigemListaDeClientes)
+            {
+                string confirmacao = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
+                if (confirmacao == "OK")
+                {
+                    List<string> ListaDeCamposComErros =  ValidarCamposObrigatorios();
+                    if (ListaDeCamposComErros.Count == 0)
+                    {
+                        Cliente cliente = PegarDadosDosCampos();
+                        cliente.Id = int.Parse(tbId.Text);
+                        CadastroDeClienteBaseViewModel.AlterarCliente(cliente);
+                        ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese(cliente);
+                        anamnese.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach (string i in ValidarCamposObrigatorios())
+                        {
+                            sb.Append($"{i}, ");
+                        }
+                        MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
+                    }
+                }
+            }
+            //quando a requisição vem da tela de cadastro
+            else
+            {
+                string confirmacao = MessageBox.Show("Deseja salvar novo paciente?", "Confirmação", MessageBoxButton.OKCancel).ToString();
+                if (confirmacao == "OK")
+                {
+                    List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
+                    if (ListaDeCamposComErros.Count == 0)
+                    { 
+                        Cliente cliente = PegarDadosDosCampos();
+                        CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(cliente);
+                        ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese(cliente);
+                        anamnese.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach (string i in ValidarCamposObrigatorios())
+                        {
+                            sb.Append($"{i}, ");
+                        }
+                        MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
+                    }
+                }
+            }
+
+
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+        private List<string> ValidarCamposObrigatorios()
+        {
+            List<string> lista = new List<string>();
+            if (tbNome.Text == "")
+            {
+                lista.Add("Nome");
+            }
+            DateTime.TryParse(tbDataDeNascimento.Text, out DateTime data);
+            if (data.Equals("") || tbDataDeNascimento.Text == "")
+            {
+                lista.Add("Data de Nascimento");
+            }
+            if (tbCpf.Text == "")
+            {
+                lista.Add("CPF");
+            }
+            if (tbCelular1.Text == "")
+            {
+                lista.Add("Telefone 1");
+            }
+            return lista;
+        }
 
-        private Cliente PegarDadosDaTela()
+        private Cliente PegarDadosDosCampos()
         {
             Cliente cliente = new Cliente();
             cliente.Nome = tbNome.Text;
@@ -79,8 +154,11 @@ namespace Consultorio.View
 
         public void IniciarCliente(Cliente cliente)
         {
+            tbId.IsEnabled = true;
+
+            tbId.Text = cliente.Id.ToString();
             tbNome.Text = cliente.Nome;
-            tbDataDeNascimento.Text = cliente.Nascimento.ToString();
+            tbDataDeNascimento.Text = string.Format("{0:dd/MM/yyyy}", cliente.Nascimento);
             tbCpf.Text = cliente.Cpf;
             tbRg.Text = cliente.Rg;
             tbEmail.Text = cliente.Email;
