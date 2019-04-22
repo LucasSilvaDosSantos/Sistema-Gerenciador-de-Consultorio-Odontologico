@@ -2,6 +2,7 @@
 using Consultorio.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,28 @@ namespace Consultorio.ViewModel
             {
 
             }
+        }
+
+        public static Anamnese CarregarAnamnese(Cliente clienteEntrada)
+        {
+            try
+            {
+                using(ConsultorioContext ctx = new ConsultorioContext())
+                {
+
+                    // include para o paciente pegar os dados de cliente referentes a anamnese
+                    var cliente = ctx.Clientes.Where(c => c.Id == clienteEntrada.Id).Include(c => c.Anamnese).FirstOrDefault();
+
+                    Anamnese anamnese = cliente.Anamnese;
+
+                    return anamnese;
+                }
+            }
+            catch (Exception)
+            {
+                Anamnese anamnese = new Anamnese();
+                return anamnese;
+            }           
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Consultorio.View
 
                 ViewCadastroDeClienteBase clienteBase = new ViewCadastroDeClienteBase();
                 clienteBase.OrigemListaDeClientes = true;
-                clienteBase.IniciarCliente(c);
+                clienteBase.IniciarComCliente(c);
                 clienteBase.Show();
                 this.Close();
             }       

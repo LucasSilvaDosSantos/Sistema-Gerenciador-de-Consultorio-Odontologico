@@ -2,6 +2,7 @@
 using Consultorio.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ namespace Consultorio.ViewModel
                     if (id != 0)
                     {
                         lista = ctx.Clientes.Where(c => c.Id == id).ToList();
+                        
                         return lista;
                     }
                     else if (nome != "")

@@ -36,6 +36,8 @@ namespace Consultorio.ViewModel
                 {
                     Cliente c = ctx.Clientes.Find(cliente.Id);
 
+                    c = cliente;
+                    /*
                     c.Nome = cliente.Nome;
                     c.Nascimento = cliente.Nascimento;
                     c.Obs = cliente.Obs;
@@ -48,7 +50,7 @@ namespace Consultorio.ViewModel
                     c.Cpf = cliente.Cpf;
                     c.Cidade = cliente.Cidade;
                     c.Cep = cliente.Cep;
-                    c.Bairro = cliente.Bairro;
+                    c.Bairro = cliente.Bairro;*/
 
                     ctx.SaveChanges();
                 }

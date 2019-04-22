@@ -27,6 +27,7 @@ namespace Consultorio.View
         {
             InitializeComponent();
             Cliente = c;
+            CaregarDadosNaTela(Cliente);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -36,7 +37,7 @@ namespace Consultorio.View
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             ViewCadastroDeClienteBase cadastroCliente = new ViewCadastroDeClienteBase();
-            cadastroCliente.IniciarCliente(Cliente);
+            cadastroCliente.IniciarComCliente(Cliente);
             cadastroCliente.Show();
             this.Close();
         }
@@ -63,6 +64,7 @@ namespace Consultorio.View
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+        // Carrega os dados da tela para um objeto anamnese
         private Anamnese PegarDadosDaTela()
         {
             Anamnese anamnese = new Anamnese();
@@ -217,6 +219,301 @@ namespace Consultorio.View
                 return true;
             }
             return false;
+        }
+
+        //Carrega os campos de acordo com o objeto recebido
+        private void CaregarDadosNaTela(Cliente c)
+        {
+            tbId.Text = c.Id.ToString();
+            tbNome.Text = c.Nome;
+
+            Anamnese anamnese = CadastroDeClienteAnamneseViewModel.CarregarAnamnese(c);
+
+            if (anamnese != null)
+            {
+
+
+
+                //P01
+                if (anamnese.P01)
+                {
+                    rbP01S.IsChecked = true;
+                    tb0P1TelMedico.Text = anamnese.P01ComplementoTel;
+                    tbP01PQ.Text = anamnese.P01ComplementoPq;
+                }
+                else
+                {
+                    rbP01N.IsChecked = true;
+                }
+
+                //P02
+                if (anamnese.P02)
+                {
+                    rbP02S.IsChecked = true;
+                    tbP02Quais.Text = anamnese.P02Complemento;
+                }
+                else
+                {
+                    rbP02N.IsChecked = true;
+                }
+
+                //P03
+                if (anamnese.P03)
+                {
+                    rbP03S.IsChecked = true;
+                    tbP03Qual.Text = anamnese.P03Complemento;
+                }
+                else
+                {
+                    rbP03N.IsChecked = true;
+                }
+
+                //P04
+                if (anamnese.P04)
+                {
+                    rbP04S.IsChecked = true;
+                    tbP04Aux.Text = anamnese.P04Complemento;
+                }
+                else
+                {
+                    rbP04N.IsChecked = true;
+                }
+
+                //P05
+                if (anamnese.P05)
+                {
+                    rbP05S.IsChecked = true;
+                    tbP05Mes.Text = anamnese.P05Complemento;
+                }
+                else
+                {
+                    rbP05N.IsChecked = true;
+                }
+
+                //P06
+                if (anamnese.P06)
+                {
+                    rbP06S.IsChecked = true;
+                }
+                else
+                {
+                    rbP06N.IsChecked = true;
+                }
+
+                //P07
+                if (anamnese.P07)
+                {
+                    rbP07S.IsChecked = true;
+                }
+                else
+                {
+                    rbP07N.IsChecked = true;
+                }
+
+                //P08
+                if (anamnese.P08)
+                {
+                    rbP08S.IsChecked = true;
+                }
+                else
+                {
+                    rbP08N.IsChecked = true;
+                }
+
+                //P09
+                if (anamnese.P09)
+                {
+                    rbP09S.IsChecked = true;
+                    tbP09Aux.Text = anamnese.P09Complemento;
+                }
+                else
+                {
+                    rbP09N.IsChecked = true;
+                }
+
+                //P10
+                if (anamnese.P10)
+                {
+                    rbP10S.IsChecked = true;
+                }
+                else
+                {
+                    rbP10N.IsChecked = true;
+                }
+
+                //P11
+                if (anamnese.P11)
+                {
+                    rbP11S.IsChecked = true;
+                }
+                else
+                {
+                    rbP11N.IsChecked = true;
+                }
+
+                //P12
+                if (anamnese.P12)
+                {
+                    rbP12S.IsChecked = true;
+                }
+                else
+                {
+                    rbP12N.IsChecked = true;
+                }
+
+                //P13
+                if (anamnese.P13)
+                {
+                    rbP13S.IsChecked = true;
+                }
+                else
+                {
+                    rbP13N.IsChecked = true;
+                }
+
+                //P14
+                if (anamnese.P14)
+                {
+                    rbP14S.IsChecked = true;
+                }
+                else
+                {
+                    rbP14N.IsChecked = true;
+                }
+
+                //P15
+                if (anamnese.P15)
+                {
+                    rbP15S.IsChecked = true;
+                }
+                else
+                {
+                    rbP15N.IsChecked = true;
+                }
+
+                //P16
+                if (anamnese.P16)
+                {
+                    rbP16S.IsChecked = true;
+                }
+                else
+                {
+                    rbP16N.IsChecked = true;
+                }
+
+                //P17
+                if (anamnese.P17)
+                {
+                    rbP17S.IsChecked = true;
+                    tbP17Aux.Text = anamnese.P17Complemento;
+                }
+                else
+                {
+                    rbP17N.IsChecked = true;
+                }
+
+                //P18
+                if (anamnese.P18)
+                {
+                    rbP18S.IsChecked = true;
+                }
+                else
+                {
+                    rbP18N.IsChecked = true;
+                }
+
+                //P19
+                if (anamnese.P19)
+                {
+                    rbP19S.IsChecked = true;
+                }
+                else
+                {
+                    rbP19N.IsChecked = true;
+                }
+
+                //P20
+                if (anamnese.P20)
+                {
+                    rbP20S.IsChecked = true;
+                }
+                else
+                {
+                    rbP20N.IsChecked = true;
+                }
+
+                //P21
+                if (anamnese.P21)
+                {
+                    rbP21S.IsChecked = true;
+                }
+                else
+                {
+                    rbP21N.IsChecked = true;
+                }
+
+                //P22
+                if (anamnese.P22)
+                {
+                    rbP22S.IsChecked = true;
+                }
+                else
+                {
+                    rbP22N.IsChecked = true;
+                }
+
+                //P23
+                if (anamnese.P23)
+                {
+                    rbP23S.IsChecked = true;
+                }
+                else
+                {
+                    rbP23N.IsChecked = true;
+                }
+
+                //P24
+                if (anamnese.P24)
+                {
+                    rbP24S.IsChecked = true;
+                }
+                else
+                {
+                    rbP24N.IsChecked = true;
+                }
+
+                //P25
+                if (anamnese.P25)
+                {
+                    rbP25S.IsChecked = true;
+                }
+                else
+                {
+                    rbP25N.IsChecked = true;
+                }
+
+                //P26
+                if (anamnese.P26)
+                {
+                    rbP26S.IsChecked = true;
+                }
+                else
+                {
+                    rbP26N.IsChecked = true;
+                }
+
+                //P27
+                if (anamnese.P27)
+                {
+                    rbP27S.IsChecked = true;
+                }
+                else
+                {
+                    rbP27N.IsChecked = true;
+                }
+
+                tbObs.Text = anamnese.Obs;
+            }
         }
     }
 }

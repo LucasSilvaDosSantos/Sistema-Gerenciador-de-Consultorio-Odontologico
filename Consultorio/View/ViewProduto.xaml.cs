@@ -225,6 +225,7 @@ namespace Consultorio.View
         {
             tbDescricao.IsEnabled = true;
             tbId.IsEnabled = true;
+            tbId.IsReadOnly = true;
             tbNome.IsEnabled = true;
             tbQuantidade.IsEnabled = true;
             tbValidade.IsEnabled = true;

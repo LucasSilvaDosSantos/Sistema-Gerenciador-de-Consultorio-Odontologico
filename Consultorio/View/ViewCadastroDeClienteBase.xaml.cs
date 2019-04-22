@@ -101,14 +101,13 @@ namespace Consultorio.View
                     }
                 }
             }
-
-
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+        // Validação dos campos obrigatorios
         private List<string> ValidarCamposObrigatorios()
         {
             List<string> lista = new List<string>();
@@ -132,6 +131,7 @@ namespace Consultorio.View
             return lista;
         }
 
+        // Pega os dados da tela e carrega em um objeto Cliente
         private Cliente PegarDadosDosCampos()
         {
             Cliente cliente = new Cliente();
@@ -152,10 +152,11 @@ namespace Consultorio.View
             return cliente;
         }
 
-        public void IniciarCliente(Cliente cliente)
+        // Passa um cliente para a tela
+        public void IniciarComCliente(Cliente cliente)
         {
             tbId.IsEnabled = true;
-
+            //teste.Text = cliente.Anamnese.Id.ToString();
             tbId.Text = cliente.Id.ToString();
             tbNome.Text = cliente.Nome;
             tbDataDeNascimento.Text = string.Format("{0:dd/MM/yyyy}", cliente.Nascimento);

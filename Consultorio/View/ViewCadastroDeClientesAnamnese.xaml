@@ -175,17 +175,12 @@
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
         <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtSalvar_Click"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Margin="0,178,631,113" Width="2" RenderTransformOrigin="0.5,0.5">
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Border.RenderTransform>
-        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Margin="0,178,631,113" Width="2" RenderTransformOrigin="0.5,0.5"/>
 
-
+        <Label x:Name="lbId" Content="Id" HorizontalAlignment="Left" Margin="86,130,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbNome" Content="Nome" HorizontalAlignment="Left" Margin="173,131,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="106,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="tbNome" HorizontalAlignment="Left" Height="23" Margin="216,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="336" IsReadOnly="True"/>
+        
     </Grid>
 </Window>
