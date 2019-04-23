@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
         Title="Produto" Height="720" Width="1280" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
@@ -15,11 +16,11 @@
         <Label x:Name="label" Content="ID" Margin="0,0,604,212" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="21"/>
         <TextBox x:Name="tbId" HorizontalAlignment="Right" Height="22" Margin="0,0,559,216" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="40" IsReadOnly="True"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="78,0,0,186" VerticalAlignment="Bottom" Width="43"/>
-        <TextBox x:Name="tbNome" Height="23" Margin="121,0,0,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="489"/>
-        <Label x:Name="label2" Content="Quantidade" Margin="615,0,576,181" VerticalAlignment="Bottom" RenderTransformOrigin="0.25,0.577"/>
-        <TextBox x:Name="tbQuantidade" Height="23" Margin="0,0,415,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="161"/>
-        <Label x:Name="label3" Content="Validade" HorizontalAlignment="Right" Margin="0,0,352,181" VerticalAlignment="Bottom" Width="58"/>
-        <TextBox x:Name="tbValidade" Height="23" Margin="0,0,177,184" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="170"/>
+        <TextBox x:Name="tbNome" Height="23" Margin="121,0,486,186" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+        <Label x:Name="label2" Content="Quantidade" Margin="0,0,405,181" VerticalAlignment="Bottom" RenderTransformOrigin="0.25,0.577" HorizontalAlignment="Right" Width="81"/>
+        <TextBox x:Name="tbQuantidade" Height="23" Margin="0,0,325,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+        <Label x:Name="label3" Content="Validade" HorizontalAlignment="Right" Margin="0,0,267,181" VerticalAlignment="Bottom" Width="58"/>
+        <wpfTool:MaskedTextBox x:Name="tbValidade" Mask="00/00/0000" Height="18" Margin="0,0,182,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1"/>
         <CheckBox x:Name="checkBoxValidade" Content="Não Aplicável" HorizontalAlignment="Left" Margin="1095,0,0,184" VerticalAlignment="Bottom" Width="99" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="label4" Content="Descrição" HorizontalAlignment="Left" Margin="78,0,0,155" VerticalAlignment="Bottom" Width="67"/>
         <Label x:Name="label5" Content="Produtos já cadastrados" HorizontalAlignment="Left" Margin="546,141,0,0" VerticalAlignment="Top" Width="140"/>
