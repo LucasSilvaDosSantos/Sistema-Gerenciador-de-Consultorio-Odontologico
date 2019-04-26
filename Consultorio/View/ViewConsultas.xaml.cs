@@ -32,7 +32,7 @@ namespace Consultorio.View
             this.Close();
         }
 
-        private void Lo_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {

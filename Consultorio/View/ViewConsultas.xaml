@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Consultas" Height="720" Width="1280" WindowStartupLocation="CenterScreen" Loaded="Lo_Loaded">
+        Title="Consultas" Height="720" Width="1280" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,39.983,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>

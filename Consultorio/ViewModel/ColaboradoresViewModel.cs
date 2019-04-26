@@ -10,7 +10,7 @@ namespace Consultorio.ViewModel
 {
     class ColaboradoresViewModel
     {
-        static public List<Atores> ListarAtores()
+        public static List<Atores> ListarAtores()
         {
             List<Atores> listaAtores = new List<Atores>();
             try
