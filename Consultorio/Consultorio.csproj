@@ -101,9 +101,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\201904202347489_teste.cs" />
-    <Compile Include="Migrations\201904202347489_teste.Designer.cs">
-      <DependentUpon>201904202347489_teste.cs</DependentUpon>
+    <Compile Include="Migrations\201904281705048_teste.cs" />
+    <Compile Include="Migrations\201904281705048_teste.Designer.cs">
+      <DependentUpon>201904281705048_teste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904290014003_teste1.cs" />
+    <Compile Include="Migrations\201904290014003_teste1.Designer.cs">
+      <DependentUpon>201904290014003_teste1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
@@ -119,6 +123,7 @@
     <Compile Include="ViewModel\CadastroDeClienteAnamneseViewModel.cs" />
     <Compile Include="ViewModel\CadastroDeClienteBaseViewModel.cs" />
     <Compile Include="ViewModel\ColaboradoresViewModel.cs" />
+    <Compile Include="ViewModel\DentistaViewModel.cs" />
     <Compile Include="ViewModel\ListaDeClienteViewModel.cs" />
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProdutoViewModel.cs" />
@@ -242,8 +247,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904202347489_teste.resx">
-      <DependentUpon>201904202347489_teste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904281705048_teste.resx">
+      <DependentUpon>201904281705048_teste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904290014003_teste1.resx">
+      <DependentUpon>201904290014003_teste1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -37,9 +37,12 @@ namespace Consultorio.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dgListaAtores.ItemsSource = ColaboradoresViewModel.ListarAtores();
+            //Login
+            dgListaAtores.Columns[5].Visibility = Visibility.Collapsed;
+            //Senha
             dgListaAtores.Columns[6].Visibility = Visibility.Collapsed;
+            //Ativo
             dgListaAtores.Columns[7].Visibility = Visibility.Collapsed;
-            dgListaAtores.Columns[8].Visibility = Visibility.Collapsed;
         }
     }
 }

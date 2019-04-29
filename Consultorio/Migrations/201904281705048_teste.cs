@@ -137,7 +137,6 @@ namespace Consultorio.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(nullable: false, unicode: false),
-                        Sobrenome = c.String(nullable: false, unicode: false),
                         Email = c.String(nullable: false, unicode: false),
                         Telefone1 = c.String(nullable: false, unicode: false),
                         Telefone2 = c.String(unicode: false),

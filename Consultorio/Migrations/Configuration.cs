@@ -26,13 +26,13 @@ namespace Consultorio.Migrations
             Cliente cliente2 = new Cliente("Teste Cliente Nome 2", DateTime.Parse("1/2/2003"), "987.654.321-11", "24.385.915-6", "testeemail@gmail.com", "9971234567", "9123912312", "Rua: 123", "Vila 2", "SP", "Taubate", "12356-123");
 
             //seed Dentista
-            Dentista dentista1 = new Dentista("Teste Dentista", "Sobrenome dentista", "Dentista@dentista.com", "Telefone1", "Telefone2", "Logindentista", "Senha", "Numero Crosp");
+            Dentista dentista1 = new Dentista("Teste Dentista Sobrenome dentista", "Dentista@dentista.com", "Telefone1", "Telefone2", "Logindentista", "Senha", "Numero Crosp");
 
             // seed Gestor de estoque
-            GestorDeEstoque gestor1 = new GestorDeEstoque("Teste Gestor", "Sobrenome Gestor", "gestor@Gestor.com", "Telefone1", "Telefone2", "Logingestor", "Senha");
+            GestorDeEstoque gestor1 = new GestorDeEstoque("Teste Gestor Sobrenome Gestor", "gestor@Gestor.com", "Telefone1", "Telefone2", "Logingestor", "Senha");
 
             // seed secretaria
-            Secretaria secretaria1 = new Secretaria("Teste Secretaria", "Sobrenome Secretaria", "secretaria@secretaria", "Telefone1", "Telefone2", "Loginsecretaria", "Senha", "Numero Crosp",
+            Secretaria secretaria1 = new Secretaria("Teste Secretaria Sobrenome Secretaria", "secretaria@secretaria", "Telefone1", "Telefone2", "Loginsecretaria", "Senha", "Numero Crosp",
                 true, true, true, true);
 
             //seed Produto
@@ -73,7 +73,7 @@ namespace Consultorio.Migrations
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            //  to avoid creating duplicate seed data/
         }
     }
 }

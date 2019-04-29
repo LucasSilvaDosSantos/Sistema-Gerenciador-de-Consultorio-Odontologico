@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Consultorio.Model;
+using Consultorio.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,16 +22,125 @@ namespace Consultorio.View
     /// </summary>
     public partial class ViewDentista : Window
     {
+
         public ViewDentista()
         {
             InitializeComponent();
         }
 
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            Voltar();
+        }
+
+        private void BtSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            SalvarUsuario();
+        }
+
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void Voltar()
         {
             ViewCadastroDeColaboradores viewColaboradores = new ViewCadastroDeColaboradores();
             viewColaboradores.Show();
             this.Close();
+        }
+
+        private void SalvarUsuario()
+        {
+            var lista = ValidarCamposObrigatorios();
+            if (lista.Count != 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (string i in ValidarCamposObrigatorios())
+                {
+                    sb.Append($"{i}, ");
+                }
+                MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
+            }
+            else
+            {
+                Dentista dentista = PegaDadosDaTela();
+                string msg = DentistaViewModel.CadastroDeNovoDentista(dentista);
+                MessageBox.Show(msg);
+                Voltar();
+            }
+        }
+
+        private Dentista PegaDadosDaTela()
+        {
+            string senhaCod = DentistaViewModel.GerarHashMd5(pbSenha.Password.ToString());
+            Dentista dentista = new Dentista(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod);
+
+            return dentista;
+        }
+
+        //Valida Campos Obrigatorios
+        private List<string> ValidarCamposObrigatorios()
+        {
+            List<string> lista = new List<string>();
+            if (tbNome.Text.Equals(""))
+            {
+                lista.Add("Nome");
+            }
+            if (tbEmail.Text.Equals(""))
+            {
+                lista.Add("Email");
+            }
+            if (tbEmail.Text.Equals(""))
+            {
+                lista.Add("Email");
+            }
+            if (tbCelular1.Text.Equals("(__)_____-____"))
+            {
+                lista.Add("Celular 1");
+            }
+            if (tbCROSP.Text.Equals(""))
+            {
+                lista.Add("Crosp");
+            }
+            if (tbLogin.Text.Equals(""))
+            {
+                lista.Add("Login");
+            }
+            if (pbSenha.Password.ToString().Equals(""))
+            {
+                lista.Add("Senha");
+            }
+            if (pbSenhaConfirma.Password.ToString().Equals(""))
+            {
+                lista.Add("Confirmação de Senha");
+            }
+            if (!ValidacaoDeSenha(pbSenha.Password.ToString(), pbSenhaConfirma.Password.ToString()))
+            {
+                lista.Add("Senhas não coincidem");
+            }
+            return lista;
+        }
+
+        //Verificação se campos de senhas (senha e confirmar senha) são iguais 
+        private bool ValidacaoDeSenha(string senha, string confirmaSenha)
+        {
+            if (senha == "")
+            {
+                return false;
+            }
+            else
+            {
+                if (senha != confirmaSenha)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

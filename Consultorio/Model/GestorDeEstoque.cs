@@ -14,8 +14,8 @@ namespace Consultorio.Model
         {
         }
          
-        public GestorDeEstoque(string nome, string sobrenome, string email, string telefone1, string telefone2, string login, string senha) :
-            base(nome, sobrenome, email, telefone1, telefone2, login, senha)
+        public GestorDeEstoque(string nome, string email, string telefone1, string telefone2, string login, string senha) :
+            base(nome, email, telefone1, telefone2, login, senha)
         {
 
         }

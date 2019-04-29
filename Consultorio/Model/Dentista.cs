@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Consultorio.Model
 {
     [Table("Dentistas")]
-    class Dentista : Atores
+    public class Dentista : Atores
     {
         //[Required] Not Null
 
@@ -20,8 +20,8 @@ namespace Consultorio.Model
         {
         }
 
-        public Dentista(string nome, string sobrenome, string email, string telefone1, string telefone2, string login, string senha, string crosp) :
-            base(nome, sobrenome, email, telefone1, telefone2, login, senha)
+        public Dentista(string nome, string email, string telefone1, string telefone2, string login, string senha, string crosp) :
+            base(nome, email, telefone1, telefone2, login, senha)
         {
             Crosp = crosp;
         }
