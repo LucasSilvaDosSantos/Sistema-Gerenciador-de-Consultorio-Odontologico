@@ -1,25 +1,24 @@
-﻿using System;
+﻿using Consultorio.Data;
+using Consultorio.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Consultorio.Data;
-using Consultorio.Model;
 
 namespace Consultorio.ViewModel
 {
-    class DentistaViewModel
+    class GestorDeEstoqueViewModel
     {
-        public static string CadastroDeNovoDentista(Dentista dentista)
+        public static string CadastroDeNovoGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
         {
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    ctx.Dentistas.Add(dentista);
+                    ctx.GestoresDeEstoque.Add(gestorDeEstoque);
                     ctx.SaveChanges();
-                    return ("Salvo novo dentista");
+                    return ("Salvo novo Gestor de Estoque");
                 }
             }
             catch (Exception e)

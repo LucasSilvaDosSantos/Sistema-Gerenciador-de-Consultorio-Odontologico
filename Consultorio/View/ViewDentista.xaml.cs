@@ -77,7 +77,7 @@ namespace Consultorio.View
 
         private Dentista PegaDadosDaTela()
         {
-            string senhaCod = DentistaViewModel.GerarHashMd5(pbSenha.Password.ToString());
+            string senhaCod = AtoresViewModel.GerarHashMd5(pbSenha.Password.ToString());
             Dentista dentista = new Dentista(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod);
 
             return dentista;
@@ -90,10 +90,6 @@ namespace Consultorio.View
             if (tbNome.Text.Equals(""))
             {
                 lista.Add("Nome");
-            }
-            if (tbEmail.Text.Equals(""))
-            {
-                lista.Add("Email");
             }
             if (tbEmail.Text.Equals(""))
             {

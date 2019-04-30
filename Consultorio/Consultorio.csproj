@@ -120,13 +120,16 @@
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\ProdutosParaProcedimentos.cs" />
     <Compile Include="Model\Secretaria.cs" />
+    <Compile Include="ViewModel\AtoresViewModel.cs" />
     <Compile Include="ViewModel\CadastroDeClienteAnamneseViewModel.cs" />
     <Compile Include="ViewModel\CadastroDeClienteBaseViewModel.cs" />
     <Compile Include="ViewModel\ColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\DentistaViewModel.cs" />
+    <Compile Include="ViewModel\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\ListaDeClienteViewModel.cs" />
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProdutoViewModel.cs" />
+    <Compile Include="ViewModel\SecretariaViewModel.cs" />
     <Compile Include="View\ViewCadastroDeClienteBase.xaml.cs">
       <DependentUpon>ViewCadastroDeClienteBase.xaml</DependentUpon>
     </Compile>

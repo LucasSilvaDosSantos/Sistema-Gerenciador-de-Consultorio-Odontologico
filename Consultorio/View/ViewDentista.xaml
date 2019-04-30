@@ -19,19 +19,19 @@
 
 
         <Label x:Name="lbNome" Content="Nome" HorizontalAlignment="Left" Margin="59,208,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNome" HorizontalAlignment="Left" Height="23" Margin="157,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="449"/>
+        <TextBox x:Name="tbNome" HorizontalAlignment="Left" Height="23" Margin="120,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
 
         <Label x:Name="lbEmail" Content="Email" HorizontalAlignment="Left" Margin="59,236,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="157,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="449"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="120,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
 
         <Label x:Name="lbCelular1" Content="Celular 1" HorizontalAlignment="Left" Margin="59,267,0,0" VerticalAlignment="Top"/>
-        <wpfTool:MaskedTextBox x:Name="tbCelular1" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="23" Margin="157,270,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="105"/>
+        <wpfTool:MaskedTextBox x:Name="tbCelular1" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="23" Margin="120,266,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="105"/>
 
         <Label x:Name="lbCelular2" Content="Celular 2" HorizontalAlignment="Left" Margin="59,298,0,0" VerticalAlignment="Top"/>
-        <wpfTool:MaskedTextBox x:Name="tbCelular2" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="23" Margin="157,301,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="105"/>
+        <wpfTool:MaskedTextBox x:Name="tbCelular2" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="23" Margin="120,297,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="105"/>
 
         <Label x:Name="lbCROSP" Content="CROSP" HorizontalAlignment="Left" Margin="59,329,0,324"/>
-        <TextBox x:Name="tbCROSP" HorizontalAlignment="Left" Margin="157,324,0,334" TextWrapping="Wrap" Width="243"/>
+        <TextBox x:Name="tbCROSP" HorizontalAlignment="Left" Margin="120,320,0,338" TextWrapping="Wrap" Width="245"/>
 
         <Label x:Name="lbDadosParaLogin" Content="Dados para Login" HorizontalAlignment="Right" Margin="0,137,260,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
 
