@@ -35,22 +35,20 @@ namespace Consultorio.ViewModel
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
                     Cliente c = ctx.Clientes.Find(cliente.Id);
-
-                    c = cliente;
-                    /*
+                  
                     c.Nome = cliente.Nome;
                     c.Nascimento = cliente.Nascimento;
-                    c.Obs = cliente.Obs;
+                    c.Cpf = cliente.Cpf;                   
                     c.Rg = cliente.Rg;
+                    c.Email = cliente.Email;
                     c.Telefone1 = cliente.Telefone1;
                     c.Telefone2 = cliente.Telefone2;
-                    c.Uf = cliente.Uf;
                     c.Endereco = cliente.Endereco;
-                    c.Email = cliente.Email;
-                    c.Cpf = cliente.Cpf;
+                    c.Bairro = cliente.Bairro;
+                    c.Uf = cliente.Uf;
                     c.Cidade = cliente.Cidade;
-                    c.Cep = cliente.Cep;
-                    c.Bairro = cliente.Bairro;*/
+                    c.Cep = cliente.Cep;                   
+                    c.Obs = cliente.Obs;
 
                     ctx.SaveChanges();
                 }
