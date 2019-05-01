@@ -27,10 +27,14 @@ namespace Consultorio.View
             InitializeComponent();
         }
 
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
-            opcoes.Show();
+            ViewCadastroDeColaboradores cadastroDeColaboradores = new ViewCadastroDeColaboradores();
+            cadastroDeColaboradores.Show();
             this.Close();
         }
 
@@ -44,5 +48,39 @@ namespace Consultorio.View
             //Ativo
             dgListaAtores.Columns[7].Visibility = Visibility.Collapsed;
         }
+
+        private void DgListaAtores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dgListaAtores.SelectedIndex >= 0)
+            {
+                var a = (Atores)dgListaAtores.Items[dgListaAtores.SelectedIndex];
+
+                if (a.GetType().ToString() == "Consultorio.Model.Dentista")
+                {
+                    ViewDentista viewDentista = new ViewDentista();
+                    viewDentista.OrigemListaDeAtores = true;
+                    viewDentista.IniciarComDentista((Dentista)a);
+                    viewDentista.Show();
+                    this.Close();
+                }
+                else if (a.GetType().ToString() == "Consultorio.Model.Secretaria")
+                {
+
+                }
+                else if (a.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
+                {
+
+                }
+                /*clienteBase = new ViewCadastroDeClienteBase();
+                clienteBase.OrigemListaDeClientes = true;
+                clienteBase.IniciarComCliente(a);
+                clienteBase.Show();
+                this.Close();*/
+            }
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********--------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
     }
 }

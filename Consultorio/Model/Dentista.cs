@@ -20,7 +20,7 @@ namespace Consultorio.Model
         {
         }
 
-        public Dentista(string nome, string email, string telefone1, string telefone2, string login, string senha, string crosp) :
+        public Dentista(string nome, string email, string telefone1, string telefone2, string crosp, string login, string senha) :
             base(nome, email, telefone1, telefone2, login, senha)
         {
             Crosp = crosp;

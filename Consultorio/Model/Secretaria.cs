@@ -27,7 +27,7 @@ namespace Consultorio.Model
         {
         }
 
-        public Secretaria(string nome, string email, string telefone1, string telefone2, string login, string senha, string crosp,
+        public Secretaria(string nome, string email, string telefone1, string telefone2, string crosp, string login, string senha, 
             bool crudClientes, bool crudSecretarias, bool crudProduto, bool crudGestorDeEstoque)
             : base(nome, email, telefone1, telefone2, login, senha)
         {

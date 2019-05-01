@@ -143,8 +143,6 @@ namespace Consultorio.View
                 }
             }
             return true;
-        }
-
-        
+        }      
     }
 }

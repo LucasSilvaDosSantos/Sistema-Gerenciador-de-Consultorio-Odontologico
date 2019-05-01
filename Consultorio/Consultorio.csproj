@@ -127,6 +127,7 @@
     <Compile Include="ViewModel\DentistaViewModel.cs" />
     <Compile Include="ViewModel\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\ListaDeClienteViewModel.cs" />
+    <Compile Include="ViewModel\ListaDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProdutoViewModel.cs" />
     <Compile Include="ViewModel\SecretariaViewModel.cs" />

@@ -23,9 +23,12 @@ namespace Consultorio.View
     public partial class ViewDentista : Window
     {
 
+        public bool OrigemListaDeAtores { get; set; }
+
         public ViewDentista()
         {
             InitializeComponent();
+            tbId.IsEnabled = false;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -42,16 +45,30 @@ namespace Consultorio.View
             SalvarUsuario();
         }
 
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+        public void IniciarComDentista(Dentista dentista)
+        {
+            tbId.IsEnabled = true;
+            CarregaDadosNaTela(dentista);
+        }
+
         private void Voltar()
         {
-            ViewCadastroDeColaboradores viewColaboradores = new ViewCadastroDeColaboradores();
-            viewColaboradores.Show();
-            this.Close();
+            if (OrigemListaDeAtores)
+            {
+                ViewListaDeColaboradores viewListaDeColaboradores = new ViewListaDeColaboradores();
+                viewListaDeColaboradores.Show();
+                this.Close();
+            }
+            else
+            {
+                ViewCadastroDeColaboradores viewColaboradores = new ViewCadastroDeColaboradores();
+                viewColaboradores.Show();
+                this.Close();              
+            }
         }
 
         private void SalvarUsuario()
@@ -69,7 +86,16 @@ namespace Consultorio.View
             else
             {
                 Dentista dentista = PegaDadosDaTela();
-                string msg = DentistaViewModel.CadastroDeNovoDentista(dentista);
+                string msg;
+                if (OrigemListaDeAtores)
+                {
+                    dentista.Id = int.Parse(tbId.Text);
+                    msg = DentistaViewModel.AlterarDentista(dentista);
+                }
+                else
+                {
+                    msg = DentistaViewModel.CadastroDeNovoDentista(dentista);
+                }                
                 MessageBox.Show(msg);
                 Voltar();
             }
@@ -79,7 +105,6 @@ namespace Consultorio.View
         {
             string senhaCod = AtoresViewModel.GerarHashMd5(pbSenha.Password.ToString());
             Dentista dentista = new Dentista(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod);
-
             return dentista;
         }
 
@@ -137,6 +162,17 @@ namespace Consultorio.View
                 }
             }
             return true;
+        }
+
+        private void CarregaDadosNaTela(Dentista dentista)
+        {
+            tbId.Text = dentista.Id.ToString();
+            tbNome.Text = dentista.Nome;
+            tbEmail.Text = dentista.Email;
+            tbCelular1.Text = dentista.Telefone1;
+            tbCelular2.Text = dentista.Telefone2;
+            tbCROSP.Text = dentista.Crosp;
+            tbLogin.Text = dentista.Login;
         }
     }
 }
