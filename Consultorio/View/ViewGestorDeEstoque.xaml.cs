@@ -21,9 +21,13 @@ namespace Consultorio.View
     /// </summary>
     public partial class ViewGestorDeEstoque : Window
     {
+
+        public bool OrigemListaDeAtores { get; set; }
+
         public ViewGestorDeEstoque()
         {
             InitializeComponent();
+            tbId.IsEnabled = false;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -43,6 +47,12 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+        public void IniciarComGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
+        {
+            tbId.IsEnabled = true;
+            CarregaDadosNaTela(gestorDeEstoque);
+        }
 
         private void Voltar()
         {
@@ -132,6 +142,14 @@ namespace Consultorio.View
             return true;
         }
 
-        
+        private void CarregaDadosNaTela(GestorDeEstoque gestorDeEstoque)
+        {
+            tbId.Text = gestorDeEstoque.Id.ToString();
+            tbNome.Text = gestorDeEstoque.Nome;
+            tbEmail.Text = gestorDeEstoque.Email;
+            tbCelular1.Text = gestorDeEstoque.Telefone1;
+            tbCelular2.Text = gestorDeEstoque.Telefone2;
+            tbLogin.Text = gestorDeEstoque.Login;
+        }
     }
 }

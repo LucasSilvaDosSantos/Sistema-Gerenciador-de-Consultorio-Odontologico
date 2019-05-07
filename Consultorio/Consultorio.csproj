@@ -124,10 +124,10 @@
     <Compile Include="ViewModel\CadastroDeClienteAnamneseViewModel.cs" />
     <Compile Include="ViewModel\CadastroDeClienteBaseViewModel.cs" />
     <Compile Include="ViewModel\ColaboradoresViewModel.cs" />
+    <Compile Include="ViewModel\ConsultasViewModel.cs" />
     <Compile Include="ViewModel\DentistaViewModel.cs" />
     <Compile Include="ViewModel\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\ListaDeClienteViewModel.cs" />
-    <Compile Include="ViewModel\ListaDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProdutoViewModel.cs" />
     <Compile Include="ViewModel\SecretariaViewModel.cs" />

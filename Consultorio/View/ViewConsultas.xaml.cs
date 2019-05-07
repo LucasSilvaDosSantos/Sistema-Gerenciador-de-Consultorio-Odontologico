@@ -1,4 +1,5 @@
 ﻿using Consultorio.Data;
+using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,19 +35,7 @@ namespace Consultorio.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                using (ConsultorioContext ctx = new ConsultorioContext())
-                {
-                    var consulta = ctx.Consultas;
-                    dgConsultas.ItemsSource = consulta.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                tbNome.Text = (ex.Message);
-            }
-
+            dgConsultas.ItemsSource = ConsultasViewModel.ListaDeConsultas();
         }
     }
 }

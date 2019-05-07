@@ -53,23 +53,31 @@ namespace Consultorio.View
         {
             if (dgListaAtores.SelectedIndex >= 0)
             {
-                var a = (Atores)dgListaAtores.Items[dgListaAtores.SelectedIndex];
+                var ator = (Atores)dgListaAtores.Items[dgListaAtores.SelectedIndex];
 
-                if (a.GetType().ToString() == "Consultorio.Model.Dentista")
+                if (ator.GetType().ToString() == "Consultorio.Model.Dentista")
                 {
                     ViewDentista viewDentista = new ViewDentista();
                     viewDentista.OrigemListaDeAtores = true;
-                    viewDentista.IniciarComDentista((Dentista)a);
+                    viewDentista.IniciarComDentista((Dentista)ator);
                     viewDentista.Show();
                     this.Close();
                 }
-                else if (a.GetType().ToString() == "Consultorio.Model.Secretaria")
+                else if (ator.GetType().ToString() == "Consultorio.Model.Secretaria")
                 {
-
+                    ViewSecretaria viewSecretaria = new ViewSecretaria();
+                    viewSecretaria.OrigemListaDeAtores = true;
+                    viewSecretaria.IniciarComSecretaria((Secretaria)ator);
+                    viewSecretaria.Show();
+                    this.Close();
                 }
-                else if (a.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
+                else if (ator.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
                 {
-
+                    ViewGestorDeEstoque viewGestorDeEstoque = new ViewGestorDeEstoque();
+                    viewGestorDeEstoque.OrigemListaDeAtores = true;
+                    viewGestorDeEstoque.IniciarComGestorDeEstoque((GestorDeEstoque)ator);
+                    viewGestorDeEstoque.Show();
+                    this.Close();
                 }
                 /*clienteBase = new ViewCadastroDeClienteBase();
                 clienteBase.OrigemListaDeClientes = true;

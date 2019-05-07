@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Consultorio.Model
 {
     [Table("GestoresDeEstoque")]
-    class GestorDeEstoque : Atores
+    public class GestorDeEstoque : Atores
     {
         public GestorDeEstoque()
         {

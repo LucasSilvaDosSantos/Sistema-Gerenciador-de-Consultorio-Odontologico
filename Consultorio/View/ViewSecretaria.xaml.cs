@@ -21,14 +21,20 @@ namespace Consultorio.View
     /// </summary>
     public partial class ViewSecretaria : Window
     {
+
+        public bool OrigemListaDeAtores { get; set; }
+
         public ViewSecretaria()
         {
             InitializeComponent();
+            tbId.IsEnabled = false;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             Voltar();
@@ -42,11 +48,26 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        public void IniciarComSecretaria(Secretaria secretaria)
+        {
+            tbId.IsEnabled = true;
+            CarregaDadosNaTela(secretaria);
+        }
+
         private void Voltar()
         {
-            ViewCadastroDeColaboradores viewColaboradores = new ViewCadastroDeColaboradores();
-            viewColaboradores.Show();
-            this.Close();
+            if (OrigemListaDeAtores)
+            {
+                ViewListaDeColaboradores viewListaDeColaboradores = new ViewListaDeColaboradores();
+                viewListaDeColaboradores.Show();
+                this.Close();
+            }
+            else
+            {
+                ViewCadastroDeColaboradores viewColaboradores = new ViewCadastroDeColaboradores();
+                viewColaboradores.Show();
+                this.Close();
+            }
         }
 
         private void SalvarUsuario()
@@ -64,7 +85,16 @@ namespace Consultorio.View
             else
             {
                 Secretaria secretaria = PegaDadosDaTela();
-                string msg = SecretariaViewModel.CadastroDeNovaSecretaria(secretaria);
+                string msg;
+                if (OrigemListaDeAtores)
+                {
+                    secretaria.Id = int.Parse(tbId.Text);
+                    msg = SecretariaViewModel.AlterarSecretaria(secretaria);
+                }
+                else
+                {
+                    msg = SecretariaViewModel.CadastroDeNovaSecretaria(secretaria);
+                }
                 MessageBox.Show(msg);
                 Voltar();
             }
@@ -143,6 +173,18 @@ namespace Consultorio.View
                 }
             }
             return true;
-        }      
+        }
+
+        private void CarregaDadosNaTela(Secretaria secretaria)
+        {
+            tbId.Text = secretaria.Id.ToString();
+            tbNome.Text = secretaria.Nome;
+            tbEmail.Text = secretaria.Email;
+            tbCelular1.Text = secretaria.Telefone1;
+            tbCelular2.Text = secretaria.Telefone2;
+            tbCROSP.Text = secretaria.Crosp;
+            tbLogin.Text = secretaria.Login;
+            //////////////////////////////////////////////////////////// falta os check box fazer com urgencia maxima 
+        }
     }
 }

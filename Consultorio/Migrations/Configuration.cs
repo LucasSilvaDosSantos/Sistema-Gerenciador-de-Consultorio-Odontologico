@@ -18,7 +18,7 @@ namespace Consultorio.Migrations
         protected override void Seed(Consultorio.Data.ConsultorioContext context)
         {
             //seed Anamnese
-            Anamnese anamnese1 = new Anamnese(true, "p1 compl", "p1compl2", true, "p2comp", true, "p3Complemento", true, true, "p05Complemento", true, true, true, true,
+            /*Anamnese anamnese1 = new Anamnese(true, "p1 compl", "p1compl2", true, "p2comp", true, "p3Complemento", true, true, "p05Complemento", true, true, true, true,
                 "p09Compemeto", true, true, true, true, true, true, true, true, "p17comp", true, true, true, true, true, true, true, true, true, true, "Obs");
 
             //seed Cliente
@@ -69,7 +69,7 @@ namespace Consultorio.Migrations
             context.ProdutosProcedimentos.Add(pp2);
             context.Consultas.Add(consulta1);
             context.Pagamentos.Add(pagamento1);
-            context.SaveChanges();
+            context.SaveChanges();*/
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

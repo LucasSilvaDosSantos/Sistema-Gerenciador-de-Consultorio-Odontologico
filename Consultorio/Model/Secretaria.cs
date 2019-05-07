@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Consultorio.Model
 {
     [Table("Secretarias")]
-    class Secretaria : Atores
+    public class Secretaria : Atores
     {
         //[Required] Not Null
 
