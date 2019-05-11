@@ -116,7 +116,7 @@ namespace Consultorio.View
         }
 
         // seleciona um porduto da tabela 
-        private void DgProdutos_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void DgProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dgProdutos.SelectedIndex >= 0)
             {
@@ -147,8 +147,8 @@ namespace Consultorio.View
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
             InativarCampos();
-            LimparCampos();
             BotoesAtivados(1);
+            LimparCampos();        
             RecarregarGrid();
         }
 
@@ -269,6 +269,5 @@ namespace Consultorio.View
             dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
             (dgProdutos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
         }
-
     }
 }

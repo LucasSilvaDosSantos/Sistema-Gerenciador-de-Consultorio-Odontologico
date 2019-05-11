@@ -25,28 +25,36 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewCadastroDeClienteBase cadastroCliente = new ViewCadastroDeClienteBase();
-            cadastroCliente.IniciarComCliente(Cliente);
-            cadastroCliente.Show();
-            this.Close();
+            string confirmacao = MessageBox.Show("Deseja sair sem salvar?", "Confirmação", MessageBoxButton.OKCancel).ToString();
+            if (confirmacao == "OK")
+            {
+                ViewCadastroDeClienteBase cadastroCliente = new ViewCadastroDeClienteBase();
+                cadastroCliente.IniciarComCliente(Cliente);
+                cadastroCliente.Show();
+                this.Close();
+            }
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            bool btNaoPreencher = (bool)cbNaoPreencher.IsChecked;
-            if (btNaoPreencher)
+            string confirmacao = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
+            if (confirmacao == "OK")
             {
-               // CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(Cliente);
-            }
-            else
-            {
-                Anamnese anamnese = PegarDadosDaTela();
-                CadastroDeClienteAnamneseViewModel.CadastrarAnamnese(Cliente, anamnese);
-                Cliente.Anamnese = anamnese;
-            }
-            ViewOpcoes opcoes = new ViewOpcoes();
-            opcoes.Show();
-            this.Close();
+                bool btNaoPreencher = (bool)cbNaoPreencher.IsChecked;
+                if (btNaoPreencher)
+                {
+                    // CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(Cliente);
+                }
+                else
+                {
+                    Anamnese anamnese = PegarDadosDaTela();
+                    CadastroDeClienteAnamneseViewModel.CadastrarAnamnese(Cliente, anamnese);
+                    Cliente.Anamnese = anamnese;
+                }
+                ViewOpcoes opcoes = new ViewOpcoes();
+                opcoes.Show();
+                this.Close();
+            }          
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

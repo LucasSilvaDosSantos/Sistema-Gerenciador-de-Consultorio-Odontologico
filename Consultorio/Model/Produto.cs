@@ -25,7 +25,7 @@ namespace Consultorio.Model
 
         public DateTime? Validade { get; set; }
 
-        public virtual ICollection<ProdutosParaProcedimentos> ListaProdutoProcedimento { get; set; }
+        public virtual ICollection<Procedimento> Procedimentos { get; set; }
 
         public Produto()
         {
@@ -37,7 +37,7 @@ namespace Consultorio.Model
             Quantidade = quantidade;
             Descricao = descricao;
 
-            ListaProdutoProcedimento = new HashSet<ProdutosParaProcedimentos>();
+           Procedimentos = new HashSet<Procedimento>();
         }
 
         /*

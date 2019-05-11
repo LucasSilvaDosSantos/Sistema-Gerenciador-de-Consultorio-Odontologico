@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class teste : DbMigration
+    public partial class testenparan : DbMigration
     {
         public override void Up()
         {
@@ -105,21 +105,6 @@ namespace Consultorio.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.ProdutosParaProcedimentos",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ProdutoId = c.Int(nullable: false),
-                        QuantidadeProduto = c.Int(nullable: false),
-                        ProcedimentoId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Procedimentos", t => t.ProcedimentoId, cascadeDelete: true)
-                .ForeignKey("dbo.Produtos", t => t.ProdutoId, cascadeDelete: true)
-                .Index(t => t.ProdutoId)
-                .Index(t => t.ProcedimentoId);
-            
-            CreateTable(
                 "dbo.Produtos",
                 c => new
                     {
@@ -162,6 +147,19 @@ namespace Consultorio.Migrations
                 .ForeignKey("dbo.Atores", t => t.Recebedor_Id)
                 .Index(t => t.Cliente_Id)
                 .Index(t => t.Recebedor_Id);
+            
+            CreateTable(
+                "dbo.ProdutoProcedimentoes",
+                c => new
+                    {
+                        Produto_Id = c.Int(nullable: false),
+                        Procedimento_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Produto_Id, t.Procedimento_Id })
+                .ForeignKey("dbo.Produtos", t => t.Produto_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Procedimentos", t => t.Procedimento_Id, cascadeDelete: true)
+                .Index(t => t.Produto_Id)
+                .Index(t => t.Procedimento_Id);
             
             CreateTable(
                 "dbo.Dentistas",
@@ -209,27 +207,27 @@ namespace Consultorio.Migrations
             DropForeignKey("dbo.Pagamentos", "Recebedor_Id", "dbo.Atores");
             DropForeignKey("dbo.Pagamentos", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.Consultas", "Procedimento_Id", "dbo.Procedimentos");
-            DropForeignKey("dbo.ProdutosParaProcedimentos", "ProdutoId", "dbo.Produtos");
-            DropForeignKey("dbo.ProdutosParaProcedimentos", "ProcedimentoId", "dbo.Procedimentos");
+            DropForeignKey("dbo.ProdutoProcedimentoes", "Procedimento_Id", "dbo.Procedimentos");
+            DropForeignKey("dbo.ProdutoProcedimentoes", "Produto_Id", "dbo.Produtos");
             DropForeignKey("dbo.Consultas", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.Clientes", "Anamnese_Id", "dbo.Anamnese");
             DropIndex("dbo.Secretarias", new[] { "Id" });
             DropIndex("dbo.GestoresDeEstoque", new[] { "Id" });
             DropIndex("dbo.Dentistas", new[] { "Id" });
+            DropIndex("dbo.ProdutoProcedimentoes", new[] { "Procedimento_Id" });
+            DropIndex("dbo.ProdutoProcedimentoes", new[] { "Produto_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Recebedor_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Cliente_Id" });
-            DropIndex("dbo.ProdutosParaProcedimentos", new[] { "ProcedimentoId" });
-            DropIndex("dbo.ProdutosParaProcedimentos", new[] { "ProdutoId" });
             DropIndex("dbo.Consultas", new[] { "Procedimento_Id" });
             DropIndex("dbo.Consultas", new[] { "Cliente_Id" });
             DropIndex("dbo.Clientes", new[] { "Anamnese_Id" });
             DropTable("dbo.Secretarias");
             DropTable("dbo.GestoresDeEstoque");
             DropTable("dbo.Dentistas");
+            DropTable("dbo.ProdutoProcedimentoes");
             DropTable("dbo.Pagamentos");
             DropTable("dbo.Atores");
             DropTable("dbo.Produtos");
-            DropTable("dbo.ProdutosParaProcedimentos");
             DropTable("dbo.Procedimentos");
             DropTable("dbo.Consultas");
             DropTable("dbo.Clientes");

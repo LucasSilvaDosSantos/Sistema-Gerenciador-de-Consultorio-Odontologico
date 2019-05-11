@@ -18,7 +18,7 @@ namespace Consultorio.Migrations
         protected override void Seed(Consultorio.Data.ConsultorioContext context)
         {
             //seed Anamnese
-            /*Anamnese anamnese1 = new Anamnese(true, "p1 compl", "p1compl2", true, "p2comp", true, "p3Complemento", true, true, "p05Complemento", true, true, true, true,
+            Anamnese anamnese1 = new Anamnese(true, "p1 compl", "p1compl2", true, "p2comp", true, "p3Complemento", true, true, "p05Complemento", true, true, true, true,
                 "p09Compemeto", true, true, true, true, true, true, true, true, "p17comp", true, true, true, true, true, true, true, true, true, true, "Obs");
 
             //seed Cliente
@@ -42,11 +42,15 @@ namespace Consultorio.Migrations
 
             //seed Procedimento
             Procedimento procedimento1 = new Procedimento("Análise Clínica", "Análise inicial do paciente", 0.0);
-            Procedimento procedimento2 = new Procedimento("Teste de banco de dados", "controle de banco", 10.50);
+            procedimento1.Produtos.Add(produto1);
+            procedimento1.Produtos.Add(produto2);
+            procedimento1.Produtos.Add(produto3);
+            Procedimento procedimento2 = new Procedimento("Teste de banco de dados", "controle de banco", 10.55);
 
             //seed ProdutosParaProcedimentos
-            ProdutosParaProcedimentos pp1 = new ProdutosParaProcedimentos(produto1, procedimento1);
-            ProdutosParaProcedimentos pp2 = new ProdutosParaProcedimentos(produto2, procedimento1);
+            // descontinuado
+            //ProdutosParaProcedimentos pp1 = new ProdutosParaProcedimentos(produto1, procedimento1);
+            //ProdutosParaProcedimentos pp2 = new ProdutosParaProcedimentos(produto2, procedimento1);
 
             // seed consulta
             Consulta consulta1 = new Consulta(cliente1, DateTime.Parse("12/12/2012 12:00"), DateTime.Parse("12/12/2012 12:30"), procedimento1);
@@ -65,11 +69,9 @@ namespace Consultorio.Migrations
             context.Produtos.Add(produto3);
             context.Procedimentos.Add(procedimento1);
             context.Procedimentos.Add(procedimento2);
-            context.ProdutosProcedimentos.Add(pp1);
-            context.ProdutosProcedimentos.Add(pp2);
             context.Consultas.Add(consulta1);
             context.Pagamentos.Add(pagamento1);
-            context.SaveChanges();*/
+            context.SaveChanges();
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

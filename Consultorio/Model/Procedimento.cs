@@ -20,7 +20,7 @@ namespace Consultorio.Model
         public string Descricao { get; set; }
         [Required]
         public double Preco { get; set; }
-        public virtual ICollection<ProdutosParaProcedimentos> ListaProdutoProcedimento { get; set; }
+        public virtual ICollection<Produto> Produtos { get; set; }
 
         public Procedimento()
         {
@@ -32,7 +32,7 @@ namespace Consultorio.Model
             Descricao = descricao;
             Preco = preco;
 
-            ListaProdutoProcedimento = new HashSet<ProdutosParaProcedimentos>();
+            Produtos = new HashSet<Produto>();
         }
     }
 }

@@ -22,7 +22,6 @@ namespace Consultorio.View
         {
             InitializeComponent();
             tbId.IsEnabled = false;
-            lbId.IsEnabled = false;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -49,7 +48,7 @@ namespace Consultorio.View
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
             //quando a requisição vem da tela de listagem de clientes
-            if (OrigemListaDeClientes)
+            if (OrigemListaDeClientes || tbId.Text != "")
             {
                 string confirmacao = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
                 if (confirmacao == "OK")
@@ -103,10 +102,25 @@ namespace Consultorio.View
             }
         }
 
+        private void BtAnamnese_Click(object sender, RoutedEventArgs e)
+        {
+            string confirmacao = MessageBox.Show("Deseja ir para Anamnese sem salvar alterações", "Confirmação", MessageBoxButton.OKCancel).ToString();
+            if (confirmacao == "OK")
+            {               
+                Cliente cliente = PegarDadosDosCampos();
+                cliente.Id = int.Parse(tbId.Text);
+                ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese(cliente);
+                anamnese.Show();
+                this.Close();
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+
+        /// revisar a validação de clientes
         // Validação dos campos obrigatorios
         private List<string> ValidarCamposObrigatorios()
         {
@@ -173,6 +187,6 @@ namespace Consultorio.View
             tbObs.Text = cliente.Obs;
 
             //cliente.Nascimento = DateTime.ParseExact(tbDataDeNascimento.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
-        }
+        }        
     }
 }

@@ -17,8 +17,6 @@ namespace Consultorio.Data
         public DbSet<Pagamento> Pagamentos { get; set; }
         public DbSet<Procedimento> Procedimentos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
-        public DbSet<ProdutosParaProcedimentos> ProdutosProcedimentos { get; set; }
-
         public ConsultorioContext()
             : base("name=ConsultorioContext")
         {            

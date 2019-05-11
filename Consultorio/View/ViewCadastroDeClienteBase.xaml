@@ -7,16 +7,15 @@
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
         Title="Cadastro de Cliente" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
-    <Grid>
-
+    <Grid Height="689" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
             <RowDefinition Height="359*"/>
             <RowDefinition Height="330*"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="#FFCACAE6" Stroke="Black" Grid.RowSpan="2"/>
         <Label x:Name="lbProcedimento" Content="&gt; Cliente - Ficha Geral" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="310"/>
-        <Rectangle Fill="#FF7FBEE2" Margin="59,128,59,-126" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtSalvar_Click" Grid.Row="1"/>
+        <Rectangle Fill="#FF7FBEE2" Margin="0,0,59,-126" RadiusY="50.0" RadiusX="50.0" Stroke="Black" HorizontalAlignment="Right" Width="1154" Height="357" VerticalAlignment="Bottom"/>
+        <Button x:Name="btSalvar" Content="Salvar" Margin="0,0,145,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Click="BtSalvar_Click" Grid.Row="1" HorizontalAlignment="Right" Width="90"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click" Grid.Row="1"/>
         <Label x:Name="label" Content="Dados Gerais" Margin="585,155,553,171" FontSize="17" FontWeight="Bold" d:LayoutOverrides="Height"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="91,0,0,122" VerticalAlignment="Bottom"/>
@@ -38,19 +37,20 @@
         <TextBox x:Name="tbRg" Height="23" Margin="416,0,0,60" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="211"/>
         <TextBox x:Name="tbEmail" Height="23" Margin="134,0,0,29" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="493"/>
         <wpfTool:MaskedTextBox x:Name="tbCelular1" Mask="(00)00000-0000" Margin="155,0,0,0" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="101" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="17" VerticalAlignment="Bottom"/>
-        <wpfTool:MaskedTextBox x:Name="tbCelular2" Mask="(00)00000-0000" Margin="416,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="100" Height="17" VerticalAlignment="Bottom" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" RenderTransformOrigin="0.493,0.517"/>
+        <wpfTool:MaskedTextBox x:Name="tbCelular2" Mask="(00)00000-0000" Margin="416,0,0,0" TextWrapping="Wrap" Height="17" VerticalAlignment="Bottom" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" RenderTransformOrigin="0.493,0.517" HorizontalAlignment="Left" Width="100"/>
 
-        <TextBox x:Name="tbEndereco" Margin="155,5,0,0" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Width="472" Height="28" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBox x:Name="tbBairro" Height="23" Margin="137,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="396" Grid.Row="1"/>
+        <TextBox x:Name="tbEndereco" Margin="155,5,0,0" TextWrapping="Wrap" Text="" Height="28" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="472"/>
+        <TextBox x:Name="tbBairro" Height="23" Margin="137,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="396"/>
         <wpfTool:MaskedTextBox x:Name="tbUf" Mask=" >AA" Height="19" Margin="567,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="23" Grid.Row="1" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1"/>
         <TextBox x:Name="tbCidade" Height="23" Margin="143,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="222" Grid.Row="1"/>
-        <wpfTool:MaskedTextBox x:Name="tbCep" Mask="00000-000" Height="18" Margin="405,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="68" Grid.Row="1" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1"/>
-        
+        <wpfTool:MaskedTextBox x:Name="tbCep" Mask="00000-000" Height="18" Margin="405,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" HorizontalAlignment="Left" Width="68"/>
+
         <Label x:Name="label13" Content="OBS" HorizontalAlignment="Right" Margin="0,0,319,122" VerticalAlignment="Bottom" FontWeight="Bold"/>
-        <Rectangle Fill="White" HorizontalAlignment="Right" Margin="0,0,82,-95" Stroke="Black" Width="534" Height="212" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbObs" HorizontalAlignment="Right" Margin="0,0,82,-95" TextWrapping="Wrap" Text="" Width="534" Height="212" VerticalAlignment="Bottom"/>
+        <Rectangle Fill="White" Margin="0,0,82,-95" Stroke="Black" Height="212" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="534"/>
+        <TextBox x:Name="tbObs" Margin="0,0,82,-95" TextWrapping="Wrap" Text="" Height="212" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="534"/>
         <Label x:Name="label5_Copy" Content="Celular 1" HorizontalAlignment="Left" Margin="91,0,0,-13" Height="37" VerticalAlignment="Bottom"/>
         <Label x:Name="label5_Copy1" Content="Celular 2" HorizontalAlignment="Left" Margin="355,0,0,-13" Height="34" VerticalAlignment="Bottom"/>
         <Label x:Name="lbId" Content="ID" HorizontalAlignment="Left" Margin="94,0,0,148" VerticalAlignment="Bottom"/>
+        <Button x:Name="btAnamnese" Content="Anamnese" Margin="596,0,586,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Grid.Row="1" Click="BtAnamnese_Click"/>
     </Grid>
 </Window>
