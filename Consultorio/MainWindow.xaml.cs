@@ -41,7 +41,7 @@ namespace Consultorio
 
         private void BtEntrar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
+            OpcoesView opcoes = new OpcoesView();
             opcoes.Show();
             this.Close(); //para fechar
             //this.Hide(); //para esconder

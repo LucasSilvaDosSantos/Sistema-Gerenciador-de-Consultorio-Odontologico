@@ -17,51 +17,51 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para Opcoes.xaml
     /// </summary>
-    public partial class ViewOpcoes : Window
+    public partial class OpcoesView : Window
     {
-        public ViewOpcoes()
+        public OpcoesView()
         {
             InitializeComponent();
         }
 
         private void BtCadastroDeColaboradores_Click(object sender, RoutedEventArgs e)
         {
-            ViewCadastroDeColaboradores cadastroDeColaboradores = new ViewCadastroDeColaboradores();
+            CadastroDeColaboradoresView cadastroDeColaboradores = new CadastroDeColaboradoresView();
             cadastroDeColaboradores.Show();
             this.Close();
         }
 
         private void BtProdutos_Click(object sender, RoutedEventArgs e)
         {
-            ViewProduto produto = new ViewProduto();
+            ProdutoView produto = new ProdutoView();
             produto.Show();
             this.Close();
         }
 
         private void BtCadastroDeProduto_Click(object sender, RoutedEventArgs e)
         {
-            ViewProcedimento procedimentos = new ViewProcedimento();
+            ProcedimentoView procedimentos = new ProcedimentoView();
             procedimentos.Show();
             this.Close();
         }
 
         private void BtClientes_Click(object sender, RoutedEventArgs e)
         {
-            ViewListaDeClientes listaDeClientes = new ViewListaDeClientes();
+            ListaDeClientesView listaDeClientes = new ListaDeClientesView();
             listaDeClientes.Show();
             this.Close();
         }
 
         private void BtCadastroDeClientes_Click(object sender, RoutedEventArgs e)
         {
-            ViewCadastroDeClienteBase cadastroDeClienteBase = new ViewCadastroDeClienteBase();
+            CadastroDeClienteBaseView cadastroDeClienteBase = new CadastroDeClienteBaseView();
             cadastroDeClienteBase.Show();
             this.Close();
         }
 
         private void BtConsultas_Click(object sender, RoutedEventArgs e)
         {
-            ViewConsultas consultas = new ViewConsultas();
+            ConsultasView consultas = new ConsultasView();
             consultas.Show();
             this.Close();
         }

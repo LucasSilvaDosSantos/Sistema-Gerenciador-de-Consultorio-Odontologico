@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace Consultorio.View
 {
     /// <summary>
-    /// Lógica interna para Secretaria.xaml
+    /// Lógica interna para GestorDeEstoque.xaml
     /// </summary>
-    public partial class ViewSecretaria : Window
+    public partial class GestorDeEstoqueView : Window
     {
 
         public bool OrigemListaDeAtores { get; set; }
 
-        public ViewSecretaria()
+        public GestorDeEstoqueView()
         {
             InitializeComponent();
             tbId.IsEnabled = false;
@@ -33,7 +33,6 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
@@ -48,26 +47,18 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        public void IniciarComSecretaria(Secretaria secretaria)
+
+        public void IniciarComGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
         {
             tbId.IsEnabled = true;
-            CarregaDadosNaTela(secretaria);
+            CarregaDadosNaTela(gestorDeEstoque);
         }
 
         private void Voltar()
         {
-            if (OrigemListaDeAtores)
-            {
-                ViewListaDeColaboradores viewListaDeColaboradores = new ViewListaDeColaboradores();
-                viewListaDeColaboradores.Show();
-                this.Close();
-            }
-            else
-            {
-                ViewCadastroDeColaboradores viewColaboradores = new ViewCadastroDeColaboradores();
-                viewColaboradores.Show();
-                this.Close();
-            }
+            CadastroDeColaboradoresView colaboradores = new CadastroDeColaboradoresView();
+            colaboradores.Show();
+            this.Close();
         }
 
         private void SalvarUsuario()
@@ -84,39 +75,19 @@ namespace Consultorio.View
             }
             else
             {
-                Secretaria secretaria = PegaDadosDaTela();
-                string msg;
-                if (OrigemListaDeAtores)
-                {
-                    secretaria.Id = int.Parse(tbId.Text);
-                    msg = SecretariaViewModel.AlterarSecretaria(secretaria);
-                }
-                else
-                {
-                    msg = SecretariaViewModel.CadastroDeNovaSecretaria(secretaria);
-                }
+                GestorDeEstoque gestorDeEstoque = PegaDadosDaTela();
+                string msg = GestorDeEstoqueViewModel.CadastroDeNovoGestorDeEstoque(gestorDeEstoque);
                 MessageBox.Show(msg);
                 Voltar();
             }
         }
 
-        private Secretaria PegaDadosDaTela()
+        private GestorDeEstoque PegaDadosDaTela()
         {
             string senhaCod = AtoresViewModel.GerarHashMd5(pbSenha.Password.ToString());
-            Secretaria secretaria = new Secretaria(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod, 
-                VerificaCheckBox(cbEdicaoCliente.IsChecked), VerificaCheckBox(cbEdicaoSecretaria.IsChecked), VerificaCheckBox(cbEdicaoProduto.IsChecked), VerificaCheckBox(cbEdicaoGestoresDeEstoque.IsChecked));
+            GestorDeEstoque gestorDeEstoque = new GestorDeEstoque(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbLogin.Text, senhaCod);
 
-            return secretaria;
-        }
-
-        // verifica se os check box estão preenchidos
-        private bool VerificaCheckBox(bool? entrada)
-        {
-            if (entrada == true)
-            {
-                return true;
-            }
-            return false;
+            return gestorDeEstoque;
         }
 
         //Valida Campos Obrigatorios
@@ -134,10 +105,6 @@ namespace Consultorio.View
             if (tbCelular1.Text.Equals("(__)_____-____"))
             {
                 lista.Add("Celular 1");
-            }
-            if (tbCROSP.Text.Equals(""))
-            {
-                lista.Add("Crosp");
             }
             if (tbLogin.Text.Equals(""))
             {
@@ -175,16 +142,14 @@ namespace Consultorio.View
             return true;
         }
 
-        private void CarregaDadosNaTela(Secretaria secretaria)
+        private void CarregaDadosNaTela(GestorDeEstoque gestorDeEstoque)
         {
-            tbId.Text = secretaria.Id.ToString();
-            tbNome.Text = secretaria.Nome;
-            tbEmail.Text = secretaria.Email;
-            tbCelular1.Text = secretaria.Telefone1;
-            tbCelular2.Text = secretaria.Telefone2;
-            tbCROSP.Text = secretaria.Crosp;
-            tbLogin.Text = secretaria.Login;
-            //////////////////////////////////////////////////////////// falta os check box fazer com urgencia maxima 
+            tbId.Text = gestorDeEstoque.Id.ToString();
+            tbNome.Text = gestorDeEstoque.Nome;
+            tbEmail.Text = gestorDeEstoque.Email;
+            tbCelular1.Text = gestorDeEstoque.Telefone1;
+            tbCelular2.Text = gestorDeEstoque.Telefone2;
+            tbLogin.Text = gestorDeEstoque.Login;
         }
     }
 }

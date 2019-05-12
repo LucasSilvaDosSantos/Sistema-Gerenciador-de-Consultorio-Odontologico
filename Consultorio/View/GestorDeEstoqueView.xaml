@@ -1,4 +1,4 @@
-﻿<Window x:Class="Consultorio.View.ViewGestorDeEstoque"
+﻿<Window x:Class="Consultorio.View.GestorDeEstoqueView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

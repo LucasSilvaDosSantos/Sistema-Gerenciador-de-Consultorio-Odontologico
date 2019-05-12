@@ -1,6 +1,4 @@
-﻿using Consultorio.Data;
-using Consultorio.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,25 +15,20 @@ using System.Windows.Shapes;
 namespace Consultorio.View
 {
     /// <summary>
-    /// Lógica interna para ViewConsultas.xaml
+    /// Lógica interna para HistoricoDoCliente.xaml
     /// </summary>
-    public partial class ViewConsultas : Window
+    public partial class HistoricoDoClienteView : Window
     {
-        public ViewConsultas()
+        public HistoricoDoClienteView()
         {
             InitializeComponent();
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
+            OpcoesView opcoes = new OpcoesView();
             opcoes.Show();
             this.Close();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            dgConsultas.ItemsSource = ConsultasViewModel.ListaDeConsultas();
         }
     }
 }

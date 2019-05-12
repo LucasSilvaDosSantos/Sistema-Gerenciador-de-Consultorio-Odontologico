@@ -20,12 +20,12 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para Dentista.xaml
     /// </summary>
-    public partial class ViewDentista : Window
+    public partial class DentistaView : Window
     {
 
         public bool OrigemListaDeAtores { get; set; }
 
-        public ViewDentista()
+        public DentistaView()
         {
             InitializeComponent();
             tbId.IsEnabled = false;
@@ -59,13 +59,13 @@ namespace Consultorio.View
         {
             if (OrigemListaDeAtores)
             {
-                ViewListaDeColaboradores viewListaDeColaboradores = new ViewListaDeColaboradores();
+                ListaDeColaboradoresView viewListaDeColaboradores = new ListaDeColaboradoresView();
                 viewListaDeColaboradores.Show();
                 this.Close();
             }
             else
             {
-                ViewCadastroDeColaboradores viewColaboradores = new ViewCadastroDeColaboradores();
+                CadastroDeColaboradoresView viewColaboradores = new CadastroDeColaboradoresView();
                 viewColaboradores.Show();
                 this.Close();              
             }

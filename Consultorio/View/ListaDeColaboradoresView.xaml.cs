@@ -20,9 +20,9 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para ViewListaDeColaboradores.xaml
     /// </summary>
-    public partial class ViewListaDeColaboradores : Window
+    public partial class ListaDeColaboradoresView : Window
     {
-        public ViewListaDeColaboradores()
+        public ListaDeColaboradoresView()
         {
             InitializeComponent();
         }
@@ -33,7 +33,7 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewCadastroDeColaboradores cadastroDeColaboradores = new ViewCadastroDeColaboradores();
+            CadastroDeColaboradoresView cadastroDeColaboradores = new CadastroDeColaboradoresView();
             cadastroDeColaboradores.Show();
             this.Close();
         }
@@ -57,7 +57,7 @@ namespace Consultorio.View
 
                 if (ator.GetType().ToString() == "Consultorio.Model.Dentista")
                 {
-                    ViewDentista viewDentista = new ViewDentista();
+                    DentistaView viewDentista = new DentistaView();
                     viewDentista.OrigemListaDeAtores = true;
                     viewDentista.IniciarComDentista((Dentista)ator);
                     viewDentista.Show();
@@ -65,7 +65,7 @@ namespace Consultorio.View
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.Secretaria")
                 {
-                    ViewSecretaria viewSecretaria = new ViewSecretaria();
+                    SecretariaView viewSecretaria = new SecretariaView();
                     viewSecretaria.OrigemListaDeAtores = true;
                     viewSecretaria.IniciarComSecretaria((Secretaria)ator);
                     viewSecretaria.Show();
@@ -73,7 +73,7 @@ namespace Consultorio.View
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
                 {
-                    ViewGestorDeEstoque viewGestorDeEstoque = new ViewGestorDeEstoque();
+                    GestorDeEstoqueView viewGestorDeEstoque = new GestorDeEstoqueView();
                     viewGestorDeEstoque.OrigemListaDeAtores = true;
                     viewGestorDeEstoque.IniciarComGestorDeEstoque((GestorDeEstoque)ator);
                     viewGestorDeEstoque.Show();

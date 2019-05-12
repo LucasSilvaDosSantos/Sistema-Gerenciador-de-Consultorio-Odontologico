@@ -20,9 +20,9 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para ViewListaDeClientes.xaml
     /// </summary>
-    public partial class ViewListaDeClientes : Window
+    public partial class ListaDeClientesView : Window
     {
-        public ViewListaDeClientes()
+        public ListaDeClientesView()
         {
             InitializeComponent();
         }
@@ -34,7 +34,7 @@ namespace Consultorio.View
         // volta a tela anterior
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
+            OpcoesView opcoes = new OpcoesView();
             opcoes.Show();
             this.Close();
         }
@@ -52,7 +52,7 @@ namespace Consultorio.View
             {
                 Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
 
-                ViewCadastroDeClienteBase clienteBase = new ViewCadastroDeClienteBase();
+                CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
                 clienteBase.OrigemListaDeClientes = true;
                 clienteBase.IniciarComCliente(c);
                 clienteBase.Show();

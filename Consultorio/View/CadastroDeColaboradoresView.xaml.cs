@@ -17,44 +17,44 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para CadastroDeColaboradores.xaml
     /// </summary>
-    public partial class ViewCadastroDeColaboradores : Window
+    public partial class CadastroDeColaboradoresView : Window
     {
-        public ViewCadastroDeColaboradores()
+        public CadastroDeColaboradoresView()
         {
             InitializeComponent();
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
+            OpcoesView opcoes = new OpcoesView();
             opcoes.Show();
             this.Close();
         }
 
         private void BtMedicoDentista_Click(object sender, RoutedEventArgs e)
         {
-            ViewDentista dentista = new ViewDentista();
+            DentistaView dentista = new DentistaView();
             dentista.Show();
             this.Close();
         }
 
         private void BtSecretariaAuxiliar_Click(object sender, RoutedEventArgs e)
         {
-            ViewSecretaria secretaria = new ViewSecretaria();
+            SecretariaView secretaria = new SecretariaView();
             secretaria.Show();
             this.Close();
         }
 
         private void BtGestorDeEstoque_Click(object sender, RoutedEventArgs e)
         {
-            ViewGestorDeEstoque estoque = new ViewGestorDeEstoque();
+            GestorDeEstoqueView estoque = new GestorDeEstoqueView();
             estoque.Show();
             this.Close();
         }
 
         private void BtTodosOsColaboradores_Click(object sender, RoutedEventArgs e)
         {
-            ViewListaDeColaboradores colaboradores = new ViewListaDeColaboradores();
+            ListaDeColaboradoresView colaboradores = new ListaDeColaboradoresView();
             colaboradores.Show();
             this.Close();
         }

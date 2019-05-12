@@ -11,14 +11,14 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para CadastroDeClienteBase.xaml
     /// </summary>
-    public partial class ViewCadastroDeClienteBase : Window
+    public partial class CadastroDeClienteBaseView : Window
     {
 
         public Cliente Cliente { get; set; }
         public bool OrigemListaDeClientes { get; set; }
 
 
-        public ViewCadastroDeClienteBase()
+        public CadastroDeClienteBaseView()
         {
             InitializeComponent();
             tbId.IsEnabled = false;
@@ -33,13 +33,13 @@ namespace Consultorio.View
         {
             if (OrigemListaDeClientes)
             {
-                ViewListaDeClientes lista = new ViewListaDeClientes();
+                ListaDeClientesView lista = new ListaDeClientesView();
                 lista.Show();
                 this.Close();
             }
             else
             {
-                ViewOpcoes opcoes = new ViewOpcoes();
+                OpcoesView opcoes = new OpcoesView();
                 opcoes.Show();
                 this.Close();
             }       
@@ -59,7 +59,7 @@ namespace Consultorio.View
                         Cliente cliente = PegarDadosDosCampos();
                         cliente.Id = int.Parse(tbId.Text);
                         CadastroDeClienteBaseViewModel.AlterarCliente(cliente);
-                        ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese(cliente);
+                        CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
                         anamnese.Show();
                         this.Close();
                     }
@@ -85,7 +85,7 @@ namespace Consultorio.View
                     { 
                         Cliente cliente = PegarDadosDosCampos();
                         CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(cliente);
-                        ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese(cliente);
+                        CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
                         anamnese.Show();
                         this.Close();
                     }
@@ -109,7 +109,7 @@ namespace Consultorio.View
             {               
                 Cliente cliente = PegarDadosDosCampos();
                 cliente.Id = int.Parse(tbId.Text);
-                ViewCadastroDeClientesAnamnese anamnese = new ViewCadastroDeClientesAnamnese(cliente);
+                CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
                 anamnese.Show();
                 this.Close();
             }

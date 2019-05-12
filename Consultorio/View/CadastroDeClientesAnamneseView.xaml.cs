@@ -8,11 +8,11 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para CadastroDeClientesAnamnese.xaml
     /// </summary>
-    public partial class ViewCadastroDeClientesAnamnese : Window
+    public partial class CadastroDeClientesAnamneseView : Window
     {
         public Cliente Cliente { get; set; }
 
-        public ViewCadastroDeClientesAnamnese(Cliente c)
+        public CadastroDeClientesAnamneseView(Cliente c)
         {
             InitializeComponent();
             Cliente = c;
@@ -28,7 +28,7 @@ namespace Consultorio.View
             string confirmacao = MessageBox.Show("Deseja sair sem salvar?", "Confirmação", MessageBoxButton.OKCancel).ToString();
             if (confirmacao == "OK")
             {
-                ViewCadastroDeClienteBase cadastroCliente = new ViewCadastroDeClienteBase();
+                CadastroDeClienteBaseView cadastroCliente = new CadastroDeClienteBaseView();
                 cadastroCliente.IniciarComCliente(Cliente);
                 cadastroCliente.Show();
                 this.Close();
@@ -51,7 +51,7 @@ namespace Consultorio.View
                     CadastroDeClienteAnamneseViewModel.CadastrarAnamnese(Cliente, anamnese);
                     Cliente.Anamnese = anamnese;
                 }
-                ViewOpcoes opcoes = new ViewOpcoes();
+                OpcoesView opcoes = new OpcoesView();
                 opcoes.Show();
                 this.Close();
             }          

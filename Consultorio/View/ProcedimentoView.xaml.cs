@@ -21,9 +21,9 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para Procedimento.xaml
     /// </summary>
-    public partial class ViewProcedimento : Window
+    public partial class ProcedimentoView : Window
     {
-        public ViewProcedimento()
+        public ProcedimentoView()
         {
             InitializeComponent();
             AtivarBotoes(1);
@@ -36,7 +36,7 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
+            OpcoesView opcoes = new OpcoesView();
             opcoes.Show();
             this.Close();
         }

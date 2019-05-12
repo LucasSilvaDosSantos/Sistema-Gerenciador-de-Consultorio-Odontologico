@@ -13,9 +13,9 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para Produto.xaml
     /// </summary>
-    public partial class ViewProduto : Window
+    public partial class ProdutoView : Window
     {
-        public ViewProduto()
+        public ProdutoView()
         {
             InitializeComponent();
             InativarCampos();
@@ -29,7 +29,7 @@ namespace Consultorio.View
         // volta a tela anterior
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ViewOpcoes opcoes = new ViewOpcoes();
+            OpcoesView opcoes = new OpcoesView();
             opcoes.Show();
             this.Close();
         }

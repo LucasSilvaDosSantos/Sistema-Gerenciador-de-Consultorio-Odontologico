@@ -126,44 +126,44 @@
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProdutoViewModel.cs" />
     <Compile Include="ViewModel\SecretariaViewModel.cs" />
-    <Compile Include="View\ViewCadastroDeClienteBase.xaml.cs">
-      <DependentUpon>ViewCadastroDeClienteBase.xaml</DependentUpon>
+    <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
+      <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewCadastroDeClientesAnamnese.xaml.cs">
-      <DependentUpon>ViewCadastroDeClientesAnamnese.xaml</DependentUpon>
+    <Compile Include="View\CadastroDeClientesAnamneseView.xaml.cs">
+      <DependentUpon>CadastroDeClientesAnamneseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewCadastroDeColaboradores.xaml.cs">
-      <DependentUpon>ViewCadastroDeColaboradores.xaml</DependentUpon>
+    <Compile Include="View\CadastroDeColaboradoresView.xaml.cs">
+      <DependentUpon>CadastroDeColaboradoresView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewConsultas.xaml.cs">
-      <DependentUpon>ViewConsultas.xaml</DependentUpon>
+    <Compile Include="View\ConsultasView.xaml.cs">
+      <DependentUpon>ConsultasView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewDentista.xaml.cs">
-      <DependentUpon>ViewDentista.xaml</DependentUpon>
+    <Compile Include="View\DentistaView.xaml.cs">
+      <DependentUpon>DentistaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewGestorDeEstoque.xaml.cs">
-      <DependentUpon>ViewGestorDeEstoque.xaml</DependentUpon>
+    <Compile Include="View\GestorDeEstoqueView.xaml.cs">
+      <DependentUpon>GestorDeEstoqueView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewHistoricoDoCliente.xaml.cs">
-      <DependentUpon>ViewHistoricoDoCliente.xaml</DependentUpon>
+    <Compile Include="View\HistoricoDoClienteView.xaml.cs">
+      <DependentUpon>HistoricoDoClienteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewListaDeClientes.xaml.cs">
-      <DependentUpon>ViewListaDeClientes.xaml</DependentUpon>
+    <Compile Include="View\ListaDeClientesView.xaml.cs">
+      <DependentUpon>ListaDeClientesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewListaDeColaboradores.xaml.cs">
-      <DependentUpon>ViewListaDeColaboradores.xaml</DependentUpon>
+    <Compile Include="View\ListaDeColaboradoresView.xaml.cs">
+      <DependentUpon>ListaDeColaboradoresView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewOpcoes.xaml.cs">
-      <DependentUpon>ViewOpcoes.xaml</DependentUpon>
+    <Compile Include="View\OpcoesView.xaml.cs">
+      <DependentUpon>OpcoesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewProcedimento.xaml.cs">
-      <DependentUpon>ViewProcedimento.xaml</DependentUpon>
+    <Compile Include="View\ProcedimentoView.xaml.cs">
+      <DependentUpon>ProcedimentoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewProduto.xaml.cs">
-      <DependentUpon>ViewProduto.xaml</DependentUpon>
+    <Compile Include="View\ProdutoView.xaml.cs">
+      <DependentUpon>ProdutoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewSecretaria.xaml.cs">
-      <DependentUpon>ViewSecretaria.xaml</DependentUpon>
+    <Compile Include="View\SecretariaView.xaml.cs">
+      <DependentUpon>SecretariaView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -178,55 +178,55 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\ViewCadastroDeClienteBase.xaml">
+    <Page Include="View\CadastroDeClienteBaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewCadastroDeClientesAnamnese.xaml">
+    <Page Include="View\CadastroDeClientesAnamneseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewCadastroDeColaboradores.xaml">
+    <Page Include="View\CadastroDeColaboradoresView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewConsultas.xaml">
+    <Page Include="View\ConsultasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewDentista.xaml">
+    <Page Include="View\DentistaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewGestorDeEstoque.xaml">
+    <Page Include="View\GestorDeEstoqueView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewHistoricoDoCliente.xaml">
+    <Page Include="View\HistoricoDoClienteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewListaDeClientes.xaml">
+    <Page Include="View\ListaDeClientesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewListaDeColaboradores.xaml">
+    <Page Include="View\ListaDeColaboradoresView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewOpcoes.xaml">
+    <Page Include="View\OpcoesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewProcedimento.xaml">
+    <Page Include="View\ProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewProduto.xaml">
+    <Page Include="View\ProdutoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewSecretaria.xaml">
+    <Page Include="View\SecretariaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
