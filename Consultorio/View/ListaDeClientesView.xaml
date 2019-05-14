@@ -8,8 +8,10 @@
         Title="ViewListaDeClientes" Height="720" Width="1280"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
-        <Button x:Name="btBuscar" Content="Buscar" Margin="570,0,631,30" VerticalAlignment="Bottom" Height="24" FontSize="12"  Click="Buscar_Click"/>
-        <Button x:Name="btCancelar" Content="Cancelar" Margin="0,0,542,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="84"/>
+        <Button x:Name="btHistorico" Content="Histórico " Margin="461,0,0,30" VerticalAlignment="Bottom" Height="24" FontSize="12"   HorizontalAlignment="Left" Width="85" Click="BtHistorico_Click"/>
+        <Button x:Name="btAlterar" Content="Alterar" Margin="551,0,634,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Click="BtAlterar_Click"/>
+        <Button x:Name="btBuscar" Content="Buscar" Margin="0,0,558,30" VerticalAlignment="Bottom" Height="24" FontSize="12"  Click="Buscar_Click" HorizontalAlignment="Right" Width="71"/>
+        <Button x:Name="btCancelar" Content="Cancelar" Margin="0,0,469,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="84"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
         <Label x:Name="lbProcedimento" Content="&gt; Lista de Clientes" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="261"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
@@ -17,7 +19,8 @@
         <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="81,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="134,155,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbNome" HorizontalAlignment="Left" Height="24" Margin="177,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="451"/>
-        <DataGrid x:Name="dgListaDeClientes" Margin="59,200,61,119" IsReadOnly="True" SelectionMode="Single" MouseDoubleClick="DgListaDeClientes_MouseDoubleClick"/>
+        <DataGrid x:Name="dgListaDeClientes" Margin="59,200,61,119" IsReadOnly="True" SelectionMode="Single" SelectionChanged="DgListaDeClientes_SelectionChanged"/>
+        
 
     </Grid>
 </Window>

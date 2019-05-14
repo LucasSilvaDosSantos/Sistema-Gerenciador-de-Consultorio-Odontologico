@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Consultorio.Model
 {
@@ -23,6 +24,11 @@ namespace Consultorio.Model
         [Required]
         public double Valor { get; set; }
         public Cliente Cliente { get; set; }
+
+        public Pagamento()
+        {
+
+        }
 
         public Pagamento(Atores recebedor, string formaDePagamento, DateTime dataDePagamento, double valor, Cliente cliente)
         {

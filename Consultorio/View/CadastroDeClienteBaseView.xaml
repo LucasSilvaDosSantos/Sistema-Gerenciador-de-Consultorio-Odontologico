@@ -51,6 +51,6 @@
         <Label x:Name="label5_Copy" Content="Celular 1" HorizontalAlignment="Left" Margin="91,0,0,-13" Height="37" VerticalAlignment="Bottom"/>
         <Label x:Name="label5_Copy1" Content="Celular 2" HorizontalAlignment="Left" Margin="355,0,0,-13" Height="34" VerticalAlignment="Bottom"/>
         <Label x:Name="lbId" Content="ID" HorizontalAlignment="Left" Margin="94,0,0,148" VerticalAlignment="Bottom"/>
-        <Button x:Name="btAnamnese" Content="Anamnese" Margin="596,0,586,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Grid.Row="1" Click="BtAnamnese_Click"/>
+        <Button x:Name="btAnamnese" Content="Anamnese" Margin="581,0,573,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Grid.Row="1" Click="BtAnamnese_Click"/>
     </Grid>
 </Window>

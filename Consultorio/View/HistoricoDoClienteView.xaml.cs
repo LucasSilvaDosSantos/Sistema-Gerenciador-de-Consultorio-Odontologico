@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Consultorio.Model;
+using Consultorio.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +21,70 @@ namespace Consultorio.View
     /// </summary>
     public partial class HistoricoDoClienteView : Window
     {
+        
+
         public HistoricoDoClienteView()
         {
             InitializeComponent();
         }
 
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            OpcoesView opcoes = new OpcoesView();
-            opcoes.Show();
+            ListaDeClientesView listaDeClientes = new ListaDeClientesView();
+            listaDeClientes.Show();
             this.Close();
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+        public void IniciarCliente(Cliente cliente)
+        {
+            tbId.Text = cliente.Id.ToString();
+            tbNome.Text = cliente.Nome;
+
+            GerarDGPagamentos(cliente.Id);
+            GerarDGProcedimentos(cliente.Id);
+
+            var pagamentos = HistoricoDoClienteViewModel.ListarPagamentosPorCliente(cliente.Id);
+            var consultas = HistoricoDoClienteViewModel.ListarConsultaPorCliente(cliente.Id);
+
+            double somaPagamentos = 0;
+            double somaConsultas = 0;
+
+
+            foreach(var i in pagamentos)
+            {
+                somaPagamentos += i.Valor;
+            }
+
+            foreach(var i in consultas)
+            {
+                somaConsultas += i.Procedimento.Preco;
+            }
+
+            tbTotalDevido.Text = (somaConsultas - somaPagamentos).ToString();
+        }
+
+        private void GerarDGPagamentos(int id)
+        {
+            dgPagamentos.ItemsSource = HistoricoDoClienteViewModel.ListarPagamentosPorCliente(id);
+            (dgPagamentos.Columns[3] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
+        }
+
+        private void GerarDGProcedimentos(int id)
+        {
+            dgProcedimentos.ItemsSource = HistoricoDoClienteViewModel.ListarConsultaPorCliente(id);
+            (dgProcedimentos.Columns[1] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
+            (dgProcedimentos.Columns[2] as DataGridTextColumn).Binding.StringFormat = "HH:mm";
+            (dgProcedimentos.Columns[3] as DataGridTextColumn).Binding.StringFormat = "HH:mm";
         }
     }
 }

@@ -45,19 +45,10 @@ namespace Consultorio.View
             ListarTodosOsCliente();
         }
 
-        // duplo click no dataGrid deve abrir outra tela para a edição de cliente
-        private void DgListaDeClientes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DgListaDeClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgListaDeClientes.SelectedIndex >= 0)
-            {
-                Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
-
-                CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
-                clienteBase.OrigemListaDeClientes = true;
-                clienteBase.IniciarComCliente(c);
-                clienteBase.Show();
-                this.Close();
-            }       
+            btAlterar.IsEnabled = true;
+            btHistorico.IsEnabled = true;
         }
 
         // função do botao buscar
@@ -70,11 +61,23 @@ namespace Consultorio.View
             TratamentoDoGrid();
 
             btCancelar.IsEnabled = true;
+            btHistorico.IsEnabled = false;
+            btAlterar.IsEnabled = false;
         }
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
             ResetarTela();
+        }
+
+        private void BtAlterar_Click(object sender, RoutedEventArgs e)
+        {
+            AlterarCliente();
+        }
+
+        private void BtHistorico_Click(object sender, RoutedEventArgs e)
+        {
+            HistoricoCliente();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -92,14 +95,42 @@ namespace Consultorio.View
             dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.ExibirCliente();
             TratamentoDoGrid();
             btCancelar.IsEnabled = false;
+            btHistorico.IsEnabled = false;
+            btAlterar.IsEnabled = false;
         }
         
         private void ResetarTela()
         {
             ListarTodosOsCliente();
             tbId.Text = "";
-            tbNome.Text = "";
-            
+            tbNome.Text = "";          
+        }
+
+        private void AlterarCliente()
+        {
+            if (dgListaDeClientes.SelectedIndex >= 0)
+            {
+                Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
+
+                CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
+                clienteBase.OrigemListaDeClientes = true;
+                clienteBase.IniciarComCliente(c);
+                clienteBase.Show();
+                this.Close();
+            }
+        }
+
+        private void HistoricoCliente()
+        {
+            if (dgListaDeClientes.SelectedIndex >= 0)
+            {
+                Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
+
+                HistoricoDoClienteView historicoDoCliente = new HistoricoDoClienteView();
+                historicoDoCliente.IniciarCliente(c);
+                historicoDoCliente.Show();
+                this.Close();
+            }
         }
     }
 }

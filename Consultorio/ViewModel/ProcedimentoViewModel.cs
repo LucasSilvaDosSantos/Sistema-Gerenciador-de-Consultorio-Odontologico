@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Data.Entity;
 
 namespace Consultorio.ViewModel
 {
@@ -59,6 +60,7 @@ namespace Consultorio.ViewModel
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
                     var lista = ctx.Procedimentos.ToList();
+
                     return lista;
                 }
             }
@@ -102,11 +104,8 @@ namespace Consultorio.ViewModel
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    //lista = ctx.Produtos.Include("Produtos").ToList();
-
-                    //var teste = ctx.Produtos.Include(n => n.)
-
-                    //var teste = ctx.Procedimentos.Include("Produtos"); // não traz nenhuma informação de cliente 
+                    var ab = ctx.Procedimentos.Where(p => p.Id == procedimento.Id).First();
+                    lista = ctx.Produtos.Where(c => c.Procedimentos.).Include(c => c.Produtos).ToList();
 
                 }
             }
