@@ -27,5 +27,30 @@ namespace Consultorio.ViewModel
                 return ("error" + e.Message);
             }
         }
+
+        public static string AlterarGestor(GestorDeEstoque gestor)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    GestorDeEstoque g = ctx.GestoresDeEstoque.Find(gestor.Id);
+
+                    g.Nome = gestor.Nome;
+                    g.Email = gestor.Email;
+                    g.Telefone1 = gestor.Telefone1;
+                    g.Telefone2 = gestor.Telefone2;
+                    g.Login = gestor.Login;
+                    g.Senha = gestor.Senha;
+
+                    ctx.SaveChanges();
+                    return ("Salvo alterações de Gestor de Estoque");
+                }
+            }
+            catch (Exception e)
+            {
+                return ("error" + e.Message);
+            }
+        }
     }
 }

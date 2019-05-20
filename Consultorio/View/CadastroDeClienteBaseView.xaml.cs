@@ -22,6 +22,9 @@ namespace Consultorio.View
         {
             InitializeComponent();
             tbId.IsEnabled = false;
+
+            btAnamnese.Visibility = Visibility.Hidden;
+            
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -77,28 +80,29 @@ namespace Consultorio.View
             //quando a requisição vem da tela de cadastro
             else
             {
-                string confirmacao = MessageBox.Show("Deseja salvar novo paciente?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-                if (confirmacao == "OK")
+                List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
+                if (ListaDeCamposComErros.Count == 0)
                 {
-                    List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
-                    if (ListaDeCamposComErros.Count == 0)
-                    { 
+                    string confirmacao = MessageBox.Show("Deseja salvar novo paciente?", "Confirmação", MessageBoxButton.OKCancel).ToString();
+                    if (confirmacao == "OK")
+                    {
                         Cliente cliente = PegarDadosDosCampos();
                         CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(cliente);
                         CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
                         anamnese.Show();
                         this.Close();
                     }
-                    else
-                    {
-                        StringBuilder sb = new StringBuilder();
-                        foreach (string i in ValidarCamposObrigatorios())
-                        {
-                            sb.Append($"{i}, ");
-                        }
-                        MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
-                    }
                 }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (string i in ValidarCamposObrigatorios())
+                    {
+                        sb.Append($"{i}, ");
+                    }
+                    MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
+                }
+                
             }
         }
 
@@ -130,15 +134,15 @@ namespace Consultorio.View
                 lista.Add("Nome");
             }
             DateTime.TryParse(tbDataDeNascimento.Text, out DateTime data);
-            if (data.Equals("") || tbDataDeNascimento.Text == "")
+            if (data.Equals("") || tbDataDeNascimento.Text == "__/__/____")
             {
                 lista.Add("Data de Nascimento");
             }
-            if (tbCpf.Text == "")
+            if (tbCpf.Text == "___.___.___-__")
             {
                 lista.Add("CPF");
             }
-            if (tbCelular1.Text == "")
+            if (tbCelular1.Text == "(__)_____-____")
             {
                 lista.Add("Telefone 1");
             }
@@ -185,6 +189,8 @@ namespace Consultorio.View
             tbCidade.Text = cliente.Cidade;
             tbCep.Text = cliente.Cep;
             tbObs.Text = cliente.Obs;
+
+            btAnamnese.Visibility = Visibility.Visible;
 
             //cliente.Nascimento = DateTime.ParseExact(tbDataDeNascimento.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
         }        

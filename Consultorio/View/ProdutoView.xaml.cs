@@ -83,7 +83,7 @@ namespace Consultorio.View
                     p.Quantidade = int.Parse(tbQuantidade.Text);
                     p.Descricao = tbDescricao.Text;
 
-                    if (tbValidade.Text != "")
+                    if (tbValidade.Text != "__/__/____")
                     {
                         p.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                     }
@@ -154,6 +154,7 @@ namespace Consultorio.View
         // inicia um novo cadastro de produto
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
+            
             LimparCampos();
             AtivarCampos();
             BotoesAtivados(2);
@@ -164,6 +165,7 @@ namespace Consultorio.View
         // busca por um produto (id ou nome)
         private void Buscar_Click(object sender, RoutedEventArgs e)
         {
+            if (btBuscar.IsEnabled == true) { 
             if (tbId.Text == "" && tbNome.Text == "")
             {
                 InativarCampos();
@@ -183,6 +185,7 @@ namespace Consultorio.View
             }
             BotoesAtivados(1);
             btCancelar.IsEnabled = true;
+            }
         }
 
         private void TbId_TextChanged(object sender, TextChangedEventArgs e)
@@ -281,8 +284,6 @@ namespace Consultorio.View
 
             // rever isso para aplicar edição na tabela
             //dgProdutos.Columns[0].IsReadOnly = true;
-        }
-
-        
+        }       
     }
 }

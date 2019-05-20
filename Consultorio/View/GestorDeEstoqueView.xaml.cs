@@ -76,7 +76,16 @@ namespace Consultorio.View
             else
             {
                 GestorDeEstoque gestorDeEstoque = PegaDadosDaTela();
-                string msg = GestorDeEstoqueViewModel.CadastroDeNovoGestorDeEstoque(gestorDeEstoque);
+                string msg;
+                if (OrigemListaDeAtores)
+                {
+                    gestorDeEstoque.Id = int.Parse(tbId.Text);
+                    msg = GestorDeEstoqueViewModel.AlterarGestor(gestorDeEstoque);
+                }
+                else
+                {
+                    msg = GestorDeEstoqueViewModel.CadastroDeNovoGestorDeEstoque(gestorDeEstoque);
+                }
                 MessageBox.Show(msg);
                 Voltar();
             }
