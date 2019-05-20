@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="ViewListaDeClientes" Height="720" Width="1280"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Lista de clientes" Height="720" Width="1280"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
         <Button x:Name="btHistorico" Content="Histórico " Margin="461,0,0,30" VerticalAlignment="Bottom" Height="24" FontSize="12"   HorizontalAlignment="Left" Width="85" Click="BtHistorico_Click"/>

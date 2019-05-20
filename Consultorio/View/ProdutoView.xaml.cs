@@ -25,7 +25,12 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-
+        
+        //Inicia a tabela de produtos ja cadastrados
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            RecarregarGrid();
+        }
         // volta a tela anterior
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
@@ -108,13 +113,7 @@ namespace Consultorio.View
                 ErroDeCampoEmBranco();
             }
         }
-
-        //Inicia a tabela de produtos ja cadastrados
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            RecarregarGrid();
-        }
-
+ 
         // seleciona um porduto da tabela 
         private void DgProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -184,6 +183,16 @@ namespace Consultorio.View
             }
             BotoesAtivados(1);
             btCancelar.IsEnabled = true;
+        }
+
+        private void TbId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Buscar_Click(sender, e);
+        }
+
+        private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Buscar_Click(sender, e);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -268,6 +277,12 @@ namespace Consultorio.View
         {
             dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
             (dgProdutos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
+
+
+            // rever isso para aplicar edição na tabela
+            //dgProdutos.Columns[0].IsReadOnly = true;
         }
+
+        
     }
 }

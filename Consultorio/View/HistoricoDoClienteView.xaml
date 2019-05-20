@@ -32,8 +32,6 @@
                 <DataGridCheckBoxColumn Header="Realizada" Binding="{Binding Realizada}"/>
             </DataGrid.Columns>
         </DataGrid> 
-               
-
 
         <DataGrid x:Name="dgPagamentos" HorizontalAlignment="Right" Margin="0,177,57,0" Width="557" Height="163" VerticalAlignment="Top" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>

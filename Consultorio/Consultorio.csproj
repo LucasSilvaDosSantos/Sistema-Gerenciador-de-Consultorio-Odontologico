@@ -123,6 +123,7 @@
     <Compile Include="ViewModel\DentistaViewModel.cs" />
     <Compile Include="ViewModel\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\HistoricoDoClienteViewModel.cs" />
+    <Compile Include="ViewModel\ListaDeClienteParaConsultaViewModel.cs" />
     <Compile Include="ViewModel\ListaDeClienteViewModel.cs" />
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProdutoViewModel.cs" />
@@ -147,6 +148,9 @@
     </Compile>
     <Compile Include="View\HistoricoDoClienteView.xaml.cs">
       <DependentUpon>HistoricoDoClienteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListaDeClientesParaConsultaView.xaml.cs">
+      <DependentUpon>ListaDeClientesParaConsultaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ListaDeClientesView.xaml.cs">
       <DependentUpon>ListaDeClientesView.xaml</DependentUpon>
@@ -204,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HistoricoDoClienteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListaDeClientesParaConsultaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

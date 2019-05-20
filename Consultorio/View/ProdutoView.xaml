@@ -12,11 +12,15 @@
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
         <Label x:Name="lbDentista" Content="&gt; Produto" Margin="56,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="220"/>
         <Rectangle Fill="#FF7FBEE2" Margin="56,128,50,78" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
+        
         <DataGrid x:Name="dgProdutos" Margin="78,172,70,243" IsReadOnly="True" SelectionMode="Single" SelectionChanged="DgProdutos_SelectionChanged" />
+        
         <Label x:Name="label" Content="ID" Margin="0,0,604,212" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="21"/>
-        <TextBox x:Name="tbId" HorizontalAlignment="Right" Height="22" Margin="0,0,559,216" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="40" IsReadOnly="True"/>
+        
+        <TextBox x:Name="tbId" HorizontalAlignment="Right" Height="22" Margin="0,0,559,216" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="40" IsReadOnly="True" TextChanged="TbId_TextChanged" />
+        
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="78,0,0,186" VerticalAlignment="Bottom" Width="43"/>
-        <TextBox x:Name="tbNome" Height="23" Margin="121,0,486,186" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbNome" Height="23" Margin="121,0,486,186" TextWrapping="Wrap" VerticalAlignment="Bottom" TextChanged="TbNome_TextChanged" />
         <Label x:Name="label2" Content="Quantidade" Margin="0,0,405,181" VerticalAlignment="Bottom" RenderTransformOrigin="0.25,0.577" HorizontalAlignment="Right" Width="81"/>
         <TextBox x:Name="tbQuantidade" Height="23" Margin="0,0,325,186" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
         <Label x:Name="label3" Content="Validade" HorizontalAlignment="Right" Margin="0,0,267,181" VerticalAlignment="Bottom" Width="58"/>
