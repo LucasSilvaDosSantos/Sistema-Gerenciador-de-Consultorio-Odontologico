@@ -5,13 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Lista de clientes" Height="720" Width="1280" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Background="#FFCACAE6" FontSize="16">
+        Title="Lista de clientes" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Background="#FFCACAE6">
     <Grid>
-        <Label x:Name="lblista" Content="&gt; Selecione o cliente" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="302"/>
+        <Rectangle Fill="#FF7FBEE2" Margin="35,17,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="334"/>
+        <Label x:Name="lblista" Content="&gt; Selecione o cliente" Margin="59,23,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="302"/>
         <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,257,19" VerticalAlignment="Bottom" Width="110" Height="35" FontSize="16" Click="BtCancelar_Click"/>
         <Button x:Name="btSelecionar" Content="Selecionar" Margin="576,0,567,19" VerticalAlignment="Bottom" Height="35" FontSize="16" Click="BtSelecionar_Click"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,95,35,73" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-        <DataGrid x:Name="dgListaDeClientes" Margin="59,140,61,103" IsReadOnly="True" SelectionMode="Single" SelectionChanged="DgListaDeClientes_SelectionChanged" MouseDoubleClick="DgListaDeClientes_MouseDoubleClick"/>
+
+        <DataGrid x:Name="dgListaDeClientes" Margin="59,140,61,103" IsReadOnly="True" SelectionMode="Single" SelectionChanged="DgListaDeClientes_SelectionChanged" FontSize="16" MouseDoubleClick="DgListaDeClientes_MouseDoubleClick">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+
         <Label x:Name="label" Content="ID" HorizontalAlignment="Left" Margin="73,104,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="30" Margin="103,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" TextChanged="TbId_TextChanged"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="156,103,0,0" VerticalAlignment="Top"/>

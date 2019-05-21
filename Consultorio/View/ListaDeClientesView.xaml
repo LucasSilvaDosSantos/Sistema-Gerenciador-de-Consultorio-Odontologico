@@ -5,22 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Lista de clientes" Height="720" Width="1280"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Lista de clientes" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
-        <Button x:Name="btHistorico" Content="Histórico " Margin="461,0,0,30" VerticalAlignment="Bottom" Height="24" FontSize="12"   HorizontalAlignment="Left" Width="85" Click="BtHistorico_Click"/>
-        <Button x:Name="btAlterar" Content="Alterar" Margin="551,0,634,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Click="BtAlterar_Click"/>
-        <Button x:Name="btBuscar" Content="Buscar" Margin="0,0,558,30" VerticalAlignment="Bottom" Height="24" FontSize="12"  Click="Buscar_Click" HorizontalAlignment="Right" Width="71"/>
-        <Button x:Name="btCancelar" Content="Cancelar" Margin="0,0,469,30" VerticalAlignment="Bottom" Height="24" FontSize="12" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="84"/>
-        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
+        <Button x:Name="btHistorico" Content="Histórico " Margin="448,0,0,30" VerticalAlignment="Bottom" Height="35" HorizontalAlignment="Left" Width="98" Click="BtHistorico_Click"/>
+        <Button x:Name="btAlterar" Content="Alterar" Margin="551,0,634,30" VerticalAlignment="Bottom" Height="35" Click="BtAlterar_Click"/>
+        <Button x:Name="btBuscar" Content="Buscar" Margin="0,0,541,30" VerticalAlignment="Bottom" Height="35" Click="Buscar_Click" HorizontalAlignment="Right" Width="88"/>
+        <Button x:Name="btCancelar" Content="Cancelar" Margin="0,0,438,30" VerticalAlignment="Bottom" Height="35" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="98"/>
+        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click"/>
+        <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="302"/>
+
         <Label x:Name="lbProcedimento" Content="&gt; Lista de Clientes" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="261"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
         <Label x:Name="label" Content="ID" HorizontalAlignment="Left" Margin="59,155,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="81,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48"/>
-        <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="134,155,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNome" HorizontalAlignment="Left" Height="24" Margin="177,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="451"/>
-        <DataGrid x:Name="dgListaDeClientes" Margin="59,200,61,119" IsReadOnly="True" SelectionMode="Single" SelectionChanged="DgListaDeClientes_SelectionChanged"/>
-        
+        <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="89,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48"/>
+        <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="142,155,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="200,155,621,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgListaDeClientes" Margin="59,200,61,119" IsReadOnly="True" SelectionMode="Single" FontSize="16" SelectionChanged="DgListaDeClientes_SelectionChanged">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+
 
     </Grid>
 </Window>

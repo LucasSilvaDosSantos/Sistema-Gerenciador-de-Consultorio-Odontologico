@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio"
         mc:Ignorable="d"
-        Title="Login" Height="720" Width="1280" MinHeight="720" MinWidth="1280" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen">
     <Window.BindingGroup>
         <BindingGroup/>
     </Window.BindingGroup>
@@ -15,13 +15,13 @@
 
         <Rectangle Fill="#FF7FBEE2" Margin="470,102,470,134" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
 
-        <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Left" Margin="510,0,0,296" VerticalAlignment="Bottom" RenderTransformOrigin="0.667,-0.308"/>
-        <TextBox x:Name="boxlogin" Margin="557,0,516,296" TextWrapping="Wrap" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Left" Margin="503,0,0,296" VerticalAlignment="Bottom" RenderTransformOrigin="0.667,-0.308"/>
+        <TextBox x:Name="boxlogin" Padding="0, -1, 0, 0" Margin="557,0,516,296" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom"/>
 
-        <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Left" Margin="510,0,0,250" VerticalAlignment="Bottom"/>
-        <PasswordBox x:Name="boxSenha" Margin="557,0,516,255" VerticalAlignment="Bottom" Height="21"/>
+        <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Left" Margin="499,0,0,255" VerticalAlignment="Bottom"/>
+        <PasswordBox x:Name="boxSenha" Padding="0, -1, 0, 0" Margin="557,0,516,255" VerticalAlignment="Bottom" Height="31"/>
 
-        <Button x:Name="btEntrar" Content="Entrar" Margin="606,0,592,205" VerticalAlignment="Bottom" Click="BtEntrar_Click"/>
+        <Button x:Name="btEntrar" Content="Entrar" Margin="606,0,592,205" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
 
     </Grid>
 </Window>

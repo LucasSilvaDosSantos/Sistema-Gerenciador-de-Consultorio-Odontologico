@@ -6,7 +6,7 @@
         xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Dentista" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+        Title="Dentista" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Margin="0,0,-3,0" Stroke="Black"/>
 
@@ -14,40 +14,41 @@
 
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,0,299" Stroke="Black" HorizontalAlignment="Left" Width="588" RadiusY="50.0" RadiusX="50.0"/>
 
+        <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="302"/>
         <Label x:Name="lbDentista" Content="&gt;Médico Dentista" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="387"/>
         <Label x:Name="label" Content="Dados Pessoais" HorizontalAlignment="Left" Margin="255,137,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
 
-        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="84,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" IsReadOnly="True"/>
+        <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="88,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" IsReadOnly="True"/>
         <Label x:Name="label1" Content="Id" HorizontalAlignment="Left" Margin="59,137,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="lbNome" Content="Nome" HorizontalAlignment="Left" Margin="59,208,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNome" HorizontalAlignment="Left" Height="23" Margin="120,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="28" Margin="136,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
 
         <Label x:Name="lbEmail" Content="Email" HorizontalAlignment="Left" Margin="59,236,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="120,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <TextBox x:Name="tbEmail" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="136,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
 
         <Label x:Name="lbCelular1" Content="Celular 1" HorizontalAlignment="Left" Margin="59,267,0,0" VerticalAlignment="Top"/>
-        <wpfTool:MaskedTextBox x:Name="tbCelular1" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="23" Margin="120,266,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="105"/>
+        <wpfTool:MaskedTextBox x:Name="tbCelular1" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="26" Margin="136,271,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="120"/>
 
         <Label x:Name="lbCelular2" Content="Celular 2" HorizontalAlignment="Left" Margin="59,298,0,0" VerticalAlignment="Top"/>
-        <wpfTool:MaskedTextBox x:Name="tbCelular2" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="23" Margin="120,297,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="105"/>
+        <wpfTool:MaskedTextBox x:Name="tbCelular2" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="26" Margin="136,302,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="120"/>
 
         <Label x:Name="lbCROSP" Content="CROSP" HorizontalAlignment="Left" Margin="59,329,0,324"/>
-        <TextBox x:Name="tbCROSP" HorizontalAlignment="Left" Margin="120,325,0,329" TextWrapping="Wrap" Width="245" RenderTransformOrigin="0.501,0.474"/>
+        <TextBox x:Name="tbCROSP" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Margin="136,329,0,324" TextWrapping="Wrap" Width="229" RenderTransformOrigin="0.501,0.474"/>
 
         <Label x:Name="lbDadosParaLogin" Content="Dados para Login" HorizontalAlignment="Right" Margin="0,137,260,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
 
         <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Right" Margin="0,236,561,0" VerticalAlignment="Top" RenderTransformOrigin="-0.231,0.538"/>
-        <TextBox x:Name="tbLogin" HorizontalAlignment="Right" Height="23" Margin="0,236,65,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423"/>
+        <TextBox x:Name="tbLogin" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Height="30" Margin="0,236,65,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="412"/>
 
         <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Right" Margin="0,267,558,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="pbSenha" HorizontalAlignment="Right" Margin="0,264,65,0" VerticalAlignment="Top" Width="423" />
+        <PasswordBox x:Name="pbSenha" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,267,65,0" VerticalAlignment="Top" Width="412" Height="31" />
 
-        <Label x:Name="lbDigiteNovamente" Content="Digite Novamente" HorizontalAlignment="Right" Margin="0,298,493,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
-        <PasswordBox x:Name="pbSenhaConfirma" HorizontalAlignment="Right" Margin="0,294,65,0" VerticalAlignment="Top" Width="423"/>
+        <Label x:Name="lbDigiteNovamente" Content="Digite Novamente" HorizontalAlignment="Right" Margin="0,298,482,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+        <PasswordBox x:Name="pbSenhaConfirma" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,298,65,0" VerticalAlignment="Top" Width="412" Height="31"/>
 
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtSalvar_Click"/>
-        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtSalvar_Click"/>
+        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35"  Click="BtVoltar_Click"/>
 
     </Grid>
 </Window>

@@ -5,22 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="HistoricoDoCliente"  Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+        Title="HistoricoDoCliente"  Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
+        <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="360"/>
         <Label x:Name="lbProcedimento" Content="&gt; Histórico do Cliente" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="355"/>
 
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
         <Label x:Name="label" Content="Cliente ID" HorizontalAlignment="Left" Margin="59,146,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="179,146,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="201,146,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Histórico de Pagamento" HorizontalAlignment="Right" Margin="0,146,244,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Procedimentos Agendados e realizados" HorizontalAlignment="Left" Margin="211,177,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="Total Devido" Margin="554,0,630,99" VerticalAlignment="Bottom"/>
+        <Label x:Name="label4" Content="Total Devido" Margin="539,0,625,99" VerticalAlignment="Bottom"/>
 
-        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="121,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" IsReadOnly="True"/>
-        <TextBox x:Name="tbNome" HorizontalAlignment="Left" Height="23" Margin="222,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="405" IsReadOnly="True"/>
+        <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="143,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" IsReadOnly="True"/>
+        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="259,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Left" Width="368"/>
 
-        <DataGrid x:Name="dgProcedimentos" HorizontalAlignment="Left" Margin="59,208,0,151" Width="568" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgProcedimentos" HorizontalAlignment="Left" Margin="59,208,0,151" Width="568" IsReadOnly="True" FontSize="16" AutoGenerateColumns="False">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Data" Binding="{Binding Inicio}" />
@@ -31,9 +37,14 @@
                 <DataGridTextColumn Header="Dente" Binding="{Binding Dente}" />
                 <DataGridCheckBoxColumn Header="Realizada" Binding="{Binding Realizada}"/>
             </DataGrid.Columns>
-        </DataGrid> 
+        </DataGrid>
 
-        <DataGrid x:Name="dgPagamentos" HorizontalAlignment="Right" Margin="0,177,57,0" Width="557" Height="163" VerticalAlignment="Top" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgPagamentos" HorizontalAlignment="Right" Margin="0,177,57,0" Width="557" Height="163" FontSize="16" VerticalAlignment="Top" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Recebedor" Binding="{Binding Recebedor.Nome}" />
@@ -42,14 +53,14 @@
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
             </DataGrid.Columns>
         </DataGrid>
-                  
 
 
-        <TextBox x:Name="tbTotalDevido" HorizontalAlignment="Right" Margin="0,0,505,107" TextWrapping="Wrap" Text="" Width="120" Height="23" VerticalAlignment="Bottom" IsReadOnly="True"/>
+
+        <TextBox x:Name="tbTotalDevido" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,0,505,99" TextWrapping="Wrap" Text="" Width="120" Height="31" VerticalAlignment="Bottom" IsReadOnly="True"/>
         <DataGrid x:Name="dataGrid2" HorizontalAlignment="Right" Height="173" Margin="0,0,57,151" VerticalAlignment="Bottom" Width="557"/>
 
-        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12" Click="BtVoltar_Click"/>
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="24" FontSize="12"/>
+        <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click"/>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="35" />
         <Label x:Name="label5" Content="em breve" HorizontalAlignment="Right" Margin="0,0,281,221" VerticalAlignment="Bottom" FontSize="25"/>
 
     </Grid>
