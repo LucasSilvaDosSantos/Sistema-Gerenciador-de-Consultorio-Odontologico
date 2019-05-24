@@ -1,5 +1,5 @@
 ﻿using Consultorio.Model;
-using Consultorio.ViewModel;
+using Consultorio.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,8 +53,8 @@ namespace Consultorio.View
             GerarDGPagamentos(cliente.Id);
             GerarDGProcedimentos(cliente.Id);
 
-            var pagamentos = HistoricoDoClienteViewModel.ListarPagamentosPorCliente(cliente.Id);
-            var consultas = HistoricoDoClienteViewModel.ListarConsultaPorCliente(cliente.Id);
+            var pagamentos = HistoricoDoClienteData.ListarPagamentosPorCliente(cliente.Id);
+            var consultas = HistoricoDoClienteData.ListarConsultaPorCliente(cliente.Id);
 
             double somaPagamentos = 0;
             double somaConsultas = 0;
@@ -75,13 +75,13 @@ namespace Consultorio.View
 
         private void GerarDGPagamentos(int id)
         {
-            dgPagamentos.ItemsSource = HistoricoDoClienteViewModel.ListarPagamentosPorCliente(id);
+            dgPagamentos.ItemsSource = HistoricoDoClienteData.ListarPagamentosPorCliente(id);
             (dgPagamentos.Columns[3] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
         }
 
         private void GerarDGProcedimentos(int id)
         {
-            dgProcedimentos.ItemsSource = HistoricoDoClienteViewModel.ListarConsultaPorCliente(id);
+            dgProcedimentos.ItemsSource = HistoricoDoClienteData.ListarConsultaPorCliente(id);
             (dgProcedimentos.Columns[1] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
             (dgProcedimentos.Columns[2] as DataGridTextColumn).Binding.StringFormat = "HH:mm";
             (dgProcedimentos.Columns[3] as DataGridTextColumn).Binding.StringFormat = "HH:mm";

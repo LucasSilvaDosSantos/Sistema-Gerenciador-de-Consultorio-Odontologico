@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class HistoricoDoClienteViewModel
+    class HistoricoDoClienteData
     {
         public static List<Pagamento> ListarPagamentosPorCliente(int id)
         {

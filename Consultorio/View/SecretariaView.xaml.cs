@@ -1,5 +1,5 @@
 ﻿using Consultorio.Model;
-using Consultorio.ViewModel;
+using Consultorio.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,11 +89,11 @@ namespace Consultorio.View
                 if (OrigemListaDeAtores)
                 {
                     secretaria.Id = int.Parse(tbId.Text);
-                    msg = SecretariaViewModel.AlterarSecretaria(secretaria);
+                    msg = SecretariaData.AlterarSecretaria(secretaria);
                 }
                 else
                 {
-                    msg = SecretariaViewModel.CadastroDeNovaSecretaria(secretaria);
+                    msg = SecretariaData.CadastroDeNovaSecretaria(secretaria);
                 }
                 MessageBox.Show(msg);
                 Voltar();
@@ -102,7 +102,7 @@ namespace Consultorio.View
 
         private Secretaria PegaDadosDaTela()
         {
-            string senhaCod = AtoresViewModel.GerarHashMd5(pbSenha.Password.ToString());
+            string senhaCod = AtoresData.GerarHashMd5(pbSenha.Password.ToString());
             Secretaria secretaria = new Secretaria(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod, 
                 VerificaCheckBox(cbEdicaoCliente.IsChecked), VerificaCheckBox(cbEdicaoSecretaria.IsChecked), VerificaCheckBox(cbEdicaoProduto.IsChecked), VerificaCheckBox(cbEdicaoGestoresDeEstoque.IsChecked));
 

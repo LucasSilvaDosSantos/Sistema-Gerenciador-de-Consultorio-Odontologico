@@ -1,6 +1,5 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,7 +70,7 @@ namespace Consultorio.View
                 //verifica se o id é um int
                 int.TryParse(tbId.Text, out int id);
 
-                dgListaProcedimentos.ItemsSource = ProcedimentoViewModel.BuscarProcedimento(id, tbNome.Text);
+                dgListaProcedimentos.ItemsSource = ProcedimentoData.BuscarProcedimento(id, tbNome.Text);
                 TratamentoDataGridProcedimentos();
             }
             AtivarBotoes(2);
@@ -105,7 +104,7 @@ namespace Consultorio.View
                     string confirmacao = MessageBox.Show("Deseja salvar novo procedimento?", "Confirmação", MessageBoxButton.OKCancel).ToString();
                     if (confirmacao.Equals("OK"))
                     {
-                        msg = ProcedimentoViewModel.CadastroDeNovoProcedimento(PegarDadosDosCampos());
+                        msg = ProcedimentoData.CadastroDeNovoProcedimento(PegarDadosDosCampos());
                         MessageBox.Show(msg);
                         ResetarTela();
                     }
@@ -121,7 +120,7 @@ namespace Consultorio.View
                     {
                         Procedimento procedimento = PegarDadosDosCampos();
                         procedimento.Id = int.Parse(tbId.Text);
-                        msg = ProcedimentoViewModel.AlterarProcedimento(procedimento);
+                        msg = ProcedimentoData.AlterarProcedimento(procedimento);
                         MessageBox.Show(msg);
                         ResetarTela();
                     }
@@ -171,7 +170,7 @@ namespace Consultorio.View
 
         private void CarregarDataGridProcedimentos()
         {
-            dgListaProcedimentos.ItemsSource = ProcedimentoViewModel.ListarTodosProcedimentos();
+            dgListaProcedimentos.ItemsSource = ProcedimentoData.ListarTodosProcedimentos();
             TratamentoDataGridProcedimentos();
 
             //Tentativas de tratamento de valor monetario que não tiveram sucesso

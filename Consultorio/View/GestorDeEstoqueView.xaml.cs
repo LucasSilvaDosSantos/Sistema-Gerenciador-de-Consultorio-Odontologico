@@ -1,18 +1,8 @@
-﻿using Consultorio.Model;
-using Consultorio.ViewModel;
-using System;
+﻿using Consultorio.Data;
+using Consultorio.Model;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Consultorio.View
 {
@@ -80,11 +70,11 @@ namespace Consultorio.View
                 if (OrigemListaDeAtores)
                 {
                     gestorDeEstoque.Id = int.Parse(tbId.Text);
-                    msg = GestorDeEstoqueViewModel.AlterarGestor(gestorDeEstoque);
+                    msg = GestorDeEstoqueData.AlterarGestor(gestorDeEstoque);
                 }
                 else
                 {
-                    msg = GestorDeEstoqueViewModel.CadastroDeNovoGestorDeEstoque(gestorDeEstoque);
+                    msg = GestorDeEstoqueData.CadastroDeNovoGestorDeEstoque(gestorDeEstoque);
                 }
                 MessageBox.Show(msg);
                 Voltar();
@@ -93,7 +83,7 @@ namespace Consultorio.View
 
         private GestorDeEstoque PegaDadosDaTela()
         {
-            string senhaCod = AtoresViewModel.GerarHashMd5(pbSenha.Password.ToString());
+            string senhaCod = AtoresData.GerarHashMd5(pbSenha.Password.ToString());
             GestorDeEstoque gestorDeEstoque = new GestorDeEstoque(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbLogin.Text, senhaCod);
 
             return gestorDeEstoque;

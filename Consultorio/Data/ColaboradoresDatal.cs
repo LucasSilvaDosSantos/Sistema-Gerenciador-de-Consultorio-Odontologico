@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class ColaboradoresViewModel
+    class ColaboradoresData
     {
         public static List<Atores> ListarAtores()
         {

@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
     //-------------------------------------------*****Classe para interagir entre model e view****-------------------------------------------------------------
-    class ProdutoViewModel
+    class ProdutoData
     {
         // Exibe todos os prdutos cadastrados no banco de dados 
         public static List<Produto> ExibirProdutos()

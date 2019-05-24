@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Data.Entity;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class ProcedimentoViewModel
+    class ProcedimentoData
     {
         public static string CadastroDeNovoProcedimento(Procedimento procedimento)
         {

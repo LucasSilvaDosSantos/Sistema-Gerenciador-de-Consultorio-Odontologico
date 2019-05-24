@@ -4,9 +4,9 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class CadastroDeClienteAnamneseViewModel
+    class CadastroDeClienteAnamneseData
     {
         public static void CadastrarAnamnese(Cliente clienteEntrada, Anamnese anamnese) {
             try

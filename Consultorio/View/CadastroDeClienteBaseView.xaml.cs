@@ -1,5 +1,5 @@
-﻿using Consultorio.Model;
-using Consultorio.ViewModel;
+﻿using Consultorio.Data;
+using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -61,7 +61,7 @@ namespace Consultorio.View
                     {
                         Cliente cliente = PegarDadosDosCampos();
                         cliente.Id = int.Parse(tbId.Text);
-                        CadastroDeClienteBaseViewModel.AlterarCliente(cliente);
+                        CadastroDeClienteBaseData.AlterarCliente(cliente);
                         CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
                         anamnese.Show();
                         this.Close();
@@ -87,7 +87,7 @@ namespace Consultorio.View
                     if (confirmacao == "OK")
                     {
                         Cliente cliente = PegarDadosDosCampos();
-                        CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(cliente);
+                        CadastroDeClienteBaseData.CadastroDeNovoCliente(cliente);
                         CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
                         anamnese.Show();
                         this.Close();

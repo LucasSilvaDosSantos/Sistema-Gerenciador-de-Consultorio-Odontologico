@@ -27,6 +27,9 @@ namespace Consultorio.Model
 
         public virtual ICollection<Procedimento> Procedimentos { get; set; }
 
+        [Required]
+        public bool Ativo { get; set; }
+
         public Produto()
         {
         }

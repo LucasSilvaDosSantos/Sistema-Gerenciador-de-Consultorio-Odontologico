@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class ListaDeClienteViewModel
+    class ListaDeClienteData
     {
         // lista todos os clientes do banco
         public static List<Cliente> ExibirCliente()

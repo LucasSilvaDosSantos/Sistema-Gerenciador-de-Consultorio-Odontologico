@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class CadastroDeClienteBaseViewModel
+    class CadastroDeClienteBaseData
     {
         //Cadastrar Novo Cliente
         public static void CadastroDeNovoCliente(Cliente cliente)

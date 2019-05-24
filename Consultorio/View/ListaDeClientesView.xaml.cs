@@ -1,6 +1,5 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +56,7 @@ namespace Consultorio.View
             //verifica se o id é um int
             int.TryParse(tbId.Text, out int id);
 
-            dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.BuscarCliente(id, tbNome.Text);
+            dgListaDeClientes.ItemsSource = ListaDeClienteData.BuscarCliente(id, tbNome.Text);
             TratamentoDoGrid();
 
             btCancelar.IsEnabled = true;
@@ -92,7 +91,7 @@ namespace Consultorio.View
 
         private void ListarTodosOsCliente()
         {
-            dgListaDeClientes.ItemsSource = ListaDeClienteViewModel.ExibirCliente();
+            dgListaDeClientes.ItemsSource = ListaDeClienteData.ExibirCliente();
             TratamentoDoGrid();
             btCancelar.IsEnabled = false;
             btHistorico.IsEnabled = false;

@@ -1,10 +1,10 @@
-﻿using Consultorio.ViewModel;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Collections.Generic;
 using Consultorio.Model;
 using System.Text;
+using Consultorio.Data;
 
 namespace Consultorio.View
 {
@@ -102,7 +102,7 @@ namespace Consultorio.View
                 cbRealizada.IsChecked = c.Realizada;
                 tbCliente.Text = c.Cliente.Nome;
 
-                foreach (var a in ConsultasViewModel.ListarTodosOsProcedimentos())
+                foreach (var a in ConsultasData.ListarTodosOsProcedimentos())
                 {
                     comboBoxProcedimento.Items.Add(a);
                     if (c.Procedimento.Id == a.Id)
@@ -127,7 +127,7 @@ namespace Consultorio.View
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var a in ConsultasViewModel.ListarTodosOsProcedimentos())
+            foreach (var a in ConsultasData.ListarTodosOsProcedimentos())
             {
                 comboBoxProcedimento.Items.Add(a);
             }
@@ -158,7 +158,7 @@ namespace Consultorio.View
             {
                 Consulta consulta = PegarDadosDaTela();
 
-                string msg = ConsultasViewModel.AlterarConsulta(consulta);
+                string msg = ConsultasData.AlterarConsulta(consulta);
                 MessageBox.Show(msg, "Aviso");
                 LimparTela();
                 CamposAtivados(1);
@@ -177,7 +177,7 @@ namespace Consultorio.View
             {
                 Consulta c = PegarDadosDaTela();
 
-                string msg = ConsultasViewModel.SalvarNovaConsulta(c);
+                string msg = ConsultasData.SalvarNovaConsulta(c);
                 MessageBox.Show(msg, "Aviso");
                 LimparTela();
                 CamposAtivados(1);
@@ -200,7 +200,7 @@ namespace Consultorio.View
 
         private void GerarDgConsultas(DateTime dia)
         {
-            dgConsultas.ItemsSource = ConsultasViewModel.ListaDeConsultas(dia);
+            dgConsultas.ItemsSource = ConsultasData.ListaDeConsultas(dia);
             //tbData.Text = dia.ToShortDateString();//"dd/MM/yyyy"
         }
 
@@ -226,7 +226,7 @@ namespace Consultorio.View
             }
             if (comboBoxProcedimento.SelectedItem != null)
             {
-                c.Procedimento = ConsultasViewModel.BuscarProcedimento((Procedimento)comboBoxProcedimento.SelectedItem);
+                c.Procedimento = ConsultasData.BuscarProcedimento((Procedimento)comboBoxProcedimento.SelectedItem);
             }
             return c; 
         }
@@ -283,7 +283,7 @@ namespace Consultorio.View
             {
                 try
                 {
-                    dgConsultas.ItemsSource = ConsultasViewModel.BuscarConsultas(DateTime.Parse(tbData.Text));
+                    dgConsultas.ItemsSource = ConsultasData.BuscarConsultas(DateTime.Parse(tbData.Text));
                     cCalendario.SelectedDate = DateTime.Parse(tbData.Text);
                     GerarDgConsultas(DateTime.Parse(tbData.Text));
                 }

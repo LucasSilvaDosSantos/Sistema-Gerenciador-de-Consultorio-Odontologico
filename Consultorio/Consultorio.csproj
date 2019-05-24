@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201905101732031_teste n para n.Designer.cs">
       <DependentUpon>201905101732031_teste n para n.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905211927598_Pronto para entrega.cs" />
+    <Compile Include="Migrations\201905211927598_Pronto para entrega.Designer.cs">
+      <DependentUpon>201905211927598_Pronto para entrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
     <Compile Include="Model\Cliente.cs" />
@@ -115,19 +119,19 @@
     <Compile Include="Model\Procedimento.cs" />
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\Secretaria.cs" />
-    <Compile Include="ViewModel\AtoresViewModel.cs" />
-    <Compile Include="ViewModel\CadastroDeClienteAnamneseViewModel.cs" />
-    <Compile Include="ViewModel\CadastroDeClienteBaseViewModel.cs" />
-    <Compile Include="ViewModel\ColaboradoresViewModel.cs" />
-    <Compile Include="ViewModel\ConsultasViewModel.cs" />
-    <Compile Include="ViewModel\DentistaViewModel.cs" />
-    <Compile Include="ViewModel\GestorDeEstoqueViewModel.cs" />
-    <Compile Include="ViewModel\HistoricoDoClienteViewModel.cs" />
-    <Compile Include="ViewModel\ListaDeClienteParaConsultaViewModel.cs" />
-    <Compile Include="ViewModel\ListaDeClienteViewModel.cs" />
-    <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
-    <Compile Include="ViewModel\ProdutoViewModel.cs" />
-    <Compile Include="ViewModel\SecretariaViewModel.cs" />
+    <Compile Include="Data\AtoresData.cs" />
+    <Compile Include="Data\CadastroDeClienteAnamneseData.cs" />
+    <Compile Include="Data\CadastroDeClienteBaseData.cs" />
+    <Compile Include="Data\ColaboradoresDatal.cs" />
+    <Compile Include="Data\ConsultasData.cs" />
+    <Compile Include="Data\DentistaData.cs" />
+    <Compile Include="Data\GestorDeEstoqueData.cs" />
+    <Compile Include="Data\HistoricoDoClienteData.cs" />
+    <Compile Include="Data\ListaDeClienteParaConsultaData.cs" />
+    <Compile Include="Data\ListaDeClienteData.cs" />
+    <Compile Include="Data\ProcedimentoData.cs" />
+    <Compile Include="Data\ProdutoViewData.cs" />
+    <Compile Include="Data\SecretariaData.cs" />
     <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
       <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>
     </Compile>
@@ -257,6 +261,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201905101732031_teste n para n.resx">
       <DependentUpon>201905101732031_teste n para n.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905211927598_Pronto para entrega.resx">
+      <DependentUpon>201905211927598_Pronto para entrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

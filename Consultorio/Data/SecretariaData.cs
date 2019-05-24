@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class SecretariaViewModel
+    class SecretariaData
     {
         public static string CadastroDeNovaSecretaria(Secretaria secretaria)
         {

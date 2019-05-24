@@ -1,5 +1,5 @@
-﻿using Consultorio.Model;
-using Consultorio.ViewModel;
+﻿using Consultorio.Data;
+using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -90,11 +90,11 @@ namespace Consultorio.View
                 if (OrigemListaDeAtores)
                 {
                     dentista.Id = int.Parse(tbId.Text);
-                    msg = DentistaViewModel.AlterarDentista(dentista);
+                    msg = DentistaData.AlterarDentista(dentista);
                 }
                 else
                 {
-                    msg = DentistaViewModel.CadastroDeNovoDentista(dentista);
+                    msg = DentistaData.CadastroDeNovoDentista(dentista);
                 }                
                 MessageBox.Show(msg);
                 Voltar();
@@ -103,7 +103,7 @@ namespace Consultorio.View
 
         private Dentista PegaDadosDaTela()
         {
-            string senhaCod = AtoresViewModel.GerarHashMd5(pbSenha.Password.ToString());
+            string senhaCod = AtoresData.GerarHashMd5(pbSenha.Password.ToString());
             Dentista dentista = new Dentista(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod);
             return dentista;
         }

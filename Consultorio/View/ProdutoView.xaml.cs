@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows;
 using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.ViewModel;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Controls;
@@ -61,7 +60,7 @@ namespace Consultorio.View
 
                 if (confirmacao.Equals("OK"))
                 {
-                    ProdutoViewModel.AlterarProduto(produto);
+                    ProdutoData.AlterarProduto(produto);
                 }
                 else
                 {
@@ -92,7 +91,7 @@ namespace Consultorio.View
 
                     if (confirmação == "OK")
                     {
-                        ProdutoViewModel.SalvarProduto(p);
+                        ProdutoData.SalvarProduto(p);
                     }
                     else
                     {
@@ -180,7 +179,7 @@ namespace Consultorio.View
                 //verifica se o id é um int
                 int.TryParse(tbId.Text, out int id);
 
-                dgProdutos.ItemsSource = ProdutoViewModel.BuscarProdutos(id, tbNome.Text);
+                dgProdutos.ItemsSource = ProdutoData.BuscarProdutos(id, tbNome.Text);
                 TratamentoDoGrid();
             }
             BotoesAtivados(1);
@@ -205,7 +204,7 @@ namespace Consultorio.View
         // Recarrega o grid e o atualiza
         private void RecarregarGrid()
         {
-            dgProdutos.ItemsSource = ProdutoViewModel.ExibirProdutos();
+            dgProdutos.ItemsSource = ProdutoData.ExibirProdutos();
             TratamentoDoGrid();
         }
 

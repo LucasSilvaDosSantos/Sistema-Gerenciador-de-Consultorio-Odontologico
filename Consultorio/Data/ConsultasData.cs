@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class ConsultasViewModel
+    class ConsultasData
     {
         public static List<Consulta> ListaDeConsultas(DateTime entrada)
         {
@@ -85,7 +85,7 @@ namespace Consultorio.ViewModel
                     return p;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Procedimento p = null;
                 return p;

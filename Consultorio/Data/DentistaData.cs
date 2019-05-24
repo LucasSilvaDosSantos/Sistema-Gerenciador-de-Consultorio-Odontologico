@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Consultorio.Data;
 using Consultorio.Model;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class DentistaViewModel
+    class DentistaData
     {
         public static string CadastroDeNovoDentista(Dentista dentista)
         {

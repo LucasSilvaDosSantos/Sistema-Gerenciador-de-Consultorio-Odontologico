@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class AtoresViewModel
+    class AtoresData
     {
         static public string GerarHashMd5(string entrada)
         {

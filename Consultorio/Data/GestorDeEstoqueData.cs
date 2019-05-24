@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class GestorDeEstoqueViewModel
+    class GestorDeEstoqueData
     {
         public static string CadastroDeNovoGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
         {

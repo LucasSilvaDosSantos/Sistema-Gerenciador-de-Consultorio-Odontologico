@@ -1,6 +1,5 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +39,7 @@ namespace Consultorio.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            dgListaAtores.ItemsSource = ColaboradoresViewModel.ListarAtores();
+            dgListaAtores.ItemsSource = ColaboradoresData.ListarAtores();
             //Login
             dgListaAtores.Columns[5].Visibility = Visibility.Collapsed;
             //Senha

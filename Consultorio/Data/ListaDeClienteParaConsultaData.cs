@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace Consultorio.ViewModel
+namespace Consultorio.Data
 {
-    class ListaDeClienteParaConsultaViewModel
+    class ListaDeClienteParaConsultaData
     {
         public static List<Cliente> ExibirCliente()
         {

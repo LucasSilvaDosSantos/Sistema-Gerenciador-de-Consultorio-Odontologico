@@ -1,5 +1,5 @@
 ﻿using Consultorio.Model;
-using Consultorio.ViewModel;
+using Consultorio.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +74,7 @@ namespace Consultorio.View
 
         private void ListarTodosOsCliente()
         {
-            dgListaDeClientes.ItemsSource = ListaDeClienteParaConsultaViewModel.ExibirCliente();
+            dgListaDeClientes.ItemsSource = ListaDeClienteParaConsultaData.ExibirCliente();
             TratamentoDoGrid();
         }
 
@@ -103,7 +103,7 @@ namespace Consultorio.View
             {
                 ListarTodosOsCliente();
             }
-            dgListaDeClientes.ItemsSource = ListaDeClienteParaConsultaViewModel.BuscarCliente(idInt, tbNome.Text);
+            dgListaDeClientes.ItemsSource = ListaDeClienteParaConsultaData.BuscarCliente(idInt, tbNome.Text);
             TratamentoDoGrid();            
         }
     }

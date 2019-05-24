@@ -1,5 +1,5 @@
-﻿using Consultorio.Model;
-using Consultorio.ViewModel;
+﻿using Consultorio.Data;
+using Consultorio.Model;
 using System.Windows;
 
 
@@ -48,7 +48,7 @@ namespace Consultorio.View
                 else
                 {
                     Anamnese anamnese = PegarDadosDaTela();
-                    CadastroDeClienteAnamneseViewModel.CadastrarAnamnese(Cliente, anamnese);
+                    CadastroDeClienteAnamneseData.CadastrarAnamnese(Cliente, anamnese);
                     Cliente.Anamnese = anamnese;
                 }
                 OpcoesView opcoes = new OpcoesView();
@@ -224,7 +224,7 @@ namespace Consultorio.View
             tbId.Text = c.Id.ToString();
             tbNome.Text = c.Nome;
 
-            Anamnese anamnese = CadastroDeClienteAnamneseViewModel.CarregarAnamnese(c);
+            Anamnese anamnese = CadastroDeClienteAnamneseData.CarregarAnamnese(c);
 
             if (anamnese != null)
             {
