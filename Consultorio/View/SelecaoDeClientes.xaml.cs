@@ -19,12 +19,12 @@ namespace Consultorio.View
     /// <summary>
     /// Lógica interna para ListaDeClientesParaConsulta.xaml
     /// </summary>
-    public partial class ListaDeClientesParaConsultaView : Window
+    public partial class SelecaoDeClientesView : Window
     {
 
         public Cliente Cliente { get; set; }
 
-        public ListaDeClientesParaConsultaView()
+        public SelecaoDeClientesView()
         {
             InitializeComponent();
             

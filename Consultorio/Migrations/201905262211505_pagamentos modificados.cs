@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class testenparan : DbMigration
+    public partial class pagamentosmodificados : DbMigration
     {
         public override void Up()
         {
@@ -101,6 +101,7 @@ namespace Consultorio.Migrations
                         Nome = c.String(nullable: false, unicode: false),
                         Descricao = c.String(unicode: false),
                         Preco = c.Double(nullable: false),
+                        Ativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -113,6 +114,7 @@ namespace Consultorio.Migrations
                         Quantidade = c.Int(nullable: false),
                         Descricao = c.String(unicode: false),
                         Validade = c.DateTime(precision: 0),
+                        Ativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -139,11 +141,12 @@ namespace Consultorio.Migrations
                         FormaDePagamento = c.String(nullable: false, unicode: false),
                         DataDePagamento = c.DateTime(nullable: false, precision: 0),
                         Valor = c.Double(nullable: false),
-                        Cliente_Id = c.Int(),
+                        Obs = c.String(unicode: false),
+                        Cliente_Id = c.Int(nullable: false),
                         Recebedor_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Clientes", t => t.Cliente_Id)
+                .ForeignKey("dbo.Clientes", t => t.Cliente_Id, cascadeDelete: true)
                 .ForeignKey("dbo.Atores", t => t.Recebedor_Id)
                 .Index(t => t.Cliente_Id)
                 .Index(t => t.Recebedor_Id);

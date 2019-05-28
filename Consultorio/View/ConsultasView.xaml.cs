@@ -296,7 +296,7 @@ namespace Consultorio.View
 
         private void AcessoAoCampoCliente()
         {
-            ListaDeClientesParaConsultaView listaCliente = new ListaDeClientesParaConsultaView();
+            SelecaoDeClientesView listaCliente = new SelecaoDeClientesView();
 
             listaCliente.ShowDialog();
             Cliente = listaCliente.Cliente;

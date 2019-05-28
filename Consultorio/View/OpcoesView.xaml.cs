@@ -65,5 +65,11 @@ namespace Consultorio.View
             consultas.Show();
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PagamentoView pagamento = new PagamentoView();
+            pagamento.ShowDialog();
+        }
     }
 }

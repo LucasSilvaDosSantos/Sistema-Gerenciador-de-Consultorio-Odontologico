@@ -68,6 +68,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -101,13 +102,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\201905101732031_teste n para n.cs" />
-    <Compile Include="Migrations\201905101732031_teste n para n.Designer.cs">
-      <DependentUpon>201905101732031_teste n para n.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905211927598_Pronto para entrega.cs" />
-    <Compile Include="Migrations\201905211927598_Pronto para entrega.Designer.cs">
-      <DependentUpon>201905211927598_Pronto para entrega.cs</DependentUpon>
+    <Compile Include="Migrations\201905262211505_pagamentos modificados.cs" />
+    <Compile Include="Migrations\201905262211505_pagamentos modificados.Designer.cs">
+      <DependentUpon>201905262211505_pagamentos modificados.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
@@ -132,6 +129,7 @@
     <Compile Include="Data\ProcedimentoData.cs" />
     <Compile Include="Data\ProdutoViewData.cs" />
     <Compile Include="Data\SecretariaData.cs" />
+    <Compile Include="ViewModel\PagamentosViewModel.cs" />
     <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
       <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>
     </Compile>
@@ -153,8 +151,8 @@
     <Compile Include="View\HistoricoDoClienteView.xaml.cs">
       <DependentUpon>HistoricoDoClienteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ListaDeClientesParaConsultaView.xaml.cs">
-      <DependentUpon>ListaDeClientesParaConsultaView.xaml</DependentUpon>
+    <Compile Include="View\SelecaoDeClientes.xaml.cs">
+      <DependentUpon>SelecaoDeClientes.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ListaDeClientesView.xaml.cs">
       <DependentUpon>ListaDeClientesView.xaml</DependentUpon>
@@ -164,6 +162,10 @@
     </Compile>
     <Compile Include="View\OpcoesView.xaml.cs">
       <DependentUpon>OpcoesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PagamentosData.cs" />
+    <Compile Include="View\PagamentoView.xaml.cs">
+      <DependentUpon>PagamentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
@@ -215,7 +217,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ListaDeClientesParaConsultaView.xaml">
+    <Page Include="View\SelecaoDeClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OpcoesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PagamentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,11 +265,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201905101732031_teste n para n.resx">
-      <DependentUpon>201905101732031_teste n para n.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905211927598_Pronto para entrega.resx">
-      <DependentUpon>201905211927598_Pronto para entrega.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905262211505_pagamentos modificados.resx">
+      <DependentUpon>201905262211505_pagamentos modificados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

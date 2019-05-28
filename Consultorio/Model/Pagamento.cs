@@ -10,11 +10,10 @@ using System.Globalization;
 namespace Consultorio.Model
 {
     [Table("Pagamentos")]
-    class Pagamento
+    public class Pagamento
     {
         //[Required] Not Null
 
-        [Required]
         public int Id { get; set; }
         public Atores Recebedor { get; set; }
         [Required]
@@ -23,7 +22,9 @@ namespace Consultorio.Model
         public DateTime DataDePagamento { get; set; }
         [Required]
         public double Valor { get; set; }
+        [Required]
         public Cliente Cliente { get; set; }
+        public string Obs { get; set; }
 
         public Pagamento()
         {
