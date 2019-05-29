@@ -102,6 +102,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\LoginData.cs" />
     <Compile Include="Migrations\201905262211505_pagamentos modificados.cs" />
     <Compile Include="Migrations\201905262211505_pagamentos modificados.Designer.cs">
       <DependentUpon>201905262211505_pagamentos modificados.cs</DependentUpon>
@@ -129,6 +130,7 @@
     <Compile Include="Data\ProcedimentoData.cs" />
     <Compile Include="Data\ProdutoViewData.cs" />
     <Compile Include="Data\SecretariaData.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PagamentosViewModel.cs" />
     <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
       <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>

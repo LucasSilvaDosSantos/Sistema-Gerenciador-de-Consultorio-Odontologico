@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Consultorio.View;
+using Consultorio.ViewModel;
+using MySqlX.XDevAPI;
 
 namespace Consultorio
 {
@@ -22,29 +24,31 @@ namespace Consultorio
     /// </summary>
     public partial class MainWindow : Window
     {
+        public LoginViewModel LoginViewModel { get; set; }
+
         public MainWindow()
         {
-            InitializeComponent();
-
-
-            /* usando apenas para teste 
-            using(ConsultorioContext context = new ConsultorioContext())
-            {
-                GestorDeEstoque gestor = new GestorDeEstoque("GestorTeste", "TesteSobrenome", "TesteEmail", "TesteTelefone1", "TesteTelefone2", "teste", "teste");
-
-                context.Gestores.Add(gestor);
-                context.SaveChanges();
-            }
-
-            Console.WriteLine("Cliente salvo");*/
+            LoginViewModel = new LoginViewModel();
+            DataContext = LoginViewModel;
+            InitializeComponent();          
         }
 
         private void BtEntrar_Click(object sender, RoutedEventArgs e)
         {
-            OpcoesView opcoes = new OpcoesView();
-            opcoes.Show();
-            this.Close(); //para fechar
-            //this.Hide(); //para esconder
+            LoginViewModel.Senha = boxSenha.Password;
+            bool loginValido = LoginViewModel.VerificarEntrar();
+            if (loginValido)
+            {
+                OpcoesView opcoes = new OpcoesView();
+                opcoes.Show();
+                this.Close();//para fechar
+                            //this.Hide(); //para esconder
+            }
+            else
+            {
+                MessageBox.Show("Verifique os dados", "Login Inválido!");
+                boxSenha.Password = "";
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
