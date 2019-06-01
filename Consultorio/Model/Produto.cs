@@ -11,7 +11,7 @@ using System.Windows.Controls;
 namespace Consultorio.Model
 {
     [Table("Produtos")]
-    class Produto
+    public class Produto
     {
         //[Required] Not Null
 

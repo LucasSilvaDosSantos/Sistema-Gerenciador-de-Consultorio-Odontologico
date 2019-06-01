@@ -19,44 +19,56 @@ namespace Consultorio.View
     /// </summary>
     public partial class CadastroDeColaboradoresView : Window
     {
+
+        public int AtorLogado { get; set; }
+        public int AltorizacaoDeAcesso { get; set; }
+
+        public bool AltorizacaoMedico { get; set; }
+        public bool AltorizacaoSecretaria { get; set; }
+        public bool AltorizacaoGestor { get; set; }
+
         public CadastroDeColaboradoresView()
         {
+            //AtorLogado = idLogin;
             InitializeComponent();
+
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            OpcoesView opcoes = new OpcoesView();
-            opcoes.Show();
             this.Close();
         }
 
         private void BtMedicoDentista_Click(object sender, RoutedEventArgs e)
         {
             DentistaView dentista = new DentistaView();
-            dentista.Show();
-            this.Close();
+            this.Hide();
+            dentista.ShowDialog();
+            this.Show();
         }
 
         private void BtSecretariaAuxiliar_Click(object sender, RoutedEventArgs e)
         {
             SecretariaView secretaria = new SecretariaView();
-            secretaria.Show();
-            this.Close();
+            this.Hide();
+            secretaria.ShowDialog();
+            this.Show();
         }
 
         private void BtGestorDeEstoque_Click(object sender, RoutedEventArgs e)
         {
             GestorDeEstoqueView estoque = new GestorDeEstoqueView();
-            estoque.Show();
-            this.Close();
+            this.Hide();
+            estoque.ShowDialog();
+            this.Show();
         }
 
         private void BtTodosOsColaboradores_Click(object sender, RoutedEventArgs e)
         {
             ListaDeColaboradoresView colaboradores = new ListaDeColaboradoresView();
-            colaboradores.Show();
-            this.Close();
+            this.Hide();
+            colaboradores.ShowDialog();
+            this.Show();
         }
     }
 }

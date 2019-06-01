@@ -6,6 +6,7 @@ using Consultorio.Model;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Controls;
+using Consultorio.ViewModel;
 
 namespace Consultorio.View
 {
@@ -14,24 +15,44 @@ namespace Consultorio.View
     /// </summary>
     public partial class ProdutoView : Window
     {
+
+        public ProdutosViewModel ProdutosViewModel { get; set; }
         public ProdutoView()
         {
-            InitializeComponent();
-            InativarCampos();
-            BotoesAtivados(1);
+            ProdutosViewModel = new ProdutosViewModel();
+            DataContext = ProdutosViewModel;
+
+            InitializeComponent();  
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        
-        //Inicia a tabela de produtos ja cadastrados
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            RecarregarGrid();
-        }
-        // volta a tela anterior
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            OpcoesView opcoesView = new OpcoesView();
+            opcoesView.Show();
+            this.Close();
+        }
+
+        private void BtCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            ProdutosViewModel.BotaoCancelarClick();
+        }
+
+        private void DgProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProdutosViewModel.DataGridSelect(dgProdutos.SelectedIndex);
+        }
+
+        private void BtSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            string msg = ProdutosViewModel.BotaoSalvarClick();
+            MessageBox.Show(msg, "Aviso!");
+        }
+
+
+        /*private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             OpcoesView opcoes = new OpcoesView();
             opcoes.Show();
@@ -118,36 +139,35 @@ namespace Consultorio.View
         {
             if (dgProdutos.SelectedIndex >= 0)
             {
-                LimparCampos();
-                Produto c = (Produto)dgProdutos.Items[dgProdutos.SelectedIndex];
+                ProdutosViewModel.ProdutoSelecionado(dgProdutos.SelectedIndex);
+                //LimparCampos();
+                /*Produto c = (Produto)dgProdutos.Items[dgProdutos.SelectedIndex];
                 tbId.Text = c.Id.ToString();
                 tbNome.Text = c.Nome;
                 tbQuantidade.Text = c.Quantidade.ToString();
                 if (c.Validade == null)
                 {
                     checkBoxValidade.IsChecked = true;
-                }
-                else
-                {   
-                    /*var teste = c.Validade.ToString().Split(' ');                    
-                    tbValidade.Text = teste[0];*/
+                }*/
+        /*else
+        {   
+            /*var teste = c.Validade.ToString().Split(' ');                    
+            tbValidade.Text = teste[0];*/
 
-                    // metodo mais simples para solucionar o problema de mostrar a hora no textBox
-                    tbValidade.Text = string.Format("{0:dd/MM/yyyy}", c.Validade);
-                }
-                tbDescricao.Text = c.Descricao;
-            }
-            AtivarCampos();
-            BotoesAtivados(2);
+        // metodo mais simples para solucionar o problema de mostrar a hora no textBox
+        //tbValidade.Text = string.Format("{0:dd/MM/yyyy}", "{Binding Produto.Validade}");
+        //}
+        /*tbDescricao.Text = c.Descricao;*/
+        /*    }
+            //AtivarCampos();
+            //BotoesAtivados(2);
         }
 
         // cancela as opçoes selecionadas
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
-            InativarCampos();
-            BotoesAtivados(1);
-            LimparCampos();        
-            RecarregarGrid();
+            ProdutosViewModel.ClickBotaoCancelar();
+            //BotoesAtivados(1);
         }
 
         // inicia um novo cadastro de produto
@@ -204,7 +224,7 @@ namespace Consultorio.View
         // Recarrega o grid e o atualiza
         private void RecarregarGrid()
         {
-            dgProdutos.ItemsSource = ProdutoData.ExibirProdutos();
+            dgProdutos.ItemsSource = ProdutoData.ListarTodosProdutos();
             TratamentoDoGrid();
         }
 
@@ -222,67 +242,67 @@ namespace Consultorio.View
         // Inativa todos os campos 
         private void InativarCampos()
         {
-            tbDescricao.IsEnabled = false;
+            /*tbDescricao.IsEnabled = false;
             btBuscar.IsEnabled = true;
             tbId.IsEnabled = true;
             tbId.IsReadOnly = false;
             tbQuantidade.IsEnabled = false;
             tbValidade.IsEnabled = false;
-            checkBoxValidade.IsEnabled = false;
-        }
-
-        // função para ativar todos os campos 
-        private void AtivarCampos()
-        {
-            tbDescricao.IsEnabled = true;
-            tbId.IsEnabled = true;
-            tbId.IsReadOnly = true;
-            tbNome.IsEnabled = true;
-            tbQuantidade.IsEnabled = true;
-            tbValidade.IsEnabled = true;
-            checkBoxValidade.IsEnabled = true;
-        }
-
-        //Ativa e desativa os campos de acordo com a opção de entrada 
-        private void BotoesAtivados(int op)
-        {
-            if (op == 1)
-            {
-                btCancelar.IsEnabled = false;
-                btSalvar.IsEnabled = false;
-                btCadastrarNovo.IsEnabled = true;
-                btBuscar.IsEnabled = true;
-            }
-            else if (op == 2){
-                btCancelar.IsEnabled = true;
-                btSalvar.IsEnabled = true;
-                btCadastrarNovo.IsEnabled = false;
-                btBuscar.IsEnabled = false;
-            }
-            else if (op == 3)
-            {
-                btCancelar.IsEnabled = true;
-                btSalvar.IsEnabled = false;
-                btCadastrarNovo.IsEnabled = false;
-            }
-            
-        }        
-
-        // Erro por campo faltando
-        private void ErroDeCampoEmBranco()
-        {
-            MessageBox.Show("Campos obrigatórios não preenchidos", "Erro Informações Faltando");
-        }
-
-        // todas as partes para tratar o grid para eibição correta
-        private void TratamentoDoGrid()
-        {
-            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
-            (dgProdutos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
-
-
-            // rever isso para aplicar edição na tabela
-            //dgProdutos.Columns[0].IsReadOnly = true;
-        }       
+            checkBoxValidade.IsEnabled = false;*/
     }
+
+    // função para ativar todos os campos 
+    /*private void AtivarCampos()
+    {
+        tbDescricao.IsEnabled = true;
+        tbId.IsEnabled = true;
+        tbId.IsReadOnly = true;
+        tbNome.IsEnabled = true;
+        tbQuantidade.IsEnabled = true;
+        tbValidade.IsEnabled = true;
+        checkBoxValidade.IsEnabled = true;
+    }
+
+    //Ativa e desativa os campos de acordo com a opção de entrada 
+    private void BotoesAtivados(int op)
+    {
+        if (op == 1)
+        {
+            btCancelar.IsEnabled = false;
+            btSalvar.IsEnabled = false;
+            btCadastrarNovo.IsEnabled = true;
+            btBuscar.IsEnabled = true;
+        }
+        else if (op == 2){
+            btCancelar.IsEnabled = true;
+            btSalvar.IsEnabled = true;
+            btCadastrarNovo.IsEnabled = false;
+            btBuscar.IsEnabled = false;
+        }
+        else if (op == 3)
+        {
+            btCancelar.IsEnabled = true;
+            btSalvar.IsEnabled = false;
+            btCadastrarNovo.IsEnabled = false;
+        }            
+    }        
+
+    // Erro por campo faltando
+    private void ErroDeCampoEmBranco()
+    {
+        MessageBox.Show("Campos obrigatórios não preenchidos", "Erro Informações Faltando");
+    }
+
+    // todas as partes para tratar o grid para eibição correta
+    private void TratamentoDoGrid()
+    {
+        dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
+        (dgProdutos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
+
+
+        // rever isso para aplicar edição na tabela
+        //dgProdutos.Columns[0].IsReadOnly = true;
+        }*/
+    
+    //}
 }

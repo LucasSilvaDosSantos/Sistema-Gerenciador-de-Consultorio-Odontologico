@@ -14,7 +14,7 @@ namespace Consultorio.Data
     class ProdutoData
     {
         // Exibe todos os prdutos cadastrados no banco de dados 
-        public static List<Produto> ExibirProdutos()
+        public static List<Produto> ListarTodosProdutos()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Consultorio.Data
         }
 
         //Executa alteraçoes no produto selecionado e modificado
-        public static void AlterarProduto(Produto produtoChegada)
+        public static string AlterarProduto(Produto produtoChegada)
         {
             try
             {
@@ -46,9 +46,12 @@ namespace Consultorio.Data
                     p.Descricao = produtoChegada.Descricao;
 
                     ctx.SaveChanges();
+
+                    return "Produto alterado com sucesso!";
                 }
-            }catch(Exception)
+            }catch(Exception e)
             {
+                return e.Message;
             }          
         }
 
@@ -80,7 +83,7 @@ namespace Consultorio.Data
         }
 
         // salva novo produto no banco de dados
-        public static bool SalvarProduto(Produto p)
+        public static string SalvarProduto(Produto p)
         {
             try
             {
@@ -89,11 +92,11 @@ namespace Consultorio.Data
                     ctx.Produtos.Add(p);
                     ctx.SaveChanges();
                 }
-                return true;
+                return "Produto Salvo!";
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                return e.Message;
             }          
         }
     }

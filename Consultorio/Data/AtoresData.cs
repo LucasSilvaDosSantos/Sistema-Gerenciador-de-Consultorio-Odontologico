@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consultorio.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -25,6 +26,45 @@ namespace Consultorio.Data
             }
 
             return sBuilder.ToString();
+        }
+
+        static public Atores BuscaAtorPorId(int id)
+        {
+            Atores ator;
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+
+                    if (id != 0)
+                    {
+                        ator = ctx.Dentistas.Where(at => at.Id == id).FirstOrDefault();                        
+                        if (ator != null)
+                        {
+                            return ator;
+                        }
+                        ator = ctx.Secretarias.Where(at => at.Id == id).FirstOrDefault();
+                        if (ator != null)
+                        {
+                            return ator;
+                        }
+                        ator = ctx.GestoresDeEstoque.Where(at => at.Id == id).FirstOrDefault();
+                        if (ator != null)
+                        {
+                            return ator;
+                        }
+                    }
+                    else
+                    {
+                        return ator = null;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return ator = null;
+            }
+            return ator = null;
         }
     }
 }

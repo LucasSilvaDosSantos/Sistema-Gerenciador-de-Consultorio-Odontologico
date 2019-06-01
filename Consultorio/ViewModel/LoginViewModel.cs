@@ -11,9 +11,9 @@ namespace Consultorio.ViewModel
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        public Atores Altorizacao { get; set; }
-        public Atores Ator { get; set; }
         public string Senha { get; set; }
+
+        public SingletonAtorLogado AtorLogado { get; set; }
 
         private string _Login;
 
@@ -23,13 +23,19 @@ namespace Consultorio.ViewModel
             set { _Login = value; OnPropertyChanged("Login"); }
         }
 
+        public LoginViewModel()
+        {
+            AtorLogado = SingletonAtorLogado.Instancia;
+        }
+
         public bool VerificarEntrar()
         {
-                Atores atorRetorno = LoginData.BuscarAtores(Login, out bool atorEncontrado);
+            Atores atorRetorno = LoginData.BuscarAtores(Login, out bool atorEncontrado);
             if (atorEncontrado)
             {
                 string senhaCripitografada =  AtoresData.GerarHashMd5(Senha);
                 if(atorRetorno.Senha.Equals(senhaCripitografada)){
+                    AtorLogado.Ator = atorRetorno;
                     return true;                  
                 }
             }

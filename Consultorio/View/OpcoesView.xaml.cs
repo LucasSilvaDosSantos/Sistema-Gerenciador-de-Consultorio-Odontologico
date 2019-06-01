@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel;
+﻿using Consultorio.Data;
+using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,12 @@ namespace Consultorio.View
     /// </summary>
     public partial class OpcoesView : Window
     {
+        public OpcoesViewModel OpcoesViewModel { get; set; }
+
         public OpcoesView()
         {
+            OpcoesViewModel = new OpcoesViewModel();
+            DataContext = OpcoesViewModel;
             InitializeComponent();
         }
 
@@ -70,7 +75,8 @@ namespace Consultorio.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PagamentoView pagamento = new PagamentoView();
-            pagamento.ShowDialog();
+            pagamento.Show();
+            this.Close();
         }
     }
 }

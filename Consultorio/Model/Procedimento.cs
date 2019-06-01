@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Consultorio.Model
 {
     [Table("Procedimentos")]
-    class Procedimento
+    public class Procedimento
     {
         //[Required] Not Null
 

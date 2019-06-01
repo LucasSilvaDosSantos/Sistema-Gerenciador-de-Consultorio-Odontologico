@@ -128,10 +128,13 @@
     <Compile Include="Data\ListaDeClienteParaConsultaData.cs" />
     <Compile Include="Data\ListaDeClienteData.cs" />
     <Compile Include="Data\ProcedimentoData.cs" />
-    <Compile Include="Data\ProdutoViewData.cs" />
+    <Compile Include="Data\ProdutoData.cs" />
     <Compile Include="Data\SecretariaData.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\OpcoesViewModel.cs" />
     <Compile Include="ViewModel\PagamentosViewModel.cs" />
+    <Compile Include="ViewModel\ProdutosViewModel.cs" />
+    <Compile Include="ViewModel\SingletonAtorLogado.cs" />
     <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
       <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>
     </Compile>

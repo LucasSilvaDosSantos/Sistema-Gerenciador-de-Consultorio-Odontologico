@@ -10,18 +10,18 @@
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
 
 
-        <Button x:Name="btProdutos" Content="Produtos" HorizontalAlignment="Left" Margin="150,180,0,0" VerticalAlignment="Top" Width="400" Height="90" FontSize="30" Click="BtProdutos_Click"/>
-        <Button x:Name="btConsultas" Content="Consultas" Margin="0,180,150,0" VerticalAlignment="Top" Height="90" FontSize="30" HorizontalAlignment="Right" Width="400" Click="BtConsultas_Click"/>
-        <Button x:Name="btClientes" Content="Clientes" Margin="150,317,0,282" FontSize="30" Height="Auto" d:LayoutOverrides="VerticalAlignment" Click="BtClientes_Click" HorizontalAlignment="Left" Width="400"/>
+        <Button x:Name="btProdutos" Content="Produtos" IsEnabled="{Binding CrudProdutos}" HorizontalAlignment="Left" Margin="150,180,0,0" VerticalAlignment="Top" Width="400" Height="90" FontSize="30" Click="BtProdutos_Click"/>
+        <Button x:Name="btConsultas" Content="Consultas" IsEnabled="{Binding Consultas}" Margin="0,180,150,0" VerticalAlignment="Top" Height="90" FontSize="30" HorizontalAlignment="Right" Width="400" Click="BtConsultas_Click"/>
+        <Button x:Name="btClientes" Content="Clientes" IsEnabled="{Binding ClientesLista}" Margin="150,317,0,282" FontSize="30" Height="Auto" d:LayoutOverrides="VerticalAlignment" Click="BtClientes_Click" HorizontalAlignment="Left" Width="400"/>
+        <Button x:Name="btNovoPagamento" Content="Novo Pagamento"  IsEnabled="{Binding NovoPagamento}" HorizontalAlignment="Right" Margin="0,317,150,282" Width="400" Click="Button_Click" Height="Auto" FontSize="30"/>
         <Label x:Name="label" Content="Consultório Odontológico" Margin="342,44,334,0" VerticalAlignment="Top" Height="98" FontSize="50"/>
 
         <Border BorderBrush="Black" BorderThickness="1" Height="2" Margin="100,0,100,219" VerticalAlignment="Bottom"/>
 
-        <Button x:Name="btProcedimento" Content="Procedimentos" HorizontalAlignment="Left" Margin="100,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" d:LayoutOverrides="HorizontalAlignment" Click="BtCadastroDeProduto_Click"/>
-        <Button x:Name="btCadastroDeClientes" Content="Cadastro de Clientes" HorizontalAlignment="Left" Margin="468,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeClientes_Click"/>
-        <Button x:Name="btCadastroDeColaboradores" Content="Cadastro de Colaboradores" HorizontalAlignment="Left" Margin="837,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeColaboradores_Click"/>
-        <Button x:Name="button" Content="Novo Pagamento" HorizontalAlignment="Right" Margin="0,317,150,282" Width="400" Click="Button_Click" Height="Auto" FontSize="30"/>
-
+        <Button x:Name="btProcedimento" Content="Procedimentos" IsEnabled="{Binding Procedimentos}" HorizontalAlignment="Left" Margin="100,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" d:LayoutOverrides="HorizontalAlignment" Click="BtCadastroDeProduto_Click"/>
+        <Button x:Name="btCadastroDeClientes" IsEnabled="{Binding CrudClientes}" Content="Cadastro de Clientes" HorizontalAlignment="Left" Margin="468,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeClientes_Click"/>
+        <Button x:Name="btCadastroDeColaboradores" Content="Cadastro de Colaboradores" IsEnabled="{Binding CadastroDeColaboradores}" HorizontalAlignment="Left" Margin="837,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeColaboradores_Click"/>
+        
 
     </Grid>
 </Window>

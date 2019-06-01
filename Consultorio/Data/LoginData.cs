@@ -31,7 +31,7 @@ namespace Consultorio.Data
                     a = ctx.GestoresDeEstoque.Where(d => d.Login.Equals(entradaLogin)).FirstOrDefault();
                     if (a != null)
                     {
-                        encontrado = false;
+                        encontrado = true;
                         return a;
                     }
                 }
