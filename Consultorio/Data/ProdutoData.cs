@@ -40,10 +40,7 @@ namespace Consultorio.Data
                 {
                     Produto p = ctx.Produtos.Find(produtoChegada.Id);
 
-                    p.Nome = produtoChegada.Nome;
-                    p.Quantidade = produtoChegada.Quantidade;
-                    p.Validade = produtoChegada.Validade;
-                    p.Descricao = produtoChegada.Descricao;
+                    p = produtoChegada;
 
                     ctx.SaveChanges();
 

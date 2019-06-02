@@ -47,8 +47,19 @@ namespace Consultorio.View
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            string msg = ProdutosViewModel.BotaoSalvarClick();
-            MessageBox.Show(msg, "Aviso!");
+            string msg = ProdutosViewModel.BotaoSalvarClick(out bool salvo);
+            if (salvo) { 
+                MessageBox.Show(msg, "Aviso!");
+            }
+            else
+            {
+                MessageBox.Show(msg, "Campos não podem ficar em branco");
+            }
+        }
+
+        private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
+        {
+            ProdutosViewModel.BotaoCadastrarNovoClick();
         }
 
 

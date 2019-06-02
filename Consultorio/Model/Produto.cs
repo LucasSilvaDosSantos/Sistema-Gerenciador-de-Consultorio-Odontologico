@@ -16,11 +16,11 @@ namespace Consultorio.Model
         //[Required] Not Null
 
         [Required]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Required]
         public string Nome { get; set; }
         [Required]
-        public int Quantidade { get; set; }
+        public int? Quantidade { get; set; }
         public string Descricao { get; set; }
 
         public DateTime? Validade { get; set; }

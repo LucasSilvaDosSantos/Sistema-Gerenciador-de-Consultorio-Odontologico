@@ -24,7 +24,7 @@ namespace Consultorio.ViewModel
         public List<Produto> TodosOsProdutos
         {
             get { return _TodosOsProdutos; }
-            set { _TodosOsProdutos = value; OnPropertyChanged("TodosOsOridutos"); }
+            set { _TodosOsProdutos = value; OnPropertyChanged("TodosOsProdutos"); }
         }
 
         private Produto _Produto;
@@ -71,6 +71,7 @@ namespace Consultorio.ViewModel
 
         public ProdutosViewModel()
         {
+            Produto = new Produto();
             AtorLogado = SingletonAtorLogado.Instancia;
             CarregarTodosOsProdutos();
             BotoesAtivos(1);
@@ -91,20 +92,49 @@ namespace Consultorio.ViewModel
             ResetarTela();
         }
 
-        public string BotaoSalvarClick()
+        public string BotaoSalvarClick(out bool salvo)
         {
-            
-            string msg;
-            if (Produto.Id == 0)
+            StringBuilder sb = new StringBuilder();
+            if (Produto.Nome == "")
             {
-                msg = ProdutoData.SalvarProduto(Produto);
+                sb.Append("Nome, ");
+            }
+            else if (Produto.Quantidade == 0 || Produto.Quantidade == null)
+            {
+                sb.Append("Quantidade");
+            }     
+            if (sb.Length > 0)
+            {
+                salvo = false;
+                return sb.ToString();
             }
             else
             {
-                msg = ProdutoData.AlterarProduto(Produto);
-            }
-            ResetarTela();
-            return msg;           
+                string msg;
+                // para novo produto
+                if (Produto.Id == null)
+                {
+                    Produto.Id = 0;
+                    msg = ProdutoData.SalvarProduto(Produto);
+                }
+                // para alterar produto
+                else
+                {
+                    msg = ProdutoData.AlterarProduto(Produto);
+                }
+                ResetarTela();
+
+
+                salvo = true;
+                return msg;
+            }           
+        }
+
+        public void BotaoCadastrarNovoClick()
+        {
+            Produto = new Produto();
+            CamposAtivos = true;
+            BotoesAtivos(2);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -116,6 +146,7 @@ namespace Consultorio.ViewModel
             LimparCampos();
             CamposAtivos = false;
             BotoesAtivos(1);
+            CarregarTodosOsProdutos();
         }
 
         private void BotoesAtivos(int op)
@@ -149,7 +180,7 @@ namespace Consultorio.ViewModel
 
         private void LimparCampos()
         {
-            Produto = null;
+            Produto = new Produto();
         }
 
         /*public void ClickBotaoCancelar()
