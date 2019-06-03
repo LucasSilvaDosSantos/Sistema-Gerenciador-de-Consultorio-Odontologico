@@ -38,9 +38,8 @@ namespace Consultorio.Data
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    Produto p = ctx.Produtos.Find(produtoChegada.Id);
-
-                    p = produtoChegada;
+                    // para modificar itens ja rastreados pelo entity
+                    ctx.Entry(produtoChegada).State = EntityState.Modified;
 
                     ctx.SaveChanges();
 
@@ -53,29 +52,89 @@ namespace Consultorio.Data
         }
 
         // busca por produtos especificos utilizando id ou nome
-        public static List<Produto> BuscarProdutos(int id, string nome)
+        public static List<Produto> BuscarProdutosNome(string nome, out bool encontrado)
         {
             List<Produto> lista = new List<Produto>();
             try
             {
                 using(ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    if (id != 0)
+                    /*if (id != 0)
                     {
                         lista = ctx.Produtos.Where(p => p.Id == id).ToList();
                         return lista;
-                    }
-                    else if (nome != "")
+                    }*/
+                    if (nome != "")
                     {
                         lista = ctx.Produtos.Where(p => p.Nome.Contains(nome)).ToList();
+                        if (lista.Count() > 0)
+                        {
+                            encontrado = true;
+                        }
+                        else
+                        {
+                            encontrado = false;
+                        }
+                        
                         return lista;
                     }
+                    encontrado = false;
                     return lista;
                 }
             }
             catch (Exception)
-            {               
+            {
+                encontrado = false;
                 return lista;
+            }
+        }
+
+        public static List<Produto> BuscarProdutosId(string id, out bool encontrado)
+        {
+            List<Produto> lista = new List<Produto>();
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    if (id != null || id != "")
+                    {
+                        lista = ctx.Produtos.Where(p => p.Id.ToString().Contains(id)).ToList();
+                        if (lista.Count() > 0)
+                        {
+                            encontrado = true;
+                        }
+                        else
+                        {
+                            encontrado = false;
+                        }
+                        return lista;
+                    }
+                    encontrado = false;
+                    return lista;
+                }
+            }
+            catch (Exception)
+            {
+                encontrado = false;
+                return lista;
+            }
+        }
+
+        public static Produto SelecionarProduto(int id)
+        {
+            Produto p = new Produto();
+            try
+            {
+                
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    p = ctx.Produtos.Find(id);
+                    return p;
+                }
+            }
+            catch (Exception)
+            {
+                return p;
             }
         }
 

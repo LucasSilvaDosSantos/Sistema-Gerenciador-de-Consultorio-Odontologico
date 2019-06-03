@@ -22,7 +22,7 @@ namespace Consultorio.View
             ProdutosViewModel = new ProdutosViewModel();
             DataContext = ProdutosViewModel;
 
-            InitializeComponent();  
+            InitializeComponent();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -35,285 +35,41 @@ namespace Consultorio.View
             this.Close();
         }
 
-        private void BtCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            ProdutosViewModel.BotaoCancelarClick();
-        }
-
         private void DgProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ProdutosViewModel.DataGridSelect(dgProdutos.SelectedIndex);
         }
 
-        private void BtSalvar_Click(object sender, RoutedEventArgs e)
+        private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string msg = ProdutosViewModel.BotaoSalvarClick(out bool salvo);
-            if (salvo) { 
-                MessageBox.Show(msg, "Aviso!");
-            }
-            else
-            {
-                MessageBox.Show(msg, "Campos não podem ficar em branco");
-            }
-        }
-
-        private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
-        {
-            ProdutosViewModel.BotaoCadastrarNovoClick();
-        }
-
-
-        /*private void BtVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            OpcoesView opcoes = new OpcoesView();
-            opcoes.Show();
-            this.Close();
-        }
-        
-        //chamada para alterar ou salvar um produto
-        private void BtSalvar_Click(object sender, RoutedEventArgs e)
-        {
-            // executa quando o salvar vem de uma alteração;
-            if (tbId.Text != "")
-            {
-                Produto produto = new Produto
-                {
-                    Id = int.Parse(tbId.Text),
-                    Nome = tbNome.Text,
-                    Quantidade = int.Parse(tbQuantidade.Text),
-                    Descricao = tbDescricao.Text
-                };
-                if (tbValidade.Text != "")
-                {
-                    produto.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
-                }
-
-                string confirmacao = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-
-                if (confirmacao.Equals("OK"))
-                {
-                    ProdutoData.AlterarProduto(produto);
-                }
-                else
-                {
-                    MessageBox.Show("Operação cancelada pelo usuário", "Nenhuma alteração realizada");
-                }
-                RecarregarGrid();
-                LimparCampos();
-                InativarCampos();
-                BotoesAtivados(1);
-            }
-            // executa quando o salvar vem de um novo produto
-            else if (tbNome.Text != "")
-            {
-                if (tbNome.Text != "" && tbQuantidade.Text != "")
-                {
-                    Produto p = new Produto();
-                    p.Nome = tbNome.Text;
-                    p.Descricao = tbDescricao.Text;
-                    p.Quantidade = int.Parse(tbQuantidade.Text);
-                    p.Descricao = tbDescricao.Text;
-
-                    if (tbValidade.Text != "__/__/____")
-                    {
-                        p.Validade = DateTime.ParseExact(tbValidade.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
-                    }
-
-                    string confirmação = MessageBox.Show("Deseja salvar novo produto?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-
-                    if (confirmação == "OK")
-                    {
-                        ProdutoData.SalvarProduto(p);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Operação cancelada pelo usuário", "Nenhuma alteração realizada");
-                    }
-
-                    RecarregarGrid();
-                    LimparCampos();
-                    InativarCampos();
-                    BotoesAtivados(1);
-                }                  
-                else
-                {
-                    ErroDeCampoEmBranco();
-                }                                                
-            }
-            else{
-                ErroDeCampoEmBranco();
-            }
-        }
- 
-        // seleciona um porduto da tabela 
-        private void DgProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgProdutos.SelectedIndex >= 0)
-            {
-                ProdutosViewModel.ProdutoSelecionado(dgProdutos.SelectedIndex);
-                //LimparCampos();
-                /*Produto c = (Produto)dgProdutos.Items[dgProdutos.SelectedIndex];
-                tbId.Text = c.Id.ToString();
-                tbNome.Text = c.Nome;
-                tbQuantidade.Text = c.Quantidade.ToString();
-                if (c.Validade == null)
-                {
-                    checkBoxValidade.IsChecked = true;
-                }*/
-        /*else
-        {   
-            /*var teste = c.Validade.ToString().Split(' ');                    
-            tbValidade.Text = teste[0];*/
-
-        // metodo mais simples para solucionar o problema de mostrar a hora no textBox
-        //tbValidade.Text = string.Format("{0:dd/MM/yyyy}", "{Binding Produto.Validade}");
-        //}
-        /*tbDescricao.Text = c.Descricao;*/
-        /*    }
-            //AtivarCampos();
-            //BotoesAtivados(2);
-        }
-
-        // cancela as opçoes selecionadas
-        private void BtCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            ProdutosViewModel.ClickBotaoCancelar();
-            //BotoesAtivados(1);
-        }
-
-        // inicia um novo cadastro de produto
-        private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
-        {
-            
-            LimparCampos();
-            AtivarCampos();
-            BotoesAtivados(2);
-            tbId.IsReadOnly = true;
-            RecarregarGrid();
-        }
-
-        // busca por um produto (id ou nome)
-        private void Buscar_Click(object sender, RoutedEventArgs e)
-        {
-            if (btBuscar.IsEnabled == true) { 
-            if (tbId.Text == "" && tbNome.Text == "")
-            {
-                InativarCampos();
-                BotoesAtivados(3);
-                btBuscar.IsEnabled = true;
-                tbId.IsEnabled = true;
-                tbNome.IsEnabled = true;
-                tbId.IsReadOnly = false;
-            }
-            else
-            {
-                //verifica se o id é um int
-                int.TryParse(tbId.Text, out int id);
-
-                dgProdutos.ItemsSource = ProdutoData.BuscarProdutos(id, tbNome.Text);
-                TratamentoDoGrid();
-            }
-            BotoesAtivados(1);
-            btCancelar.IsEnabled = true;
-            }
+            tbId.Text = null;
+            ProdutosViewModel.BuscarNome(tbNome.Text);
         }
 
         private void TbId_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Buscar_Click(sender, e);
-        }
-
-        private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Buscar_Click(sender, e);
-        }
-
-        //-----------------------------------------------------------------------------------------------------------------------------------
-        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
-        //-----------------------------------------------------------------------------------------------------------------------------------
-
-        // Recarrega o grid e o atualiza
-        private void RecarregarGrid()
-        {
-            dgProdutos.ItemsSource = ProdutoData.ListarTodosProdutos();
-            TratamentoDoGrid();
-        }
-
-        // limpa todos os campos que o usuario tem acesso de preencher
-        private void LimparCampos()
-        {
-            tbId.Text = "";
             tbNome.Text = "";
-            tbQuantidade.Text = "";
-            tbValidade.Text = "";
-            tbDescricao.Text = "";
-            checkBoxValidade.IsChecked = false;
+            ProdutosViewModel.BuscarId(tbId.Text);
         }
 
-        // Inativa todos os campos 
-        private void InativarCampos()
+        private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
-            /*tbDescricao.IsEnabled = false;
-            btBuscar.IsEnabled = true;
-            tbId.IsEnabled = true;
-            tbId.IsReadOnly = false;
-            tbQuantidade.IsEnabled = false;
-            tbValidade.IsEnabled = false;
-            checkBoxValidade.IsEnabled = false;*/
-    }
-
-    // função para ativar todos os campos 
-    /*private void AtivarCampos()
-    {
-        tbDescricao.IsEnabled = true;
-        tbId.IsEnabled = true;
-        tbId.IsReadOnly = true;
-        tbNome.IsEnabled = true;
-        tbQuantidade.IsEnabled = true;
-        tbValidade.IsEnabled = true;
-        checkBoxValidade.IsEnabled = true;
-    }
-
-    //Ativa e desativa os campos de acordo com a opção de entrada 
-    private void BotoesAtivados(int op)
-    {
-        if (op == 1)
-        {
-            btCancelar.IsEnabled = false;
-            btSalvar.IsEnabled = false;
-            btCadastrarNovo.IsEnabled = true;
-            btBuscar.IsEnabled = true;
+            CrudProdutoView CrudProdutoView = new CrudProdutoView();
+            CrudProdutoView.ShowDialog();
         }
-        else if (op == 2){
-            btCancelar.IsEnabled = true;
-            btSalvar.IsEnabled = true;
-            btCadastrarNovo.IsEnabled = false;
-            btBuscar.IsEnabled = false;
-        }
-        else if (op == 3)
+
+        private void BtEditar_Click(object sender, RoutedEventArgs e)
         {
-            btCancelar.IsEnabled = true;
-            btSalvar.IsEnabled = false;
-            btCadastrarNovo.IsEnabled = false;
-        }            
-    }        
-
-    // Erro por campo faltando
-    private void ErroDeCampoEmBranco()
-    {
-        MessageBox.Show("Campos obrigatórios não preenchidos", "Erro Informações Faltando");
+            int produto = ProdutosViewModel.EditarProduto();
+            if (produto <= 0)
+            {
+                MessageBox.Show("Selecione um produto", "Aviso!");
+                return;
+            }
+            CrudProdutoView crudProdutoView = new CrudProdutoView(produto);
+            crudProdutoView.ShowDialog();
+            ProdutosViewModel.RecarregarGrid();
+            ProdutosViewModel.ResetarTela();
+        }
     }
-
-    // todas as partes para tratar o grid para eibição correta
-    private void TratamentoDoGrid()
-    {
-        dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
-        (dgProdutos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
-
-
-        // rever isso para aplicar edição na tabela
-        //dgProdutos.Columns[0].IsReadOnly = true;
-        }*/
-    
-    //}
 }

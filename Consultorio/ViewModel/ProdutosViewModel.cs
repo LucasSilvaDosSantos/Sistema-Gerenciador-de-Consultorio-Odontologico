@@ -34,143 +34,42 @@ namespace Consultorio.ViewModel
             set { _Produto = value; OnPropertyChanged("Produto"); }
         }
 
-        private bool _CamposAtivos;
-        public bool CamposAtivos
-        {
-            get { return _CamposAtivos; }
-            set { _CamposAtivos = value; OnPropertyChanged("CamposAtivos"); }
-        }
-
-        private bool _BotaoBuscarIsEnabled;
-        public bool BotaoBuscarIsEnabled
-        {
-            get { return _BotaoBuscarIsEnabled; }
-            set { _BotaoBuscarIsEnabled = value; OnPropertyChanged("BotaoBuscarIsEnabled"); }
-        }
-
-        private bool _BotaoCadastrarNovoIsEnabled;
-        public bool BotaoCadastrarNovoIsEnabled
-        {
-            get { return _BotaoCadastrarNovoIsEnabled; }
-            set { _BotaoCadastrarNovoIsEnabled = value; OnPropertyChanged("BotaoCadastrarNovoIsEnabled"); }
-        }
-
-        private bool _BotaoSalvarIsEnabled;
-        public bool BotaoSalvarIsEnabled
-        {
-            get { return _BotaoSalvarIsEnabled; }
-            set { _BotaoSalvarIsEnabled = value; OnPropertyChanged("BotaoSalvarIsEnabled"); }
-        }
-
-        private bool _BotaoCancelarIsEnabled;
-        public bool BotaoCancelarIsEnabled
-        {
-            get { return _BotaoCancelarIsEnabled; }
-            set { _BotaoCancelarIsEnabled = value; OnPropertyChanged("BotaoCancelarIsEnabled"); }
-        }
-
         public ProdutosViewModel()
         {
             Produto = new Produto();
             AtorLogado = SingletonAtorLogado.Instancia;
             CarregarTodosOsProdutos();
-            BotoesAtivos(1);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
-        //--------------------------------------------*********Botoes**********-----------------------------------------------------
+        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
         public void DataGridSelect(int index)
         {
-            SelecionarProduto(index);
-            BotoesAtivos(2);
-        }
-
-        public void BotaoCancelarClick()
-        {
-            ResetarTela();
-        }
-
-        public string BotaoSalvarClick(out bool salvo)
-        {
-            StringBuilder sb = new StringBuilder();
-            if (Produto.Nome == "")
+            if (index > 0)
             {
-                sb.Append("Nome, ");
+                SelecionarProduto(index);
             }
-            else if (Produto.Quantidade == 0 || Produto.Quantidade == null)
-            {
-                sb.Append("Quantidade");
-            }     
-            if (sb.Length > 0)
-            {
-                salvo = false;
-                return sb.ToString();
-            }
-            else
-            {
-                string msg;
-                // para novo produto
-                if (Produto.Id == null)
-                {
-                    Produto.Id = 0;
-                    msg = ProdutoData.SalvarProduto(Produto);
-                }
-                // para alterar produto
-                else
-                {
-                    msg = ProdutoData.AlterarProduto(Produto);
-                }
-                ResetarTela();
-
-
-                salvo = true;
-                return msg;
-            }           
         }
 
-        public void BotaoCadastrarNovoClick()
+        public int EditarProduto()
         {
-            Produto = new Produto();
-            CamposAtivos = true;
-            BotoesAtivos(2);
+            int.TryParse(Produto.Id.ToString(), out int id);
+            if (id != 0)
+            {
+                return id;
+            }
+            return 0;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        private void ResetarTela()
+        public void ResetarTela()
         {
             LimparCampos();
-            CamposAtivos = false;
-            BotoesAtivos(1);
-            CarregarTodosOsProdutos();
-        }
-
-        private void BotoesAtivos(int op)
-        {
-            if (op == 1)
-            {
-                BotaoCancelarIsEnabled = false;
-                BotaoSalvarIsEnabled = false;
-                BotaoCadastrarNovoIsEnabled = true;
-                BotaoBuscarIsEnabled = true;
-            }
-            else if (op == 2)
-            {
-                BotaoCancelarIsEnabled = true;
-                BotaoSalvarIsEnabled = true;
-                BotaoCadastrarNovoIsEnabled = false;
-                BotaoBuscarIsEnabled = false;
-            }else if (op == 3)
-            {
-                BotaoCancelarIsEnabled = true;
-                BotaoSalvarIsEnabled = false;
-                BotaoCadastrarNovoIsEnabled = false;
-                BotaoBuscarIsEnabled = true;
-            }
         }
 
         private void CarregarTodosOsProdutos()
@@ -183,18 +82,50 @@ namespace Consultorio.ViewModel
             Produto = new Produto();
         }
 
-        /*public void ClickBotaoCancelar()
-        {
-            CarregarTodosOsProdutos();
-            ModificaAtivacaoBotoes(1);
-            LimparCampos();        
-            CamposAtivos = false;
-        }*/
-
         private void SelecionarProduto(int i)
         {
             Produto = TodosOsProdutos[i];
-            CamposAtivos = true;
+        }
+
+        public void BuscarNome(string nome)
+        {
+            if (nome == "")
+            {
+                CarregarTodosOsProdutos();
+                return;
+            }
+            List<Produto> lista = ProdutoData.BuscarProdutosNome(nome, out bool encontrado);
+            if (encontrado)
+            {               
+                TodosOsProdutos = lista;
+            }
+            else
+            {
+                TodosOsProdutos = null;
+            }
+        }
+
+        public void BuscarId(string id)
+        {
+            if (id == "" || id == null)
+            {
+                CarregarTodosOsProdutos();
+                return;
+            }
+            List<Produto> lista = ProdutoData.BuscarProdutosId(id, out bool encontrado);
+            if (encontrado)
+            {
+                TodosOsProdutos = lista;
+            }
+            else
+            {
+                TodosOsProdutos = null;
+            }
+        }
+
+        public void RecarregarGrid()
+        {
+            CarregarTodosOsProdutos();
         }
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------
