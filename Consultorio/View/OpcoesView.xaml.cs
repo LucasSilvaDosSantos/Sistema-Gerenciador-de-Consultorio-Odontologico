@@ -72,11 +72,12 @@ namespace Consultorio.View
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtNovoPagamento_Click(object sender, RoutedEventArgs e)
         {
             PagamentoView pagamento = new PagamentoView();
-            pagamento.Show();
-            this.Close();
+            this.Hide();
+            pagamento.ShowDialog();
+            this.Visibility = Visibility.Visible;
         }
     }
 }

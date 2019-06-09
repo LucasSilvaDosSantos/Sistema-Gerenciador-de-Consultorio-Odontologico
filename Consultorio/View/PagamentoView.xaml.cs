@@ -39,12 +39,7 @@ namespace Consultorio.View
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
-            string confirmação = MessageBox.Show("Deseja sair sem salvar?", "Aviso!", MessageBoxButton.OKCancel).ToString();
-
-            if (confirmação.Equals("OK"))
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)

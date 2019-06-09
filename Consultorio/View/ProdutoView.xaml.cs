@@ -60,13 +60,13 @@ namespace Consultorio.View
 
         private void BtEditar_Click(object sender, RoutedEventArgs e)
         {
-            int produto = ProdutosViewModel.EditarProduto();
-            if (produto <= 0)
+            int idProduto = ProdutosViewModel.EditarProduto();
+            if (idProduto <= 0)
             {
                 MessageBox.Show("Selecione um produto", "Aviso!");
                 return;
             }
-            CrudProdutoView crudProdutoView = new CrudProdutoView(produto);
+            CrudProdutoView crudProdutoView = new CrudProdutoView(idProduto);
             crudProdutoView.ShowDialog();
             ProdutosViewModel.RecarregarGrid();
             ProdutosViewModel.ResetarTela();

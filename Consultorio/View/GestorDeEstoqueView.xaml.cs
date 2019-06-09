@@ -20,6 +20,14 @@ namespace Consultorio.View
             tbId.IsEnabled = false;
         }
 
+        public GestorDeEstoqueView(GestorDeEstoque gestor)
+        {
+            InitializeComponent();
+            OrigemListaDeAtores = true;
+            tbId.IsEnabled = true;
+            CarregaDadosNaTela(gestor);
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -38,17 +46,12 @@ namespace Consultorio.View
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void IniciarComGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
-        {
-            tbId.IsEnabled = true;
-            CarregaDadosNaTela(gestorDeEstoque);
-        }
-
         private void Voltar()
         {
-            CadastroDeColaboradoresView colaboradores = new CadastroDeColaboradoresView();
-            colaboradores.Show();
             this.Close();
+            /*CadastroDeColaboradoresView colaboradores = new CadastroDeColaboradoresView();
+            colaboradores.Show();
+            this.Close();*/
         }
 
         private void SalvarUsuario()

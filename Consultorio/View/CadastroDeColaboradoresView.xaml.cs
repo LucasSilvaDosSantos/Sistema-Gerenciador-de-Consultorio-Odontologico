@@ -31,11 +31,12 @@ namespace Consultorio.View
         {
             //AtorLogado = idLogin;
             InitializeComponent();
-
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
+            OpcoesView opcoesView = new OpcoesView();
+            opcoesView.Show();
             this.Close();
         }
 
@@ -44,7 +45,7 @@ namespace Consultorio.View
             DentistaView dentista = new DentistaView();
             this.Hide();
             dentista.ShowDialog();
-            this.Show();
+            this.Visibility = Visibility.Visible;
         }
 
         private void BtSecretariaAuxiliar_Click(object sender, RoutedEventArgs e)
@@ -52,7 +53,7 @@ namespace Consultorio.View
             SecretariaView secretaria = new SecretariaView();
             this.Hide();
             secretaria.ShowDialog();
-            this.Show();
+            this.Visibility = Visibility.Visible;
         }
 
         private void BtGestorDeEstoque_Click(object sender, RoutedEventArgs e)
@@ -60,15 +61,17 @@ namespace Consultorio.View
             GestorDeEstoqueView estoque = new GestorDeEstoqueView();
             this.Hide();
             estoque.ShowDialog();
-            this.Show();
+            this.Visibility = Visibility.Visible;
         }
 
         private void BtTodosOsColaboradores_Click(object sender, RoutedEventArgs e)
         {
             ListaDeColaboradoresView colaboradores = new ListaDeColaboradoresView();
-            this.Hide();
+            /*this.Hide();
             colaboradores.ShowDialog();
-            this.Show();
+            this.Visibility = Visibility.Visible;*/
+            colaboradores.Show();
+            this.Close();
         }
     }
 }

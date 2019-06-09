@@ -1,12 +1,8 @@
-﻿using Consultorio.Data;
-using Consultorio.Model;
+﻿using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.Data
 {
@@ -40,7 +36,6 @@ namespace Consultorio.Data
                 {
                     // para modificar itens ja rastreados pelo entity
                     ctx.Entry(produtoChegada).State = EntityState.Modified;
-
                     ctx.SaveChanges();
 
                     return "Produto alterado com sucesso!";

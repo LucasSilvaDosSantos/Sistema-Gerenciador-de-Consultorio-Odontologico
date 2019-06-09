@@ -31,6 +31,14 @@ namespace Consultorio.View
             tbId.IsEnabled = false;
         }
 
+        public DentistaView(Dentista dentistaEntrada)
+        {
+            InitializeComponent();
+            CarregaDadosNaTela(dentistaEntrada);
+            tbId.IsEnabled = true;
+            OrigemListaDeAtores = true;
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -49,14 +57,10 @@ namespace Consultorio.View
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void IniciarComDentista(Dentista dentista)
-        {
-            tbId.IsEnabled = true;
-            CarregaDadosNaTela(dentista);
-        }
-
         private void Voltar()
         {
+            this.Close();
+            /*
             if (OrigemListaDeAtores)
             {
                 ListaDeColaboradoresView viewListaDeColaboradores = new ListaDeColaboradoresView();
@@ -68,7 +72,7 @@ namespace Consultorio.View
                 CadastroDeColaboradoresView viewColaboradores = new CadastroDeColaboradoresView();
                 viewColaboradores.Show();
                 this.Close();              
-            }
+            }*/
         }
 
         private void SalvarUsuario()

@@ -130,6 +130,8 @@
     <Compile Include="Data\ProcedimentoData.cs" />
     <Compile Include="Data\ProdutoData.cs" />
     <Compile Include="Data\SecretariaData.cs" />
+    <Compile Include="ViewModel\ConsultasViewModel.cs" />
+    <Compile Include="ViewModel\CrudConsultasViewModel.cs" />
     <Compile Include="ViewModel\CrudProdutoViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\OpcoesViewModel.cs" />
@@ -147,6 +149,9 @@
     </Compile>
     <Compile Include="View\ConsultasView.xaml.cs">
       <DependentUpon>ConsultasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CrudConsultasView.xaml.cs">
+      <DependentUpon>CrudConsultasView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DentistaView.xaml.cs">
       <DependentUpon>DentistaView.xaml</DependentUpon>
@@ -211,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ConsultasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CrudConsultasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

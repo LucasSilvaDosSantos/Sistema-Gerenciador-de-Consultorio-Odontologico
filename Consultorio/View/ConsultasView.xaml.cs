@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Consultorio.Model;
 using System.Text;
 using Consultorio.Data;
+using Consultorio.ViewModel;
 
 namespace Consultorio.View
 {
@@ -13,34 +14,33 @@ namespace Consultorio.View
     /// </summary>
     public partial class ConsultasView : Window
     {
+        public ConsultasViewModel ConsultasViewModel { get; set; }
+
         public Cliente Cliente { get; set; }
 
         public ConsultasView()
         {
+            ConsultasViewModel = new ConsultasViewModel();
+            DataContext = ConsultasViewModel;
+
             InitializeComponent();
             Cliente = new Cliente();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            var a = DateTime.Now;
-            GerarDgConsultas(a);
-
-            var dia = DateTime.Now;
-            //var dia = Convert.ToDateTime(cCalendario.SelectedDate);
-            tbData.Text = dia.Date.ToString("dd/MM/yyyy");
-
-            //so pode ser carregada uma vez na abertura da tela
-            (dgConsultas.Columns[2] as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
-            (dgConsultas.Columns[3] as DataGridTextColumn).Binding.StringFormat = "HH:mm";
-            (dgConsultas.Columns[4] as DataGridTextColumn).Binding.StringFormat = "HH:mm";
-
-            CamposAtivados(1);
-        }     
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+
+            CrudConsultasView crudConsultasView = new CrudConsultasView();
+            crudConsultasView.ShowDialog();
+
+            this.Visibility = Visibility.Visible;
+            ConsultasViewModel.CarregarListaDeConsultasData();
+        }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
@@ -51,9 +51,47 @@ namespace Consultorio.View
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            var dia = Convert.ToDateTime(cCalendario.SelectedDate);
+            ConsultasViewModel.Calendar_SelectedDatesChanged(Convert.ToDateTime(cCalendario.SelectedDate));
+        }
+
+        private void BtEditar_Click(object sender, RoutedEventArgs e)
+        {
+            if (ConsultasViewModel.ConsultaSelecionada != null)
+            {
+                ConsultasViewModel.CrudConsuta();
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
+            }
             
-            GerarDgConsultas(dia);
+        }
+
+        private void DgConsultas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ConsultasViewModel.DataGridSelect(dgConsultas.SelectedIndex);
+        }
+
+        private void TbId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbClienteNome.Text = "";
+            ConsultasViewModel.BuscarConsultaId(tbClienteId.Text);
+        }
+
+        private void TbClienteNome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbClienteId.Text = "";
+            ConsultasViewModel.BuscarConsultaCliente(tbClienteNome.Text);
+        }
+
+
+        /*private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            ConsultasViewModel.Calendar_SelectedDatesChanged(Convert.ToDateTime(cCalendario.SelectedDate));
+            //var dia = Convert.ToDateTime(cCalendario.SelectedDate);
+            
+            //GerarDgConsultas(dia);
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
@@ -89,31 +127,7 @@ namespace Consultorio.View
             CamposAtivados(1);
         }
 
-        private void DgConsultas_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgConsultas.SelectedIndex >= 0)
-            {
-                Consulta c = (Consulta)dgConsultas.Items[dgConsultas.SelectedIndex];
-                tbId.Text = c.Id.ToString();
-                tbData.Text = c.Inicio.ToString("dd/MM/yyyy"); //("dd/MM/yyyy"
-                tbInicio.Text = c.Inicio.ToString("HH:mm");
-                tbFim.Text = c.Fim.ToString("HH:mm");
-                tbDente.Text = c.Dente;
-                cbRealizada.IsChecked = c.Realizada;
-                tbCliente.Text = c.Cliente.Nome;
-
-                foreach (var a in ConsultasData.ListarTodosOsProcedimentos())
-                {
-                    comboBoxProcedimento.Items.Add(a);
-                    if (c.Procedimento.Id == a.Id)
-                    {
-                        comboBoxProcedimento.SelectedItem = a;
-                    }
-                }
-                comboBoxProcedimento.DisplayMemberPath = "Nome";
-                CamposAtivados(2);
-            }
-        }
+        
 
         private void BtBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -127,16 +141,19 @@ namespace Consultorio.View
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var a in ConsultasData.ListarTodosOsProcedimentos())
+            this.Hide();
+            ConsultasViewModel.CadastrarNovoClick();
+            this.Visibility = Visibility.Visible;
+            /*foreach (var a in ConsultasData.ListarTodosOsProcedimentos())
             {
                 comboBoxProcedimento.Items.Add(a);
             }
             CamposAtivados(2);
             comboBoxProcedimento.DisplayMemberPath = "Nome";
             btCadastrarNovo.IsEnabled = false;
-        }
+        }*/
 
-        private void TbCliente_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        /*private void TbCliente_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             AcessoAoCampoCliente();
         }
@@ -202,9 +219,9 @@ namespace Consultorio.View
         {
             dgConsultas.ItemsSource = ConsultasData.ListaDeConsultas(dia);
             //tbData.Text = dia.ToShortDateString();//"dd/MM/yyyy"
-        }
+        }*/
 
-        private Consulta PegarDadosDaTela()
+        /*private Consulta PegarDadosDaTela()
         {
             Consulta c = new Consulta();
             if (tbId.Text != "")
@@ -229,9 +246,9 @@ namespace Consultorio.View
                 c.Procedimento = ConsultasData.BuscarProcedimento((Procedimento)comboBoxProcedimento.SelectedItem);
             }
             return c; 
-        }
+        }*/
 
-        private void CamposAtivados(int op)
+        /*private void CamposAtivados(int op)
         {
             
             if (op == 1)
@@ -328,6 +345,6 @@ namespace Consultorio.View
             }
 
             return lista;
-        }
+        }*/
     }
 }

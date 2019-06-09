@@ -1,11 +1,9 @@
-﻿using Consultorio.Data;
-using Consultorio.Model;
+﻿using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace Consultorio.Data
 {
@@ -43,35 +41,59 @@ namespace Consultorio.Data
             }
         }
 
-        public static string AlterarConsulta(Consulta entrada)
+        public static string EditarConsulta(Consulta entrada)
         {
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    Consulta c = ctx.Consultas.Find(entrada.Id);
 
-                    Cliente cliente = ctx.Clientes.Find(entrada.Cliente.Id);
-                    c.Cliente = cliente;
-                    c.Dente = entrada.Dente;
-                    c.Inicio = entrada.Inicio;
-                    c.Fim = entrada.Fim;
-                    if (entrada.Procedimento != null)
-                    {
-                        Procedimento p = ctx.Procedimentos.Find(entrada.Procedimento.Id);
-                        c.Procedimento = p;
-                    }
-                    c.Realizada = entrada.Realizada;
+                    /*-----------------------------------------------------------------------------------------------------------------------------
+                      --------------------------------------------------------Não esta funcionando-------------------------------------------------
+                      -----------------------------------------------------------------------------------------------------------------------------*/
+
+                    //ctx.Entry(entrada.Procedimento).State = EntityState.Modified;
+
+                    /*var a = ctx.Consultas.Include(c => c.Procedimento).Where(r => r.Id == entrada.Id).First();
+
+                    a = entrada;*/
+
+                    ctx.Entry(entrada).State = EntityState.Modified;
 
                     ctx.SaveChanges();
 
-                    return ("Consulta alterada com sucesso");
+                    return ("Consulta Atualizada!");
                 }
             }
             catch (Exception e)
             {
-                return e.Message;
+                return ("Erro: " + e.Message);
             }
+        }
+
+        public static string SalvarNovaConsulta(Consulta c)
+        {
+            string msg;
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    Cliente a = ctx.Clientes.Find(c.Cliente.Id);
+                    Procedimento p = ctx.Procedimentos.Find(c.Procedimento.Id);
+
+                    c.Cliente = a;
+                    c.Procedimento = p;
+
+                    ctx.Consultas.Add(c);
+                    ctx.SaveChanges();
+                    msg = "Salva nova consulta";
+                }
+            }
+            catch (Exception e)
+            {
+                msg = "Erro:" + e.Message;
+            }
+            return msg;
         }
 
         public static Procedimento BuscarProcedimento(Procedimento entrada)
@@ -92,6 +114,24 @@ namespace Consultorio.Data
             }
         }
 
+        public static Cliente BuscarClientePorId(int entrada)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    var c = ctx.Clientes.Find(entrada);
+
+                    return c;
+                }
+            }
+            catch (Exception)
+            {
+                Cliente c = null;
+                return c;
+            }
+        }
+
         public static List<Consulta> BuscarConsultas(DateTime data)
         {
             List<Consulta> consultas = new List<Consulta>();
@@ -109,30 +149,62 @@ namespace Consultorio.Data
             }
         }
 
-        public static string SalvarNovaConsulta(Consulta c)
+        public static Consulta SelecionarConsulta(int id)
         {
-            string msg;
+            Consulta c = new Consulta();
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    Cliente a = ctx.Clientes.Find(c.Cliente.Id);
-                    Procedimento p = ctx.Procedimentos.Find(c.Procedimento.Id);
-
-                    c.Cliente = a;
-                    c.Procedimento = p;
-
-                    ctx.Consultas.Add(c);
-                    ctx.SaveChanges();
-                    msg = "Salvo nova consulta";
+                    //c = ctx.Consultas.Find(id);
+                    c = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).SingleOrDefault(d => d.Id == id);
+                    return c;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                msg = "Erro:" + e.Message;
+                return c;
             }
-            return msg;
         }
 
+        public static List<Consulta> BuscarConsultaPorClienteId(int id)
+        {
+            List<Consulta> consultas = new List<Consulta>();
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    //string var = "teste";
+                    consultas = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).Where(a => a.Id == id).ToList();
+
+                    /*consultas = ctx.Consultas.Include(d => d.Cliente).Where(d => d.Cliente.Id == id).ToList();*/
+                    return consultas;
+                }
+            }
+            catch (Exception)
+            {
+                return consultas;
+            }
+        }
+
+        public static List<Consulta> BuscarConsultaPorClienteNome(string nome)
+        {
+            List<Consulta> consultas = new List<Consulta>();
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    string var = nome;
+                    consultas = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).Where(c => c.Cliente.Nome.Contains(nome)).ToList();
+
+                    /*consultas = ctx.Consultas.Include(d => d.Cliente).Where(d => d.Cliente.Id == id).ToList();*/
+                    return consultas;
+                }
+            }
+            catch (Exception)
+            {
+                return consultas;
+            }
+        }
     }
 }

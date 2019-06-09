@@ -12,14 +12,18 @@
         <Label x:Name="lbProcedimento" Content="&gt; Histórico do Cliente" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="355"/>
 
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
+        <Rectangle Fill="White" Margin="59,140,0,0" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="568"/>
+
         <Label x:Name="label" Content="Cliente ID" HorizontalAlignment="Left" Margin="59,146,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="201,146,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Histórico de Pagamento" HorizontalAlignment="Right" Margin="0,146,244,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Procedimentos Agendados e realizados" HorizontalAlignment="Left" Margin="211,177,0,0" VerticalAlignment="Top"/>
+        <Rectangle Fill="White" Margin="530,0,487,94" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="40" VerticalAlignment="Bottom"/>
+
         <Label x:Name="label4" Content="Total Devido" Margin="539,0,625,99" VerticalAlignment="Bottom"/>
 
         <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="143,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" IsReadOnly="True"/>
-        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="259,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Left" Width="368"/>
+        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="259,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Left" Width="356"/>
 
         <DataGrid x:Name="dgProcedimentos" HorizontalAlignment="Left" Margin="59,208,0,151" Width="568" IsReadOnly="True" FontSize="16" AutoGenerateColumns="False">
             <DataGrid.ColumnHeaderStyle>
@@ -53,7 +57,6 @@
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
             </DataGrid.Columns>
         </DataGrid>
-
 
 
         <TextBox x:Name="tbTotalDevido" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,0,505,99" TextWrapping="Wrap" Text="" Width="120" Height="31" VerticalAlignment="Bottom" IsReadOnly="True"/>

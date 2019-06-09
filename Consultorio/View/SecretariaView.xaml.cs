@@ -30,6 +30,14 @@ namespace Consultorio.View
             tbId.IsEnabled = false;
         }
 
+        public SecretariaView(Secretaria secretaria)
+        {
+            InitializeComponent();
+            OrigemListaDeAtores = true;
+            tbId.IsEnabled = true;
+            CarregaDadosNaTela(secretaria);            
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -48,15 +56,11 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        public void IniciarComSecretaria(Secretaria secretaria)
-        {
-            tbId.IsEnabled = true;
-            CarregaDadosNaTela(secretaria);
-        }
 
         private void Voltar()
         {
-            if (OrigemListaDeAtores)
+            this.Close();
+            /*if (OrigemListaDeAtores)
             {
                 ListaDeColaboradoresView viewListaDeColaboradores = new ListaDeColaboradoresView();
                 viewListaDeColaboradores.Show();
@@ -67,7 +71,7 @@ namespace Consultorio.View
                 CadastroDeColaboradoresView viewColaboradores = new CadastroDeColaboradoresView();
                 viewColaboradores.Show();
                 this.Close();
-            }
+            }*/
         }
 
         private void SalvarUsuario()

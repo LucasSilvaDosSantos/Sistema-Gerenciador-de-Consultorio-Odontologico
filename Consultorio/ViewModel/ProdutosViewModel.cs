@@ -107,7 +107,7 @@ namespace Consultorio.ViewModel
 
         public void BuscarId(string id)
         {
-            if (id == "" || id == null)
+            if (id == "")
             {
                 CarregarTodosOsProdutos();
                 return;

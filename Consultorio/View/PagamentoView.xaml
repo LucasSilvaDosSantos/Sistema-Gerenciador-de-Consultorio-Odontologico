@@ -31,7 +31,7 @@
         <TextBox x:Name="textBox1" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,326,353,326" TextWrapping="Wrap" Text="{Binding FormaDePagamento}" Width="234"/>
 
         <Label x:Name="label5" Content="Obs:" Margin="617,0,608,298" VerticalAlignment="Bottom" d:LayoutOverrides="Width"/>
-        <TextBox x:Name="textBox2" Height="84" Margin="356,0,353,219" Padding="1, -1, 0, 0" TextWrapping="Wrap" Text="{Binding Obs}" VerticalAlignment="Bottom" BorderThickness="1, 1, 1, 1"/>
+        <TextBox x:Name="textBox2" Height="84" Margin="356,0,353,219" Background="White" Padding="1, -1, 0, 0" TextWrapping="Wrap" Text="{Binding Obs}" VerticalAlignment="Bottom" BorderThickness="1, 1, 1, 1"/>
 
         <Button x:Name="btSalvar" Command="" Content="Salvar" Margin="0,0,145,30" VerticalAlignment="Bottom" Height="35" Grid.Row="1" HorizontalAlignment="Right" Width="90" Click="BtSalvar_Click"/>
         <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Grid.Row="1" Click="BtCancelar_Click"/>

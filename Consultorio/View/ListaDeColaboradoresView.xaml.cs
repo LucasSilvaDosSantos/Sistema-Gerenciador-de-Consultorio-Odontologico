@@ -35,6 +35,7 @@ namespace Consultorio.View
             CadastroDeColaboradoresView cadastroDeColaboradores = new CadastroDeColaboradoresView();
             cadastroDeColaboradores.Show();
             this.Close();
+            //this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -56,33 +57,25 @@ namespace Consultorio.View
 
                 if (ator.GetType().ToString() == "Consultorio.Model.Dentista")
                 {
-                    DentistaView viewDentista = new DentistaView();
-                    viewDentista.OrigemListaDeAtores = true;
-                    viewDentista.IniciarComDentista((Dentista)ator);
-                    viewDentista.Show();
-                    this.Close();
+                    DentistaView viewDentista = new DentistaView((Dentista)ator);                  
+                    this.Hide();
+                    viewDentista.ShowDialog();
+                    this.Visibility = Visibility.Visible;
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.Secretaria")
                 {
-                    SecretariaView viewSecretaria = new SecretariaView();
-                    viewSecretaria.OrigemListaDeAtores = true;
-                    viewSecretaria.IniciarComSecretaria((Secretaria)ator);
-                    viewSecretaria.Show();
-                    this.Close();
+                    SecretariaView viewSecretaria = new SecretariaView((Secretaria)ator);
+                    this.Hide();
+                    viewSecretaria.ShowDialog();
+                    this.Visibility = Visibility.Visible;
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
                 {
-                    GestorDeEstoqueView viewGestorDeEstoque = new GestorDeEstoqueView();
-                    viewGestorDeEstoque.OrigemListaDeAtores = true;
-                    viewGestorDeEstoque.IniciarComGestorDeEstoque((GestorDeEstoque)ator);
-                    viewGestorDeEstoque.Show();
-                    this.Close();
+                    GestorDeEstoqueView viewGestorDeEstoque = new GestorDeEstoqueView((GestorDeEstoque)ator);
+                    this.Hide();
+                    viewGestorDeEstoque.ShowDialog();
+                    this.Visibility = Visibility.Visible;
                 }
-                /*clienteBase = new ViewCadastroDeClienteBase();
-                clienteBase.OrigemListaDeClientes = true;
-                clienteBase.IniciarComCliente(a);
-                clienteBase.Show();
-                this.Close();*/
             }
         }
 
