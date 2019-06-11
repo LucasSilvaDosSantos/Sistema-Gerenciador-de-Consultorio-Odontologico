@@ -184,6 +184,7 @@ namespace Consultorio.View
         private void TratamentoDataGridProcedimentos()
         {
             dgListaProcedimentos.Columns[4].Visibility = Visibility.Collapsed;
+            dgListaProcedimentos.Columns[5].Visibility = Visibility.Collapsed;
             dgListaProcedimentos.Columns[2].Header = "Descrição";
             dgListaProcedimentos.Columns[3].Header = "Preço";
         }

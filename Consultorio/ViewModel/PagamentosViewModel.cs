@@ -26,6 +26,14 @@ namespace Consultorio.ViewModel
             set { _Obs = value; OnPropertyChanged("Obs"); }
         }
 
+        private List<string> _ListaFormaDePagamento;
+
+        public List<string> ListaFormaDePagamento
+        {
+            get { return _ListaFormaDePagamento; }
+            set { _ListaFormaDePagamento = value; OnPropertyChanged("ListaFormaDePagamento"); }
+        }
+
         public string FormaDePagamento
         {
             get { return _FormaDePagamento; }
@@ -52,7 +60,18 @@ namespace Consultorio.ViewModel
 
         public PagamentosViewModel()
         {
+            ListaFormaDePagamento = CarregarListaFormaPagamento();
             DataAtual = DateTime.Now.ToString("dd/MM/yyyy");
+            CarregarListaFormaPagamento();
+        }
+
+        private List<string> CarregarListaFormaPagamento()
+        {
+            List<string> lista = new List<string>();
+            lista.Add("Dinheiro");
+            lista.Add("Cartão de Crédito");
+            lista.Add("Cartão de Débito");
+            return lista;
         }
 
         public void SelecionarCliente()

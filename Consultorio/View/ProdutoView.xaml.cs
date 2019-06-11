@@ -56,6 +56,7 @@ namespace Consultorio.View
         {
             CrudProdutoView CrudProdutoView = new CrudProdutoView();
             CrudProdutoView.ShowDialog();
+            ProdutosViewModel.RecarregarGrid();
         }
 
         private void BtEditar_Click(object sender, RoutedEventArgs e)

@@ -23,8 +23,7 @@ namespace Consultorio.View
             InitializeComponent();
             tbId.IsEnabled = false;
 
-            btAnamnese.Visibility = Visibility.Hidden;
-            
+            btAnamnese.Visibility = Visibility.Hidden;          
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -83,7 +82,7 @@ namespace Consultorio.View
                 List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
                 if (ListaDeCamposComErros.Count == 0)
                 {
-                    string confirmacao = MessageBox.Show("Deseja salvar novo paciente?", "Confirmação", MessageBoxButton.OKCancel).ToString();
+                    string confirmacao = MessageBox.Show("Deseja salvar novo cliente?", "Confirmação", MessageBoxButton.OKCancel).ToString();
                     if (confirmacao == "OK")
                     {
                         Cliente cliente = PegarDadosDosCampos();

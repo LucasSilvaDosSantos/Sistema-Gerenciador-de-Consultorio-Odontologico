@@ -86,7 +86,7 @@ namespace Consultorio.View
 
         private void TbInicio_GotFocus(object sender, RoutedEventArgs e)
         {
-            if(tbInicio.Text == "__:__")
+            if(tbInicio.Text == "00:00")
             {
                 tbInicio.Text = "";
             }             
@@ -94,7 +94,7 @@ namespace Consultorio.View
 
         private void TbFim_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (tbInicio.Text == "__:__")
+            if (tbFim.Text == "00:00")
             {
                 tbFim.Text = "";
             }     

@@ -63,7 +63,6 @@
         <DataGrid x:Name="dataGrid2" HorizontalAlignment="Right" Height="173" Margin="0,0,57,151" VerticalAlignment="Bottom" Width="557"/>
 
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click"/>
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,145,30" VerticalAlignment="Bottom" Width="90" Height="35" />
         <Label x:Name="label5" Content="em breve" HorizontalAlignment="Right" Margin="0,0,281,221" VerticalAlignment="Bottom" FontSize="25"/>
 
     </Grid>

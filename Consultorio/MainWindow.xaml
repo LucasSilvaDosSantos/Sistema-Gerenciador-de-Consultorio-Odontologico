@@ -11,14 +11,15 @@
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
 
         <Rectangle Fill="#FF7FBEE2" Margin="470,102,470,134" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
+        <Rectangle Fill="White" Margin="502,0,492,190" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="149" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Left" Margin="512,0,0,296" VerticalAlignment="Bottom" RenderTransformOrigin="0.667,-0.308"/>
+        <TextBox x:Name="boxlogin" Text="{Binding Login}" Padding="0, -1, 0, 0" Margin="566,0,507,296" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom"/>
 
-        <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Left" Margin="503,0,0,296" VerticalAlignment="Bottom" RenderTransformOrigin="0.667,-0.308"/>
-        <TextBox x:Name="boxlogin" Text="{Binding Login}" Padding="0, -1, 0, 0" Margin="557,0,516,296" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Left" Margin="512,0,0,260" VerticalAlignment="Bottom"/>
+        <PasswordBox x:Name="boxSenha" Padding="0, -1, 0, 0" Margin="566,0,507,260" VerticalAlignment="Bottom" Height="31"/>
 
-        <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Left" Margin="499,0,0,255" VerticalAlignment="Bottom"/>
-        <PasswordBox x:Name="boxSenha" Padding="0, -1, 0, 0" Margin="557,0,516,255" VerticalAlignment="Bottom" Height="31"/>
-
-        <Button x:Name="btEntrar" Content="Entrar" Margin="606,0,592,205" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
+        <Button x:Name="btEntrar" Content="Entrar" Margin="603,0,595,206" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
+        <Image x:Name="image" Margin="540,158,532,0" Source="Imagens\login.png" Height="180" VerticalAlignment="Top" />
 
     </Grid>
 </Window>

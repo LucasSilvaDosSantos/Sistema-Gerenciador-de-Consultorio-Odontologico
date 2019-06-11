@@ -188,7 +188,10 @@ namespace Consultorio.View
             tbCelular2.Text = secretaria.Telefone2;
             tbCROSP.Text = secretaria.Crosp;
             tbLogin.Text = secretaria.Login;
-            //////////////////////////////////////////////////////////// falta os check box fazer com urgencia maxima 
+            cbEdicaoCliente.IsChecked = secretaria.CrudClientes;
+            cbEdicaoSecretaria.IsChecked = secretaria.CrudSecretarias;
+            cbEdicaoProduto.IsChecked = secretaria.CrudProdutos;
+            cbEdicaoGestoresDeEstoque.IsChecked = secretaria.CrudGestoresDeEstoque;
         }
     }
 }

@@ -106,8 +106,11 @@ namespace Consultorio.ViewModel
         private void NormalizandoDateTime()
         {
             string data = DataSelecionada.ToShortDateString();
+
             string horaInicio = Consulta.Inicio.ToLongTimeString();
-            string horaFim = Consulta.Inicio.ToLongTimeString();
+
+            string horaFim = Consulta.Fim.ToLongTimeString();
+
             DateTime dataInicio = DateTime.Parse($"{data} {horaInicio}");
             DateTime dataFim = DateTime.Parse($"{data} {horaFim}");
             Consulta.Inicio = dataInicio;
@@ -126,7 +129,7 @@ namespace Consultorio.ViewModel
             {
                 sb.Append("Horário de início, ");
             }
-            if (Consulta.Fim.ToShortTimeString() == "00:00")
+            if (Consulta.Fim.ToShortTimeString() == "00:00" || Consulta.Fim <= Consulta.Inicio)
             {
                 sb.Append("Horário de Término, ");
             }

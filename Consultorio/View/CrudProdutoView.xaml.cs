@@ -66,7 +66,7 @@ namespace Consultorio.View
                     MessageBox.Show(msg, "Aviso!");
                     this.Close();
                 }
-            }                
+            } 
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)

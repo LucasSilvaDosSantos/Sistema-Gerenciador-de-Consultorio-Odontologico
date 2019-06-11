@@ -20,7 +20,6 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nome}" />
                 <DataGridTextColumn Header="Data" Binding="{Binding Inicio, StringFormat=dd/MM/yyyy}" />
                 <DataGridTextColumn Header="Hora Início" Binding="{Binding Inicio, StringFormat=t}" />
