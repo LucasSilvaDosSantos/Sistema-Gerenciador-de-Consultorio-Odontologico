@@ -41,11 +41,6 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            if (tbQuantidade.Text == "" || tbValidade.Text == "")
-            {
-                MessageBox.Show("Existem Campos Invalidos", "Alerta!");
-                return;
-            }
             bool camposObrigatoriosPreenchidos = CrudProdutoViewModel.VerificaCamposObrigatoriosPreenchidos(out List<string> lista);
             if (camposObrigatoriosPreenchidos == false)
             {
