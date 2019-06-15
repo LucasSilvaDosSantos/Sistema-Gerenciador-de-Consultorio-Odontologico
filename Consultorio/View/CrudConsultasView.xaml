@@ -9,29 +9,34 @@
         Title="Consultas" Background="#FFCACAE6" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen"
         Language="pt-br">
     <Grid>
-        <Rectangle Fill="#FF7FBEE2" Margin="210,128,197,124" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
+        <Rectangle Fill="#FF7FBEE2" Margin="206,128,198,124" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="330"/>
         <Label x:Name="lbDentista" Content="{Binding NomeTela}" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="286"/>
         <Calendar x:Name="cCalendario" Margin="237,150,0,154" HorizontalAlignment="Left" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectedDate="{Binding DataSelecionada}"/>
 
-        <TextBox x:Name="tbCliente" Padding="0, -1, 0, 0" Height="31" Margin="621,276,273,0" TextWrapping="Wrap" Text="{Binding Path=Consulta.Cliente.Nome}" IsReadOnly="True" VerticalAlignment="Top" GotFocus="TbCliente_GotFocus" MouseDoubleClick="TbCliente_MouseDoubleClick"/>
-        <xctk:MaskedTextBox x:Name="tbInicio" Padding="-2, 4, 0, 0" Mask="00:00" Margin="0,312,571,0" TextWrapping="Wrap" Text="{Binding Consulta.Inicio, StringFormat=t}" HorizontalAlignment="Right" Width="45" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="31" VerticalAlignment="Top" GotFocus="TbInicio_GotFocus"/>
-        <xctk:MaskedTextBox x:Name="tbFim" Mask="00:00" Padding="-2, 4, 0, 0" Margin="0,312,415,0" TextWrapping="Wrap" Text="{Binding Consulta.Fim, StringFormat=t}" Background="#7FBEE2" Width="45" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="31" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width" GotFocus="TbFim_GotFocus"/>
-        <xctk:MaskedTextBox x:Name="tbData" Mask="00/00/0000" Padding="0, 4, 0, 0" Text="{Binding DataSelecionada, StringFormat=d}" Height="29" Margin="0,312,273,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" HorizontalAlignment="Right" Width="89"/>
-        <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedIndex="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="0,0,273,309" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="319" Height="32"/>
-        <TextBox x:Name="tbDente" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Height="31" Margin="0,0,462,273" TextWrapping="Wrap" Text="{Binding Consulta.Dente}" VerticalAlignment="Bottom" Width="120"/>
-        <CheckBox x:Name="cbRealizada" Content="Realizada" IsChecked="{Binding Consulta.Realizada}" Padding="0, -3, 0, 0"  Margin="0,0,353,278" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="104"/>
+        <TextBox x:Name="tbCliente" Padding="0, -1, 0, 0" Height="31" Margin="634,245,260,0" TextWrapping="Wrap" Text="{Binding Path=Consulta.Cliente.Nome}" IsReadOnly="True" VerticalAlignment="Top" GotFocus="TbCliente_GotFocus" MouseDoubleClick="TbCliente_MouseDoubleClick"/>
+        <xctk:MaskedTextBox x:Name="tbData" Mask="00/00/0000" Padding="0, 4, 0, 0" Text="{Binding DataSelecionada, StringFormat=d}" Margin="0,281,420,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" HorizontalAlignment="Right" Width="89" Height="29" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,0,569,339" VerticalAlignment="Bottom" Width="34" ItemsSource="{Binding Horas}" SelectedItem="{Binding HoraInicio}" FlowDirection="RightToLeft" />
+        <ComboBox x:Name="comboBox1" Margin="0,0,522,339" VerticalAlignment="Bottom" ItemsSource="{Binding Minutos}" SelectedItem="{Binding MinutoInicio}" HorizontalAlignment="Right" Width="34"/>
+        <ComboBox x:Name="comboBox_Copy" HorizontalAlignment="Right" Margin="0,0,307,339" VerticalAlignment="Bottom" Width="34" ItemsSource="{Binding Horas}" SelectedItem="{Binding HoraFim}" FlowDirection="RightToLeft" />
+        <ComboBox x:Name="comboBox1_Copy" Margin="0,0,260,339" VerticalAlignment="Bottom" ItemsSource="{Binding Minutos}" SelectedItem="{Binding MinutoFim}" HorizontalAlignment="Right" Width="34"/>
 
-        <Label x:Name="label2" VerticalAlignment="Bottom" Margin="625,0,582,274" Height="30" Content="Dente:"/>
-        <Label x:Name="label3" VerticalAlignment="Top" Margin="0,312,367,0" Content="Data:" HorizontalAlignment="Right"/>
-        <Label x:Name="label4" Margin="557,312,616,0" Content="Hora Início:" VerticalAlignment="Top"/>
-        <Label x:Name="label5" Margin="557,0,592,310" Content="Procedimento:" VerticalAlignment="Bottom"/>
-        <Label x:Name="label6" Width="111" Margin="0,312,460,0" HorizontalAlignment="Right" Content="Hora Término:" VerticalAlignment="Top"/>
-        
-        <Label x:Name="label" Content="Cliente:" Margin="557,276,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        
+        <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedIndex="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="0,0,260,289" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="319" Height="32"/>
+        <TextBox x:Name="tbDente" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,0,449,253" TextWrapping="Wrap" Text="{Binding Consulta.Dente}" Width="120" Height="31" VerticalAlignment="Bottom"/>
+        <CheckBox x:Name="cbRealizada" Content="Realizada" IsChecked="{Binding Consulta.Realizada}" Padding="0, -3, 0, 0"  Margin="0,0,340,258" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="104"/>
+
+        <Label x:Name="label2" VerticalAlignment="Bottom" Margin="0,0,569,254" Height="30" Content="Dente:" HorizontalAlignment="Right" Width="65"/>
+        <Label x:Name="label3" Margin="0,281,514,0" Content="Data:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Margin="570,0,603,339" Content="Hora Início:" Height="31" VerticalAlignment="Bottom"/>
+        <Label x:Name="label5" Margin="570,0,579,290" Content="Procedimento:" VerticalAlignment="Bottom"/>
+        <Label x:Name="label6" Width="112" Margin="0,0,346,339" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Hora Término:"/>
+
+        <Label x:Name="label" Content="Cliente:" Margin="570,245,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
         <Button x:Name="btSalvar" Content="Salvar" Margin="595,0,587,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,39.983,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
+        <Label x:Name="label1" Content=":" HorizontalAlignment="Right" Margin="0,0,556,339" VerticalAlignment="Bottom"/>
+        <Label x:Name="label1_Copy" Content=":" HorizontalAlignment="Right" Margin="0,0,294,339" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

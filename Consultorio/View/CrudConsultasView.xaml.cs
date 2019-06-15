@@ -45,24 +45,19 @@ namespace Consultorio.View
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            if (tbInicio.Text == "__:__" || tbFim.Text == "__:__")
+         
+            string campos = CrudConsultasViewModel.CamposObrigatoriosPreenchidos();
+            if (campos == "")
             {
-                MessageBox.Show("Campos invalidos", "Aviso!");
+                string msg = CrudConsultasViewModel.SalVarClick();
+                MessageBox.Show(msg, "Aviso!");
+                this.Close();
             }
             else
             {
-                string campos = CrudConsultasViewModel.CamposObrigatoriosPreenchidos();
-                if (campos == "")
-                {
-                    string msg = CrudConsultasViewModel.SalVarClick();
-                    MessageBox.Show(msg, "Aviso!");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show(campos, "Aviso! Campos obrigatórios não preenchidos");
-                }
-            }            
+                MessageBox.Show(campos, "Aviso! Campos obrigatórios não preenchidos");
+            }
+                      
         }
 
         private void TbCliente_GotFocus(object sender, RoutedEventArgs e)
@@ -82,22 +77,6 @@ namespace Consultorio.View
             {
                 this.Close();
             }
-        }
-
-        private void TbInicio_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if(tbInicio.Text == "00:00")
-            {
-                tbInicio.Text = "";
-            }             
-        }
-
-        private void TbFim_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (tbFim.Text == "00:00")
-            {
-                tbFim.Text = "";
-            }     
         }
     }
 }
