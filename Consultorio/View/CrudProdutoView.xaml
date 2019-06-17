@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Consultorio.View.CrudProdutoView"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        x:Class="Consultorio.View.CrudProdutoView"
         mc:Ignorable="d"
         Title="Produto" Background="#FFCACAE6" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen"
         Language="pt-br">
