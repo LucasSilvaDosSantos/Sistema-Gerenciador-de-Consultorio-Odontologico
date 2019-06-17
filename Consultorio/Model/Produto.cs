@@ -15,7 +15,7 @@ namespace Consultorio.Model
     {
         //[Required] Not Null
 
-        [Required]
+        //[Required]
         public int? Id { get; set; }
         [Required]
         public string Nome { get; set; }
@@ -26,9 +26,8 @@ namespace Consultorio.Model
         public DateTime? Validade { get; set; }
 
         public virtual ICollection<Procedimento> Procedimentos { get; set; }
-
-        [Required]
-        public bool Ativo { get; set; }
+        /*
+        public bool Ativo { get; set; }*/
 
         public Produto()
         {
@@ -40,13 +39,7 @@ namespace Consultorio.Model
             Quantidade = quantidade;
             Descricao = descricao;
 
-           Procedimentos = new HashSet<Procedimento>();
+            Procedimentos = new HashSet<Procedimento>();
         }
-
-        /*
-        public void SetValidade(string validade)
-        {
-            Validade = DateTime.ParseExact(validade, "dd/MM/yyyy", CultureInfo.CurrentCulture);
-        }*/ //modificado para dentro do codigo
     }
 }

@@ -21,18 +21,21 @@ namespace Consultorio.Model
         public string Dente { get; set; }
         [Required]
         public bool Realizada { get; set; }
+        [Required]
+        public double ValorConsulta { get; set; }
 
         public Consulta()
         {
         }
 
-        public Consulta(Cliente cliente, DateTime inicio, DateTime fim, Procedimento procedimento)
+        public Consulta(Cliente cliente, DateTime inicio, DateTime fim, Procedimento procedimento, double valorConsulta)
         {
             Cliente = cliente;
             Inicio = inicio;
             Fim = fim;
             Procedimento = procedimento;
             Realizada = false;
+            ValorConsulta = valorConsulta;
         }
     }
 }

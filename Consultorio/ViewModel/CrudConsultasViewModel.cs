@@ -181,7 +181,9 @@ namespace Consultorio.ViewModel
 
         public string SalVarClick()
         {
-            Consulta.Procedimento = Procedimentos[ProcedimentoSelecionado];
+            Procedimento procedimento = Procedimentos[ProcedimentoSelecionado];
+            Consulta.Procedimento = procedimento;
+            Consulta.ValorConsulta = procedimento.Preco;
             NormalizaDataTime();
             string msg;
             if (IfNovoCliente == true)

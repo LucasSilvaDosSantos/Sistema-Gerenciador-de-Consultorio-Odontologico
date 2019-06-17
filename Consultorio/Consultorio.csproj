@@ -103,9 +103,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\LoginData.cs" />
-    <Compile Include="Migrations\201905262211505_pagamentos modificados.cs" />
-    <Compile Include="Migrations\201905262211505_pagamentos modificados.Designer.cs">
-      <DependentUpon>201905262211505_pagamentos modificados.cs</DependentUpon>
+    <Compile Include="Migrations\201906172216132_a.cs" />
+    <Compile Include="Migrations\201906172216132_a.Designer.cs">
+      <DependentUpon>201906172216132_a.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
@@ -120,7 +120,7 @@
     <Compile Include="Data\AtoresData.cs" />
     <Compile Include="Data\CadastroDeClienteAnamneseData.cs" />
     <Compile Include="Data\CadastroDeClienteBaseData.cs" />
-    <Compile Include="Data\ColaboradoresDatal.cs" />
+    <Compile Include="Data\ColaboradoresData.cs" />
     <Compile Include="Data\ConsultasData.cs" />
     <Compile Include="Data\DentistaData.cs" />
     <Compile Include="Data\GestorDeEstoqueData.cs" />
@@ -287,8 +287,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201905262211505_pagamentos modificados.resx">
-      <DependentUpon>201905262211505_pagamentos modificados.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906172216132_a.resx">
+      <DependentUpon>201906172216132_a.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -15,6 +15,7 @@ namespace Consultorio.Model
         //[Required] Not Null
 
         public int Id { get; set; }
+        [Required]
         public Atores Recebedor { get; set; }
         [Required]
         public string FormaDePagamento { get; set; }

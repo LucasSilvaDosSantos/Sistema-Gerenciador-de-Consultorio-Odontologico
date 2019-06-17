@@ -22,7 +22,6 @@ namespace Consultorio.Model
         public double Preco { get; set; }
         public virtual ICollection<Produto> Produtos { get; set; }
 
-        [Required]
         public bool Ativo { get; set; }
 
         public Procedimento()

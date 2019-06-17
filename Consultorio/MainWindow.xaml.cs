@@ -30,9 +30,9 @@ namespace Consultorio
         {
             LoginViewModel = new LoginViewModel();
             DataContext = LoginViewModel;
-            InitializeComponent();          
+            InitializeComponent();
         }
-
+       
         private void BtEntrar_Click(object sender, RoutedEventArgs e)
         {
             LoginViewModel.Senha = boxSenha.Password;

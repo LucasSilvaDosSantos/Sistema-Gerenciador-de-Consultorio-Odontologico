@@ -31,8 +31,8 @@ namespace Consultorio.Model
         [Required]
         public string Senha { get; set; }
 
-        [Required]
-        public bool Ativo { get; set; }
+        /*[Required]
+        public bool Ativo { get; set; }*/
 
         protected Atores()
         {
@@ -46,7 +46,7 @@ namespace Consultorio.Model
             Telefone2 = telefone2;
             Login = login;
             Senha = senha;
-            Ativo = true;
+            //Ativo = true;
         }
     }
 }

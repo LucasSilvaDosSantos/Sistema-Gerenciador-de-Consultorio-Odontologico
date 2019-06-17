@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class pagamentosmodificados : DbMigration
+    public partial class a : DbMigration
     {
         public override void Up()
         {
@@ -84,6 +84,7 @@ namespace Consultorio.Migrations
                         Fim = c.DateTime(nullable: false, precision: 0),
                         Dente = c.String(unicode: false),
                         Realizada = c.Boolean(nullable: false),
+                        ValorConsulta = c.Double(nullable: false),
                         Cliente_Id = c.Int(nullable: false),
                         Procedimento_Id = c.Int(),
                     })
@@ -114,7 +115,6 @@ namespace Consultorio.Migrations
                         Quantidade = c.Int(nullable: false),
                         Descricao = c.String(unicode: false),
                         Validade = c.DateTime(precision: 0),
-                        Ativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -129,7 +129,6 @@ namespace Consultorio.Migrations
                         Telefone2 = c.String(unicode: false),
                         Login = c.String(nullable: false, unicode: false),
                         Senha = c.String(nullable: false, unicode: false),
-                        Ativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -143,11 +142,11 @@ namespace Consultorio.Migrations
                         Valor = c.Double(nullable: false),
                         Obs = c.String(unicode: false),
                         Cliente_Id = c.Int(nullable: false),
-                        Recebedor_Id = c.Int(),
+                        Recebedor_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Clientes", t => t.Cliente_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Atores", t => t.Recebedor_Id)
+                .ForeignKey("dbo.Atores", t => t.Recebedor_Id, cascadeDelete: true)
                 .Index(t => t.Cliente_Id)
                 .Index(t => t.Recebedor_Id);
             
