@@ -71,13 +71,13 @@ namespace Consultorio.View
                 int.TryParse(tbId.Text, out int id);
 
                 dgListaProcedimentos.ItemsSource = ProcedimentoData.BuscarProcedimento(id, tbNome.Text);
-                TratamentoDataGridProcedimentos();
             }
             AtivarBotoes(2);
         }
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
+            tbPreco.Text = string.Format("{0:c}", 0);
             tbId.Text = "";
             AtivarBotoes(4);
             AtivarCampos(2);
@@ -157,7 +157,7 @@ namespace Consultorio.View
                 Procedimento p = (Procedimento)dgListaProcedimentos.Items[dgListaProcedimentos.SelectedIndex];
                 tbId.Text = p.Id.ToString();
                 tbNome.Text = p.Nome;
-                tbPreco.Text = string.Format("{0:F2}", p.Preco);
+                tbPreco.Text = string.Format("{0:c}", p.Preco);
                 tbObs.Text = p.Descricao;
 
                 AtivarBotoes(3);
@@ -171,29 +171,8 @@ namespace Consultorio.View
         private void CarregarDataGridProcedimentos()
         {
             dgListaProcedimentos.ItemsSource = ProcedimentoData.ListarTodosProcedimentos();
-            TratamentoDataGridProcedimentos();
-
-            //Tentativas de tratamento de valor monetario que não tiveram sucesso
-            /* (dgListaProcedimentos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "{0:f2}";
-            (dgListaProcedimentos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "R$ #,###.00";
-            (dgListaProcedimentos.Columns[4] as DataGridTextColumn).Binding.StringFormat = "C";*/
-            // dessa forma o codigo trava
-            //(dgListaProcedimentos.Columns[4] as DataGridTextColumn).Binding.StringFormat = string.Format("{0:C2}");
         }
 
-        private void TratamentoDataGridProcedimentos()
-        {
-            dgListaProcedimentos.Columns[4].Visibility = Visibility.Collapsed;
-            dgListaProcedimentos.Columns[5].Visibility = Visibility.Collapsed;
-            dgListaProcedimentos.Columns[2].Header = "Descrição";
-            dgListaProcedimentos.Columns[3].Header = "Preço";
-        }
-
-        /*private void CarregarDataGridProdutosDoProcedimento()
-        {
-            dgProdutos.ItemsSource = ProcedimentoViewModel.ProdutosParaConsulta(PegarDadosDosCampos());
-            dgProdutos.Columns[5].Visibility = Visibility.Collapsed;
-        }*/
 
         private void LimparCampos()
         {

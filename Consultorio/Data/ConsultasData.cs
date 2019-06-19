@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 
 namespace Consultorio.Data
 {
@@ -48,19 +47,10 @@ namespace Consultorio.Data
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
 
-                    /*-----------------------------------------------------------------------------------------------------------------------------
-                      --------------------------------------------------------Não esta funcionando-------------------------------------------------
-                      -----------------------------------------------------------------------------------------------------------------------------*/
-
-                    //ctx.Entry(entrada.Procedimento).State = EntityState.Modified;
-
-                    /*var a = ctx.Consultas.Include(c => c.Procedimento).Where(r => r.Id == entrada.Id).First();
-
-                    a = entrada;*/
-
                     ctx.Entry(entrada).State = EntityState.Modified;
-
                     ctx.SaveChanges();
+
+                    EditarProcedimentoDaConsulta(entrada);
 
                     return ("Consulta Atualizada!");
                 }
@@ -71,7 +61,30 @@ namespace Consultorio.Data
             }
         }
 
-        public static string SalvarNovaConsulta(Consulta c)
+        //usado apenas para atualizar a o procedimento da consulta, feito assim pois colocando no mesmo metodo ou nao atualiza os atributos base ou nao atualiza o procedimento
+        private static void EditarProcedimentoDaConsulta(Consulta entrada)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    var procedimento = ctx.Procedimentos.Find(entrada.Procedimento.Id);
+                    var consulta = ctx.Consultas.Find(entrada.Id);
+
+                    consulta.Procedimento = procedimento;
+
+                    ctx.Entry(consulta).State = EntityState.Modified;
+
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+            public static string SalvarNovaConsulta(Consulta c)
         {
             string msg;
             try

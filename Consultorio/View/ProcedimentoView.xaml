@@ -13,7 +13,13 @@
         <Label x:Name="lbProcedimento" Content="&gt; Procedimento" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="232"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
 
-        <DataGrid x:Name="dgListaProcedimentos" Margin="59,150,63,337" Loaded="Window_Loaded" IsReadOnly="True" SelectionMode="Single" FontSize="16" MouseDoubleClick="DgListaProcedimentos_MouseDoubleClick" SelectionChanged="DgListaProcedimentos_SelectionChanged">
+        <DataGrid x:Name="dgListaProcedimentos" AutoGenerateColumns="False" Margin="59,150,63,337"  Loaded="Window_Loaded" IsReadOnly="True" SelectionMode="Single" FontSize="16" MouseDoubleClick="DgListaProcedimentos_MouseDoubleClick" SelectionChanged="DgListaProcedimentos_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}" />
+                <DataGridTextColumn Header="Preço" Binding="{Binding Preco, StringFormat=c}" />
+            </DataGrid.Columns>
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontSize" Value="16"/>
@@ -25,9 +31,9 @@
         <Label x:Name="label" Content="ID" HorizontalAlignment="Left" Margin="59,0,0,283" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="89,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="43" IsReadOnly="True"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="137,0,0,283" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="195,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="317"/>
-        <Label x:Name="label2" Content="Preço" HorizontalAlignment="Left" Margin="512,0,0,283" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" Height="31" Margin="562,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="66"/>
+        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="195,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="278"/>
+        <Label x:Name="label2" Content="Preço" HorizontalAlignment="Left" Margin="478,0,0,283" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" Height="31" Margin="533,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="95"/>
         <Label x:Name="label4" Content="Descrição" HorizontalAlignment="Left" Margin="59,0,0,252" VerticalAlignment="Bottom"/>
         <DataGrid x:Name="dgProdutos" HorizontalAlignment="Right" Height="192" Margin="0,0,63,117" VerticalAlignment="Bottom" Width="554" IsReadOnly="True" SelectionMode="Single"/>
 

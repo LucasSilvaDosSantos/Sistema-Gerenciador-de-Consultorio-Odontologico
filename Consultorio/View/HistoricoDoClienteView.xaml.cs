@@ -67,10 +67,13 @@ namespace Consultorio.View
 
             foreach(var i in consultas)
             {
-                somaConsultas += i.Procedimento.Preco;
+                if (i.Realizada == true)
+                {
+                    somaConsultas += i.ValorConsulta;
+                }               
             }
 
-            tbTotalDevido.Text = (somaConsultas - somaPagamentos).ToString();
+            tbTotalDevido.Text = (somaConsultas - somaPagamentos).ToString("c");
         }
 
         private void GerarDGPagamentos(int id)

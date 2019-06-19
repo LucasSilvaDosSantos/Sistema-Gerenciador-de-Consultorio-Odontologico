@@ -22,13 +22,13 @@
         <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="30" Margin="445,265,353,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=Cliente.Nome}" IsReadOnly="True" GotFocus="TbNome_GotFocus" MouseDoubleClick="TbNome_MouseDoubleClick"/>
 
         <Label x:Name="label1" Content="Recebedor:" HorizontalAlignment="Left" Margin="356,295,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbRecebedor" Padding="0, -1, 0, 0" Height="32" Margin="445,295,353,0" TextWrapping="Wrap" Text="Em Breve" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox x:Name="tbRecebedor" Padding="0, -1, 0, 0" Height="32" Margin="445,295,353,0" TextWrapping="Wrap" Text="{Binding AtorLogado.Ator.Nome}" VerticalAlignment="Top" IsReadOnly="True"/>
 
         <Label x:Name="label_Copy" Content="Valor:" HorizontalAlignment="Left" Margin="356,326,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Margin="445,329,0,0" TextWrapping="Wrap" Text="{Binding ValorPagamento}" Width="68" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Margin="445,329,0,0" TextWrapping="Wrap" Text="{Binding ValorPagamento, StringFormat=c}" Width="111" VerticalAlignment="Top"/>
 
-        <Label x:Name="label4" Content="Forma de Pagamento:" Margin="513,326,587,322"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,327,353,322" ItemsSource="{Binding ListaFormaDePagamento}" SelectedItem="{Binding FormaDePagamento}" VerticalAlignment="Stretch" Width="234"/>
+        <Label x:Name="label4" Content="Forma de Pagamento:" Margin="556,327,544,321"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,327,353,322" ItemsSource="{Binding ListaFormaDePagamento}" SelectedItem="{Binding FormaDePagamento}" VerticalAlignment="Stretch" Width="191"/>
 
         <Label x:Name="label5" Content="Obs:" Margin="617,0,608,298" VerticalAlignment="Bottom" d:LayoutOverrides="Width"/>
         <TextBox x:Name="textBox2" Height="84" Margin="356,0,353,219" Background="White" Padding="1, -1, 0, 0" TextWrapping="Wrap" Text="{Binding Obs}" VerticalAlignment="Bottom" BorderThickness="1, 1, 1, 1"/>

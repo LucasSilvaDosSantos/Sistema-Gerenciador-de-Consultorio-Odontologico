@@ -26,9 +26,9 @@ namespace Consultorio.ViewModel
             set { _DataSelecionada = value; OnPropertyChanged("DataSelecionada"); }
         }
 
-        private int _ProcedimentoSelecionado;
+        private Procedimento _ProcedimentoSelecionado;
 
-        public int ProcedimentoSelecionado
+        public Procedimento ProcedimentoSelecionado
         {
             get { return _ProcedimentoSelecionado; }
             set { _ProcedimentoSelecionado = value; OnPropertyChanged("ProcedimentoSelecionado"); }
@@ -109,8 +109,8 @@ namespace Consultorio.ViewModel
             
             NomeTela = "> Editar Consulta";           
             IniciarTela();
-            int indexPos = Procedimentos.FindIndex(c => c.Id == Consulta.Procedimento.Id);
-            ProcedimentoSelecionado = indexPos;
+            Procedimento procedimento = Procedimentos.Find(c => c.Id == Consulta.Procedimento.Id);
+            ProcedimentoSelecionado = procedimento;
             DataSelecionada = Consulta.Inicio;
             CarregarHoraAgendada();
         }
@@ -181,8 +181,8 @@ namespace Consultorio.ViewModel
 
         public string SalVarClick()
         {
-            Procedimento procedimento = Procedimentos[ProcedimentoSelecionado];
-            Consulta.Procedimento = procedimento;
+            Procedimento procedimento = ProcedimentoSelecionado;
+            Consulta.Procedimento = ProcedimentoSelecionado;
             Consulta.ValorConsulta = procedimento.Preco;
             NormalizaDataTime();
             string msg;
@@ -217,7 +217,7 @@ namespace Consultorio.ViewModel
 
         public string CamposObrigatoriosPreenchidos()
         {
-            Consulta.Procedimento = Procedimentos[ProcedimentoSelecionado];
+            Consulta.Procedimento = ProcedimentoSelecionado;
             StringBuilder sb = new StringBuilder();
             if (Consulta.Cliente == null)
             {

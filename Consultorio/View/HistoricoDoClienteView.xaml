@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="HistoricoDoCliente"  Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen">
+        Title="HistoricoDoCliente"  Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen"
+        Language="pt-br">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="360"/>
@@ -17,15 +18,15 @@
         <Label x:Name="label" Content="Cliente ID" HorizontalAlignment="Left" Margin="59,146,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="201,146,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Histórico de Pagamento" HorizontalAlignment="Right" Margin="0,146,244,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Procedimentos Agendados e realizados" HorizontalAlignment="Left" Margin="211,177,0,0" VerticalAlignment="Top"/>
-        <Rectangle Fill="White" Margin="530,0,487,94" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="40" VerticalAlignment="Bottom"/>
+        <Label x:Name="label3" Content="Procedimentos Agendados e realizados" HorizontalAlignment="Left" Margin="212,190,0,0" VerticalAlignment="Top"/>
+        <Rectangle Fill="White" Margin="528,0,487,94" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="40" VerticalAlignment="Bottom"/>
 
-        <Label x:Name="label4" Content="Total Devido" Margin="539,0,625,99" VerticalAlignment="Bottom"/>
+        <Label x:Name="label4" Content="Total Devido:" Margin="537,0,625,99" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
 
         <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="143,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" IsReadOnly="True"/>
         <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="259,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Left" Width="356"/>
 
-        <DataGrid x:Name="dgProcedimentos" HorizontalAlignment="Left" Margin="59,208,0,151" Width="568" IsReadOnly="True" FontSize="16" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgProcedimentos" HorizontalAlignment="Left" Margin="59,225,0,151" Width="568" IsReadOnly="True" FontSize="16" AutoGenerateColumns="False">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontSize" Value="16"/>
@@ -37,7 +38,7 @@
                 <DataGridTextColumn Header="Início" Binding="{Binding Inicio}" />
                 <DataGridTextColumn Header="Fim" Binding="{Binding Fim}" />
                 <DataGridTextColumn Header="Procedimento" Binding="{Binding Procedimento.Nome}" />
-                <DataGridTextColumn Header="Valor" Binding="{Binding Procedimento.Preco}" />
+                <DataGridTextColumn Header="Valor" Binding="{Binding ValorConsulta, StringFormat=c}" />
                 <DataGridTextColumn Header="Dente" Binding="{Binding Dente}" />
                 <DataGridCheckBoxColumn Header="Realizada" Binding="{Binding Realizada}"/>
             </DataGrid.Columns>
@@ -54,7 +55,7 @@
                 <DataGridTextColumn Header="Recebedor" Binding="{Binding Recebedor.Nome}" />
                 <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaDePagamento}" />
                 <DataGridTextColumn Header="Data de Pagamento" Binding="{Binding DataDePagamento}" />
-                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
+                <DataGridTextColumn Header="Valor" Binding="{Binding Valor, StringFormat=c}" />
             </DataGrid.Columns>
         </DataGrid>
 

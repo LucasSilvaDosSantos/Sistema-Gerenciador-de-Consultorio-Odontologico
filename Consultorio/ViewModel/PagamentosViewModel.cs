@@ -20,6 +20,8 @@ namespace Consultorio.ViewModel
         private string _FormaDePagamento;
         private string _Obs;
 
+        public SingletonAtorLogado AtorLogado { get; set; }
+
         public string Obs
         {
             get { return _Obs; }
@@ -60,6 +62,7 @@ namespace Consultorio.ViewModel
 
         public PagamentosViewModel()
         {
+            AtorLogado = SingletonAtorLogado.Instancia;
             ListaFormaDePagamento = CarregarListaFormaPagamento();
             DataAtual = DateTime.Now.ToString("dd/MM/yyyy");
             CarregarListaFormaPagamento();
@@ -89,6 +92,7 @@ namespace Consultorio.ViewModel
         public string SalvarNovoPagamento(out bool semErros)
         {
             Pagamento pag = new Pagamento();
+            pag.Recebedor = AtorLogado.Ator;
             pag.Cliente = Cliente;
             pag.DataDePagamento = DateTime.Parse(DataAtual);
             pag.Valor = ValorPagamento;

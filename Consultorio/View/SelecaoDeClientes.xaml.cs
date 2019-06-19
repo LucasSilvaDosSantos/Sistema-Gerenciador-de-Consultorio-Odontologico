@@ -88,22 +88,34 @@ namespace Consultorio.View
 
         private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
         {
+            tbId.Text = "";
             BuscarCliente();
         }
 
         private void TbId_TextChanged(object sender, TextChangedEventArgs e)
         {
+            tbNome.Text = "";
             BuscarCliente();
         }
 
         private void BuscarCliente()
         {
+            
+            /*int.TryParse(tbId.Text, out int idInt);
+            if (idInt == 0 || tbId.Text == "")
+            {
+                ListarTodosOsCliente();
+            }*/
+
             int.TryParse(tbId.Text, out int idInt);
-            if (idInt == 0 && tbId.Text == "")
+            if (idInt != 0 || tbNome.Text != "")
+            {
+                dgListaDeClientes.ItemsSource = ListaDeClienteParaConsultaData.BuscarCliente(idInt, tbNome.Text);
+            }
+            else
             {
                 ListarTodosOsCliente();
             }
-            dgListaDeClientes.ItemsSource = ListaDeClienteParaConsultaData.BuscarCliente(idInt, tbNome.Text);
             TratamentoDoGrid();            
         }
     }

@@ -21,11 +21,13 @@
         <ComboBox x:Name="comboBox_Copy" HorizontalAlignment="Right" Margin="0,0,307,339" VerticalAlignment="Bottom" Width="34" ItemsSource="{Binding Horas}" SelectedItem="{Binding HoraFim}" FlowDirection="RightToLeft" />
         <ComboBox x:Name="comboBox1_Copy" Margin="0,0,260,339" VerticalAlignment="Bottom" ItemsSource="{Binding Minutos}" SelectedItem="{Binding MinutoFim}" HorizontalAlignment="Right" Width="34"/>
 
-        <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedIndex="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="0,0,260,289" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="319" Height="32"/>
-        <TextBox x:Name="tbDente" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,0,449,253" TextWrapping="Wrap" Text="{Binding Consulta.Dente}" Width="120" Height="31" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="cbRealizada" Content="Realizada" IsChecked="{Binding Consulta.Realizada}" Padding="0, -3, 0, 0"  Margin="0,0,340,258" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="104"/>
+        <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedItem="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="0,0,260,289" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="319" Height="32"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Right" Height="31" Margin="0,0,260,253" TextWrapping="Wrap" Text="{Binding ProcedimentoSelecionado.Preco, StringFormat=c}" IsReadOnly="True" VerticalAlignment="Bottom" Width="254"/>
 
-        <Label x:Name="label2" VerticalAlignment="Bottom" Margin="0,0,569,254" Height="30" Content="Dente:" HorizontalAlignment="Right" Width="65"/>
+        <TextBox x:Name="tbDente" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,0,449,218" TextWrapping="Wrap" Text="{Binding Consulta.Dente}" Width="120" Height="30" VerticalAlignment="Bottom"/>
+        <CheckBox x:Name="cbRealizada" Content="Realizada" IsChecked="{Binding Consulta.Realizada}" Padding="0, -3, 0, 0"  Margin="0,0,340,222" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="104"/>
+
+        <Label x:Name="label2" VerticalAlignment="Bottom" Margin="0,0,569,218" Height="30" Content="Dente:" HorizontalAlignment="Right" Width="65"/>
         <Label x:Name="label3" Margin="0,281,514,0" Content="Data:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
         <Label x:Name="label4" Margin="570,0,603,339" Content="Hora Início:" Height="31" VerticalAlignment="Bottom"/>
         <Label x:Name="label5" Margin="570,0,579,290" Content="Procedimento:" VerticalAlignment="Bottom"/>
@@ -37,6 +39,7 @@
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,39.983,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
         <Label x:Name="label1" Content=":" HorizontalAlignment="Right" Margin="0,0,556,339" VerticalAlignment="Bottom"/>
         <Label x:Name="label1_Copy" Content=":" HorizontalAlignment="Right" Margin="0,0,294,339" VerticalAlignment="Bottom"/>
+        <Label x:Name="label7" Content="Valor do Procedimento:" Margin="0,0,514,253" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="179"/>
 
     </Grid>
 </Window>
