@@ -22,11 +22,14 @@ namespace Consultorio.View
     /// </summary>
     public partial class ProcedimentoView : Window
     {
+        public bool FlagPermitirPesquisa { get; set; }
+
         public ProcedimentoView()
         {
             InitializeComponent();
             AtivarBotoes(1);
             AtivarCampos(1);
+            FlagPermitirPesquisa = true;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -48,31 +51,13 @@ namespace Consultorio.View
         private void DgListaProcedimentos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             SelecaoDeItemDataGrid();
+            FlagPermitirPesquisa = false;
         }
 
         private void DgListaProcedimentos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelecaoDeItemDataGrid();
-        }
-
-        private void Buscar_Click(object sender, RoutedEventArgs e)
-        {
-            if (tbId.Text == "" && tbNome.Text == "")
-            {
-                btBuscar.IsEnabled = true;
-
-                tbId.IsEnabled = true;
-                tbId.IsReadOnly = false;
-                tbNome.IsEnabled = true;
-            }
-            else
-            {
-                //verifica se o id é um int
-                int.TryParse(tbId.Text, out int id);
-
-                dgListaProcedimentos.ItemsSource = ProcedimentoData.BuscarProcedimento(id, tbNome.Text);
-            }
-            AtivarBotoes(2);
+            FlagPermitirPesquisa = false;
         }
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
@@ -82,14 +67,17 @@ namespace Consultorio.View
             AtivarBotoes(4);
             AtivarCampos(2);
             tbId.IsEnabled = false;
+            FlagPermitirPesquisa = false;
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            if (ValidarCamposObrigatorios().Count != 0)
+            FlagPermitirPesquisa = false;
+            var camposObrigatorios = ValidarCamposObrigatorios();
+            if (camposObrigatorios.Count != 0)
             {
                 StringBuilder sb = new StringBuilder();
-                foreach (string i in ValidarCamposObrigatorios())
+                foreach (string i in camposObrigatorios)
                 {
                     sb.Append($"{i}, ");
                 }
@@ -129,17 +117,55 @@ namespace Consultorio.View
                         MessageBox.Show("Operação cancelada pelo usuário", "Nenhuma alteração realizada");
                     }                   
                 }
-            }          
+            }             
         }
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
             ResetarTela();
+            FlagPermitirPesquisa = true;
+        }
+
+        private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (FlagPermitirPesquisa)
+            {
+                tbId.Text = "";
+                Buscar();
+            }       
+        }
+
+        private void TbId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (FlagPermitirPesquisa)
+            {
+                tbNome.Text = "";
+                Buscar();
+            }      
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void Buscar()
+        {
+            if (tbId.Text == "" && tbNome.Text == "")
+            {
+                tbId.IsEnabled = true;
+                tbId.IsReadOnly = false;
+                tbNome.IsEnabled = true;
+                CarregarDataGridProcedimentos();
+            }
+            else
+            {
+                //verifica se o id é um int
+                int.TryParse(tbId.Text, out int id);
+
+                dgListaProcedimentos.ItemsSource = ProcedimentoData.BuscarProcedimento(id, tbNome.Text);
+            }
+            AtivarBotoes(2);
+        }
 
         private void ResetarTela()
         {
@@ -147,6 +173,7 @@ namespace Consultorio.View
             AtivarBotoes(1);
             AtivarCampos(1);
             CarregarDataGridProcedimentos();
+            FlagPermitirPesquisa = true;
         }
             
         private void SelecaoDeItemDataGrid()
@@ -186,7 +213,9 @@ namespace Consultorio.View
         {
             Procedimento procedimento = new Procedimento();
             procedimento.Nome = tbNome.Text;
-            procedimento.Preco = double.Parse(tbPreco.Text);
+            var precoSplit = tbPreco.Text.Split(' ');
+            double.TryParse(precoSplit[1], out double precoDouble);
+            procedimento.Preco = precoDouble;
             return procedimento;
         }
 
@@ -197,7 +226,6 @@ namespace Consultorio.View
                 btCancelar.IsEnabled = false;
                 btSalvar.IsEnabled = false;
                 btCadastrarNovo.IsEnabled = true;
-                btBuscar.IsEnabled = true;
                 btCancelar.IsEnabled = false;
             }
             else if (op == 2)
@@ -207,14 +235,12 @@ namespace Consultorio.View
             }
             else if (op == 3)
             {
-                btBuscar.IsEnabled = false;
                 btCadastrarNovo.IsEnabled = false;
                 btSalvar.IsEnabled = true;
                 btCancelar.IsEnabled = true;
             }
             else if (op == 4)
             {
-                btBuscar.IsEnabled = false;
                 btCadastrarNovo.IsEnabled = false;
                 btSalvar.IsEnabled = true;
                 btCancelar.IsEnabled = true;
@@ -245,8 +271,10 @@ namespace Consultorio.View
             if (tbNome.Text == "")
             {
                 lista.Add("Nome");
-            }         
-            if (tbPreco.Text == "")
+            }
+            var precoSplit = tbPreco.Text.Split(' ');
+            var tbPrecoDouble = double.TryParse(precoSplit[1], out double b);
+            if ((tbPreco.Text == "") || (tbPrecoDouble == false) || b < 0)
             {
                 lista.Add("Preço");
             }

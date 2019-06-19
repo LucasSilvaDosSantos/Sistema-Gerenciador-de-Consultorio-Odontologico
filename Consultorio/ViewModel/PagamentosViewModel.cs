@@ -19,8 +19,15 @@ namespace Consultorio.ViewModel
         private Cliente _Cliente;
         private string _FormaDePagamento;
         private string _Obs;
+        private double _ValorDevidoPorCliente;
 
         public SingletonAtorLogado AtorLogado { get; set; }
+
+        public double ValorDevidoPorCliente
+        {
+            get { return _ValorDevidoPorCliente; }
+            set { _ValorDevidoPorCliente = value; OnPropertyChanged("ValorDevidoPorCliente"); }
+        }
 
         public string Obs
         {
@@ -86,6 +93,7 @@ namespace Consultorio.ViewModel
             if (aux.Id > 0)
             {
                 Cliente = aux;
+                CarregarValorDevido();
             }
         }
 
@@ -129,11 +137,22 @@ namespace Consultorio.ViewModel
             {
                 lista.Add("Forma de Pagamento");
             }
-            if (pagamento.Valor == 0)
+            if (pagamento.Valor <= 0)
             {
                 lista.Add("Valor");
             }
             return lista;
+        }
+
+        private void CarregarValorDevido()
+        {
+            double soma = 0;
+            var lista = HistoricoDoClienteData.ListarConsultaPorCliente(Cliente.Id);
+            foreach(var i in lista)
+            {
+                soma += i.ValorConsulta;
+            }
+            ValorDevidoPorCliente = soma;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
