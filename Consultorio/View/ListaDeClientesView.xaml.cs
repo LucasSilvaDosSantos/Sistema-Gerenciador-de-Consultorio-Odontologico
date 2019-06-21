@@ -1,5 +1,6 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
+using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,11 @@ namespace Consultorio.View
     /// </summary>
     public partial class ListaDeClientesView : Window
     {
+        public SingletonAtorLogado AtorLogado { get; set; }
+
         public ListaDeClientesView()
         {
+            AtorLogado = SingletonAtorLogado.Instancia;
             InitializeComponent();
         }
 
@@ -109,14 +113,36 @@ namespace Consultorio.View
         {
             if (dgListaDeClientes.SelectedIndex >= 0)
             {
-                Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
-
-                CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
-                clienteBase.OrigemListaDeClientes = true;
-                clienteBase.IniciarComCliente(c);
-                clienteBase.Show();
-                this.Close();
+                var atorLogadoType = AtorLogado.Ator.GetType().Name;
+                if (atorLogadoType == "Secretaria")
+                {
+                    Secretaria secretaria = (Secretaria)AtorLogado.Ator;
+                    if (secretaria.CrudClientes == true)
+                    {
+                        AlteracaoDeCliente();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você não tem altorização para editar clientes", "Acesso Negado!");
+                        return;
+                    }
+                }
+                else
+                {
+                    AlteracaoDeCliente();
+                }            
             }
+        }
+
+        private void AlteracaoDeCliente()
+        {
+            Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
+
+            CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
+            clienteBase.OrigemListaDeClientes = true;
+            clienteBase.IniciarComCliente(c);
+            clienteBase.Show();
+            this.Close();
         }
 
         private void HistoricoCliente()
