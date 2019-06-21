@@ -54,13 +54,9 @@ namespace Consultorio.View
             }
             else
             {
-                string confirmacao = MessageBox.Show("Deseja salvar a operação?", "Alerta!", MessageBoxButton.OKCancel).ToString();
-                if (confirmacao == "OK")
-                {
-                    string msg = CrudProdutoViewModel.BotaoSalvarClick();
-                    MessageBox.Show(msg, "Aviso!");
-                    this.Close();
-                }
+                string msg = CrudProdutoViewModel.BotaoSalvarClick();
+                MessageBox.Show(msg, "Aviso!");
+                this.Close();
             } 
         }
 

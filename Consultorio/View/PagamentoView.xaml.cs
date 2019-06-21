@@ -44,19 +44,15 @@ namespace Consultorio.View
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            string confirmação = MessageBox.Show("Deseja cadastrar novo pagamento?", "Aviso!", MessageBoxButton.OKCancel).ToString();
-            if (confirmação.Equals("OK"))
+            string msg = PagamentosViewModel.SalvarNovoPagamento(out bool camposEmBranco);
+            if (camposEmBranco)
             {
-                string msg = PagamentosViewModel.SalvarNovoPagamento(out bool camposEmBranco);
-                if(camposEmBranco)
-                {
-                    MessageBox.Show(msg, "Campos Obrigatorios não preenchidos!");
-                }
-                else
-                {
-                    MessageBox.Show(msg, "Aviso!");
-                    this.Close();
-                }
+                MessageBox.Show(msg, "Campos Obrigatorios não preenchidos!");
+            }
+            else
+            {
+                MessageBox.Show(msg, "Aviso!");
+                this.Close();
             }
         }
     }

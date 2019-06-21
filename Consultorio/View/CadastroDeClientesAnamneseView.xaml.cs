@@ -37,24 +37,20 @@ namespace Consultorio.View
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            string confirmacao = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-            if (confirmacao == "OK")
+            bool btNaoPreencher = (bool)cbNaoPreencher.IsChecked;
+            if (btNaoPreencher)
             {
-                bool btNaoPreencher = (bool)cbNaoPreencher.IsChecked;
-                if (btNaoPreencher)
-                {
-                    // CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(Cliente);
-                }
-                else
-                {
-                    Anamnese anamnese = PegarDadosDaTela();
-                    CadastroDeClienteAnamneseData.CadastrarAnamnese(Cliente, anamnese);
-                    Cliente.Anamnese = anamnese;
-                }
-                OpcoesView opcoes = new OpcoesView();
-                opcoes.Show();
-                this.Close();
-            }          
+                // CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(Cliente);
+            }
+            else
+            {
+                Anamnese anamnese = PegarDadosDaTela();
+                CadastroDeClienteAnamneseData.CadastrarAnamnese(Cliente, anamnese);
+                Cliente.Anamnese = anamnese;
+            }
+            OpcoesView opcoes = new OpcoesView();
+            opcoes.Show();
+            this.Close();                  
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

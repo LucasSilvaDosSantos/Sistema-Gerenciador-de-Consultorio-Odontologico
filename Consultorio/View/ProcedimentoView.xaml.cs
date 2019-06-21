@@ -89,33 +89,17 @@ namespace Consultorio.View
                 string msg;
                 if (tbId.Text == "")
                 {
-                    string confirmacao = MessageBox.Show("Deseja salvar novo procedimento?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-                    if (confirmacao.Equals("OK"))
-                    {
-                        msg = ProcedimentoData.CadastroDeNovoProcedimento(PegarDadosDosCampos());
-                        MessageBox.Show(msg);
-                        ResetarTela();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Operação cancelada pelo usuário", "Nenhuma alteração realizada");
-                    }
+                    msg = ProcedimentoData.CadastroDeNovoProcedimento(PegarDadosDosCampos());
+                    MessageBox.Show(msg);
+                    ResetarTela();                   
                 }
                 else
                 {
-                    string confirmacao = MessageBox.Show("Deseja alterar procedimento?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-                    if (confirmacao.Equals("OK"))
-                    {
-                        Procedimento procedimento = PegarDadosDosCampos();
-                        procedimento.Id = int.Parse(tbId.Text);
-                        msg = ProcedimentoData.AlterarProcedimento(procedimento);
-                        MessageBox.Show(msg);
-                        ResetarTela();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Operação cancelada pelo usuário", "Nenhuma alteração realizada");
-                    }                   
+                    Procedimento procedimento = PegarDadosDosCampos();
+                    procedimento.Id = int.Parse(tbId.Text);
+                    msg = ProcedimentoData.AlterarProcedimento(procedimento);
+                    MessageBox.Show(msg);
+                    ResetarTela();                                   
                 }
             }             
         }
@@ -214,8 +198,18 @@ namespace Consultorio.View
             Procedimento procedimento = new Procedimento();
             procedimento.Nome = tbNome.Text;
             var precoSplit = tbPreco.Text.Split(' ');
-            double.TryParse(precoSplit[1], out double precoDouble);
-            procedimento.Preco = precoDouble;
+            double valor;
+            if (precoSplit.Count() == 1)
+            {
+                double.TryParse(precoSplit[0], out double precoDouble);
+                valor = precoDouble;
+            }
+            else
+            {
+                double.TryParse(precoSplit[1], out double precoDouble);
+                valor = precoDouble;
+            }            
+            procedimento.Preco = valor;
             return procedimento;
         }
 
@@ -272,9 +266,20 @@ namespace Consultorio.View
             {
                 lista.Add("Nome");
             }
+            bool tbPrecoDouble;
             var precoSplit = tbPreco.Text.Split(' ');
-            var tbPrecoDouble = double.TryParse(precoSplit[1], out double b);
-            if ((tbPreco.Text == "") || (tbPrecoDouble == false) || b < 0)
+            double valor;
+            if (precoSplit.Count() == 1)
+            {
+                tbPrecoDouble = double.TryParse(precoSplit[0], out double b);
+                valor = b;
+            }
+            else
+            {
+                tbPrecoDouble = double.TryParse(precoSplit[1], out double b);
+                valor = b;
+            }
+            if ((tbPreco.Text == "") || (tbPrecoDouble == false) || valor < 0)
             {
                 lista.Add("Preço");
             }

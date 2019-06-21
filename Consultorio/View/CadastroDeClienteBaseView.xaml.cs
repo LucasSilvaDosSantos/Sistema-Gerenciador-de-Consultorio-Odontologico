@@ -52,29 +52,25 @@ namespace Consultorio.View
             //quando a requisição vem da tela de listagem de clientes
             if (OrigemListaDeClientes || tbId.Text != "")
             {
-                string confirmacao = MessageBox.Show("Deseja salvar alteraçoes?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-                if (confirmacao == "OK")
+                List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
+                if (ListaDeCamposComErros.Count == 0)
                 {
-                    List<string> ListaDeCamposComErros =  ValidarCamposObrigatorios();
-                    if (ListaDeCamposComErros.Count == 0)
-                    {
-                        Cliente cliente = PegarDadosDosCampos();
-                        cliente.Id = int.Parse(tbId.Text);
-                        CadastroDeClienteBaseData.AlterarCliente(cliente);
-                        CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                        anamnese.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        StringBuilder sb = new StringBuilder();
-                        foreach (string i in ValidarCamposObrigatorios())
-                        {
-                            sb.Append($"{i}, ");
-                        }
-                        MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
-                    }
+                    Cliente cliente = PegarDadosDosCampos();
+                    cliente.Id = int.Parse(tbId.Text);
+                    CadastroDeClienteBaseData.AlterarCliente(cliente);
+                    CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
+                    anamnese.Show();
+                    this.Close();
                 }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (string i in ValidarCamposObrigatorios())
+                    {
+                        sb.Append($"{i}, ");
+                    }
+                    MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
+                }                
             }
             //quando a requisição vem da tela de cadastro
             else
@@ -82,15 +78,11 @@ namespace Consultorio.View
                 List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
                 if (ListaDeCamposComErros.Count == 0)
                 {
-                    string confirmacao = MessageBox.Show("Deseja salvar novo cliente?", "Confirmação", MessageBoxButton.OKCancel).ToString();
-                    if (confirmacao == "OK")
-                    {
-                        Cliente cliente = PegarDadosDosCampos();
-                        CadastroDeClienteBaseData.CadastroDeNovoCliente(cliente);
-                        CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                        anamnese.Show();
-                        this.Close();
-                    }
+                    Cliente cliente = PegarDadosDosCampos();
+                    CadastroDeClienteBaseData.CadastroDeNovoCliente(cliente);
+                    CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
+                    anamnese.Show();
+                    this.Close();                    
                 }
                 else
                 {
