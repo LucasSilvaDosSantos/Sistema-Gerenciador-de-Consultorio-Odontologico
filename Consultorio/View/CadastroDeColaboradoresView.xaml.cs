@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Consultorio.Model;
+using Consultorio.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +22,14 @@ namespace Consultorio.View
     public partial class CadastroDeColaboradoresView : Window
     {
 
-        public int AtorLogado { get; set; }
-        public int AltorizacaoDeAcesso { get; set; }
-
-        public bool AltorizacaoMedico { get; set; }
-        public bool AltorizacaoSecretaria { get; set; }
-        public bool AltorizacaoGestor { get; set; }
+        public SingletonAtorLogado AtorLogado { get; set; }
 
         public CadastroDeColaboradoresView()
         {
-            //AtorLogado = idLogin;
+            AtorLogado = SingletonAtorLogado.Instancia;
+
             InitializeComponent();
+            ControleDeAcesso();
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
@@ -72,6 +71,34 @@ namespace Consultorio.View
             this.Visibility = Visibility.Visible;*/
             colaboradores.Show();
             this.Close();
+        }
+
+        private void ControleDeAcesso()
+        {
+            var atorLogadoType = AtorLogado.Ator.GetType();
+            /*if (atorLogado.cont)
+            if (AtorLogado.Ator)*/
+            if (atorLogadoType.Name == "Dentista")
+            {
+                btGestorDeEstoque.IsEnabled = true;
+                btMedicoDentista.IsEnabled = true;
+                btSecretariaAuxiliar.IsEnabled = true;
+            }
+            else if (atorLogadoType.Name == "Secretaria")
+            {
+                btGestorDeEstoque.IsEnabled = false;
+                btMedicoDentista.IsEnabled = false;
+                btSecretariaAuxiliar.IsEnabled = false;
+                var secretaria = (Secretaria)AtorLogado.Ator;
+                if (secretaria.CrudGestoresDeEstoque == true)
+                {
+                    btGestorDeEstoque.IsEnabled = true;
+                }
+                if (secretaria.CrudSecretarias == true)
+                {
+                    btSecretariaAuxiliar.IsEnabled = true;
+                }                
+            }          
         }
     }
 }

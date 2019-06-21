@@ -1,5 +1,6 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
+using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,11 @@ namespace Consultorio.View
     /// </summary>
     public partial class ListaDeColaboradoresView : Window
     {
+        public SingletonAtorLogado AtorLogado { get; set; }
+
         public ListaDeColaboradoresView()
         {
+            AtorLogado = SingletonAtorLogado.Instancia;
             InitializeComponent();
         }
 
@@ -45,8 +49,6 @@ namespace Consultorio.View
             dgListaAtores.Columns[5].Visibility = Visibility.Collapsed;
             //Senha
             dgListaAtores.Columns[6].Visibility = Visibility.Collapsed;
-            //Ativo
-            dgListaAtores.Columns[7].Visibility = Visibility.Collapsed;
         }
 
         private void DgListaAtores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -79,8 +81,103 @@ namespace Consultorio.View
             }
         }
 
+        private void BtEditar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgListaAtores.SelectedIndex >= 0)
+            {
+                Atores atorSelecionado = (Atores)dgListaAtores.Items[dgListaAtores.SelectedIndex];
+                string atorSelecionadoType = atorSelecionado.GetType().Name;
+
+                var atorLogadoType = AtorLogado.Ator.GetType();
+                //edição dos atores iniciada por uma secretaria
+                if (atorLogadoType.Name == "Secretaria")
+                {
+                    Secretaria secretaria = (Secretaria)AtorLogado.Ator;
+
+                    if (atorSelecionadoType == "Dentista")
+                    {
+                        MessageBox.Show("Operação não permitida para este tipo de usuario", "Acesso negado!");
+                        return;
+                    }
+                    else if (atorSelecionadoType == "GestorDeEstoque")
+                    {
+                        if(secretaria.CrudGestoresDeEstoque == true)
+                        {
+                            EditarGestor((GestorDeEstoque)atorSelecionado);
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Operação não permitida para este usuario", "Acesso negado!");
+                            return;
+                        }
+                    }
+                    else if (atorSelecionadoType == "Secretaria")
+                    {
+                        if (secretaria.CrudSecretarias == true)
+                        {
+                            EditarSecretaria((Secretaria)atorSelecionado);
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Operação não permitida para este usuario", "Acesso negado!");
+                            return;
+                        }
+                    }
+                }
+                // Ediçao dos atores iniciada por um adm
+                else
+                {
+                    if (atorSelecionadoType == "Dentista")
+                    {
+                        EditarDentista((Dentista)atorSelecionado);
+                        return;
+                    }
+                    else if (atorSelecionadoType == "Secretaria")
+                    {
+                        EditarSecretaria((Secretaria)atorSelecionado);
+                        return;
+                    }
+                    else if (atorSelecionadoType == "GestorDeEstoque")
+                    {
+                        EditarGestor((GestorDeEstoque)atorSelecionado);
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhum elemento selecionado!", "Erro");
+            }     
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void EditarSecretaria(Secretaria atorSelecionado)
+        {
+            SecretariaView viewSecretaria = new SecretariaView(atorSelecionado);
+            this.Hide();
+            viewSecretaria.ShowDialog();
+            this.Visibility = Visibility.Visible;
+        }
+
+        private void EditarGestor(GestorDeEstoque atorSelecionado)
+        {
+            GestorDeEstoqueView viewGestorDeEstoque = new GestorDeEstoqueView(atorSelecionado);
+            this.Hide();
+            viewGestorDeEstoque.ShowDialog();
+            this.Visibility = Visibility.Visible;
+        }
+
+        private void EditarDentista(Dentista atorSelecionado)
+        {
+            DentistaView viewDentista = new DentistaView(atorSelecionado);
+            this.Hide();
+            viewDentista.ShowDialog();
+            this.Visibility = Visibility.Visible;
+        }
     }
 }
