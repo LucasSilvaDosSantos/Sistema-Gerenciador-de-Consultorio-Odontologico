@@ -32,8 +32,8 @@
         <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="89,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="43" IsReadOnly="True" TextChanged="TbId_TextChanged"/>
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="137,0,0,283" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="195,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="278" TextChanged="TbNome_TextChanged" />
-        <Label x:Name="label2" Content="Preço" HorizontalAlignment="Left" Margin="478,0,0,283" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" Height="31" Margin="533,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="95"/>
+        <Label x:Name="label2" Content="Preço R$" HorizontalAlignment="Left" Margin="478,0,0,283" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" Height="31" Margin="550,0,0,283" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="78"/>
         <Label x:Name="label4" Content="Descrição" HorizontalAlignment="Left" Margin="59,0,0,252" VerticalAlignment="Bottom"/>
         <DataGrid x:Name="dgProdutos" HorizontalAlignment="Right" Height="192" Margin="0,0,63,117" VerticalAlignment="Bottom" Width="554" IsReadOnly="True" SelectionMode="Single"/>
 

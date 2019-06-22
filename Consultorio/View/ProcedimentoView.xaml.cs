@@ -62,7 +62,7 @@ namespace Consultorio.View
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
-            tbPreco.Text = string.Format("{0:c}", 0);
+            tbPreco.Text = string.Format("{0:f2}", 0);
             tbId.Text = "";
             AtivarBotoes(4);
             AtivarCampos(2);
@@ -168,7 +168,7 @@ namespace Consultorio.View
                 Procedimento p = (Procedimento)dgListaProcedimentos.Items[dgListaProcedimentos.SelectedIndex];
                 tbId.Text = p.Id.ToString();
                 tbNome.Text = p.Nome;
-                tbPreco.Text = string.Format("{0:c}", p.Preco);
+                tbPreco.Text = string.Format("{0:f2}", p.Preco);
                 tbObs.Text = p.Descricao;
 
                 AtivarBotoes(3);
@@ -197,19 +197,8 @@ namespace Consultorio.View
         {
             Procedimento procedimento = new Procedimento();
             procedimento.Nome = tbNome.Text;
-            var precoSplit = tbPreco.Text.Split(' ');
-            double valor;
-            if (precoSplit.Count() == 1)
-            {
-                double.TryParse(precoSplit[0], out double precoDouble);
-                valor = precoDouble;
-            }
-            else
-            {
-                double.TryParse(precoSplit[1], out double precoDouble);
-                valor = precoDouble;
-            }            
-            procedimento.Preco = valor;
+            double.TryParse(tbPreco.Text, out double precoDouble);
+            procedimento.Preco = precoDouble;
             return procedimento;
         }
 

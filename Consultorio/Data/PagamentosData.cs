@@ -16,21 +16,16 @@ namespace Consultorio.Data
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    /* inativado ate ter o controle de usuario 
-                    if (pagamento.Recebedor.GetType().ToString() == "Consultorio.Model.Dentista")
+                    string tipoDeAtor = pagamento.Recebedor.GetType().Name;
+                    if (tipoDeAtor == "Dentista")
                     {
                         pagamento.Recebedor = ctx.Dentistas.Find(pagamento.Recebedor.Id);
                     }
-                    else if (pagamento.Recebedor.GetType().ToString() == "Consultorio.Model.Secretaria")
+                    else if (tipoDeAtor == "Secretaria")
                     {
                         pagamento.Recebedor = ctx.Secretarias.Find(pagamento.Recebedor.Id);
                     }
-                    else if (pagamento.Recebedor.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
-                    {
-                        pagamento.Recebedor = ctx.GestoresDeEstoque.Find(pagamento.Recebedor.Id);
-                    }*/
-
-                    pagamento.Cliente = ctx.Clientes.Find(pagamento.Cliente.Id);
+                    pagamento.Cliente = ctx.Clientes.Find(pagamento.Cliente.Id);                    
                     ctx.Pagamentos.Add(pagamento);
                     ctx.SaveChanges();
                     return ("Salvo novo Pagamento");
