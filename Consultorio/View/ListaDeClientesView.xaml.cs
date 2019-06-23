@@ -54,20 +54,6 @@ namespace Consultorio.View
             btHistorico.IsEnabled = true;
         }
 
-        // função do botao buscar
-        private void Buscar_Click(object sender, RoutedEventArgs e)
-        {
-            //verifica se o id é um int
-            int.TryParse(tbId.Text, out int id);
-
-            dgListaDeClientes.ItemsSource = ListaDeClienteData.BuscarCliente(id, tbNome.Text);
-            TratamentoDoGrid();
-
-            btCancelar.IsEnabled = true;
-            btHistorico.IsEnabled = false;
-            btAlterar.IsEnabled = false;
-        }
-
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
             ResetarTela();
@@ -83,9 +69,38 @@ namespace Consultorio.View
             HistoricoCliente();
         }
 
+        private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbId.Text = "";
+            Buscar();
+        }
+
+        private void TbId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbNome.Text = "";
+            Buscar();
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        private void Buscar()
+       {
+            int.TryParse(tbId.Text, out int id);
+
+            if (id != 0 || tbNome.Text != "")
+            {
+                dgListaDeClientes.ItemsSource = ListaDeClienteData.BuscarCliente(id, tbNome.Text);
+                TratamentoDoGrid();
+                btCancelar.IsEnabled = true;
+            }
+            else
+            {
+                ResetarTela();
+                btCancelar.IsEnabled = false;
+            }
+       }
+            
         // todas as partes para tratar o grid para eibição correta
         private void TratamentoDoGrid()
         {
@@ -158,6 +173,6 @@ namespace Consultorio.View
                 historicoDoCliente.Show();
                 this.Close();
             }
-        }
+        } 
     }
 }
