@@ -62,6 +62,7 @@ namespace Consultorio.View
         private void BtAlterar_Click(object sender, RoutedEventArgs e)
         {
             AlterarCliente();
+            ListarTodosOsCliente();
         }
 
         private void BtHistorico_Click(object sender, RoutedEventArgs e)

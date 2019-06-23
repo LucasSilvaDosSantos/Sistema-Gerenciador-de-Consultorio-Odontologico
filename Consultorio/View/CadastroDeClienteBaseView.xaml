@@ -33,8 +33,6 @@
         <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="29" Margin="124,0,0,150" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="47" IsReadOnly="True"/>
         <TextBox x:Name="tbNome" Height="28" Margin="149,0,0,122" Padding="0, -1, 0, 0" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="478"/>
 
-        <wpfTool:MaskedTextBox x:Name="tbDataDeNascimento" Mask="00/00/0000" Margin="250,0,0,91" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1"/>
-
         <wpfTool:MaskedTextBox x:Name="tbCpf" Mask="000\.000\.000->AA" Height="26" Margin="143,0,0,60" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="126" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" />
         <TextBox x:Name="tbRg" Height="31" Padding="0, -1, 0, 0" Margin="416,0,0,60" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="211"/>
         <TextBox x:Name="tbEmail" Height="28" Padding="0, -1, 0, 0" Margin="150,0,0,32" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="477"/>
@@ -55,5 +53,6 @@
         <Label x:Name="lbId" Content="ID" HorizontalAlignment="Left" Margin="94,0,0,148" VerticalAlignment="Bottom"/>
         <Button x:Name="btAnamnese" Content="Anamnese" Margin="581,0,573,30" VerticalAlignment="Bottom" Height="35" Grid.Row="1" Click="BtAnamnese_Click"/>
         <Label x:Name="label6" Content="* Campos Obrigatórios" HorizontalAlignment="Left" Margin="94,121,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dataPiquerNascimento" Margin="256,0,0,91" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="110"/>
     </Grid>
 </Window>

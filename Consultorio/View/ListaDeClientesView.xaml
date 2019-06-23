@@ -8,9 +8,9 @@
         Title="Lista de clientes" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
-        <Button x:Name="btHistorico" Content="Histórico " Margin="448,0,0,30" VerticalAlignment="Bottom" Height="35" HorizontalAlignment="Left" Width="98" Click="BtHistorico_Click"/>
-        <Button x:Name="btAlterar" Content="Alterar" Margin="551,0,634,30" VerticalAlignment="Bottom" Height="35" Click="BtAlterar_Click"/>
-        <Button x:Name="btCancelar" Content="Cancelar" Margin="0,0,438,30" VerticalAlignment="Bottom" Height="35" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="98"/>
+        <Button x:Name="btHistorico" Content="Histórico " Margin="494,0,0,30" VerticalAlignment="Bottom" Height="35" HorizontalAlignment="Left" Width="98" Click="BtHistorico_Click"/>
+        <Button x:Name="btAlterar" Content="Alterar" Margin="597,0,588,30" VerticalAlignment="Bottom" Height="35" Click="BtAlterar_Click"/>
+        <Button x:Name="btCancelar" Content="Cancelar" Margin="0,0,485,30" VerticalAlignment="Bottom" Height="35" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="98"/>
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click"/>
         <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="302"/>
 

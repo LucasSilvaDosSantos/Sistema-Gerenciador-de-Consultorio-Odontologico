@@ -130,8 +130,7 @@ namespace Consultorio.View
             {
                 lista.Add("Nome");
             }
-            DateTime.TryParse(tbDataDeNascimento.Text, out DateTime data);
-            if (data.Equals("") || tbDataDeNascimento.Text == "__/__/____")
+            if (dataPiquerNascimento.SelectedDate.ToString() == "")
             {
                 lista.Add("Data de Nascimento");
             }
@@ -151,7 +150,7 @@ namespace Consultorio.View
         {
             Cliente cliente = new Cliente();
             cliente.Nome = tbNome.Text;
-            cliente.Nascimento = DateTime.ParseExact(tbDataDeNascimento.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
+            cliente.Nascimento = DateTime.Parse(dataPiquerNascimento.SelectedDate.ToString());
             cliente.Cpf = tbCpf.Text;
             cliente.Rg = tbRg.Text;
             cliente.Email = tbEmail.Text;
@@ -171,10 +170,9 @@ namespace Consultorio.View
         public void IniciarComCliente(Cliente cliente)
         {
             tbId.IsEnabled = true;
-            //teste.Text = cliente.Anamnese.Id.ToString();
             tbId.Text = cliente.Id.ToString();
             tbNome.Text = cliente.Nome;
-            tbDataDeNascimento.Text = string.Format("{0:dd/MM/yyyy}", cliente.Nascimento);
+            dataPiquerNascimento.SelectedDate = cliente.Nascimento;
             tbCpf.Text = cliente.Cpf;
             tbRg.Text = cliente.Rg;
             tbEmail.Text = cliente.Email;
@@ -186,10 +184,7 @@ namespace Consultorio.View
             tbCidade.Text = cliente.Cidade;
             tbCep.Text = cliente.Cep;
             tbObs.Text = cliente.Obs;
-
             btAnamnese.Visibility = Visibility.Visible;
-
-            //cliente.Nascimento = DateTime.ParseExact(tbDataDeNascimento.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
         }        
     }
 }
