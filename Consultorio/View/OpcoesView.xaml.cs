@@ -61,8 +61,10 @@ namespace Consultorio.View
         private void BtCadastroDeClientes_Click(object sender, RoutedEventArgs e)
         {
             CadastroDeClienteBaseView cadastroDeClienteBase = new CadastroDeClienteBaseView();
-            cadastroDeClienteBase.Show();
-            this.Close();
+            this.Hide();
+            cadastroDeClienteBase.ShowDialog();
+            this.Visibility = Visibility.Visible;
+            //this.Close();
         }
 
         private void BtConsultas_Click(object sender, RoutedEventArgs e)

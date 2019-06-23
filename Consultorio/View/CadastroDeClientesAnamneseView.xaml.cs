@@ -28,9 +28,9 @@ namespace Consultorio.View
             string confirmacao = MessageBox.Show("Deseja sair sem salvar?", "Confirmação", MessageBoxButton.OKCancel).ToString();
             if (confirmacao == "OK")
             {
-                CadastroDeClienteBaseView cadastroCliente = new CadastroDeClienteBaseView();
+                /*CadastroDeClienteBaseView cadastroCliente = new CadastroDeClienteBaseView();
                 cadastroCliente.IniciarComCliente(Cliente);
-                cadastroCliente.Show();
+                cadastroCliente.Show();*/
                 this.Close();
             }
         }
@@ -38,18 +38,19 @@ namespace Consultorio.View
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
             bool btNaoPreencher = (bool)cbNaoPreencher.IsChecked;
-            if (btNaoPreencher)
+            if (btNaoPreencher == true)
             {
                 // CadastroDeClienteBaseViewModel.CadastroDeNovoCliente(Cliente);
             }
             else
             {
                 Anamnese anamnese = PegarDadosDaTela();
-                CadastroDeClienteAnamneseData.CadastrarAnamnese(Cliente, anamnese);
+                string msg = CadastroDeClienteAnamneseData.CadastrarAnamnese(Cliente, anamnese);
+                MessageBox.Show(msg, "Aviso!");
                 Cliente.Anamnese = anamnese;
             }
-            OpcoesView opcoes = new OpcoesView();
-            opcoes.Show();
+            /*OpcoesView opcoes = new OpcoesView();
+            opcoes.Show();*/
             this.Close();                  
         }
 
@@ -224,11 +225,8 @@ namespace Consultorio.View
 
             if (anamnese != null)
             {
-
-
-
                 //P01
-                if (anamnese.P01)
+                if (anamnese.P01 == true)
                 {
                     rbP01S.IsChecked = true;
                     tb0P1TelMedico.Text = anamnese.P01ComplementoTel;
@@ -240,7 +238,7 @@ namespace Consultorio.View
                 }
 
                 //P02
-                if (anamnese.P02)
+                if (anamnese.P02 == true)
                 {
                     rbP02S.IsChecked = true;
                     tbP02Quais.Text = anamnese.P02Complemento;
@@ -251,7 +249,7 @@ namespace Consultorio.View
                 }
 
                 //P03
-                if (anamnese.P03)
+                if (anamnese.P03 == true)
                 {
                     rbP03S.IsChecked = true;
                     tbP03Qual.Text = anamnese.P03Complemento;
@@ -262,7 +260,7 @@ namespace Consultorio.View
                 }
 
                 //P04
-                if (anamnese.P04)
+                if (anamnese.P04 == true)
                 {
                     rbP04S.IsChecked = true;
                     tbP04Aux.Text = anamnese.P04Complemento;
@@ -273,7 +271,7 @@ namespace Consultorio.View
                 }
 
                 //P05
-                if (anamnese.P05)
+                if (anamnese.P05 == true)
                 {
                     rbP05S.IsChecked = true;
                     tbP05Mes.Text = anamnese.P05Complemento;
@@ -284,7 +282,7 @@ namespace Consultorio.View
                 }
 
                 //P06
-                if (anamnese.P06)
+                if (anamnese.P06 == true)
                 {
                     rbP06S.IsChecked = true;
                 }
@@ -294,7 +292,7 @@ namespace Consultorio.View
                 }
 
                 //P07
-                if (anamnese.P07)
+                if (anamnese.P07 == true)
                 {
                     rbP07S.IsChecked = true;
                 }
@@ -304,7 +302,7 @@ namespace Consultorio.View
                 }
 
                 //P08
-                if (anamnese.P08)
+                if (anamnese.P08 == true)
                 {
                     rbP08S.IsChecked = true;
                 }
@@ -314,7 +312,7 @@ namespace Consultorio.View
                 }
 
                 //P09
-                if (anamnese.P09)
+                if (anamnese.P09 == true)
                 {
                     rbP09S.IsChecked = true;
                     tbP09Aux.Text = anamnese.P09Complemento;
@@ -325,7 +323,7 @@ namespace Consultorio.View
                 }
 
                 //P10
-                if (anamnese.P10)
+                if (anamnese.P10 == true)
                 {
                     rbP10S.IsChecked = true;
                 }
@@ -335,7 +333,7 @@ namespace Consultorio.View
                 }
 
                 //P11
-                if (anamnese.P11)
+                if (anamnese.P11 == true)
                 {
                     rbP11S.IsChecked = true;
                 }
@@ -345,7 +343,7 @@ namespace Consultorio.View
                 }
 
                 //P12
-                if (anamnese.P12)
+                if (anamnese.P12 == true)
                 {
                     rbP12S.IsChecked = true;
                 }
@@ -355,7 +353,7 @@ namespace Consultorio.View
                 }
 
                 //P13
-                if (anamnese.P13)
+                if (anamnese.P13 == true)
                 {
                     rbP13S.IsChecked = true;
                 }
@@ -365,7 +363,7 @@ namespace Consultorio.View
                 }
 
                 //P14
-                if (anamnese.P14)
+                if (anamnese.P14 == true)
                 {
                     rbP14S.IsChecked = true;
                 }
@@ -375,7 +373,7 @@ namespace Consultorio.View
                 }
 
                 //P15
-                if (anamnese.P15)
+                if (anamnese.P15 == true)
                 {
                     rbP15S.IsChecked = true;
                 }
@@ -385,7 +383,7 @@ namespace Consultorio.View
                 }
 
                 //P16
-                if (anamnese.P16)
+                if (anamnese.P16 == true)
                 {
                     rbP16S.IsChecked = true;
                 }
@@ -395,7 +393,7 @@ namespace Consultorio.View
                 }
 
                 //P17
-                if (anamnese.P17)
+                if (anamnese.P17 == true)
                 {
                     rbP17S.IsChecked = true;
                     tbP17Aux.Text = anamnese.P17Complemento;
@@ -406,7 +404,7 @@ namespace Consultorio.View
                 }
 
                 //P18
-                if (anamnese.P18)
+                if (anamnese.P18 == true)
                 {
                     rbP18S.IsChecked = true;
                 }
@@ -416,7 +414,7 @@ namespace Consultorio.View
                 }
 
                 //P19
-                if (anamnese.P19)
+                if (anamnese.P19 == true)
                 {
                     rbP19S.IsChecked = true;
                 }
@@ -426,7 +424,7 @@ namespace Consultorio.View
                 }
 
                 //P20
-                if (anamnese.P20)
+                if (anamnese.P20 == true)
                 {
                     rbP20S.IsChecked = true;
                 }
@@ -436,7 +434,7 @@ namespace Consultorio.View
                 }
 
                 //P21
-                if (anamnese.P21)
+                if (anamnese.P21 == true)
                 {
                     rbP21S.IsChecked = true;
                 }
@@ -446,7 +444,7 @@ namespace Consultorio.View
                 }
 
                 //P22
-                if (anamnese.P22)
+                if (anamnese.P22 == true)
                 {
                     rbP22S.IsChecked = true;
                 }
@@ -456,7 +454,7 @@ namespace Consultorio.View
                 }
 
                 //P23
-                if (anamnese.P23)
+                if (anamnese.P23 == true)
                 {
                     rbP23S.IsChecked = true;
                 }
@@ -466,7 +464,7 @@ namespace Consultorio.View
                 }
 
                 //P24
-                if (anamnese.P24)
+                if (anamnese.P24 == true)
                 {
                     rbP24S.IsChecked = true;
                 }
@@ -476,7 +474,7 @@ namespace Consultorio.View
                 }
 
                 //P25
-                if (anamnese.P25)
+                if (anamnese.P25 == true)
                 {
                     rbP25S.IsChecked = true;
                 }
@@ -486,7 +484,7 @@ namespace Consultorio.View
                 }
 
                 //P26
-                if (anamnese.P26)
+                if (anamnese.P26 == true)
                 {
                     rbP26S.IsChecked = true;
                 }
@@ -496,7 +494,7 @@ namespace Consultorio.View
                 }
 
                 //P27
-                if (anamnese.P27)
+                if (anamnese.P27 == true)
                 {
                     rbP27S.IsChecked = true;
                 }

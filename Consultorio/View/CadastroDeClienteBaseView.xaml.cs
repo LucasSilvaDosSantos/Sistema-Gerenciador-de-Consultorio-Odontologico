@@ -33,7 +33,7 @@ namespace Consultorio.View
         // botao de volta define pra qual pagina sera retornada 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            if (OrigemListaDeClientes)
+            /*if (OrigemListaDeClientes)
             {
                 ListaDeClientesView lista = new ListaDeClientesView();
                 lista.Show();
@@ -44,7 +44,8 @@ namespace Consultorio.View
                 OpcoesView opcoes = new OpcoesView();
                 opcoes.Show();
                 this.Close();
-            }       
+            }       */
+            this.Close();
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
@@ -57,9 +58,11 @@ namespace Consultorio.View
                 {
                     Cliente cliente = PegarDadosDosCampos();
                     cliente.Id = int.Parse(tbId.Text);
-                    CadastroDeClienteBaseData.AlterarCliente(cliente);
+                    var msg = CadastroDeClienteBaseData.AlterarCliente(cliente);
+                    MessageBox.Show(msg, "Aviso!");
                     CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                    anamnese.Show();
+                    this.Hide();
+                    anamnese.ShowDialog();
                     this.Close();
                 }
                 else
@@ -79,10 +82,12 @@ namespace Consultorio.View
                 if (ListaDeCamposComErros.Count == 0)
                 {
                     Cliente cliente = PegarDadosDosCampos();
-                    CadastroDeClienteBaseData.CadastroDeNovoCliente(cliente);
+                    string msg = CadastroDeClienteBaseData.CadastroDeNovoCliente(cliente);
+                    MessageBox.Show(msg, "Aviso!");
                     CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                    anamnese.Show();
-                    this.Close();                    
+                    this.Hide();
+                    anamnese.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
@@ -105,7 +110,8 @@ namespace Consultorio.View
                 Cliente cliente = PegarDadosDosCampos();
                 cliente.Id = int.Parse(tbId.Text);
                 CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                anamnese.Show();
+                this.Hide();
+                anamnese.ShowDialog();
                 this.Close();
             }
         }

@@ -11,7 +11,7 @@ namespace Consultorio.Data
     class CadastroDeClienteBaseData
     {
         //Cadastrar Novo Cliente
-        public static void CadastroDeNovoCliente(Cliente cliente)
+        public static string CadastroDeNovoCliente(Cliente cliente)
         {
             try
             {
@@ -19,16 +19,17 @@ namespace Consultorio.Data
                 {
                     ctx.Clientes.Add(cliente);
                     ctx.SaveChanges();
+                    return "Novo Cliente Salvo!";
                 }
             }
             catch (Exception e){
-                Console.WriteLine(e.Message);
+                return(e.Message);
             }
         }
 
         //arrumr codigo de salvar clientes novos e altaraçoes 
         //Altarar Cliente Existente
-        public static void AlterarCliente(Cliente cliente)
+        public static string AlterarCliente(Cliente cliente)
         {
             try
             {
@@ -51,10 +52,12 @@ namespace Consultorio.Data
                     c.Obs = cliente.Obs;
 
                     ctx.SaveChanges();
+                    return "Cliente Alterado!";
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                return e.Message;
             }
         }
     }

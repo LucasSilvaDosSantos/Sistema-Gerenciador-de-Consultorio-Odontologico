@@ -141,8 +141,10 @@ namespace Consultorio.View
             CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
             clienteBase.OrigemListaDeClientes = true;
             clienteBase.IniciarComCliente(c);
-            clienteBase.Show();
-            this.Close();
+            this.Hide();
+            clienteBase.ShowDialog();
+            this.Visibility = Visibility.Visible;
+            //this.Close();
         }
 
         private void HistoricoCliente()
