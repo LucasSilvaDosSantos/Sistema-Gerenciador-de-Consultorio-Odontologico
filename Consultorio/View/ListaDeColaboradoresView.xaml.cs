@@ -44,11 +44,7 @@ namespace Consultorio.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            dgListaAtores.ItemsSource = ColaboradoresData.ListarAtores();
-            //Login
-            dgListaAtores.Columns[5].Visibility = Visibility.Collapsed;
-            //Senha
-            dgListaAtores.Columns[6].Visibility = Visibility.Collapsed;
+            RecarregarGrid();
         }
 
         private void DgListaAtores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -152,15 +148,26 @@ namespace Consultorio.View
             }     
         }
 
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void RecarregarGrid()
+        {
+            dgListaAtores.ItemsSource = ColaboradoresData.ListarAtores();
+            //Login
+            dgListaAtores.Columns[5].Visibility = Visibility.Collapsed;
+            //Senha
+            dgListaAtores.Columns[6].Visibility = Visibility.Collapsed;
+        }
 
         private void EditarSecretaria(Secretaria atorSelecionado)
         {
             SecretariaView viewSecretaria = new SecretariaView(atorSelecionado);
             this.Hide();
             viewSecretaria.ShowDialog();
+            RecarregarGrid();
             this.Visibility = Visibility.Visible;
         }
 
@@ -169,6 +176,7 @@ namespace Consultorio.View
             GestorDeEstoqueView viewGestorDeEstoque = new GestorDeEstoqueView(atorSelecionado);
             this.Hide();
             viewGestorDeEstoque.ShowDialog();
+            RecarregarGrid();
             this.Visibility = Visibility.Visible;
         }
 
@@ -177,6 +185,7 @@ namespace Consultorio.View
             DentistaView viewDentista = new DentistaView(atorSelecionado);
             this.Hide();
             viewDentista.ShowDialog();
+            RecarregarGrid();
             this.Visibility = Visibility.Visible;
         }
     }

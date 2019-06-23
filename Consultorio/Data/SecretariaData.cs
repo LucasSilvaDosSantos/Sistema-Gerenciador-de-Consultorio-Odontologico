@@ -2,6 +2,7 @@
 using Consultorio.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,8 @@ namespace Consultorio.Data
                     s.CrudSecretarias = secretaria.CrudSecretarias;
                     s.CrudProdutos = secretaria.CrudProdutos;
                     s.CrudGestoresDeEstoque = secretaria.CrudGestoresDeEstoque;
+
+                    ctx.Entry(s).State = EntityState.Modified;
 
                     ctx.SaveChanges();
                     return ("Salvo alterações de secretária");

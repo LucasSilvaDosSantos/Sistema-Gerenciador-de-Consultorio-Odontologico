@@ -43,6 +43,8 @@ namespace Consultorio.Data
                     g.Login = gestor.Login;
                     g.Senha = gestor.Senha;
 
+                    ctx.Entry(g).State = System.Data.Entity.EntityState.Modified;
+
                     ctx.SaveChanges();
                     return ("Salvo alterações de Gestor de Estoque");
                 }

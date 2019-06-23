@@ -44,6 +44,8 @@ namespace Consultorio.Data
                     d.Login = dentista.Login;
                     d.Senha = dentista.Senha;
 
+                    ctx.Entry(d).State = System.Data.Entity.EntityState.Modified;
+
                     ctx.SaveChanges();
                     return ("Salvo alterações de dentista");
                 }

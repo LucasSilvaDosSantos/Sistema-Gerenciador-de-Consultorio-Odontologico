@@ -139,10 +139,6 @@ namespace Consultorio.View
             {
                 lista.Add("Celular 1");
             }
-            if (tbCROSP.Text.Equals(""))
-            {
-                lista.Add("Crosp");
-            }
             if (tbLogin.Text.Equals(""))
             {
                 lista.Add("Login");
