@@ -60,18 +60,6 @@ namespace Consultorio.View
         private void Voltar()
         {
             this.Close();
-            /*if (OrigemListaDeAtores)
-            {
-                ListaDeColaboradoresView viewListaDeColaboradores = new ListaDeColaboradoresView();
-                viewListaDeColaboradores.Show();
-                this.Close();
-            }
-            else
-            {
-                CadastroDeColaboradoresView viewColaboradores = new CadastroDeColaboradoresView();
-                viewColaboradores.Show();
-                this.Close();
-            }*/
         }
 
         private void SalvarUsuario()
