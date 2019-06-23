@@ -11,6 +11,8 @@ namespace Consultorio.ViewModel
 {
     public class OpcoesViewModel : INotifyPropertyChanged
     {
+        private string _Saudacao;
+
         private bool _CrudClientes;
         private bool _CrudProdutos;
         private bool _Consultas;
@@ -18,7 +20,11 @@ namespace Consultorio.ViewModel
         private bool _NovoPagamento;
         private bool _Procedimentos;
         private bool _CadastroDeColaboradores;
-
+        public string Saudacao
+        {
+            get { return _Saudacao; }
+            set { _Saudacao = value; OnPropertyChanged("Saudacao"); }
+        }
         public bool CrudClientes
         {
             get { return _CrudClientes; }
@@ -61,6 +67,8 @@ namespace Consultorio.ViewModel
         public OpcoesViewModel()
         {
             AtorLogado = SingletonAtorLogado.Instancia;
+            var list = AtorLogado.Ator.Nome.Split(' ');
+            Saudacao = "Bem Vindo " + list[0] + "!";
             AutorizacaoDeAcesso();
         }
 
