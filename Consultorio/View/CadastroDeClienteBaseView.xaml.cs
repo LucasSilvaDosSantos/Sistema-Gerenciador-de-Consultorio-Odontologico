@@ -1,5 +1,6 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
+using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,12 +15,18 @@ namespace Consultorio.View
     public partial class CadastroDeClienteBaseView : Window
     {
 
+        public CadastroDeClienteBaseViewModel CadastroDeClienteBaseViewModel { get; set; }
+
         public Cliente Cliente { get; set; }
         public bool OrigemListaDeClientes { get; set; }
 
+        public CadastroDeClienteBaseViewModel CadastroViewModel { get; set; }
 
-        public CadastroDeClienteBaseView()
+        public CadastroDeClienteBaseView(CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)
         {
+            CadastroViewModel = cadastroDeClienteBaseViewModel;
+            DataContext = cadastroDeClienteBaseViewModel;
+
             InitializeComponent();
             tbId.IsEnabled = false;
 
@@ -33,158 +40,48 @@ namespace Consultorio.View
         // botao de volta define pra qual pagina sera retornada 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            /*if (OrigemListaDeClientes)
-            {
-                ListaDeClientesView lista = new ListaDeClientesView();
-                lista.Show();
-                this.Close();
-            }
-            else
-            {
-                OpcoesView opcoes = new OpcoesView();
-                opcoes.Show();
-                this.Close();
-            }       */
             this.Close();
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            //quando a requisição vem da tela de listagem de clientes
-            if (OrigemListaDeClientes || tbId.Text != "")
+            bool valido = CadastroViewModel.ValidarCamposObrigatorios(out List<string> listaDeCamposComErro);
+
+            if (valido == true)
             {
-                List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
-                if (ListaDeCamposComErros.Count == 0)
-                {
-                    Cliente cliente = PegarDadosDosCampos();
-                    cliente.Id = int.Parse(tbId.Text);
-                    var msg = CadastroDeClienteBaseData.AlterarCliente(cliente);
-                    MessageBox.Show(msg, "Aviso!");
-                    CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                    this.Hide();
-                    anamnese.ShowDialog();
-                    this.Close();
-                }
-                else
-                {
-                    StringBuilder sb = new StringBuilder();
-                    foreach (string i in ValidarCamposObrigatorios())
-                    {
-                        sb.Append($"{i}, ");
-                    }
-                    MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
-                }                
+                SalvarClienteNoBanco();             
             }
-            //quando a requisição vem da tela de cadastro
             else
             {
-                List<string> ListaDeCamposComErros = ValidarCamposObrigatorios();
-                if (ListaDeCamposComErros.Count == 0)
-                {
-                    Cliente cliente = PegarDadosDosCampos();
-                    string msg = CadastroDeClienteBaseData.CadastroDeNovoCliente(cliente);
-                    MessageBox.Show(msg, "Aviso!");
-                    CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                    this.Hide();
-                    anamnese.ShowDialog();
-                    this.Close();
-                }
-                else
-                {
-                    StringBuilder sb = new StringBuilder();
-                    foreach (string i in ValidarCamposObrigatorios())
-                    {
-                        sb.Append($"{i}, ");
-                    }
-                    MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
-                }
-                
+                ExibirMessagemDeCamposObrigatorios(listaDeCamposComErro);              
             }
         }
 
         private void BtAnamnese_Click(object sender, RoutedEventArgs e)
-        {
-            string confirmacao = MessageBox.Show("Deseja ir para Anamnese sem salvar alterações", "Confirmação", MessageBoxButton.OKCancel).ToString();
-            if (confirmacao == "OK")
-            {               
-                Cliente cliente = PegarDadosDosCampos();
-                cliente.Id = int.Parse(tbId.Text);
-                CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(cliente);
-                this.Hide();
-                anamnese.ShowDialog();
-                this.Close();
-            }
+        {              
+            this.Hide();
+            CadastroViewModel.BtAnamnese_Click();
+            this.Close();           
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-
-
-        /// revisar a validação de clientes
-        // Validação dos campos obrigatorios
-        private List<string> ValidarCamposObrigatorios()
+        private void ExibirMessagemDeCamposObrigatorios(List<string> listaDeCampos)
         {
-            List<string> lista = new List<string>();
-            if (tbNome.Text == "")
+            StringBuilder sb = new StringBuilder();
+            foreach (string i in listaDeCampos)
             {
-                lista.Add("Nome");
+                sb.Append($"{i}, ");
             }
-            if (dataPiquerNascimento.SelectedDate.ToString() == "")
-            {
-                lista.Add("Data de Nascimento");
-            }
-            if (tbCpf.Text == "___.___.___-__")
-            {
-                lista.Add("CPF");
-            }
-            if (tbCelular1.Text == "(__)_____-____")
-            {
-                lista.Add("Telefone 1");
-            }
-            return lista;
+            MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
         }
 
-        // Pega os dados da tela e carrega em um objeto Cliente
-        private Cliente PegarDadosDosCampos()
+        private void SalvarClienteNoBanco()
         {
-            Cliente cliente = new Cliente();
-            cliente.Nome = tbNome.Text;
-            cliente.Nascimento = DateTime.Parse(dataPiquerNascimento.SelectedDate.ToString());
-            cliente.Cpf = tbCpf.Text;
-            cliente.Rg = tbRg.Text;
-            cliente.Email = tbEmail.Text;
-            cliente.Telefone1 = tbCelular1.Text;
-            cliente.Telefone2 = tbCelular2.Text;
-            cliente.Endereco = tbEndereco.Text;
-            cliente.Bairro = tbBairro.Text;
-            cliente.Uf = tbUf.Text;
-            cliente.Cidade = tbCidade.Text;
-            cliente.Cep = tbCep.Text;
-            cliente.Obs = tbObs.Text;
-
-            return cliente;
-        }
-
-        // Passa um cliente para a tela
-        public void IniciarComCliente(Cliente cliente)
-        {
-            tbId.IsEnabled = true;
-            tbId.Text = cliente.Id.ToString();
-            tbNome.Text = cliente.Nome;
-            dataPiquerNascimento.SelectedDate = cliente.Nascimento;
-            tbCpf.Text = cliente.Cpf;
-            tbRg.Text = cliente.Rg;
-            tbEmail.Text = cliente.Email;
-            tbCelular1.Text = cliente.Telefone1;
-            tbCelular2.Text = cliente.Telefone2;
-            tbEndereco.Text = cliente.Endereco;
-            tbBairro.Text = cliente.Bairro;
-            tbUf.Text = cliente.Uf;
-            tbCidade.Text = cliente.Cidade;
-            tbCep.Text = cliente.Cep;
-            tbObs.Text = cliente.Obs;
-            btAnamnese.Visibility = Visibility.Visible;
-        }        
+            string msg = CadastroViewModel.BtSalvar_Click();
+            MessageBox.Show(msg, "Aviso!");
+            this.Close();
+        }     
     }
 }

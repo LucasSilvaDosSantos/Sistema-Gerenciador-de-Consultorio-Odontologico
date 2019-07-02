@@ -154,11 +154,16 @@ namespace Consultorio.View
         {
             Cliente c = (Cliente)dgListaDeClientes.Items[dgListaDeClientes.SelectedIndex];
 
-            CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
+            /*CadastroDeClienteBaseView clienteBase = new CadastroDeClienteBaseView();
             clienteBase.OrigemListaDeClientes = true;
-            clienteBase.IniciarComCliente(c);
+            clienteBase.IniciarComCliente(c);*/
+
+            // essa chamada nao deve ocorrer nessa classe, apenas na vm
+
             this.Hide();
-            clienteBase.ShowDialog();
+            CadastroDeClienteBaseViewModel cadastroDeClienteBase = new CadastroDeClienteBaseViewModel(c);
+            //this.Hide();
+            //clienteBase.ShowDialog();
             this.Visibility = Visibility.Visible;
             //this.Close();
         }

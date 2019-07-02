@@ -18,7 +18,7 @@
         <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Left" Margin="512,0,0,260" VerticalAlignment="Bottom"/>
         <PasswordBox x:Name="boxSenha" Padding="0, -1, 0, 0" Margin="566,0,507,260" VerticalAlignment="Bottom" Height="31"/>
 
-        <Button x:Name="btEntrar" Content="Entrar" Margin="603,0,595,206" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
+        <Button x:Name="btEntrar" Content="Entrar" Margin="597,0,586,206" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
         <Image x:Name="image" Margin="540,158,532,0" Source="Imagens\login.png" Height="180" VerticalAlignment="Top" />
 
     </Grid>
