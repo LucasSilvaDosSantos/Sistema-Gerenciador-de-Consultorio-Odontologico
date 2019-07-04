@@ -22,6 +22,14 @@ namespace Consultorio.ViewModel
             set { _Cliente = value; OnPropertyChanged("Cliente"); }
         }
 
+        private string _VisibilidadeBtAnamnese;
+
+        public string VisibilidadeBtAnamnese
+        {
+            get { return _VisibilidadeBtAnamnese; }
+            set { _VisibilidadeBtAnamnese = value; OnPropertyChanged("VisibilidadeBtAnamnese"); }
+        }
+
         public CadastroDeClienteBaseViewModel(Cliente cliente)
         {
             Cliente = cliente;
@@ -31,6 +39,7 @@ namespace Consultorio.ViewModel
 
         public CadastroDeClienteBaseViewModel()
         {
+            VisibilidadeBtAnamnese = "Hidden";
             Cliente = new Cliente();
             Cliente.Nascimento = DateTime.Now;
             CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView(this);
@@ -57,8 +66,7 @@ namespace Consultorio.ViewModel
 
         public void BtAnamnese_Click()
         {
-            CadastroDeClientesAnamneseView anamnese = new CadastroDeClientesAnamneseView(Cliente);
-            anamnese.ShowDialog();
+            CadastroDeClienteAnamneseViewModel anamneseViewModel = new CadastroDeClienteAnamneseViewModel(Cliente);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

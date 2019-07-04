@@ -52,7 +52,7 @@
         <Label x:Name="label5_Copy" Content="Celular 1*" HorizontalAlignment="Left" Margin="91,0,0,-13" Height="37" VerticalAlignment="Bottom"/>
         <Label x:Name="label5_Copy1" Content="Celular 2" HorizontalAlignment="Left" Margin="355,0,0,-10" Height="34" VerticalAlignment="Bottom"/>
         <Label x:Name="lbId" Content="ID" HorizontalAlignment="Left" Margin="94,0,0,148" VerticalAlignment="Bottom"/>
-        <Button x:Name="btAnamnese" Content="Anamnese" Margin="581,0,573,33" Grid.Row="1" VerticalAlignment="Bottom" Click="BtAnamnese_Click" d:LayoutOverrides="Height"/>
+        <Button x:Name="btAnamnese" Visibility="{Binding VisibilidadeBtAnamnese}" Content="Anamnese" Margin="581,0,573,33" Grid.Row="1" VerticalAlignment="Bottom" Click="BtAnamnese_Click"/>
         <Label x:Name="label6" Content="* Campos Obrigatórios" HorizontalAlignment="Left" Margin="94,121,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
 </Window>

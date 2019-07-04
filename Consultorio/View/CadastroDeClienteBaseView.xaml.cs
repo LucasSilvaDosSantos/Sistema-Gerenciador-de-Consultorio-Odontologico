@@ -14,12 +14,6 @@ namespace Consultorio.View
     /// </summary>
     public partial class CadastroDeClienteBaseView : Window
     {
-
-        public CadastroDeClienteBaseViewModel CadastroDeClienteBaseViewModel { get; set; }
-
-        public Cliente Cliente { get; set; }
-        public bool OrigemListaDeClientes { get; set; }
-
         public CadastroDeClienteBaseViewModel CadastroViewModel { get; set; }
 
         public CadastroDeClienteBaseView(CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)
@@ -30,7 +24,7 @@ namespace Consultorio.View
             InitializeComponent();
             tbId.IsEnabled = false;
 
-            btAnamnese.Visibility = Visibility.Hidden;          
+            //btAnamnese.Visibility = Visibility.Hidden;          
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -49,7 +43,12 @@ namespace Consultorio.View
 
             if (valido == true)
             {
-                SalvarClienteNoBanco();             
+                SalvarClienteNoBanco();
+                if (btAnamnese.Visibility == Visibility.Hidden)
+                {
+                    BtAnamnese_Click(sender, e);
+                }
+                this.Close();
             }
             else
             {
@@ -81,7 +80,6 @@ namespace Consultorio.View
         {
             string msg = CadastroViewModel.BtSalvar_Click();
             MessageBox.Show(msg, "Aviso!");
-            this.Close();
         }     
     }
 }
