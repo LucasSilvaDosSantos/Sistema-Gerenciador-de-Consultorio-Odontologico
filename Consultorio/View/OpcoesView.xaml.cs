@@ -23,17 +23,17 @@ namespace Consultorio.View
     {
         public OpcoesViewModel OpcoesViewModel { get; set; }
 
-        public OpcoesView()
+        public OpcoesView(OpcoesViewModel opcoesViewModel)
         {
-            OpcoesViewModel = new OpcoesViewModel();
+            OpcoesViewModel = opcoesViewModel;
             DataContext = OpcoesViewModel;
             InitializeComponent();
         }
 
         private void BtCadastroDeColaboradores_Click(object sender, RoutedEventArgs e)
         {
-            CadastroDeColaboradoresView cadastroDeColaboradores = new CadastroDeColaboradoresView();
-            cadastroDeColaboradores.Show();
+            this.Hide();
+            CadastroDeColaboradoresViewModel cadastroDeColaboradoresViewModel = new CadastroDeColaboradoresViewModel();
             this.Close();
         }
 

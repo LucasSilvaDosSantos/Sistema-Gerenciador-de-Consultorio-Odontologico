@@ -36,8 +36,7 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            CadastroDeColaboradoresView cadastroDeColaboradores = new CadastroDeColaboradoresView();
-            cadastroDeColaboradores.Show();
+            CadastroDeColaboradoresViewModel cadastroDeColaboradoresViewModel = new CadastroDeColaboradoresViewModel();
             this.Close();
             //this.Close();
         }

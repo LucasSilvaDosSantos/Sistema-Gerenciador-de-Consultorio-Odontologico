@@ -1,18 +1,5 @@
-﻿using Consultorio.Model;
-using Consultorio.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Consultorio.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Consultorio.View
 {
@@ -21,84 +8,45 @@ namespace Consultorio.View
     /// </summary>
     public partial class CadastroDeColaboradoresView : Window
     {
+        public CadastroDeColaboradoresViewModel CadastroViewModel { get; set; }
 
-        public SingletonAtorLogado AtorLogado { get; set; }
-
-        public CadastroDeColaboradoresView()
+        public CadastroDeColaboradoresView(CadastroDeColaboradoresViewModel viewModel)
         {
-            AtorLogado = SingletonAtorLogado.Instancia;
-
+            CadastroViewModel = viewModel;
+            DataContext = CadastroViewModel;
             InitializeComponent();
-            ControleDeAcesso();
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            OpcoesView opcoesView = new OpcoesView();
-            opcoesView.Show();
+            CadastroViewModel.BtVoltar_Click();
             this.Close();
         }
-
         private void BtMedicoDentista_Click(object sender, RoutedEventArgs e)
         {
-            DentistaView dentista = new DentistaView();
             this.Hide();
-            dentista.ShowDialog();
+            CadastroViewModel.BtMedicoDentista_Click();
             this.Visibility = Visibility.Visible;
         }
 
         private void BtSecretariaAuxiliar_Click(object sender, RoutedEventArgs e)
         {
-            SecretariaView secretaria = new SecretariaView();
             this.Hide();
-            secretaria.ShowDialog();
+            CadastroViewModel.BtSecretariaAuxiliar_Click();
             this.Visibility = Visibility.Visible;
         }
 
         private void BtGestorDeEstoque_Click(object sender, RoutedEventArgs e)
         {
-            GestorDeEstoqueView estoque = new GestorDeEstoqueView();
             this.Hide();
-            estoque.ShowDialog();
+            CadastroViewModel.BtGestorDeEstoque_Click();
             this.Visibility = Visibility.Visible;
         }
 
         private void BtTodosOsColaboradores_Click(object sender, RoutedEventArgs e)
         {
-            ListaDeColaboradoresView colaboradores = new ListaDeColaboradoresView();
-            /*this.Hide();
-            colaboradores.ShowDialog();
-            this.Visibility = Visibility.Visible;*/
-            colaboradores.Show();
+            CadastroViewModel.BtTodosOsColaboradores_Click();
             this.Close();
-        }
-
-        private void ControleDeAcesso()
-        {
-            var atorLogadoType = AtorLogado.Ator.GetType();
-            /*if (atorLogado.cont)
-            if (AtorLogado.Ator)*/
-            if (atorLogadoType.Name == "Dentista")
-            {
-                btGestorDeEstoque.IsEnabled = true;
-                btMedicoDentista.IsEnabled = true;
-                btSecretariaAuxiliar.IsEnabled = true;
-            }
-            else if (atorLogadoType.Name == "Secretaria")
-            {
-                btGestorDeEstoque.IsEnabled = false;
-                btMedicoDentista.IsEnabled = false;
-                btSecretariaAuxiliar.IsEnabled = false;
-                var secretaria = (Secretaria)AtorLogado.Ator;
-                if (secretaria.CrudGestoresDeEstoque == true)
-                {
-                    btGestorDeEstoque.IsEnabled = true;
-                }
-                if (secretaria.CrudSecretarias == true)
-                {
-                    btSecretariaAuxiliar.IsEnabled = true;
-                }                
-            }          
         }
     }
 }

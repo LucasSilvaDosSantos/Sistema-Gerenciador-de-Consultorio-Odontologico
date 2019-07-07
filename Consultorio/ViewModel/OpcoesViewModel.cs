@@ -1,5 +1,6 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
+using Consultorio.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,6 +67,8 @@ namespace Consultorio.ViewModel
 
         public OpcoesViewModel()
         {
+            OpcoesView opcoesView = new OpcoesView(this);
+            opcoesView.Show();
             AtorLogado = SingletonAtorLogado.Instancia;
             var list = AtorLogado.Ator.Nome.Split(' ');
             Saudacao = "Bem Vindo " + list[0] + "!";

@@ -39,10 +39,8 @@ namespace Consultorio
             bool loginValido = LoginViewModel.VerificarEntrar();
             if (loginValido)
             {
-                OpcoesView opcoes = new OpcoesView();
-                opcoes.Show();
-                this.Close();//para fechar
-                            //this.Hide(); //para esconder
+                OpcoesViewModel opcoes = new OpcoesViewModel();
+                this.Close();
             }
             else
             {

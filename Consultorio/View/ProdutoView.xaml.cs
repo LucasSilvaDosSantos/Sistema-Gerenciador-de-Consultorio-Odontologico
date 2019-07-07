@@ -30,8 +30,7 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            OpcoesView opcoesView = new OpcoesView();
-            opcoesView.Show();
+            OpcoesViewModel opcoesView = new OpcoesViewModel();
             this.Close();
         }
 

@@ -37,8 +37,7 @@ namespace Consultorio.View
         // volta a tela anterior
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            OpcoesView opcoes = new OpcoesView();
-            opcoes.Show();
+            OpcoesViewModel opcoes = new OpcoesViewModel();
             this.Close();
         }
 

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Globalization;
+using Consultorio.ViewModel;
 
 namespace Consultorio.View
 {
@@ -38,8 +39,7 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            OpcoesView opcoes = new OpcoesView();
-            opcoes.Show();
+            OpcoesViewModel opcoes = new OpcoesViewModel();
             this.Close();
         }
 

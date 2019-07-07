@@ -132,6 +132,7 @@
     <Compile Include="Data\SecretariaData.cs" />
     <Compile Include="ViewModel\CadastroDeClienteAnamneseViewModel.cs" />
     <Compile Include="ViewModel\CadastroDeClienteBaseViewModel.cs" />
+    <Compile Include="ViewModel\CadastroDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\ConsultasViewModel.cs" />
     <Compile Include="ViewModel\CrudConsultasViewModel.cs" />
     <Compile Include="ViewModel\CrudProdutoViewModel.cs" />
