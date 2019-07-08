@@ -1,5 +1,6 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
+using Consultorio.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +23,22 @@ namespace Consultorio.View
     /// </summary>
     public partial class DentistaView : Window
     {
+        public DentistaViewModel DentistaViewModel { get; set; }
 
-        public bool OrigemListaDeAtores { get; set; }
-
-        public DentistaView()
+        public DentistaView(DentistaViewModel dentistaViewModel)
         {
+            DentistaViewModel = dentistaViewModel;
+            DataContext = DentistaViewModel;
+
             InitializeComponent();
-            tbId.IsEnabled = false;
         }
 
-        public DentistaView(Dentista dentistaEntrada)
+        public DentistaView(DentistaViewModel dentistaViewModel, Dentista dentistaEntrada)
         {
+            DentistaViewModel = dentistaViewModel;
+            DataContext = DentistaViewModel;  
+
             InitializeComponent();
-            CarregaDadosNaTela(dentistaEntrada);
-            tbId.IsEnabled = true;
-            OrigemListaDeAtores = true;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -50,7 +52,17 @@ namespace Consultorio.View
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            SalvarUsuario();
+            bool salvo = DentistaViewModel.BtSalvar_Click(pbSenha.Password, pbSenhaConfirma.Password, out string msg);
+
+            if (salvo == false)
+            {
+                MessageBox.Show(msg, "Campos Obrigatorios não preenchidos");
+            }
+            else
+            {
+                MessageBox.Show(msg, "Aviso!");
+                Voltar();
+            }   
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -59,124 +71,7 @@ namespace Consultorio.View
 
         private void Voltar()
         {
-            this.Close();
-            /*
-            if (OrigemListaDeAtores)
-            {
-                ListaDeColaboradoresView viewListaDeColaboradores = new ListaDeColaboradoresView();
-                viewListaDeColaboradores.Show();
-                this.Close();
-            }
-            else
-            {
-                CadastroDeColaboradoresView viewColaboradores = new CadastroDeColaboradoresView();
-                viewColaboradores.Show();
-                this.Close();              
-            }*/
-        }
-
-        private void SalvarUsuario()
-        {
-            var lista = ValidarCamposObrigatorios();
-            if (lista.Count != 0)
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (string i in ValidarCamposObrigatorios())
-                {
-                    sb.Append($"{i}, ");
-                }
-                MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
-            }
-            else
-            {
-                Dentista dentista = PegaDadosDaTela();
-                string msg;
-                if (OrigemListaDeAtores)
-                {
-                    dentista.Id = int.Parse(tbId.Text);
-                    msg = DentistaData.AlterarDentista(dentista);
-                }
-                else
-                {
-                    msg = DentistaData.CadastroDeNovoDentista(dentista);
-                }                
-                MessageBox.Show(msg);
-                Voltar();
-            }
-        }
-
-        private Dentista PegaDadosDaTela()
-        {
-            string senhaCod = AtoresData.GerarHashMd5(pbSenha.Password.ToString());
-            Dentista dentista = new Dentista(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod);
-            return dentista;
-        }
-
-        //Valida Campos Obrigatorios
-        private List<string> ValidarCamposObrigatorios()
-        {
-            List<string> lista = new List<string>();
-            if (tbNome.Text.Equals(""))
-            {
-                lista.Add("Nome");
-            }
-            if (tbEmail.Text.Equals(""))
-            {
-                lista.Add("Email");
-            }
-            if (tbCelular1.Text.Equals("(__)_____-____"))
-            {
-                lista.Add("Celular 1");
-            }
-            if (tbCROSP.Text.Equals(""))
-            {
-                lista.Add("Crosp");
-            }
-            if (tbLogin.Text.Equals(""))
-            {
-                lista.Add("Login");
-            }
-            if (pbSenha.Password.ToString().Equals(""))
-            {
-                lista.Add("Senha");
-            }
-            if (pbSenhaConfirma.Password.ToString().Equals(""))
-            {
-                lista.Add("Confirmação de Senha");
-            }
-            if (!ValidacaoDeSenha(pbSenha.Password.ToString(), pbSenhaConfirma.Password.ToString()))
-            {
-                lista.Add("Senhas não coincidem");
-            }
-            return lista;
-        }
-
-        //Verificação se campos de senhas (senha e confirmar senha) são iguais 
-        private bool ValidacaoDeSenha(string senha, string confirmaSenha)
-        {
-            if (senha == "")
-            {
-                return false;
-            }
-            else
-            {
-                if (senha != confirmaSenha)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private void CarregaDadosNaTela(Dentista dentista)
-        {
-            tbId.Text = dentista.Id.ToString();
-            tbNome.Text = dentista.Nome;
-            tbEmail.Text = dentista.Email;
-            tbCelular1.Text = dentista.Telefone1;
-            tbCelular2.Text = dentista.Telefone2;
-            tbCROSP.Text = dentista.Crosp;
-            tbLogin.Text = dentista.Login;
+            this.Close();        
         }
     }
 }

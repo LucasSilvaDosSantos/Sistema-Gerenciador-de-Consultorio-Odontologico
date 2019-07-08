@@ -49,9 +49,7 @@ namespace Consultorio.ViewModel
 
         public void BtMedicoDentista_Click()
         {
-            //// vai mudar para abrir no view model
-            DentistaView dentista = new DentistaView();
-            dentista.ShowDialog();
+            DentistaViewModel dentistaViewModel = new DentistaViewModel();
         }
 
         public void BtSecretariaAuxiliar_Click()

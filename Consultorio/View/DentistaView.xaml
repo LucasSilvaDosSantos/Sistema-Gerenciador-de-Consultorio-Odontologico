@@ -18,28 +18,28 @@
         <Label x:Name="lbDentista" Content="&gt;Médico Dentista" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="387"/>
         <Label x:Name="label" Content="Dados Pessoais" HorizontalAlignment="Left" Margin="255,137,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
 
-        <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="88,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" IsReadOnly="True"/>
+        <TextBox x:Name="tbId" IsEnabled="{Binding TbIdIsEnable}" Text="{Binding Dentista.Id}" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="88,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" IsReadOnly="True"/>
         <Label x:Name="label1" Content="Id" HorizontalAlignment="Left" Margin="59,137,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="lbNome" Content="Nome" HorizontalAlignment="Left" Margin="59,208,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="28" Margin="136,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
+        <TextBox x:Name="tbNome" Text="{Binding Dentista.Nome}" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="28" Margin="136,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
 
         <Label x:Name="lbEmail" Content="Email" HorizontalAlignment="Left" Margin="59,236,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbEmail" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="136,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
+        <TextBox x:Name="tbEmail" Text="{Binding Dentista.Email}" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="136,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
 
         <Label x:Name="lbCelular1" Content="Celular 1" HorizontalAlignment="Left" Margin="59,267,0,0" VerticalAlignment="Top"/>
-        <wpfTool:MaskedTextBox x:Name="tbCelular1" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="26" Margin="136,271,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="120"/>
+        <wpfTool:MaskedTextBox x:Name="tbCelular1" Text="{Binding Dentista.Telefone1}" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="26" Margin="136,271,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="120"/>
 
         <Label x:Name="lbCelular2" Content="Celular 2" HorizontalAlignment="Left" Margin="59,298,0,0" VerticalAlignment="Top"/>
-        <wpfTool:MaskedTextBox x:Name="tbCelular2" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="26" Margin="136,302,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="120"/>
+        <wpfTool:MaskedTextBox x:Name="tbCelular2" Text="{Binding Dentista.Telefone2}" Mask="(00)00000-0000" HorizontalAlignment="Left" Height="26" Margin="136,302,0,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" VerticalAlignment="Top" Width="120"/>
 
         <Label x:Name="lbCROSP" Content="CROSP" HorizontalAlignment="Left" Margin="59,329,0,324"/>
-        <TextBox x:Name="tbCROSP" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Margin="136,329,0,324" TextWrapping="Wrap" Width="229" RenderTransformOrigin="0.501,0.474"/>
+        <TextBox x:Name="tbCROSP" Text="{Binding Dentista.Crosp}" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Margin="136,329,0,324" TextWrapping="Wrap" Width="229" RenderTransformOrigin="0.501,0.474"/>
 
         <Label x:Name="lbDadosParaLogin" Content="Dados para Login" HorizontalAlignment="Right" Margin="0,137,260,0" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
 
         <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Right" Margin="0,236,561,0" VerticalAlignment="Top" RenderTransformOrigin="-0.231,0.538"/>
-        <TextBox x:Name="tbLogin" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Height="30" Margin="0,236,65,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="412"/>
+        <TextBox x:Name="tbLogin" Text="{Binding Dentista.Login}" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Height="30" Margin="0,236,65,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="412"/>
 
         <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Right" Margin="0,267,558,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="pbSenha" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,267,65,0" VerticalAlignment="Top" Width="412" Height="31" />

@@ -54,9 +54,8 @@ namespace Consultorio.View
 
                 if (ator.GetType().ToString() == "Consultorio.Model.Dentista")
                 {
-                    DentistaView viewDentista = new DentistaView((Dentista)ator);                  
                     this.Hide();
-                    viewDentista.ShowDialog();
+                    DentistaViewModel dentistaViewModel = new DentistaViewModel((Dentista)ator);                  
                     this.Visibility = Visibility.Visible;
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.Secretaria")
@@ -181,9 +180,8 @@ namespace Consultorio.View
 
         private void EditarDentista(Dentista atorSelecionado)
         {
-            DentistaView viewDentista = new DentistaView(atorSelecionado);
             this.Hide();
-            viewDentista.ShowDialog();
+            DentistaViewModel dentistaViewModel = new DentistaViewModel(atorSelecionado);
             RecarregarGrid();
             this.Visibility = Visibility.Visible;
         }
