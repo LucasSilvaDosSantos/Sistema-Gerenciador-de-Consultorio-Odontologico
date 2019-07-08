@@ -137,6 +137,7 @@
     <Compile Include="ViewModel\CrudConsultasViewModel.cs" />
     <Compile Include="ViewModel\CrudProdutoViewModel.cs" />
     <Compile Include="ViewModel\DentistaViewModel.cs" />
+    <Compile Include="ViewModel\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\OpcoesViewModel.cs" />
     <Compile Include="ViewModel\PagamentosViewModel.cs" />

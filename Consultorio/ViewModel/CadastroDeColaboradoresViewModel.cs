@@ -49,7 +49,7 @@ namespace Consultorio.ViewModel
 
         public void BtMedicoDentista_Click()
         {
-            DentistaViewModel dentistaViewModel = new DentistaViewModel();
+            new DentistaViewModel();
         }
 
         public void BtSecretariaAuxiliar_Click()
@@ -62,8 +62,7 @@ namespace Consultorio.ViewModel
         public void BtGestorDeEstoque_Click()
         {
             //// vai mudar para abrir no view model
-            GestorDeEstoqueView estoque = new GestorDeEstoqueView();
-            estoque.ShowDialog();
+            new GestorDeEstoqueViewModel();
         }
 
         public void BtTodosOsColaboradores_Click()
@@ -75,7 +74,7 @@ namespace Consultorio.ViewModel
 
         public void BtVoltar_Click()
         {
-            OpcoesViewModel opcoesView = new OpcoesViewModel();
+            new OpcoesViewModel();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -117,10 +116,7 @@ namespace Consultorio.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string NameProperty)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(NameProperty));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(NameProperty));
         }
     }
 }

@@ -1,20 +1,6 @@
-﻿using Consultorio.Data;
-using Consultorio.Model;
+﻿using Consultorio.Model;
 using Consultorio.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Consultorio.View
 {
@@ -29,14 +15,6 @@ namespace Consultorio.View
         {
             DentistaViewModel = dentistaViewModel;
             DataContext = DentistaViewModel;
-
-            InitializeComponent();
-        }
-
-        public DentistaView(DentistaViewModel dentistaViewModel, Dentista dentistaEntrada)
-        {
-            DentistaViewModel = dentistaViewModel;
-            DataContext = DentistaViewModel;  
 
             InitializeComponent();
         }

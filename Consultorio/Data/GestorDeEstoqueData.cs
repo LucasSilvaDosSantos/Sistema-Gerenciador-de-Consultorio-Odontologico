@@ -16,9 +16,10 @@ namespace Consultorio.Data
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
+                    gestorDeEstoque.Senha = AtoresData.GerarHashMd5(gestorDeEstoque.Senha);
                     ctx.GestoresDeEstoque.Add(gestorDeEstoque);
                     ctx.SaveChanges();
-                    return ("Salvo novo Gestor de Estoque");
+                    return ("Salvo novo Gestor de Estoque!");
                 }
             }
             catch (Exception e)
@@ -41,12 +42,14 @@ namespace Consultorio.Data
                     g.Telefone1 = gestor.Telefone1;
                     g.Telefone2 = gestor.Telefone2;
                     g.Login = gestor.Login;
+
+                    gestor.Senha = AtoresData.GerarHashMd5(gestor.Senha);
                     g.Senha = gestor.Senha;
 
                     ctx.Entry(g).State = System.Data.Entity.EntityState.Modified;
 
                     ctx.SaveChanges();
-                    return ("Salvo alterações de Gestor de Estoque");
+                    return ("Salvo alterações de Gestor de Estoque!");
                 }
             }
             catch (Exception e)

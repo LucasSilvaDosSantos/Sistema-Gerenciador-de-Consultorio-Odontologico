@@ -36,7 +36,7 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            CadastroDeColaboradoresViewModel cadastroDeColaboradoresViewModel = new CadastroDeColaboradoresViewModel();
+            new CadastroDeColaboradoresViewModel();
             this.Close();
             //this.Close();
         }
@@ -55,7 +55,7 @@ namespace Consultorio.View
                 if (ator.GetType().ToString() == "Consultorio.Model.Dentista")
                 {
                     this.Hide();
-                    DentistaViewModel dentistaViewModel = new DentistaViewModel((Dentista)ator);                  
+                    new DentistaViewModel((Dentista)ator);                  
                     this.Visibility = Visibility.Visible;
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.Secretaria")
@@ -67,9 +67,8 @@ namespace Consultorio.View
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
                 {
-                    GestorDeEstoqueView viewGestorDeEstoque = new GestorDeEstoqueView((GestorDeEstoque)ator);
                     this.Hide();
-                    viewGestorDeEstoque.ShowDialog();
+                    new GestorDeEstoqueViewModel((GestorDeEstoque)ator);                    
                     this.Visibility = Visibility.Visible;
                 }
             }
@@ -171,9 +170,8 @@ namespace Consultorio.View
 
         private void EditarGestor(GestorDeEstoque atorSelecionado)
         {
-            GestorDeEstoqueView viewGestorDeEstoque = new GestorDeEstoqueView(atorSelecionado);
             this.Hide();
-            viewGestorDeEstoque.ShowDialog();
+            new GestorDeEstoqueViewModel(atorSelecionado);           
             RecarregarGrid();
             this.Visibility = Visibility.Visible;
         }
@@ -181,7 +179,7 @@ namespace Consultorio.View
         private void EditarDentista(Dentista atorSelecionado)
         {
             this.Hide();
-            DentistaViewModel dentistaViewModel = new DentistaViewModel(atorSelecionado);
+            new DentistaViewModel(atorSelecionado);
             RecarregarGrid();
             this.Visibility = Visibility.Visible;
         }

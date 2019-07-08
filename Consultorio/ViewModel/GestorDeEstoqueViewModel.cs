@@ -1,20 +1,23 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
 using Consultorio.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel
 {
-    public class DentistaViewModel : INotifyPropertyChanged
+    public class GestorDeEstoqueViewModel : INotifyPropertyChanged
     {
-        private Dentista _Dentista;
+        private GestorDeEstoque _GestorDeEstoque;
 
-        public Dentista Dentista
+        public GestorDeEstoque GestorDeEstoque
         {
-            get { return _Dentista; }
-            set { _Dentista = value; OnPropertyChanged("Dentista"); }
+            get { return _GestorDeEstoque; }
+            set { _GestorDeEstoque = value; OnPropertyChanged("GestorDeEstoque"); }
         }
 
         private bool _TbIdIsEnable;
@@ -25,16 +28,16 @@ namespace Consultorio.ViewModel
             set { _TbIdIsEnable = value; OnPropertyChanged("TbIdIsEnable"); }
         }
 
-        public DentistaViewModel()
+        public GestorDeEstoqueViewModel()
         {
-            Dentista = new Dentista();
+            GestorDeEstoque = new GestorDeEstoque();
             IniciarViewModel();
             TbIdIsEnable = false;
         }
 
-        public DentistaViewModel(Dentista dentista)
+        public GestorDeEstoqueViewModel(GestorDeEstoque gestorDeEstoque)
         {
-            Dentista = dentista;
+            GestorDeEstoque = gestorDeEstoque;
             TbIdIsEnable = true;
             IniciarViewModel();
         }
@@ -54,8 +57,8 @@ namespace Consultorio.ViewModel
         //-----------------------------------------------------------------------------------------------------------------------------------
         private void IniciarViewModel()
         {
-            DentistaView dentistaView = new DentistaView(this);
-            dentistaView.ShowDialog();
+            GestorDeEstoqueView gestorDeEstoqueView = new GestorDeEstoqueView(this);
+            gestorDeEstoqueView.ShowDialog();
         }
 
         private bool SalvarUsuario(string senha, string senhaConfirmacao, out string msg)
@@ -75,14 +78,14 @@ namespace Consultorio.ViewModel
             }
             else
             {
-                Dentista.Senha = senha;
-                if (Dentista.Id != 0)
+                GestorDeEstoque.Senha = senha;
+                if (GestorDeEstoque.Id != 0)
                 {
-                    msg = DentistaData.AlterarDentista(Dentista);
+                    msg = GestorDeEstoqueData.AlterarGestor(GestorDeEstoque);
                 }
                 else
                 {
-                    msg = DentistaData.CadastroDeNovoDentista(Dentista);
+                    msg = GestorDeEstoqueData.CadastroDeNovoGestorDeEstoque(GestorDeEstoque);
                 }
                 return true;
             }
@@ -91,23 +94,19 @@ namespace Consultorio.ViewModel
         private List<string> ValidarCamposObrigatorios(string senha, string senhaConfirmacao)
         {
             List<string> lista = new List<string>();
-            if (Dentista.Nome == null || Dentista.Nome.Equals(""))
+            if (GestorDeEstoque.Nome == null || GestorDeEstoque.Nome.Equals(""))
             {
                 lista.Add("Nome");
             }
-            if (Dentista.Email == null || Dentista.Email.Equals(""))
+            if (GestorDeEstoque.Email == null || GestorDeEstoque.Email.Equals(""))
             {
                 lista.Add("Email");
             }
-            if (Dentista.Telefone1 == null || Dentista.Telefone1.Equals("(__)_____-____"))
+            if (GestorDeEstoque.Telefone1 == null || GestorDeEstoque.Telefone1.Equals("(__)_____-____"))
             {
                 lista.Add("Celular 1");
             }
-            if (Dentista.Crosp == null || Dentista.Crosp.Equals(""))
-            {
-                lista.Add("Crosp");
-            }
-            if (Dentista.Login == null || Dentista.Login.Equals(""))
+            if (GestorDeEstoque.Login == null || GestorDeEstoque.Login.Equals(""))
             {
                 lista.Add("Login");
             }
@@ -136,7 +135,6 @@ namespace Consultorio.ViewModel
                 return false;
             }
         }
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
