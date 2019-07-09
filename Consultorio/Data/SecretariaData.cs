@@ -17,9 +17,10 @@ namespace Consultorio.Data
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
+                    secretaria.Senha = AtoresData.GerarHashMd5(secretaria.Senha);
                     ctx.Secretarias.Add(secretaria);
                     ctx.SaveChanges();
-                    return ("Salvo nova Secretária");
+                    return ("Salva nova Secretária!");
                 }
             }
             catch (Exception e)
@@ -43,6 +44,7 @@ namespace Consultorio.Data
                     s.Telefone2 = secretaria.Telefone2;
                     s.Crosp = secretaria.Crosp;
                     s.Login = secretaria.Login;
+                    secretaria.Senha = AtoresData.GerarHashMd5(secretaria.Senha);
                     s.Senha = secretaria.Senha;
                     s.CrudClientes = secretaria.CrudClientes;
                     s.CrudSecretarias = secretaria.CrudSecretarias;
@@ -52,7 +54,7 @@ namespace Consultorio.Data
                     ctx.Entry(s).State = EntityState.Modified;
 
                     ctx.SaveChanges();
-                    return ("Salvo alterações de secretária");
+                    return ("Salvo alterações na secretária!");
                 }
             }
             catch (Exception e)

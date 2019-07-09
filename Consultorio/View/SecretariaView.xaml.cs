@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Consultorio.ViewModel;
 
 namespace Consultorio.View
 {
@@ -21,21 +22,13 @@ namespace Consultorio.View
     /// </summary>
     public partial class SecretariaView : Window
     {
+        public SecretariaViewModel SecretariaViewModel { get; set; }
 
-        public bool OrigemListaDeAtores { get; set; }
-
-        public SecretariaView()
+        public SecretariaView(SecretariaViewModel secretariaViewModel)
         {
-            InitializeComponent();
-            tbId.IsEnabled = false;
-        }
-
-        public SecretariaView(Secretaria secretaria)
-        {
-            InitializeComponent();
-            OrigemListaDeAtores = true;
-            tbId.IsEnabled = true;
-            CarregaDadosNaTela(secretaria);            
+            SecretariaViewModel = secretariaViewModel;
+            DataContext = SecretariaViewModel;
+            InitializeComponent();  
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -64,118 +57,17 @@ namespace Consultorio.View
 
         private void SalvarUsuario()
         {
-            var lista = ValidarCamposObrigatorios();
-            if (lista.Count != 0)
+            bool salvo = SecretariaViewModel.BtSalvar_Click(pbSenha.Password, pbSenhaConfirma.Password, out string msg);
+
+            if (salvo == false)
             {
-                StringBuilder sb = new StringBuilder();
-                foreach (string i in ValidarCamposObrigatorios())
-                {
-                    sb.Append($"{i}, ");
-                }
-                MessageBox.Show(sb.ToString(), "Campos Obrigatorios não preenchidos");
+                MessageBox.Show(msg, "Campos Obrigatorios não preenchidos");
             }
             else
             {
-                Secretaria secretaria = PegaDadosDaTela();
-                string msg;
-                if (OrigemListaDeAtores)
-                {
-                    secretaria.Id = int.Parse(tbId.Text);
-                    msg = SecretariaData.AlterarSecretaria(secretaria);
-                }
-                else
-                {
-                    msg = SecretariaData.CadastroDeNovaSecretaria(secretaria);
-                }
-                MessageBox.Show(msg);
+                MessageBox.Show(msg, "Aviso!");
                 Voltar();
             }
-        }
-
-        private Secretaria PegaDadosDaTela()
-        {
-            string senhaCod = AtoresData.GerarHashMd5(pbSenha.Password.ToString());
-            Secretaria secretaria = new Secretaria(tbNome.Text, tbEmail.Text, tbCelular1.Text, tbCelular2.Text, tbCROSP.Text, tbLogin.Text, senhaCod, 
-                VerificaCheckBox(cbEdicaoCliente.IsChecked), VerificaCheckBox(cbEdicaoSecretaria.IsChecked), VerificaCheckBox(cbEdicaoProduto.IsChecked), VerificaCheckBox(cbEdicaoGestoresDeEstoque.IsChecked));
-
-            return secretaria;
-        }
-
-        // verifica se os check box estão preenchidos
-        private bool VerificaCheckBox(bool? entrada)
-        {
-            if (entrada == true)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        //Valida Campos Obrigatorios
-        private List<string> ValidarCamposObrigatorios()
-        {
-            List<string> lista = new List<string>();
-            if (tbNome.Text.Equals(""))
-            {
-                lista.Add("Nome");
-            }
-            if (tbEmail.Text.Equals(""))
-            {
-                lista.Add("Email");
-            }
-            if (tbCelular1.Text.Equals("(__)_____-____"))
-            {
-                lista.Add("Celular 1");
-            }
-            if (tbLogin.Text.Equals(""))
-            {
-                lista.Add("Login");
-            }
-            if (pbSenha.Password.ToString().Equals(""))
-            {
-                lista.Add("Senha");
-            }
-            if (pbSenhaConfirma.Password.ToString().Equals(""))
-            {
-                lista.Add("Confirmação de Senha");
-            }
-            if (!ValidacaoDeSenha(pbSenha.Password.ToString(), pbSenhaConfirma.Password.ToString()))
-            {
-                lista.Add("Senhas não coincidem");
-            }
-            return lista;
-        }
-
-        //Verificação se campos de senhas (senha e confirmar senha) são iguais 
-        private bool ValidacaoDeSenha(string senha, string confirmaSenha)
-        {
-            if (senha == "")
-            {
-                return false;
-            }
-            else
-            {
-                if (senha != confirmaSenha)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private void CarregaDadosNaTela(Secretaria secretaria)
-        {
-            tbId.Text = secretaria.Id.ToString();
-            tbNome.Text = secretaria.Nome;
-            tbEmail.Text = secretaria.Email;
-            tbCelular1.Text = secretaria.Telefone1;
-            tbCelular2.Text = secretaria.Telefone2;
-            tbCROSP.Text = secretaria.Crosp;
-            tbLogin.Text = secretaria.Login;
-            cbEdicaoCliente.IsChecked = secretaria.CrudClientes;
-            cbEdicaoSecretaria.IsChecked = secretaria.CrudSecretarias;
-            cbEdicaoProduto.IsChecked = secretaria.CrudProdutos;
-            cbEdicaoGestoresDeEstoque.IsChecked = secretaria.CrudGestoresDeEstoque;
         }
     }
 }

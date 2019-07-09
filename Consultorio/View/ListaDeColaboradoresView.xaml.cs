@@ -60,9 +60,8 @@ namespace Consultorio.View
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.Secretaria")
                 {
-                    SecretariaView viewSecretaria = new SecretariaView((Secretaria)ator);
                     this.Hide();
-                    viewSecretaria.ShowDialog();
+                    new SecretariaViewModel((Secretaria)ator);                  
                     this.Visibility = Visibility.Visible;
                 }
                 else if (ator.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
@@ -161,9 +160,8 @@ namespace Consultorio.View
 
         private void EditarSecretaria(Secretaria atorSelecionado)
         {
-            SecretariaView viewSecretaria = new SecretariaView(atorSelecionado);
             this.Hide();
-            viewSecretaria.ShowDialog();
+            new SecretariaViewModel(atorSelecionado);
             RecarregarGrid();
             this.Visibility = Visibility.Visible;
         }

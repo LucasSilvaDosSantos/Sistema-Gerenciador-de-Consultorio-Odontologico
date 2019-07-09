@@ -54,14 +54,11 @@ namespace Consultorio.ViewModel
 
         public void BtSecretariaAuxiliar_Click()
         {
-            //// vai mudar para abrir no view model
-            SecretariaView secretaria = new SecretariaView();
-            secretaria.ShowDialog();
+            new SecretariaViewModel();
         }
 
         public void BtGestorDeEstoque_Click()
         {
-            //// vai mudar para abrir no view model
             new GestorDeEstoqueViewModel();
         }
 

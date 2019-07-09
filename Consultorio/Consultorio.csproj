@@ -142,6 +142,7 @@
     <Compile Include="ViewModel\OpcoesViewModel.cs" />
     <Compile Include="ViewModel\PagamentosViewModel.cs" />
     <Compile Include="ViewModel\ProdutosViewModel.cs" />
+    <Compile Include="ViewModel\SecretariaViewModel.cs" />
     <Compile Include="ViewModel\SingletonAtorLogado.cs" />
     <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
       <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>
