@@ -64,9 +64,7 @@ namespace Consultorio.ViewModel
 
         public void BtTodosOsColaboradores_Click()
         {
-            //// vai mudar para abrir no view model
-            ListaDeColaboradoresView colaboradores = new ListaDeColaboradoresView();
-            colaboradores.Show();
+            new ListaDeColaboradoresViewModel();
         }
 
         public void BtVoltar_Click()

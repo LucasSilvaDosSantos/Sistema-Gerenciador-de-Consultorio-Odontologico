@@ -1,19 +1,6 @@
 ﻿using Consultorio.Data;
-using Consultorio.Model;
 using Consultorio.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Consultorio.View
 {
@@ -22,11 +9,11 @@ namespace Consultorio.View
     /// </summary>
     public partial class ListaDeColaboradoresView : Window
     {
-        public SingletonAtorLogado AtorLogado { get; set; }
-
-        public ListaDeColaboradoresView()
+        public ListaDeColaboradoresViewModel ListaDeColaboradoresViewModel { get; set; }
+        public ListaDeColaboradoresView(ListaDeColaboradoresViewModel viewModel)
         {
-            AtorLogado = SingletonAtorLogado.Instancia;
+            ListaDeColaboradoresViewModel = viewModel;
+            DataContext = ListaDeColaboradoresViewModel;
             InitializeComponent();
         }
 
@@ -36,150 +23,31 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            new CadastroDeColaboradoresViewModel();
+            this.Hide();
+            ListaDeColaboradoresViewModel.BtVoltar_Click();
             this.Close();
-            //this.Close();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            RecarregarGrid();
-        }
-
-        private void DgListaAtores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (dgListaAtores.SelectedIndex >= 0)
-            {
-                var ator = (Atores)dgListaAtores.Items[dgListaAtores.SelectedIndex];
-
-                if (ator.GetType().ToString() == "Consultorio.Model.Dentista")
-                {
-                    this.Hide();
-                    new DentistaViewModel((Dentista)ator);                  
-                    this.Visibility = Visibility.Visible;
-                }
-                else if (ator.GetType().ToString() == "Consultorio.Model.Secretaria")
-                {
-                    this.Hide();
-                    new SecretariaViewModel((Secretaria)ator);                  
-                    this.Visibility = Visibility.Visible;
-                }
-                else if (ator.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
-                {
-                    this.Hide();
-                    new GestorDeEstoqueViewModel((GestorDeEstoque)ator);                    
-                    this.Visibility = Visibility.Visible;
-                }
-            }
         }
 
         private void BtEditar_Click(object sender, RoutedEventArgs e)
         {
             if (dgListaAtores.SelectedIndex >= 0)
             {
-                Atores atorSelecionado = (Atores)dgListaAtores.Items[dgListaAtores.SelectedIndex];
-                string atorSelecionadoType = atorSelecionado.GetType().Name;
-
-                var atorLogadoType = AtorLogado.Ator.GetType();
-                //edição dos atores iniciada por uma secretaria
-                if (atorLogadoType.Name == "Secretaria")
+                //this.Hide();
+                bool altorizacaoDeEdicao = ListaDeColaboradoresViewModel.BtEditar_Click(dgListaAtores.SelectedIndex);                
+                if (altorizacaoDeEdicao == false)
                 {
-                    Secretaria secretaria = (Secretaria)AtorLogado.Ator;
-
-                    if (atorSelecionadoType == "Dentista")
-                    {
-                        MessageBox.Show("Operação não permitida para este tipo de usuario", "Acesso negado!");
-                        return;
-                    }
-                    else if (atorSelecionadoType == "GestorDeEstoque")
-                    {
-                        if(secretaria.CrudGestoresDeEstoque == true)
-                        {
-                            EditarGestor((GestorDeEstoque)atorSelecionado);
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Operação não permitida para este usuario", "Acesso negado!");
-                            return;
-                        }
-                    }
-                    else if (atorSelecionadoType == "Secretaria")
-                    {
-                        if (secretaria.CrudSecretarias == true)
-                        {
-                            EditarSecretaria((Secretaria)atorSelecionado);
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Operação não permitida para este usuario", "Acesso negado!");
-                            return;
-                        }
-                    }
+                    this.Visibility = Visibility.Visible;
+                    MessageBox.Show("Operação não permitida para este usuario!", "Acesso negado!");
                 }
-                // Ediçao dos atores iniciada por um adm
-                else
-                {
-                    if (atorSelecionadoType == "Dentista")
-                    {
-                        EditarDentista((Dentista)atorSelecionado);
-                        return;
-                    }
-                    else if (atorSelecionadoType == "Secretaria")
-                    {
-                        EditarSecretaria((Secretaria)atorSelecionado);
-                        return;
-                    }
-                    else if (atorSelecionadoType == "GestorDeEstoque")
-                    {
-                        EditarGestor((GestorDeEstoque)atorSelecionado);
-                        return;
-                    }
-                }
+                this.Visibility = Visibility.Visible;
             }
             else
             {
-                MessageBox.Show("Nenhum elemento selecionado!", "Erro");
-            }     
+                MessageBox.Show("Nenhum elemento selecionado!", "Erro!");
+            }
         }
-
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-
-        private void RecarregarGrid()
-        {
-            dgListaAtores.ItemsSource = ColaboradoresData.ListarAtores();
-            //Login
-            dgListaAtores.Columns[5].Visibility = Visibility.Collapsed;
-            //Senha
-            dgListaAtores.Columns[6].Visibility = Visibility.Collapsed;
-        }
-
-        private void EditarSecretaria(Secretaria atorSelecionado)
-        {
-            this.Hide();
-            new SecretariaViewModel(atorSelecionado);
-            RecarregarGrid();
-            this.Visibility = Visibility.Visible;
-        }
-
-        private void EditarGestor(GestorDeEstoque atorSelecionado)
-        {
-            this.Hide();
-            new GestorDeEstoqueViewModel(atorSelecionado);           
-            RecarregarGrid();
-            this.Visibility = Visibility.Visible;
-        }
-
-        private void EditarDentista(Dentista atorSelecionado)
-        {
-            this.Hide();
-            new DentistaViewModel(atorSelecionado);
-            RecarregarGrid();
-            this.Visibility = Visibility.Visible;
-        }
     }
 }

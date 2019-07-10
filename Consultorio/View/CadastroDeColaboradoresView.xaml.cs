@@ -45,6 +45,7 @@ namespace Consultorio.View
 
         private void BtTodosOsColaboradores_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             CadastroViewModel.BtTodosOsColaboradores_Click();
             this.Close();
         }
