@@ -1,12 +1,8 @@
-﻿using Consultorio.Data;
-using Consultorio.ViewModel;
+﻿using Consultorio.ViewModel;
 using System.Windows;
 
 namespace Consultorio.View
 {
-    /// <summary>
-    /// Lógica interna para ViewListaDeColaboradores.xaml
-    /// </summary>
     public partial class ListaDeColaboradoresView : Window
     {
         public ListaDeColaboradoresViewModel ListaDeColaboradoresViewModel { get; set; }

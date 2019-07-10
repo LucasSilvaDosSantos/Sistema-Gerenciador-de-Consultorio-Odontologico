@@ -12,7 +12,7 @@ namespace Consultorio.Data
     class ListaDeClienteData
     {
         // lista todos os clientes do banco
-        public static List<Cliente> ExibirCliente()
+        public static List<Cliente> TodosClientes()
         {
             try
             {

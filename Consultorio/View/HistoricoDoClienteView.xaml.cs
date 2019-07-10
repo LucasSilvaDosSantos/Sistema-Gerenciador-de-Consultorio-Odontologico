@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Consultorio.ViewModel;
 
 namespace Consultorio.View
 {
@@ -36,8 +37,8 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ListaDeClientesView listaDeClientes = new ListaDeClientesView();
-            listaDeClientes.Show();
+            this.Hide();
+            new ListaDeClientesViewModel();
             this.Close();
         }
 

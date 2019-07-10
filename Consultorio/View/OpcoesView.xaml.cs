@@ -53,8 +53,8 @@ namespace Consultorio.View
 
         private void BtClientes_Click(object sender, RoutedEventArgs e)
         {
-            ListaDeClientesView listaDeClientes = new ListaDeClientesView();
-            listaDeClientes.Show();
+            this.Hide();
+            new ListaDeClientesViewModel();
             this.Close();
         }
 
