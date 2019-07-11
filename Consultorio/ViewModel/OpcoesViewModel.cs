@@ -67,15 +67,19 @@ namespace Consultorio.ViewModel
 
         public OpcoesViewModel()
         {
-            OpcoesView opcoesView = new OpcoesView(this);
-            opcoesView.Show();
             AtorLogado = SingletonAtorLogado.Instancia;
-            var list = AtorLogado.Ator.Nome.Split(' ');
-            Saudacao = "Bem Vindo " + list[0] + "!";
+
+            MensagemDeBoasVindas();
             AutorizacaoDeAcesso();
         }
 
-        public void AutorizacaoDeAcesso()
+        private void MensagemDeBoasVindas()
+        {
+            var list = AtorLogado.Ator.Nome.Split(' ');
+            Saudacao = "Bem Vindo " + list[0] + "!";
+        }
+
+        private void AutorizacaoDeAcesso()
         {
             int tipoDoAtor = TipoDoAtor();
             if (tipoDoAtor == 1)
@@ -111,7 +115,7 @@ namespace Consultorio.ViewModel
             }
         }
 
-        public int TipoDoAtor()
+        private int TipoDoAtor()
         {
             if (AtorLogado.Ator.GetType().ToString() == "Consultorio.Model.Dentista")
             {

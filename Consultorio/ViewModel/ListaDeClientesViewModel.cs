@@ -43,9 +43,6 @@ namespace Consultorio.ViewModel
             AtorLogado = SingletonAtorLogado.Instancia;
 
             ListarTodosOsClientes();
-
-            ListaDeClientesView listaDeClientesView = new ListaDeClientesView(this);
-            listaDeClientesView.Show();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -65,7 +62,7 @@ namespace Consultorio.ViewModel
 
         public void BtCancelar_Click()
         {
-            ResetarTela();
+            ListarTodosOsClientes();
         }
 
         public void BtHistorico_Click(int index)
@@ -95,19 +92,20 @@ namespace Consultorio.ViewModel
             return true;
         }
 
-        public void AlteracaoDeCliente(int index)
+        public void AlteracaoDeCliente(int index, CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)
         {
             Cliente cliente = ListaDeClientes[index];
-            new CadastroDeClienteBaseViewModel(cliente);
-            ResetarTela();
+
+            cadastroDeClienteBaseViewModel.Cliente = cliente;
+
+            /*CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel = new CadastroDeClienteBaseViewModel()
+            CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
+
+            new CadastroDeClienteBaseViewModel(cliente);*/
+            //ResetarTela();
         }
 
-        private void ResetarTela()
-        {
-            ListarTodosOsClientes();
-        }
-
-        private void ListarTodosOsClientes()
+        public void ListarTodosOsClientes()
         {
             ListaDeClientes = ListaDeClienteData.TodosClientes();
             BtCancelarIsEnabled = false;
@@ -122,7 +120,7 @@ namespace Consultorio.ViewModel
             HistoricoDoClienteView historicoDoClienteView = new HistoricoDoClienteView();
             historicoDoClienteView.IniciarCliente(cliente);
             historicoDoClienteView.Show();
-            ResetarTela();
+            ListarTodosOsClientes();
         }
 
         public void BuscarCliente(string id, string nome)
@@ -135,7 +133,7 @@ namespace Consultorio.ViewModel
             }
             else
             {
-                ResetarTela();
+                ListarTodosOsClientes();
                 BtCancelarIsEnabled = false;
             }
         }

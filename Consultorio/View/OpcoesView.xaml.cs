@@ -23,17 +23,17 @@ namespace Consultorio.View
     {
         public OpcoesViewModel OpcoesViewModel { get; set; }
 
-        public OpcoesView(OpcoesViewModel opcoesViewModel)
+        public OpcoesView()
         {
-            OpcoesViewModel = opcoesViewModel;
+            OpcoesViewModel = new OpcoesViewModel();
             DataContext = OpcoesViewModel;
             InitializeComponent();
         }
 
         private void BtCadastroDeColaboradores_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            CadastroDeColaboradoresViewModel cadastroDeColaboradoresViewModel = new CadastroDeColaboradoresViewModel();
+            CadastroDeColaboradoresView cadastroDeColaboradoresView = new CadastroDeColaboradoresView();
+            cadastroDeColaboradoresView.Show();
             this.Close();
         }
 
@@ -53,22 +53,17 @@ namespace Consultorio.View
 
         private void BtClientes_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            new ListaDeClientesViewModel();
+            ListaDeClientesView listaDeClientesView = new ListaDeClientesView();
+            listaDeClientesView.Show();
             this.Close();
         }
 
         private void BtCadastroDeClientes_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            CadastroDeClienteBaseViewModel cadastroDeClienteBase = new CadastroDeClienteBaseViewModel();
+            CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
+            cadastroDeClienteBaseView.ShowDialog();
             this.Visibility = Visibility.Visible;
-
-            /*CadastroDeClienteBaseView cadastroDeClienteBase = new CadastroDeClienteBaseView();
-            this.Hide();
-            cadastroDeClienteBase.ShowDialog();
-            this.Visibility = Visibility.Visible;*/
-            //this.Close();
         }
 
         private void BtConsultas_Click(object sender, RoutedEventArgs e)

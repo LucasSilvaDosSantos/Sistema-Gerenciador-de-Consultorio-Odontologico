@@ -1,13 +1,8 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace Consultorio.ViewModel
 {
@@ -30,20 +25,11 @@ namespace Consultorio.ViewModel
             set { _VisibilidadeBtAnamnese = value; OnPropertyChanged("VisibilidadeBtAnamnese"); }
         }
 
-        public CadastroDeClienteBaseViewModel(Cliente cliente)
-        {
-            Cliente = cliente;
-            CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView(this);
-            cadastroDeClienteBaseView.ShowDialog();
-        }
-
         public CadastroDeClienteBaseViewModel()
         {
             VisibilidadeBtAnamnese = "Hidden";
             Cliente = new Cliente();
             Cliente.Nascimento = DateTime.Now;
-            CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView(this);
-            cadastroDeClienteBaseView.ShowDialog();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -62,11 +48,6 @@ namespace Consultorio.ViewModel
                 var msg = CadastroDeClienteBaseData.AlterarCliente(Cliente);
                 return msg;
             }
-        }
-
-        public void BtAnamnese_Click()
-        {
-            CadastroDeClienteAnamneseViewModel anamneseViewModel = new CadastroDeClienteAnamneseViewModel(Cliente);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

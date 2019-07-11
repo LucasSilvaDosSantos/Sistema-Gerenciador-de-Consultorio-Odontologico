@@ -7,10 +7,10 @@ namespace Consultorio.View
     public partial class ListaDeClientesView : Window
     {
         public ListaDeClientesViewModel ListaDeClientesViewModel { get; set; }
-        public ListaDeClientesView(ListaDeClientesViewModel listaDeClientesViewModel)
+        public ListaDeClientesView()
         {
-            ListaDeClientesViewModel = listaDeClientesViewModel;
-            DataContext = listaDeClientesViewModel;
+            ListaDeClientesViewModel = new ListaDeClientesViewModel();
+            DataContext = ListaDeClientesViewModel;
             InitializeComponent();
         }
 
@@ -79,7 +79,15 @@ namespace Consultorio.View
                 if (altorizacao == true)
                 {
                     this.Hide();
-                    ListaDeClientesViewModel.AlteracaoDeCliente(dgListaDeClientes.SelectedIndex);
+
+                    CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
+
+                    ListaDeClientesViewModel.AlteracaoDeCliente(dgListaDeClientes.SelectedIndex, cadastroDeClienteBaseView.CadastroViewModel);
+
+                    cadastroDeClienteBaseView.ShowDialog();
+
+                    ListaDeClientesViewModel.ListarTodosOsClientes();
+
                     this.Visibility = Visibility.Visible;
                 }
                 else

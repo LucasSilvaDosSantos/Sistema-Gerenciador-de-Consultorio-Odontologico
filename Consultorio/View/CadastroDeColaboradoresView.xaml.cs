@@ -10,9 +10,9 @@ namespace Consultorio.View
     {
         public CadastroDeColaboradoresViewModel CadastroViewModel { get; set; }
 
-        public CadastroDeColaboradoresView(CadastroDeColaboradoresViewModel viewModel)
+        public CadastroDeColaboradoresView()
         {
-            CadastroViewModel = viewModel;
+            CadastroViewModel = new CadastroDeColaboradoresViewModel();
             DataContext = CadastroViewModel;
             InitializeComponent();
         }

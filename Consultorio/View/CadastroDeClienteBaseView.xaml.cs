@@ -1,9 +1,5 @@
-﻿using Consultorio.Data;
-using Consultorio.Model;
-using Consultorio.ViewModel;
-using System;
+﻿using Consultorio.ViewModel;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text;
 using System.Windows;
 
@@ -16,22 +12,19 @@ namespace Consultorio.View
     {
         public CadastroDeClienteBaseViewModel CadastroViewModel { get; set; }
 
-        public CadastroDeClienteBaseView(CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)
+        public CadastroDeClienteBaseView()
         {
-            CadastroViewModel = cadastroDeClienteBaseViewModel;
-            DataContext = cadastroDeClienteBaseViewModel;
+            CadastroViewModel = new CadastroDeClienteBaseViewModel();
+            DataContext = CadastroViewModel;
 
             InitializeComponent();
-            tbId.IsEnabled = false;
-
-            //btAnamnese.Visibility = Visibility.Hidden;          
+            tbId.IsEnabled = false;        
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        // botao de volta define pra qual pagina sera retornada 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -57,9 +50,9 @@ namespace Consultorio.View
         }
 
         private void BtAnamnese_Click(object sender, RoutedEventArgs e)
-        {              
-            this.Hide();
-            CadastroViewModel.BtAnamnese_Click();
+        {
+            CadastroDeClientesAnamneseView cadastroDeClientesAnamneseView = new CadastroDeClientesAnamneseView(new CadastroDeClienteAnamneseViewModel(CadastroViewModel.Cliente));
+            cadastroDeClientesAnamneseView.Show();
             this.Close();           
         }
 

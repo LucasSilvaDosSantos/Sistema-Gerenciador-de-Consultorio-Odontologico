@@ -39,8 +39,6 @@ namespace Consultorio.ViewModel
         {
             AtorLogado = SingletonAtorLogado.Instancia;
             ControleDeAcesso();
-            CadastroDeColaboradoresView cadastroDeColaboradoresView = new CadastroDeColaboradoresView(this);
-            cadastroDeColaboradoresView.ShowDialog();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
