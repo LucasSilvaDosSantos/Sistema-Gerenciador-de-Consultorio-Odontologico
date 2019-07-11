@@ -38,6 +38,10 @@ namespace Consultorio.View
             InitializeComponent();
         }
 
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             CrudConsultasViewModel.Calendar_SelectedDatesChanged(Convert.ToDateTime(cCalendario.SelectedDate));           
@@ -62,12 +66,16 @@ namespace Consultorio.View
 
         private void TbCliente_GotFocus(object sender, RoutedEventArgs e)
         {
-            CrudConsultasViewModel.AcessoAoCampoCliente(); //AbrirTelaDeCliente();
+            SelecionarCliente();
+
+            //CrudConsultasViewModel.AcessoAoCampoCliente(); //AbrirTelaDeCliente();
         }
 
         private void TbCliente_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            CrudConsultasViewModel.AcessoAoCampoCliente(); //AbrirTelaDeCliente();
+            SelecionarCliente();
+
+            //CrudConsultasViewModel.AcessoAoCampoCliente(); //AbrirTelaDeCliente();
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
@@ -77,6 +85,21 @@ namespace Consultorio.View
             {
                 this.Close();
             }
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void SelecionarCliente()
+        {
+            this.Hide();
+            SelecaoDeClienteView selecaoDeClienteView = new SelecaoDeClienteView();
+            selecaoDeClienteView.ShowDialog();
+
+            CrudConsultasViewModel.Consulta.Cliente = selecaoDeClienteView.SelecaoDeClienteViewModel.ClienteSelecionado;
+            CrudConsultasViewModel.NotificarConsulta();
+            this.Visibility = Visibility.Visible;
         }
     }
 }

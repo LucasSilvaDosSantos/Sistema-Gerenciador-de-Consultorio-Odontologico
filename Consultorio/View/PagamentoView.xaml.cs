@@ -34,6 +34,13 @@ namespace Consultorio.View
 
         private void SelecionarCliente()
         {
+            this.Hide();
+            SelecaoDeClienteView selecaoDeClienteView = new SelecaoDeClienteView();
+            selecaoDeClienteView.ShowDialog();
+
+            PagamentosViewModel.Cliente = selecaoDeClienteView.SelecaoDeClienteViewModel.ClienteSelecionado;
+            this.Visibility = Visibility.Visible;
+
             PagamentosViewModel.SelecionarCliente();
         }
 

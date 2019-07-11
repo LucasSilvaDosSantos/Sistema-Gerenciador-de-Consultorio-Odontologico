@@ -173,7 +173,6 @@ namespace Consultorio.ViewModel
             }
         }
 
-
         public void Calendar_SelectedDatesChanged(DateTime data)
         {
             DataSelecionada = data;
@@ -246,21 +245,10 @@ namespace Consultorio.ViewModel
             CarregarProcedimentos();
         }
 
-        public void AcessoAoCampoCliente()
+        // Erro na hora de notificar a tela sobre alteraçao na view
+        public void NotificarConsulta()
         {
-            if (IfNovoCliente)
-            {
-                SelecaoDeClientesView listaCliente = new SelecaoDeClientesView();
-
-                listaCliente.ShowDialog();
-                Cliente clienteEntrada = listaCliente.Cliente;
-
-                if (clienteEntrada.Id >= 0)
-                {
-                    Consulta.Cliente = clienteEntrada;
-                    OnPropertyChanged("Consulta");
-                }
-            }                
+            OnPropertyChanged("Consulta");
         }
 
         private void CarregarProcedimentos()
@@ -275,10 +263,7 @@ namespace Consultorio.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string NameProperty)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(NameProperty));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(NameProperty));
         }
     }
 }

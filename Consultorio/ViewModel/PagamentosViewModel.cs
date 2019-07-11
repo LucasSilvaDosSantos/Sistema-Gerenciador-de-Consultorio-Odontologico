@@ -86,15 +86,15 @@ namespace Consultorio.ViewModel
 
         public void SelecionarCliente()
         {
-            SelecaoDeClientesView listaCliente = new SelecaoDeClientesView();
-            listaCliente.ShowDialog();
+            /*
+            lista
 
-            var aux = listaCliente.Cliente;
-            if (aux.Id > 0)
+            var aux = listaClienteViewModel.Cliente;
+            if (aux != null && aux.Id > 0 )
             {
                 Cliente = aux;
                 CarregarValorDevido();
-            }
+            }*/
         }
 
         public string SalvarNovoPagamento(out bool semErros)
@@ -185,10 +185,7 @@ namespace Consultorio.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string NameProperty)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(NameProperty));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(NameProperty));
         }
     }
 }

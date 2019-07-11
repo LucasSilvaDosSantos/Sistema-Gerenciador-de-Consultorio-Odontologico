@@ -14,7 +14,7 @@
         <Label x:Name="lbDentista" Content="{Binding NomeTela}" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="286"/>
         <Calendar x:Name="cCalendario" Margin="237,150,0,154" HorizontalAlignment="Left" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectedDate="{Binding DataSelecionada}"/>
 
-        <TextBox x:Name="tbCliente" Padding="0, -1, 0, 0" Height="31" Margin="634,245,260,0" TextWrapping="Wrap" Text="{Binding Path=Consulta.Cliente.Nome}" IsReadOnly="True" VerticalAlignment="Top" GotFocus="TbCliente_GotFocus" MouseDoubleClick="TbCliente_MouseDoubleClick"/>
+        <TextBox x:Name="tbCliente" Padding="0, -1, 0, 0" Height="31" Margin="634,245,260,0" TextWrapping="Wrap" Text="{Binding Consulta.Cliente.Nome}" IsReadOnly="True" VerticalAlignment="Top" GotFocus="TbCliente_GotFocus" MouseDoubleClick="TbCliente_MouseDoubleClick"/>
         <xctk:MaskedTextBox x:Name="tbData" Mask="00/00/0000" Padding="0, 4, 0, 0" Text="{Binding DataSelecionada, StringFormat=d}" Margin="0,281,420,0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" HorizontalAlignment="Right" Width="89" Height="29" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,0,569,339" VerticalAlignment="Bottom" Width="34" ItemsSource="{Binding Horas}" SelectedItem="{Binding HoraInicio}" FlowDirection="RightToLeft" />
         <ComboBox x:Name="comboBox1" Margin="0,0,522,339" VerticalAlignment="Bottom" ItemsSource="{Binding Minutos}" SelectedItem="{Binding MinutoInicio}" HorizontalAlignment="Right" Width="34"/>

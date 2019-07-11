@@ -145,6 +145,7 @@
     <Compile Include="ViewModel\PagamentosViewModel.cs" />
     <Compile Include="ViewModel\ProdutosViewModel.cs" />
     <Compile Include="ViewModel\SecretariaViewModel.cs" />
+    <Compile Include="ViewModel\SelecaoDeClienteViewModel.cs" />
     <Compile Include="ViewModel\SingletonAtorLogado.cs" />
     <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
       <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>
@@ -173,8 +174,8 @@
     <Compile Include="View\CrudProdutoView.xaml.cs">
       <DependentUpon>CrudProdutoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SelecaoDeClientes.xaml.cs">
-      <DependentUpon>SelecaoDeClientes.xaml</DependentUpon>
+    <Compile Include="View\SelecaoDeClienteView.xaml.cs">
+      <DependentUpon>SelecaoDeClienteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ListaDeClientesView.xaml.cs">
       <DependentUpon>ListaDeClientesView.xaml</DependentUpon>
@@ -247,7 +248,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SelecaoDeClientes.xaml">
+    <Page Include="View\SelecaoDeClienteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
