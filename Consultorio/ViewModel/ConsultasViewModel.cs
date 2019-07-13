@@ -1,12 +1,8 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel
 {
@@ -27,6 +23,14 @@ namespace Consultorio.ViewModel
             set { _CalendarioAtivo = value; OnPropertyChanged("CalendarioAtivo"); }
         }
 
+        private Consulta _ConsultaSelecionada;
+
+        public Consulta ConsultaSelecionada
+        {
+            get { return _ConsultaSelecionada; }
+            set { _ConsultaSelecionada = value; OnPropertyChanged("ConsultaSelecionada"); }
+        }
+
         private List<Consulta> _ListaDeConsultas;
 
         public List<Consulta> ListaDeConsultas
@@ -43,8 +47,6 @@ namespace Consultorio.ViewModel
             set { _DataSelecionada = value; OnPropertyChanged("DataSelecionada"); }
         }
 
-        public Consulta ConsultaSelecionada { get; set; }
-
         public ConsultasViewModel()
         {
             CalendarioAtivo = true;
@@ -57,11 +59,11 @@ namespace Consultorio.ViewModel
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void Calendar_SelectedDatesChanged(DateTime data)
+        /*public void Calendar_SelectedDatesChanged(DateTime data)
         {
             DataSelecionada = data;
             CarregarListaDeConsultasData();
-        }
+        }*/
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
@@ -72,28 +74,9 @@ namespace Consultorio.ViewModel
             ListaDeConsultas = ConsultasData.ListaDeConsultas(DataSelecionada);
         }
 
-        public void DataGridSelect(int index)
+        public int ConsultaSelecionadaID()
         {
-            if (index >= 0)
-            {
-                SelecionarConsulta(index);
-            }
-        }
-
-        private void SelecionarConsulta(int index)
-        {
-            ConsultaSelecionada = ListaDeConsultas[index];
-        }
-
-        public void CrudConsuta()
-        {
-            if (ConsultaSelecionada != null)
-            {
-                CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultaSelecionada.Id);
-                crudConsultasView.ShowDialog();
-
-                CarregarListaDeConsultasData();
-            }
+            return ConsultaSelecionada.Id;
         }
 
         public void BuscarConsultaId(string id)

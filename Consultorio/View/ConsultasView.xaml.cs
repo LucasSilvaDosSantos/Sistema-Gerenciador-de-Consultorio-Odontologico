@@ -1,10 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using Consultorio.Model;
-using System.Text;
-using Consultorio.Data;
 using Consultorio.ViewModel;
 
 namespace Consultorio.View
@@ -13,15 +8,12 @@ namespace Consultorio.View
     {
         public ConsultasViewModel ConsultasViewModel { get; set; }
 
-        public Cliente Cliente { get; set; }
-
         public ConsultasView()
         {
             ConsultasViewModel = new ConsultasViewModel();
             DataContext = ConsultasViewModel;
 
             InitializeComponent();
-            Cliente = new Cliente();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -47,25 +39,24 @@ namespace Consultorio.View
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            ConsultasViewModel.Calendar_SelectedDatesChanged(Convert.ToDateTime(cCalendario.SelectedDate));
+            ConsultasViewModel.CarregarListaDeConsultasData();
         }
 
         private void BtEditar_Click(object sender, RoutedEventArgs e)
         {
             if (ConsultasViewModel.ConsultaSelecionada != null)
             {
-                ConsultasViewModel.CrudConsuta();
+                this.Hide();
+                CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionadaID());
+                crudConsultasView.ShowDialog();
+                ConsultasViewModel.CarregarListaDeConsultasData();
+                this.Visibility = Visibility.Visible;
             }
             else
             {
                 MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
             }
             
-        }
-
-        private void DgConsultas_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ConsultasViewModel.DataGridSelect(dgConsultas.SelectedIndex);
         }
 
         private void TbId_TextChanged(object sender, TextChangedEventArgs e)

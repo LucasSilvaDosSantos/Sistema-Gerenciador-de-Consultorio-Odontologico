@@ -1,6 +1,5 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
 using System.Collections.Generic;
 using System.ComponentModel;
 
