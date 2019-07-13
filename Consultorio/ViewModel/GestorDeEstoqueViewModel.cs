@@ -1,12 +1,8 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel
 {
@@ -31,15 +27,6 @@ namespace Consultorio.ViewModel
         public GestorDeEstoqueViewModel()
         {
             GestorDeEstoque = new GestorDeEstoque();
-            IniciarViewModel();
-            TbIdIsEnable = false;
-        }
-
-        public GestorDeEstoqueViewModel(GestorDeEstoque gestorDeEstoque)
-        {
-            GestorDeEstoque = gestorDeEstoque;
-            TbIdIsEnable = true;
-            IniciarViewModel();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -55,11 +42,6 @@ namespace Consultorio.ViewModel
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        private void IniciarViewModel()
-        {
-            GestorDeEstoqueView gestorDeEstoqueView = new GestorDeEstoqueView(this);
-            gestorDeEstoqueView.ShowDialog();
-        }
 
         private bool SalvarUsuario(string senha, string senhaConfirmacao, out string msg)
         {

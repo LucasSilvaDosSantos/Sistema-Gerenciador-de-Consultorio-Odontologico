@@ -1,6 +1,5 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -28,16 +27,9 @@ namespace Consultorio.ViewModel
         public DentistaViewModel()
         {
             Dentista = new Dentista();
-            IniciarViewModel();
             TbIdIsEnable = false;
         }
 
-        public DentistaViewModel(Dentista dentista)
-        {
-            Dentista = dentista;
-            TbIdIsEnable = true;
-            IniciarViewModel();
-        }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
@@ -52,11 +44,6 @@ namespace Consultorio.ViewModel
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        private void IniciarViewModel()
-        {
-            DentistaView dentistaView = new DentistaView(this);
-            dentistaView.ShowDialog();
-        }
 
         private bool SalvarUsuario(string senha, string senhaConfirmacao, out string msg)
         {

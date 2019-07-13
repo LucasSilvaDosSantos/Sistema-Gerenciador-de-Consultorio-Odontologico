@@ -1,12 +1,8 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel
 {
@@ -31,15 +27,7 @@ namespace Consultorio.ViewModel
         public SecretariaViewModel()
         {
             Secretaria = new Secretaria();
-            IniciarViewModel();
             TbIdIsEnable = false;
-        }
-
-        public SecretariaViewModel(Secretaria secretaria)
-        {
-            Secretaria = secretaria;
-            TbIdIsEnable = true;
-            IniciarViewModel();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -56,11 +44,6 @@ namespace Consultorio.ViewModel
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        private void IniciarViewModel()
-        {
-            SecretariaView secretariaView = new SecretariaView(this);
-            secretariaView.ShowDialog();
-        }
 
         private bool SalvarUsuario(string senha, string senhaConfirmacao, out string msg)
         {

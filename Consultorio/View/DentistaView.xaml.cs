@@ -1,5 +1,4 @@
-﻿using Consultorio.Model;
-using Consultorio.ViewModel;
+﻿using Consultorio.ViewModel;
 using System.Windows;
 
 namespace Consultorio.View
@@ -11,9 +10,9 @@ namespace Consultorio.View
     {
         public DentistaViewModel DentistaViewModel { get; set; }
 
-        public DentistaView(DentistaViewModel dentistaViewModel)
+        public DentistaView()
         {
-            DentistaViewModel = dentistaViewModel;
+            DentistaViewModel = new DentistaViewModel();
             DataContext = DentistaViewModel;
 
             InitializeComponent();

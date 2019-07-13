@@ -45,31 +45,6 @@ namespace Consultorio.ViewModel
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void BtMedicoDentista_Click()
-        {
-            new DentistaViewModel();
-        }
-
-        public void BtSecretariaAuxiliar_Click()
-        {
-            new SecretariaViewModel();
-        }
-
-        public void BtGestorDeEstoque_Click()
-        {
-            new GestorDeEstoqueViewModel();
-        }
-
-        public void BtTodosOsColaboradores_Click()
-        {
-            new ListaDeColaboradoresViewModel();
-        }
-
-        public void BtVoltar_Click()
-        {
-            new OpcoesViewModel();
-        }
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodo**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------

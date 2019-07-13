@@ -28,22 +28,65 @@ namespace Consultorio.View
         {
             if (dgListaAtores.SelectedIndex >= 0)
             {
-                //this.Hide();
-                bool altorizacaoDeEdicao = ListaDeColaboradoresViewModel.BtEditar_Click(dgListaAtores.SelectedIndex);                
+                bool altorizacaoDeEdicao = ListaDeColaboradoresViewModel.AltorizacaoDeAcesso();
+              
                 if (altorizacaoDeEdicao == false)
                 {
-                    this.Visibility = Visibility.Visible;
                     MessageBox.Show("Operação não permitida para este usuario!", "Acesso negado!");
                 }
-                this.Visibility = Visibility.Visible;
+                else
+                {
+                    EdicaoDeAtores();
+                }
             }
             else
             {
-                MessageBox.Show("Nenhum elemento selecionado!", "Erro!");
+                MessageBox.Show("Nenhum colaborador selecionado!", "Erro!");
             }
         }
         //-----------------------------------------------------------------------------------------------------------------------------------
-        //--------------------------------------------*********Funçoes**********--------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+        private void EdicaoDeAtores()
+        {
+            string tipoDeAtorSelecionado = ListaDeColaboradoresViewModel.TipoDeAtorSelecionado();
+
+            this.Hide();
+            if (tipoDeAtorSelecionado == "Dentista")
+            {
+                EditarDentista();
+            }
+            else if (tipoDeAtorSelecionado == "Secretaria")
+            {
+                EditarSecretaria();
+            }
+            else if (tipoDeAtorSelecionado == "GestorDeEstoque")
+            {
+                EditarGestor();
+            }
+            this.Visibility = Visibility.Visible;
+        }
+
+        private void EditarDentista()
+        {
+            DentistaView dentistaView = new DentistaView();
+            dentistaView.DentistaViewModel.Dentista = ListaDeColaboradoresViewModel.EdicaoDentista();
+            dentistaView.ShowDialog();
+        }
+
+        private void EditarSecretaria()
+        {
+            SecretariaView secretariaView = new SecretariaView();
+            secretariaView.SecretariaViewModel.Secretaria = ListaDeColaboradoresViewModel.EdicaoSecretaria();
+            secretariaView.ShowDialog();
+        }
+
+        private void EditarGestor()
+        {
+            GestorDeEstoqueView gestorDeEstoqueView = new GestorDeEstoqueView();
+            gestorDeEstoqueView.GestorDeEstoqueViewModel.GestorDeEstoque = ListaDeColaboradoresViewModel.EdicaoGestorDeEstoque();
+            gestorDeEstoqueView.ShowDialog();
+        }
     }
 }

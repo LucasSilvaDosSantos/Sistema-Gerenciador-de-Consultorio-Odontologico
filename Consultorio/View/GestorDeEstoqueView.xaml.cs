@@ -1,8 +1,4 @@
-﻿using Consultorio.Data;
-using Consultorio.Model;
-using Consultorio.ViewModel;
-using System.Collections.Generic;
-using System.Text;
+﻿using Consultorio.ViewModel;
 using System.Windows;
 
 namespace Consultorio.View
@@ -14,9 +10,9 @@ namespace Consultorio.View
     {
         public GestorDeEstoqueViewModel GestorDeEstoqueViewModel { get; set; }
 
-        public GestorDeEstoqueView(GestorDeEstoqueViewModel gestorDeEstoqueViewModel)
+        public GestorDeEstoqueView()
         {
-            GestorDeEstoqueViewModel = gestorDeEstoqueViewModel;
+            GestorDeEstoqueViewModel = new GestorDeEstoqueViewModel();
             DataContext = GestorDeEstoqueViewModel;
             InitializeComponent();
         }

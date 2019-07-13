@@ -22,41 +22,27 @@ namespace Consultorio.ViewModel
             AtorLogado = SingletonAtorLogado.Instancia;
         }
 
+        public Atores _AtorSelecionado { get; set; }
+
+        public Atores AtorSelecionado
+        {
+            get { return _AtorSelecionado; }
+            set { _AtorSelecionado = value; OnPropertyChanged("AtorSelecionado"); }
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void BtVoltar_Click()
+        public string TipoDeAtorSelecionado()
         {
-            new CadastroDeColaboradoresViewModel();
-        }
-
-        public bool BtEditar_Click(int index)
-        {
-            Atores atorSelecionado = ListaDeAtores[index];
-            string atorSelecionadoGetType = atorSelecionado.GetType().ToString();
-
-            if (atorSelecionadoGetType == "Consultorio.Model.Dentista")
-            {
-                return EdicaoDentista((Dentista)atorSelecionado);   
-            }
-
-            else if (atorSelecionadoGetType == "Consultorio.Model.Secretaria")
-            {
-                return EdicaoSecretaria((Secretaria)atorSelecionado);
-            }
-
-            else if (atorSelecionadoGetType == "Consultorio.Model.GestorDeEstoque")
-            {
-                return EdicaoGestorDeEstoque((GestorDeEstoque)atorSelecionado);   
-            }
-            return false;
+            return AtorSelecionado.GetType().Name.ToString();          
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        private bool AltorizacaoDeAcesso(string tipoDeAtorParaEdicao)
+        public bool AltorizacaoDeAcesso()
         {
             string atorLogadoGetType = AtorLogado.Ator.GetType().Name.ToString();
 
@@ -65,12 +51,12 @@ namespace Consultorio.ViewModel
             {
                 Secretaria secretaria = (Secretaria)AtorLogado.Ator;
 
-                if (tipoDeAtorParaEdicao == "Dentista")
+                if (AtorSelecionado.GetType().Name == "Dentista")
                 {
                     return false;
                 }
 
-                else if (tipoDeAtorParaEdicao == "GestorDeEstoque")
+                else if (AtorSelecionado.GetType().Name == "GestorDeEstoque")
                 {
                     if (secretaria.CrudGestoresDeEstoque == true)
                     {
@@ -82,7 +68,7 @@ namespace Consultorio.ViewModel
                     }
                 }
 
-                else if (tipoDeAtorParaEdicao == "Secretaria")
+                else if (AtorSelecionado.GetType().Name == "Secretaria")
                 {
                     if (secretaria.CrudSecretarias == true)
                     {
@@ -108,49 +94,19 @@ namespace Consultorio.ViewModel
             return false;
         }
 
-        private bool EdicaoDentista(Dentista dentista)
+        public Dentista EdicaoDentista()
         {
-            bool altorizacao = AltorizacaoDeAcesso("Dentista");
-
-            if (altorizacao == false)
-            {
-                return false;
-            }
-            else
-            {
-                new DentistaViewModel(dentista);
-                return true;
-            }
+            return (Dentista)AtorSelecionado;
         }
 
-        private bool EdicaoSecretaria(Secretaria secretaria)
+        public Secretaria EdicaoSecretaria()
         {
-            bool altorizacao = AltorizacaoDeAcesso("Secretaria");
-
-            if (altorizacao == false)
-            {
-                return false;
-            }
-            else
-            {
-                new SecretariaViewModel(secretaria);
-                return true;
-            }
+            return (Secretaria)AtorSelecionado;
         }
 
-        private bool EdicaoGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
+        public GestorDeEstoque EdicaoGestorDeEstoque()
         {
-            bool altorizacao = AltorizacaoDeAcesso("GestorDeEstoque");
-
-            if (altorizacao == false)
-            {
-                return false;
-            }
-            else
-            {
-                new GestorDeEstoqueViewModel(gestorDeEstoque);
-                return true;
-            }
+            return (GestorDeEstoque)AtorSelecionado;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

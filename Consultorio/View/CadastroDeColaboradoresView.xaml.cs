@@ -19,27 +19,31 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            CadastroViewModel.BtVoltar_Click();
+            OpcoesView opcoesView = new OpcoesView();
+            opcoesView.Show();
             this.Close();
         }
         private void BtMedicoDentista_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            CadastroViewModel.BtMedicoDentista_Click();
+            DentistaView dentistaView = new DentistaView();
+            dentistaView.ShowDialog();
             this.Visibility = Visibility.Visible;
         }
 
         private void BtSecretariaAuxiliar_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            CadastroViewModel.BtSecretariaAuxiliar_Click();
+            SecretariaView secretariaView = new SecretariaView();
+            secretariaView.ShowDialog();
             this.Visibility = Visibility.Visible;
         }
 
         private void BtGestorDeEstoque_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            CadastroViewModel.BtGestorDeEstoque_Click();
+            GestorDeEstoqueView gestorDeEstoqueView = new GestorDeEstoqueView();
+            gestorDeEstoqueView.ShowDialog();
             this.Visibility = Visibility.Visible;
         }
 
