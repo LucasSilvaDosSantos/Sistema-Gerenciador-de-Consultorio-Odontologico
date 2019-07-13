@@ -1,6 +1,5 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -49,11 +48,6 @@ namespace Consultorio.ViewModel
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void BtVoltar_Click()
-        {
-            new OpcoesViewModel();
-        }
-
         public void DgListaDeClientes_SelectionChanged()
         {
             BtAlterarIsEnabled = true;
@@ -63,11 +57,6 @@ namespace Consultorio.ViewModel
         public void BtCancelar_Click()
         {
             ListarTodosOsClientes();
-        }
-
-        public void BtHistorico_Click(int index)
-        {
-            HistoricoDoCliente(index);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -113,14 +102,9 @@ namespace Consultorio.ViewModel
             BtAlterarIsEnabled = false;
         }
 
-        private void HistoricoDoCliente(int index)
+        public Cliente ClienteSelecionado(int index)
         {
-            // alterar para viewModel quando for feito 
-            Cliente cliente = ListaDeClientes[index];
-            HistoricoDoClienteView historicoDoClienteView = new HistoricoDoClienteView();
-            historicoDoClienteView.IniciarCliente(cliente);
-            historicoDoClienteView.Show();
-            ListarTodosOsClientes();
+            return ListaDeClientes[index];
         }
 
         public void BuscarCliente(string id, string nome)

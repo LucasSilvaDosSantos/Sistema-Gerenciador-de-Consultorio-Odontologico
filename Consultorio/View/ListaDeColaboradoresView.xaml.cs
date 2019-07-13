@@ -6,9 +6,9 @@ namespace Consultorio.View
     public partial class ListaDeColaboradoresView : Window
     {
         public ListaDeColaboradoresViewModel ListaDeColaboradoresViewModel { get; set; }
-        public ListaDeColaboradoresView(ListaDeColaboradoresViewModel viewModel)
+        public ListaDeColaboradoresView()
         {
-            ListaDeColaboradoresViewModel = viewModel;
+            ListaDeColaboradoresViewModel = new ListaDeColaboradoresViewModel();
             DataContext = ListaDeColaboradoresViewModel;
             InitializeComponent();
         }
@@ -19,8 +19,8 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            ListaDeColaboradoresViewModel.BtVoltar_Click();
+            CadastroDeColaboradoresView cadastroDeColaboradoresView = new CadastroDeColaboradoresView();
+            cadastroDeColaboradoresView.Show();
             this.Close();
         }
 

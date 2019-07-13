@@ -23,10 +23,10 @@
 
         <Label x:Name="label4" Content="Total Devido:" Margin="537,0,625,99" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
 
-        <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="143,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" IsReadOnly="True"/>
-        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="259,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Left" Width="356"/>
+        <TextBox x:Name="tbId" Text="{Binding Cliente.Id}" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="143,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" IsReadOnly="True"/>
+        <TextBox x:Name="tbNome" Text="{Binding Cliente.Nome}" Padding="0, -1, 0, 0" Height="31" Margin="259,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Left" Width="356"/>
 
-        <DataGrid x:Name="dgProcedimentos" HorizontalAlignment="Left" Margin="59,225,0,151" Width="568" IsReadOnly="True" FontSize="16" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgProcedimentos" ItemsSource="{Binding ListaDeConsultas}" HorizontalAlignment="Left" Margin="59,225,0,151" Width="568" IsReadOnly="True" FontSize="16" AutoGenerateColumns="False">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontSize" Value="16"/>
@@ -34,9 +34,9 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Data" Binding="{Binding Inicio}" />
-                <DataGridTextColumn Header="Início" Binding="{Binding Inicio}" />
-                <DataGridTextColumn Header="Fim" Binding="{Binding Fim}" />
+                <DataGridTextColumn Header="Data" Binding="{Binding Inicio, StringFormat=dd/MM/yyyy}" />
+                <DataGridTextColumn Header="Início" Binding="{Binding Inicio, StringFormat=t}" />
+                <DataGridTextColumn Header="Fim" Binding="{Binding Fim, StringFormat=t}" />
                 <DataGridTextColumn Header="Procedimento" Binding="{Binding Procedimento.Nome}" />
                 <DataGridTextColumn Header="Valor" Binding="{Binding ValorConsulta, StringFormat=c}" />
                 <DataGridTextColumn Header="Dente" Binding="{Binding Dente}" />
@@ -44,7 +44,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="dgPagamentos" HorizontalAlignment="Right" Margin="0,177,57,151" Width="557" FontSize="16" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgPagamentos" ItemsSource="{Binding ListaDePagamentos}" HorizontalAlignment="Right" Margin="0,177,57,151" Width="557" FontSize="16" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontSize" Value="16"/>
@@ -54,13 +54,13 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Recebedor" Binding="{Binding Recebedor.Nome}" />
                 <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaDePagamento}" />
-                <DataGridTextColumn Header="Data de Pagamento" Binding="{Binding DataDePagamento}" />
+                <DataGridTextColumn Header="Data de Pagamento" Binding="{Binding DataDePagamento, StringFormat=dd/MM/yyyy}" />
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor, StringFormat=c}" />
             </DataGrid.Columns>
         </DataGrid>
 
 
-        <TextBox x:Name="tbTotalDevido" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,0,505,99" TextWrapping="Wrap" Text="" Width="120" Height="31" VerticalAlignment="Bottom" IsReadOnly="True"/>
+        <TextBox x:Name="tbTotalDevido" Text="{Binding ValorDevido, StringFormat=c}" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Margin="0,0,505,99" TextWrapping="Wrap" Width="120" Height="31" VerticalAlignment="Bottom" IsReadOnly="True"/>
 
         <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click"/>
 

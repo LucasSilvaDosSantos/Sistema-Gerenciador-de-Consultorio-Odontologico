@@ -1,6 +1,5 @@
 ﻿using Consultorio.Data;
 using Consultorio.Model;
-using Consultorio.View;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -21,8 +20,6 @@ namespace Consultorio.ViewModel
         {
             ListaDeAtores = ColaboradoresData.ListarAtores();
             AtorLogado = SingletonAtorLogado.Instancia;
-            ListaDeColaboradoresView listaDeColaboradoresView = new ListaDeColaboradoresView(this);
-            listaDeColaboradoresView.ShowDialog();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

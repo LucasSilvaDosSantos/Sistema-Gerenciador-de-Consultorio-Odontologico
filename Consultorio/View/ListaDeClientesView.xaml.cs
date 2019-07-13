@@ -20,7 +20,8 @@ namespace Consultorio.View
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            ListaDeClientesViewModel.BtVoltar_Click();
+            OpcoesView opcoesView = new OpcoesView();
+            opcoesView.Show();
             this.Close();
         }
 
@@ -45,8 +46,9 @@ namespace Consultorio.View
         {
             if (dgListaDeClientes.SelectedIndex >= 0)
             {
-                this.Hide();
-                ListaDeClientesViewModel.BtHistorico_Click(dgListaDeClientes.SelectedIndex);
+                HistoricoDoClienteView historicoDoClienteView = new HistoricoDoClienteView();
+                historicoDoClienteView.HistoricoDoClienteViewModel.IniciarViewModel(ListaDeClientesViewModel.ClienteSelecionado(dgListaDeClientes.SelectedIndex));
+                historicoDoClienteView.Show();
                 this.Close();
             }
             else

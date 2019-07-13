@@ -46,6 +46,8 @@ namespace Consultorio.View
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
+            OpcoesView opcoesView = new OpcoesView();
+            opcoesView.Show();
             this.Close();
         }
 
@@ -59,6 +61,8 @@ namespace Consultorio.View
             else
             {
                 MessageBox.Show(msg, "Aviso!");
+                OpcoesView opcoesView = new OpcoesView();
+                opcoesView.Show();
                 this.Close();
             }
         }

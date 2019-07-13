@@ -30,7 +30,8 @@ namespace Consultorio.View
         //-----------------------------------------------------------------------------------------------------------------------------------
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            new OpcoesViewModel();
+            OpcoesView opcoesView = new OpcoesView();
+            opcoesView.Show();
             this.Close();
         }
 
@@ -54,7 +55,9 @@ namespace Consultorio.View
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
             CrudProdutoView CrudProdutoView = new CrudProdutoView();
+            this.Hide();
             CrudProdutoView.ShowDialog();
+            this.Visibility = Visibility.Visible;
             ProdutosViewModel.RecarregarGrid();
         }
 
@@ -66,8 +69,10 @@ namespace Consultorio.View
                 MessageBox.Show("Selecione um produto", "Aviso!");
                 return;
             }
+            this.Hide();
             CrudProdutoView crudProdutoView = new CrudProdutoView(idProduto);
             crudProdutoView.ShowDialog();
+            this.Visibility = Visibility.Visible;
             ProdutosViewModel.RecarregarGrid();
             ProdutosViewModel.ResetarTela();
         }

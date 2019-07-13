@@ -3,84 +3,85 @@ using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel
 {
-    public class CadastroDeClienteBaseViewModel : INotifyPropertyChanged
+    public class HistoricoDoClienteViewModel : INotifyPropertyChanged
     {
+        private double _ValorDevido;
+
+        public double ValorDevido
+        {
+            get { return _ValorDevido; }
+            set { _ValorDevido = value; OnPropertyChanged("ValorDevido"); }
+        }
 
         private Cliente _Cliente;
-
         public Cliente Cliente
         {
             get { return _Cliente; }
             set { _Cliente = value; OnPropertyChanged("Cliente"); }
         }
 
-        private string _VisibilidadeBtAnamnese;
+        private List<Pagamento> _ListaDePagamentos;
 
-        public string VisibilidadeBtAnamnese
+        public List<Pagamento> ListaDePagamentos
         {
-            get { return _VisibilidadeBtAnamnese; }
-            set { _VisibilidadeBtAnamnese = value; OnPropertyChanged("VisibilidadeBtAnamnese"); }
+            get { return _ListaDePagamentos; }
+            set { _ListaDePagamentos = value; OnPropertyChanged("ListaDePagamentos"); }
         }
 
-        public CadastroDeClienteBaseViewModel()
+        private List<Consulta> _ListaDeConsultas;
+
+        public List<Consulta> ListaDeConsultas
         {
-            VisibilidadeBtAnamnese = "Hidden";
-            Cliente = new Cliente();
-            Cliente.Nascimento = DateTime.Now;
+            get { return _ListaDeConsultas; }
+            set { _ListaDeConsultas = value; OnPropertyChanged("ListaDeConsultas"); }
+        }
+
+        public HistoricoDoClienteViewModel()
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public string BtSalvar_Click()
-        {
-            if (Cliente.Id == 0)
-            {
-                string msg = CadastroDeClienteBaseData.CadastroDeNovoCliente(Cliente);
-                return msg;
-            }
-            else
-            {
-                var msg = CadastroDeClienteBaseData.AlterarCliente(Cliente);
-                return msg;
-            }
-        }
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodo**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public bool ValidarCamposObrigatorios(out List<string> lista)
+        public void IniciarViewModel(Cliente cliente)
         {
-            lista = new List<string>();
-            if (Cliente.Nome == "" || Cliente.Nome == null)
-            {
-                lista.Add("Nome");
-            }
-            if (Cliente.Nascimento.ToShortDateString() == DateTime.Now.ToShortDateString())
-            {
-                lista.Add("Data de Nascimento");
-            }
-            if (Cliente.Cpf == "___.___.___-__" || Cliente.Cpf == null)
-            {
-                lista.Add("CPF");
-            }
-            if (Cliente.Telefone1 == "(__)_____-____" || Cliente.Telefone1 == null)
-            {
-                lista.Add("Telefone 1");
-            }
-            if (lista.Count != 0)
-            {
-                lista[lista.Count - 1] = lista[lista.Count - 1].Remove(lista[lista.Count - 1].Length - 1);
-                return false;
-            }
-            return true;
-        }
+            Cliente = cliente;
 
+            ListaDeConsultas = HistoricoDoClienteData.ListarConsultaPorCliente(Cliente.Id);
+
+            ListaDePagamentos = HistoricoDoClienteData.ListarPagamentosPorCliente(Cliente.Id);
+
+            double somaPagamentos = 0;
+            double somaConsultas = 0;
+
+
+            foreach (var i in ListaDePagamentos)
+            {
+                somaPagamentos += i.Valor;
+            }
+
+            foreach (var i in ListaDeConsultas)
+            {
+                if (i.Realizada == true)
+                {
+                    somaConsultas += i.ValorConsulta;
+                }
+            }
+
+            ValorDevido = somaConsultas - somaPagamentos;
+        }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------

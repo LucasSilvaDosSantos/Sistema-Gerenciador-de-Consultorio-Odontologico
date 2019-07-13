@@ -1,23 +1,11 @@
-﻿using Consultorio.Data;
-using Consultorio.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Consultorio.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Consultorio.View
 {
     /// <summary>
     /// Lógica interna para Opcoes.xaml
+    /// Responsavel por manter a tela de menu
     /// </summary>
     public partial class OpcoesView : Window
     {
@@ -76,9 +64,8 @@ namespace Consultorio.View
         private void BtNovoPagamento_Click(object sender, RoutedEventArgs e)
         {
             PagamentoView pagamento = new PagamentoView();
-            this.Hide();
-            pagamento.ShowDialog();
-            this.Visibility = Visibility.Visible;
+            pagamento.Show();
+            this.Close();
         }
     }
 }
