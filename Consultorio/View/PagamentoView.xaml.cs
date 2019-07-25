@@ -1,10 +1,5 @@
 ﻿using Consultorio.ViewModel;
-using System;
-using System.ComponentModel;
-using System.Globalization;
-using System.Runtime.CompilerServices;
 using System.Windows;
-using Xceed.Wpf.Toolkit.Core;
 
 namespace Consultorio.View
 {

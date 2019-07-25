@@ -34,7 +34,7 @@ namespace Consultorio.View
 
         private void BtCadastroDeProduto_Click(object sender, RoutedEventArgs e)
         {
-            ProcedimentoView procedimentos = new ProcedimentoView();
+            ListaDeProcedimentoView procedimentos = new ListaDeProcedimentoView();
             procedimentos.Show();
             this.Close();
         }
@@ -66,6 +66,14 @@ namespace Consultorio.View
             PagamentoView pagamento = new PagamentoView();
             pagamento.Show();
             this.Close();
+        }
+
+
+        //excluir
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ProcedimentoView procedimento = new ProcedimentoView();
+            procedimento.Show();
         }
     }
 }

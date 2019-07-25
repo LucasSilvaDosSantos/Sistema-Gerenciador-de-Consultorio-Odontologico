@@ -35,6 +35,7 @@ namespace Consultorio.Data
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
                     // para modificar itens ja rastreados pelo entity
+
                     ctx.Entry(produtoChegada).State = EntityState.Modified;
                     ctx.SaveChanges();
 

@@ -34,10 +34,5 @@ namespace Consultorio
                 boxSenha.Password = "";
             }
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -129,10 +129,7 @@ namespace Consultorio.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string NameProperty)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(NameProperty));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(NameProperty));
         }
     }
 }

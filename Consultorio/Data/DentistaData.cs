@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Consultorio.Data;
+using System.Data.Entity;
 using Consultorio.Model;
 
 namespace Consultorio.Data
@@ -47,7 +42,7 @@ namespace Consultorio.Data
                     dentista.Senha = AtoresData.GerarHashMd5(dentista.Senha);
                     d.Senha = dentista.Senha;
 
-                    ctx.Entry(d).State = System.Data.Entity.EntityState.Modified;
+                    ctx.Entry(d).State = EntityState.Modified;
 
                     ctx.SaveChanges();
                     return ("Salvo alterações de dentista");

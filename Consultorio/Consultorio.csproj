@@ -115,6 +115,10 @@
     <Compile Include="Model\GestorDeEstoque.cs" />
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\Procedimento.cs" />
+    <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
+    <Compile Include="View\ProcedimentoView.xaml.cs">
+      <DependentUpon>ProcedimentoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\Secretaria.cs" />
     <Compile Include="Data\AtoresData.cs" />
@@ -191,8 +195,8 @@
     <Compile Include="View\PagamentoView.xaml.cs">
       <DependentUpon>PagamentoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ProcedimentoView.xaml.cs">
-      <DependentUpon>ProcedimentoView.xaml</DependentUpon>
+    <Compile Include="View\ListaDeProcedimentoView.xaml.cs">
+      <DependentUpon>ListaDeProcedimentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProdutoView.xaml.cs">
       <DependentUpon>ProdutoView.xaml</DependentUpon>
@@ -213,6 +217,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ProcedimentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CadastroDeClienteBaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -269,7 +277,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ProcedimentoView.xaml">
+    <Page Include="View\ListaDeProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

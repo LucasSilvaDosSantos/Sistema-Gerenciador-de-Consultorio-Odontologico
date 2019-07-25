@@ -1,11 +1,7 @@
-﻿using Consultorio.Data;
-using Consultorio.Model;
+﻿using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Globalization;
 using System.Data.Entity;
 
 namespace Consultorio.Data
@@ -18,9 +14,23 @@ namespace Consultorio.Data
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
+                    var a = new List<Produto>(procedimento.Produtos);
+
+                    procedimento.Produtos.Clear();
+
+                    foreach (Produto auxP in a)
+                    {
+                        procedimento.Produtos.Add(ctx.Produtos.First(aux => aux.Id == auxP.Id));
+                    }
+
+                    foreach (var item in procedimento.Produtos)
+                    {
+                        ctx.Entry(item).State = EntityState.Modified;
+                    }
+
                     ctx.Procedimentos.Add(procedimento);
                     ctx.SaveChanges();
-                    return ("Salvo novo Procedimento");
+                    return ("Salvo novo Procedimento!");
                 }
             }
             catch (Exception e)
@@ -36,14 +46,27 @@ namespace Consultorio.Data
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    Procedimento p = ctx.Procedimentos.Find(procedimento.Id);
+                    Procedimento p = ctx.Procedimentos.Include(aux1 => aux1.Produtos).First(aux => aux.Id == procedimento.Id);
+
 
                     p.Nome = procedimento.Nome;
                     p.Preco = procedimento.Preco;
                     p.Descricao = procedimento.Descricao;
 
+                    p.Produtos.Clear();
+
+                    foreach(Produto auxP in procedimento.Produtos)
+                    {
+                        p.Produtos.Add(ctx.Produtos.First(aux => aux.Id == auxP.Id));
+                    }
+
+                    foreach(var item in p.Produtos)
+                    {
+                        ctx.Entry(item).State = EntityState.Modified;
+                    }
+                    
                     ctx.SaveChanges();
-                    return ("Salvo alterações de procedimento");
+                    return ("Salvo alterações no procedimento!");
                 }
             }
             catch (Exception e)
@@ -71,7 +94,7 @@ namespace Consultorio.Data
             }
         }
 
-        public static List<Procedimento> BuscarProcedimento(int id, string nome)
+        public static List<Procedimento> BuscarProcedimentos(int id, string nome)
         {
             List<Procedimento> lista = new List<Procedimento>();
             try
@@ -97,53 +120,20 @@ namespace Consultorio.Data
             }
         }
 
-        /*public static List<Produto> ProdutosParaConsulta(Procedimento procedimento)
+        public static Procedimento PegarProcedimento(int id)
         {
-            List<Produto> lista = new List<Produto>();
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    var ab = ctx.Procedimentos.Where(p => p.Id == procedimento.Id).First();
-                    lista = ctx.Produtos.Where(c => c.Procedimentos.).Include(c => c.Produtos).ToList();
-
+                    Procedimento procedimento = ctx.Procedimentos.Include(p => p.Produtos).Where(a => a.Id == id).FirstOrDefault();
+                    return procedimento;
                 }
             }
             catch (Exception)
             {
-                return lista;
+                return null;
             }
-
-
-            return lista;
-        }*/
-    }
-}
-
-//var cliente = ctx.Clientes.Where(c => c.Id == clienteEntrada.Id).Include(c => c.Anamnese).FirstOrDefault();
-
-/*public static List<Produto> BuscarProdutos(int id, string nome)
-{
-    List<Produto> lista = new List<Produto>();
-    try
-    {
-        using (ConsultorioContext ctx = new ConsultorioContext())
-        {
-            if (id != 0)
-            {
-                lista = ctx.Produtos.Where(p => p.Id == id).ToList();
-                return lista;
-            }
-            else if (nome != "")
-            {
-                lista = ctx.Produtos.Where(p => p.Nome.Contains(nome)).ToList();
-                return lista;
-            }
-            return lista;
         }
     }
-    catch (Exception)
-    {
-        return lista;
-    }
-}*/
+}
