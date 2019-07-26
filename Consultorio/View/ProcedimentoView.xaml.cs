@@ -81,6 +81,15 @@ namespace Consultorio.View
         {
             string msg = ProcedimentoViewModel.SalvarProcedimento(out bool salvo);
             MessageBox.Show(msg, "Aviso!");
+            if (salvo)
+            {
+                this.Close();
+            }
+        }
+
+        private void BtVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -23,7 +23,5 @@
         <Button x:Name="btCadastroDeClientes" IsEnabled="{Binding CrudClientes}" Content="Cadastro de Clientes" HorizontalAlignment="Left" Margin="468,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeClientes_Click"/>
         <Button x:Name="btCadastroDeColaboradores" Content="Cadastro de Colaboradores" IsEnabled="{Binding CadastroDeColaboradores}" HorizontalAlignment="Left" Margin="837,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeColaboradores_Click"/>
         <Label x:Name="label1" Content="{Binding Saudacao}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="26" FontStyle="Italic" Foreground="#DD302E2E" ForceCursor="True" />
-        <Button x:Name="button" Content="Button" Margin="609,180,588,0" VerticalAlignment="Top" d:LayoutOverrides="Height" Click="Button_Click"/>
-
     </Grid>
 </Window>

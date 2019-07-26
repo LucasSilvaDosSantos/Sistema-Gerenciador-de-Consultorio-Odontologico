@@ -108,6 +108,14 @@ namespace Consultorio.ViewModel
         {
             string msg;
             Procedimento.Produtos = ListaDeProdutosAdd;
+
+            if (NomeValido() == false)
+            {
+                msg = "Nome do procedimento invalido!";
+                salvo = false;
+                return msg;
+            }
+
             if (Procedimento.Id == 0)
             {
                 msg = ProcedimentoData.CadastroDeNovoProcedimento(Procedimento);
@@ -124,6 +132,15 @@ namespace Consultorio.ViewModel
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        private bool NomeValido()
+        {
+            if  (Procedimento.Nome == null || Procedimento.Nome == "")
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         public void DeletarItemDaLista()
         {

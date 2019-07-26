@@ -102,6 +102,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\LoginData.cs" />
     <Compile Include="Migrations\201906172216132_a.cs" />
     <Compile Include="Migrations\201906172216132_a.Designer.cs">
@@ -115,6 +116,7 @@
     <Compile Include="Model\GestorDeEstoque.cs" />
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\Procedimento.cs" />
+    <Compile Include="ViewModel\ListaDeProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
     <Compile Include="View\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>

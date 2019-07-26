@@ -67,13 +67,5 @@ namespace Consultorio.View
             pagamento.Show();
             this.Close();
         }
-
-
-        //excluir
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ProcedimentoView procedimento = new ProcedimentoView();
-            procedimento.Show();
-        }
     }
 }
