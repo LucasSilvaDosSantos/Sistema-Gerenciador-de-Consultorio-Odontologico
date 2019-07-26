@@ -1,4 +1,10 @@
-﻿using Consultorio.ViewModel;
+﻿using Consultorio.View.Atores;
+using Consultorio.View.Clientes;
+using Consultorio.View.Consultas;
+using Consultorio.View.Pagamentos;
+using Consultorio.View.Procedimentos;
+using Consultorio.View.Produtos;
+using Consultorio.ViewModel;
 using System.Windows;
 
 namespace Consultorio.View

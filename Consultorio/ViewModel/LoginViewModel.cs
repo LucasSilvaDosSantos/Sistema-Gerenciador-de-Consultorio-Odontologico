@@ -1,5 +1,6 @@
-﻿using Consultorio.Data;
+﻿using Consultorio.Data.Ator;
 using Consultorio.Model;
+using Consultorio.ViewModel.Ator;
 using System.ComponentModel;
 
 namespace Consultorio.ViewModel

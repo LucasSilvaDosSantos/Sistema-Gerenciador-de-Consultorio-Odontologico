@@ -102,8 +102,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\ListaDeProcedimentoData.cs" />
-    <Compile Include="Data\LoginData.cs" />
+    <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
+    <Compile Include="Data\Atores\LoginData.cs" />
     <Compile Include="Migrations\201906172216132_a.cs" />
     <Compile Include="Migrations\201906172216132_a.Designer.cs">
       <DependentUpon>201906172216132_a.cs</DependentUpon>
@@ -116,94 +116,94 @@
     <Compile Include="Model\GestorDeEstoque.cs" />
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\Procedimento.cs" />
-    <Compile Include="ViewModel\ListaDeProcedimentoViewModel.cs" />
-    <Compile Include="ViewModel\ProcedimentoViewModel.cs" />
-    <Compile Include="View\ProcedimentoView.xaml.cs">
+    <Compile Include="ViewModel\Procedimentos\ListaDeProcedimentoViewModel.cs" />
+    <Compile Include="ViewModel\Procedimentos\ProcedimentoViewModel.cs" />
+    <Compile Include="View\Procedimentos\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\Secretaria.cs" />
-    <Compile Include="Data\AtoresData.cs" />
-    <Compile Include="Data\CadastroDeClienteAnamneseData.cs" />
-    <Compile Include="Data\CadastroDeClienteBaseData.cs" />
-    <Compile Include="Data\ColaboradoresData.cs" />
-    <Compile Include="Data\ConsultasData.cs" />
-    <Compile Include="Data\DentistaData.cs" />
-    <Compile Include="Data\GestorDeEstoqueData.cs" />
-    <Compile Include="Data\HistoricoDoClienteData.cs" />
-    <Compile Include="Data\ListaDeClienteParaConsultaData.cs" />
-    <Compile Include="Data\ListaDeClienteData.cs" />
-    <Compile Include="Data\ProcedimentoData.cs" />
-    <Compile Include="Data\ProdutoData.cs" />
-    <Compile Include="Data\SecretariaData.cs" />
-    <Compile Include="ViewModel\CadastroDeClienteAnamneseViewModel.cs" />
-    <Compile Include="ViewModel\CadastroDeClienteBaseViewModel.cs" />
-    <Compile Include="ViewModel\CadastroDeColaboradoresViewModel.cs" />
-    <Compile Include="ViewModel\ConsultasViewModel.cs" />
-    <Compile Include="ViewModel\CrudConsultasViewModel.cs" />
-    <Compile Include="ViewModel\CrudProdutoViewModel.cs" />
-    <Compile Include="ViewModel\DentistaViewModel.cs" />
-    <Compile Include="ViewModel\GestorDeEstoqueViewModel.cs" />
-    <Compile Include="ViewModel\HistoricoDoClienteViewModel.cs" />
-    <Compile Include="ViewModel\ListaDeClientesViewModel.cs" />
-    <Compile Include="ViewModel\ListaDeColaboradoresViewModel.cs" />
+    <Compile Include="Data\Atores\AtoresData.cs" />
+    <Compile Include="Data\Clientes\CadastroDeClienteAnamneseData.cs" />
+    <Compile Include="Data\Clientes\CadastroDeClienteBaseData.cs" />
+    <Compile Include="Data\Atores\ColaboradoresData.cs" />
+    <Compile Include="Data\Consultas\ConsultasData.cs" />
+    <Compile Include="Data\Atores\DentistaData.cs" />
+    <Compile Include="Data\Atores\GestorDeEstoqueData.cs" />
+    <Compile Include="Data\Clientes\HistoricoDoClienteData.cs" />
+    <Compile Include="Data\Consultas\ListaDeClienteParaConsultaData.cs" />
+    <Compile Include="Data\Clientes\ListaDeClienteData.cs" />
+    <Compile Include="Data\Procedimentos\ProcedimentoData.cs" />
+    <Compile Include="Data\Produtos\ProdutoData.cs" />
+    <Compile Include="Data\Atores\SecretariaData.cs" />
+    <Compile Include="ViewModel\Clientes\CadastroDeClienteAnamneseViewModel.cs" />
+    <Compile Include="ViewModel\Clientes\CadastroDeClienteBaseViewModel.cs" />
+    <Compile Include="ViewModel\Ator\CadastroDeColaboradoresViewModel.cs" />
+    <Compile Include="ViewModel\Consultas\ConsultasViewModel.cs" />
+    <Compile Include="ViewModel\Consultas\CrudConsultasViewModel.cs" />
+    <Compile Include="ViewModel\Produtos\CrudProdutoViewModel.cs" />
+    <Compile Include="ViewModel\Ator\DentistaViewModel.cs" />
+    <Compile Include="ViewModel\Ator\GestorDeEstoqueViewModel.cs" />
+    <Compile Include="ViewModel\Clientes\HistoricoDoClienteViewModel.cs" />
+    <Compile Include="ViewModel\Clientes\ListaDeClientesViewModel.cs" />
+    <Compile Include="ViewModel\Ator\ListaDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\OpcoesViewModel.cs" />
-    <Compile Include="ViewModel\PagamentosViewModel.cs" />
-    <Compile Include="ViewModel\ProdutosViewModel.cs" />
-    <Compile Include="ViewModel\SecretariaViewModel.cs" />
-    <Compile Include="ViewModel\SelecaoDeClienteViewModel.cs" />
-    <Compile Include="ViewModel\SingletonAtorLogado.cs" />
-    <Compile Include="View\CadastroDeClienteBaseView.xaml.cs">
+    <Compile Include="ViewModel\Pagamentos\PagamentosViewModel.cs" />
+    <Compile Include="ViewModel\Produtos\ProdutosViewModel.cs" />
+    <Compile Include="ViewModel\Ator\SecretariaViewModel.cs" />
+    <Compile Include="ViewModel\Clientes\SelecaoDeClienteViewModel.cs" />
+    <Compile Include="ViewModel\Ator\SingletonAtorLogado.cs" />
+    <Compile Include="View\Clientes\CadastroDeClienteBaseView.xaml.cs">
       <DependentUpon>CadastroDeClienteBaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CadastroDeClientesAnamneseView.xaml.cs">
+    <Compile Include="View\Clientes\CadastroDeClientesAnamneseView.xaml.cs">
       <DependentUpon>CadastroDeClientesAnamneseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CadastroDeColaboradoresView.xaml.cs">
+    <Compile Include="View\Atores\CadastroDeColaboradoresView.xaml.cs">
       <DependentUpon>CadastroDeColaboradoresView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ConsultasView.xaml.cs">
+    <Compile Include="View\Consultas\ConsultasView.xaml.cs">
       <DependentUpon>ConsultasView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CrudConsultasView.xaml.cs">
+    <Compile Include="View\Consultas\CrudConsultasView.xaml.cs">
       <DependentUpon>CrudConsultasView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DentistaView.xaml.cs">
+    <Compile Include="View\Atores\DentistaView.xaml.cs">
       <DependentUpon>DentistaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestorDeEstoqueView.xaml.cs">
+    <Compile Include="View\Atores\GestorDeEstoqueView.xaml.cs">
       <DependentUpon>GestorDeEstoqueView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HistoricoDoClienteView.xaml.cs">
+    <Compile Include="View\Clientes\HistoricoDoClienteView.xaml.cs">
       <DependentUpon>HistoricoDoClienteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CrudProdutoView.xaml.cs">
+    <Compile Include="View\Produtos\CrudProdutoView.xaml.cs">
       <DependentUpon>CrudProdutoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SelecaoDeClienteView.xaml.cs">
+    <Compile Include="View\Clientes\SelecaoDeClienteView.xaml.cs">
       <DependentUpon>SelecaoDeClienteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ListaDeClientesView.xaml.cs">
+    <Compile Include="View\Clientes\ListaDeClientesView.xaml.cs">
       <DependentUpon>ListaDeClientesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ListaDeColaboradoresView.xaml.cs">
+    <Compile Include="View\Atores\ListaDeColaboradoresView.xaml.cs">
       <DependentUpon>ListaDeColaboradoresView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OpcoesView.xaml.cs">
       <DependentUpon>OpcoesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\PagamentosData.cs" />
-    <Compile Include="View\PagamentoView.xaml.cs">
+    <Compile Include="Data\Pagamentos\PagamentosData.cs" />
+    <Compile Include="View\Pagamentos\PagamentoView.xaml.cs">
       <DependentUpon>PagamentoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ListaDeProcedimentoView.xaml.cs">
+    <Compile Include="View\Procedimentos\ListaDeProcedimentoView.xaml.cs">
       <DependentUpon>ListaDeProcedimentoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ProdutoView.xaml.cs">
+    <Compile Include="View\Produtos\ProdutoView.xaml.cs">
       <DependentUpon>ProdutoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SecretariaView.xaml.cs">
+    <Compile Include="View\Atores\SecretariaView.xaml.cs">
       <DependentUpon>SecretariaView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -219,55 +219,55 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\ProcedimentoView.xaml">
+    <Page Include="View\Procedimentos\ProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CadastroDeClienteBaseView.xaml">
+    <Page Include="View\Clientes\CadastroDeClienteBaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CadastroDeClientesAnamneseView.xaml">
+    <Page Include="View\Clientes\CadastroDeClientesAnamneseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CadastroDeColaboradoresView.xaml">
+    <Page Include="View\Atores\CadastroDeColaboradoresView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ConsultasView.xaml">
+    <Page Include="View\Consultas\ConsultasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CrudConsultasView.xaml">
+    <Page Include="View\Consultas\CrudConsultasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DentistaView.xaml">
+    <Page Include="View\Atores\DentistaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestorDeEstoqueView.xaml">
+    <Page Include="View\Atores\GestorDeEstoqueView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\HistoricoDoClienteView.xaml">
+    <Page Include="View\Clientes\HistoricoDoClienteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CrudProdutoView.xaml">
+    <Page Include="View\Produtos\CrudProdutoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SelecaoDeClienteView.xaml">
+    <Page Include="View\Clientes\SelecaoDeClienteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ListaDeClientesView.xaml">
+    <Page Include="View\Clientes\ListaDeClientesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ListaDeColaboradoresView.xaml">
+    <Page Include="View\Atores\ListaDeColaboradoresView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -275,19 +275,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PagamentoView.xaml">
+    <Page Include="View\Pagamentos\PagamentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ListaDeProcedimentoView.xaml">
+    <Page Include="View\Procedimentos\ListaDeProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ProdutoView.xaml">
+    <Page Include="View\Produtos\ProdutoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SecretariaView.xaml">
+    <Page Include="View\Atores\SecretariaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,5 +326,6 @@
   <ItemGroup>
     <Resource Include="Imagens\login.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
