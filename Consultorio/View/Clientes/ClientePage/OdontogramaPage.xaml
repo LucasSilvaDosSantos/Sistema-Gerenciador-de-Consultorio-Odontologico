@@ -1,0 +1,86 @@
+﻿<Page x:Class="Consultorio.View.Clientes.ClientePage.OdontogramaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Consultorio.View.Clientes.ClientePage"
+      mc:Ignorable="d" 
+      d:DesignHeight="525" d:DesignWidth="1280" Background="#FFCACAE6" FontSize="16"
+      Title="Odontograma" Loaded="Page_Loaded" >
+
+    <Viewbox>
+        <Grid Height="525" Width="1280">
+            <Grid>
+
+                <Image x:Name="image" Margin="262,11,262,17" Source="/Imagens/odontograma_anatomico.jpg"/>
+
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="FontSize" Value="30"/>
+                            <Setter Property="Height" Value="120"/>
+                            <Setter Property="Content" Value="X"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#60D3D3D3"/>
+                                    <Setter Property="BorderThickness" Value="2"/>
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Resources>
+
+                    <!--Dentes superiores da esquerda para a direita-->
+                    <Label x:Name="lbdente01" Margin="276,103,962,302" Content="{Binding Cliente.Odontograma.Dente01, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente02" Margin="330,103,909,302" Content="{Binding Cliente.Odontograma.Dente02, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente03" Margin="381,103,863,302" Content="{Binding Cliente.Odontograma.Dente03, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente04" Margin="422,103,823,302" Content="{Binding Cliente.Odontograma.Dente04, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente05" Margin="462,103,785,302" Content="{Binding Cliente.Odontograma.Dente05, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente06" Margin="504,103,743,302" Content="{Binding Cliente.Odontograma.Dente06, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente07" Margin="550,103,696,302" Content="{Binding Cliente.Odontograma.Dente07, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente08" Margin="592,103,653,302" Content="{Binding Cliente.Odontograma.Dente08, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente09" Margin="645,103,597,302" Content="{Binding Cliente.Odontograma.Dente09, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente10" Margin="694,103,556,302" Content="{Binding Cliente.Odontograma.Dente10, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente11" Margin="737,103,508,302" Content="{Binding Cliente.Odontograma.Dente11, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente12" Margin="780,103,466,302" Content="{Binding Cliente.Odontograma.Dente12, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente13" Margin="823,103,428,302" Content="{Binding Cliente.Odontograma.Dente13, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente14" Margin="857,103,382,302" Content="{Binding Cliente.Odontograma.Dente14, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente15" Margin="903,103,334,302" Content="{Binding Cliente.Odontograma.Dente15, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente16" Margin="956,103,282,302" Content="{Binding Cliente.Odontograma.Dente16, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+
+                    <!--Dentes inferiores da direita para a esquerda-->
+                    <Label x:Name="lbdente17" Margin="956,295,282,105" Content="{Binding Cliente.Odontograma.Dente17, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente18" Margin="903,295,334,105" Content="{Binding Cliente.Odontograma.Dente18, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente19" Margin="853,295,385,105" Content="{Binding Cliente.Odontograma.Dente19, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente20" Margin="808,295,438,105" Content="{Binding Cliente.Odontograma.Dente20, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente21" Margin="769,295,481,105" Content="{Binding Cliente.Odontograma.Dente21, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente22" Margin="723,295,525,105" Content="{Binding Cliente.Odontograma.Dente22, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente23" Margin="683,295,566,105" Content="{Binding Cliente.Odontograma.Dente23, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente24" Margin="642,295,605,105" Content="{Binding Cliente.Odontograma.Dente24, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente25" Margin="600,295,650,105" Content="{Binding Cliente.Odontograma.Dente25, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente26" Margin="563,295,689,105" Content="{Binding Cliente.Odontograma.Dente26, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente27" Margin="517,295,724,105" Content="{Binding Cliente.Odontograma.Dente27, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente28" Margin="474,295,773,105" Content="{Binding Cliente.Odontograma.Dente28, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente29" Margin="438,295,814,105" Content="{Binding Cliente.Odontograma.Dente29, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente30" Margin="381,295,857,105" Content="{Binding Cliente.Odontograma.Dente30, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente31" Margin="329,295,909,105" Content="{Binding Cliente.Odontograma.Dente31, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    <Label x:Name="lbdente32" Margin="279,295,962,105" Content="{Binding Cliente.Odontograma.Dente32, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
+                    
+                </Grid>
+                <Grid>
+                    <Label x:Name="lbLegendaNaoMexido" Background="White" Content="     - Dente Inalterado" Margin="1044,441,73,63" Padding="0,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
+                    <Label x:Name="lbLegendaTratado" Background="White" Content="X - Dente Retirado" Margin="1044,483,73,20" Foreground="Red" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left" />
+                    <Label x:Name="lbLegendaRetirado" Background="White" Content="O - Dente Tratado" Margin="1044,462,73,42" Foreground="Green" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>

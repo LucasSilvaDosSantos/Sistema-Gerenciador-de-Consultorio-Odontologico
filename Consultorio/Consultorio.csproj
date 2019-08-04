@@ -102,22 +102,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Clientes\ClienteOdontogramaData.cs" />
+    <Compile Include="Data\Clientes\CrudClienteData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
-    <Compile Include="Migrations\201906172216132_a.cs" />
-    <Compile Include="Migrations\201906172216132_a.Designer.cs">
-      <DependentUpon>201906172216132_a.cs</DependentUpon>
+    <Compile Include="Migrations\201907310128106_Versao dente.cs" />
+    <Compile Include="Migrations\201907310128106_Versao dente.Designer.cs">
+      <DependentUpon>201907310128106_Versao dente.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Atores.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Consulta.cs" />
+    <Compile Include="Model\Odontograma.cs" />
     <Compile Include="Model\Dentista.cs" />
     <Compile Include="Model\GestorDeEstoque.cs" />
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\Procedimento.cs" />
+    <Compile Include="ViewModel\Clientes\CadastroDeOdontogramaViewModel.cs" />
+    <Compile Include="ViewModel\Clientes\CrudClienteViewModel.cs" />
+    <Compile Include="View\Clientes\ClientePage\AnamnesePage.xaml.cs">
+      <DependentUpon>AnamnesePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Clientes\ClientePage\GeralPage.xaml.cs">
+      <DependentUpon>GeralPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Clientes\ClientePage\OdontogramaPage.xaml.cs">
+      <DependentUpon>OdontogramaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Clientes\ClientePage\WindowCliente.xaml.cs">
+      <DependentUpon>WindowCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Procedimentos\ListaDeProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\Procedimentos\ProcedimentoViewModel.cs" />
+    <Compile Include="View\Clientes\CadastroDeOdontogramaView.xaml.cs">
+      <DependentUpon>CadastroDeOdontogramaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Clientes\OpcoesClienteView.xaml.cs">
+      <DependentUpon>OpcoesClienteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Procedimentos\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
     </Compile>
@@ -219,6 +242,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Clientes\ClientePage\AnamnesePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Clientes\ClientePage\GeralPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Clientes\ClientePage\OdontogramaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Clientes\ClientePage\WindowCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Clientes\CadastroDeOdontogramaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Clientes\OpcoesClienteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Procedimentos\ProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,8 +354,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201906172216132_a.resx">
-      <DependentUpon>201906172216132_a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907310128106_Versao dente.resx">
+      <DependentUpon>201907310128106_Versao dente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -326,6 +373,8 @@
   <ItemGroup>
     <Resource Include="Imagens\login.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Imagens\odontograma_anatomico.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Clientes;
+﻿using Consultorio.View.Clientes.ClientePage;
+using Consultorio.ViewModel.Clientes;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -47,7 +48,7 @@ namespace Consultorio.View.Clientes
             if (dgListaDeClientes.SelectedIndex >= 0)
             {
                 HistoricoDoClienteView historicoDoClienteView = new HistoricoDoClienteView();
-                historicoDoClienteView.HistoricoDoClienteViewModel.IniciarViewModel(ListaDeClientesViewModel.ClienteSelecionado(dgListaDeClientes.SelectedIndex));
+                historicoDoClienteView.HistoricoDoClienteViewModel.IniciarViewModel(ListaDeClientesViewModel.ClienteSelecionadoNaLista(dgListaDeClientes.SelectedIndex));
                 historicoDoClienteView.Show();
                 this.Close();
             }
@@ -82,11 +83,14 @@ namespace Consultorio.View.Clientes
                 {
                     this.Hide();
 
-                    CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
+                    /*CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
 
                     ListaDeClientesViewModel.AlteracaoDeCliente(dgListaDeClientes.SelectedIndex, cadastroDeClienteBaseView.CadastroViewModel);
 
-                    cadastroDeClienteBaseView.ShowDialog();
+                    cadastroDeClienteBaseView.ShowDialog();*/
+
+                    WindowCliente windowCliente = new WindowCliente(ListaDeClientesViewModel.ClienteSelecionado.Id);
+                    windowCliente.ShowDialog();
 
                     ListaDeClientesViewModel.ListarTodosOsClientes();
 

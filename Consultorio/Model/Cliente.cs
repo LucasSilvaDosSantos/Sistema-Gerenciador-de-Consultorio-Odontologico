@@ -36,6 +36,8 @@ namespace Consultorio.Model
         public string Obs { get; set; }
         public Anamnese Anamnese { get; set; }
 
+        public Odontograma Odontograma { get; set; }
+
         public Cliente()
         {
         }
@@ -56,23 +58,5 @@ namespace Consultorio.Model
             Cidade = cidade;
             Cep = cep;
         }
-
-        /*public Cliente(string nome, DateTime nascimento, string cpf, string rg, string email, string telefone1,
-            string telefone2, string endereco, string bairro, string uf, string cidade, string cep, Anamnese anamnese)
-        {
-            Nome = nome;
-            Nascimento = nascimento;
-            Cpf = cpf;
-            Rg = rg;
-            Email = email;
-            Telefone1 = telefone1;
-            Telefone2 = telefone2;
-            Endereco = endereco;
-            Bairro = bairro;
-            Uf = uf;
-            Cidade = cidade;
-            Cep = cep;
-            Anamnese = anamnese;
-        }*/
     }
 }

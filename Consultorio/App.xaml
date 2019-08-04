@@ -10,7 +10,18 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Blue.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Window" x:Key="JanelaPersonalizada">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Background" Value="#FFCACAE6"/>
+                <Setter Property="Height" Value="720"/>
+                <Setter Property="Width" Value="1280"/>
+                <Setter Property="MinHeight" Value="720"/>
+                <Setter Property="MinWidth" Value="1280"/>
+                <Setter Property="Language" Value="pt-br"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

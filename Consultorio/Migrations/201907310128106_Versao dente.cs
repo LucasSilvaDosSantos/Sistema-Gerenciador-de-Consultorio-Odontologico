@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class a : DbMigration
+    public partial class Versaodente : DbMigration
     {
         public override void Up()
         {
@@ -70,10 +70,53 @@ namespace Consultorio.Migrations
                         Cep = c.String(unicode: false),
                         Obs = c.String(unicode: false),
                         Anamnese_Id = c.Int(),
+                        Odontograma_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Anamnese", t => t.Anamnese_Id)
-                .Index(t => t.Anamnese_Id);
+                .ForeignKey("dbo.Odontogramas", t => t.Odontograma_Id)
+                .Index(t => t.Anamnese_Id)
+                .Index(t => t.Odontograma_Id);
+            
+            CreateTable(
+                "dbo.Odontogramas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Dente01 = c.String(unicode: false),
+                        Dente02 = c.String(unicode: false),
+                        Dente03 = c.String(unicode: false),
+                        Dente04 = c.String(unicode: false),
+                        Dente05 = c.String(unicode: false),
+                        Dente06 = c.String(unicode: false),
+                        Dente07 = c.String(unicode: false),
+                        Dente08 = c.String(unicode: false),
+                        Dente09 = c.String(unicode: false),
+                        Dente10 = c.String(unicode: false),
+                        Dente11 = c.String(unicode: false),
+                        Dente12 = c.String(unicode: false),
+                        Dente13 = c.String(unicode: false),
+                        Dente14 = c.String(unicode: false),
+                        Dente15 = c.String(unicode: false),
+                        Dente16 = c.String(unicode: false),
+                        Dente17 = c.String(unicode: false),
+                        Dente18 = c.String(unicode: false),
+                        Dente19 = c.String(unicode: false),
+                        Dente20 = c.String(unicode: false),
+                        Dente21 = c.String(unicode: false),
+                        Dente22 = c.String(unicode: false),
+                        Dente23 = c.String(unicode: false),
+                        Dente24 = c.String(unicode: false),
+                        Dente25 = c.String(unicode: false),
+                        Dente26 = c.String(unicode: false),
+                        Dente27 = c.String(unicode: false),
+                        Dente28 = c.String(unicode: false),
+                        Dente29 = c.String(unicode: false),
+                        Dente30 = c.String(unicode: false),
+                        Dente31 = c.String(unicode: false),
+                        Dente32 = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Consultas",
@@ -212,6 +255,7 @@ namespace Consultorio.Migrations
             DropForeignKey("dbo.ProdutoProcedimentoes", "Procedimento_Id", "dbo.Procedimentos");
             DropForeignKey("dbo.ProdutoProcedimentoes", "Produto_Id", "dbo.Produtos");
             DropForeignKey("dbo.Consultas", "Cliente_Id", "dbo.Clientes");
+            DropForeignKey("dbo.Clientes", "Odontograma_Id", "dbo.Odontogramas");
             DropForeignKey("dbo.Clientes", "Anamnese_Id", "dbo.Anamnese");
             DropIndex("dbo.Secretarias", new[] { "Id" });
             DropIndex("dbo.GestoresDeEstoque", new[] { "Id" });
@@ -222,6 +266,7 @@ namespace Consultorio.Migrations
             DropIndex("dbo.Pagamentos", new[] { "Cliente_Id" });
             DropIndex("dbo.Consultas", new[] { "Procedimento_Id" });
             DropIndex("dbo.Consultas", new[] { "Cliente_Id" });
+            DropIndex("dbo.Clientes", new[] { "Odontograma_Id" });
             DropIndex("dbo.Clientes", new[] { "Anamnese_Id" });
             DropTable("dbo.Secretarias");
             DropTable("dbo.GestoresDeEstoque");
@@ -232,6 +277,7 @@ namespace Consultorio.Migrations
             DropTable("dbo.Produtos");
             DropTable("dbo.Procedimentos");
             DropTable("dbo.Consultas");
+            DropTable("dbo.Odontogramas");
             DropTable("dbo.Clientes");
             DropTable("dbo.Anamnese");
         }

@@ -1,5 +1,6 @@
 ﻿using Consultorio.View.Atores;
 using Consultorio.View.Clientes;
+using Consultorio.View.Clientes.ClientePage;
 using Consultorio.View.Consultas;
 using Consultorio.View.Pagamentos;
 using Consultorio.View.Procedimentos;
@@ -55,8 +56,10 @@ namespace Consultorio.View
         private void BtCadastroDeClientes_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
-            cadastroDeClienteBaseView.ShowDialog();
+            WindowCliente windowCliente = new WindowCliente();
+            windowCliente.ShowDialog();
+            /*CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
+            cadastroDeClienteBaseView.ShowDialog();*/
             this.Visibility = Visibility.Visible;
         }
 

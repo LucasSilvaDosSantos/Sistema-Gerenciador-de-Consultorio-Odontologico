@@ -8,6 +8,13 @@ namespace Consultorio.ViewModel.Clientes
 {
     public class ListaDeClientesViewModel : INotifyPropertyChanged
     {
+        private Cliente _clienteSelecionado;
+        public Cliente ClienteSelecionado
+        {
+            get { return _clienteSelecionado; }
+            set { _clienteSelecionado = value; OnPropertyChanged("ClienteSelecionado"); }
+        }
+
         public SingletonAtorLogado AtorLogado { get; set; }
 
         private bool _BtCancelarIsEnabled;
@@ -64,6 +71,7 @@ namespace Consultorio.ViewModel.Clientes
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+
         public bool AltorizacaoDeEdicao()
         {
             string atorLogadoType = AtorLogado.Ator.GetType().Name;
@@ -97,7 +105,7 @@ namespace Consultorio.ViewModel.Clientes
             BtAlterarIsEnabled = false;
         }
 
-        public Cliente ClienteSelecionado(int index)
+        public Cliente ClienteSelecionadoNaLista(int index)
         {
             return ListaDeClientes[index];
         }

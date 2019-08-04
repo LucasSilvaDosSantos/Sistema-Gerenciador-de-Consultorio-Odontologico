@@ -1,0 +1,179 @@
+﻿<Page x:Class="Consultorio.View.Clientes.ClientePage.AnamnesePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Consultorio.View.Clientes.ClientePage"
+      mc:Ignorable="d" 
+      d:DesignHeight="525" d:DesignWidth="1280" Background="#FFCACAE6" FontSize="16"
+      Title="Anamnese">
+
+
+    <Grid Height="525" Width="1280">
+        <Grid>
+
+
+
+            <Label x:Name="label1" Content="Sim" Margin="10,10,1234,484" />
+            <Label x:Name="label1_Copy" Content="Não" Margin="46,10,1195,484"/>
+            <Label x:Name="label1_Copy1" Content="Sim" Margin="648,10,592,484" />
+            <Label x:Name="label1_Copy2" Content="Não" Margin="688,10,551,484" />
+
+            <!--P01-->
+            <Label x:Name="label2" Content="01. No momento, está em tratamento médico?" Margin="78,36,862,458" />
+            <Label x:Name="label3" Content="Tel. do Médico:" Margin="382,67,782,427" />
+            <Label x:Name="label4" Content="Por quê?" Margin="78,67,1130,427" />
+            <RadioButton x:Name="rbP01S" HorizontalContentAlignment="Right" IsChecked="{Binding Cliente.Anamnese.P01}" GroupName="p1" Margin="20,41,1242,465"/>
+            <RadioButton x:Name="rbP01N" GroupName="p1" Margin="55,41,1207,465"/>
+
+            <TextBox x:Name="tbP01PQ" Text="{Binding Cliente.Anamnese.P01ComplementoPq}" Padding="0, -1, 0, 0" Margin="150,66,898,427" TextWrapping="Wrap"/>
+            <TextBox x:Name="tb0P1TelMedico" Text="{Binding Cliente.Anamnese.P01ComplementoTel}" Padding="0, -1, 0, 0" Margin="498,72,647,427" TextWrapping="Wrap"/>
+
+            <!--P02-->
+            <Label x:Name="label5" Content="02. Está tomando algum remédio (receitado ou não)" Margin="78,98,824,396" />
+            <RadioButton x:Name="rbP02S" IsChecked="{Binding Cliente.Anamnese.P02}" GroupName="p2" Margin="20,105,1242,401" />
+            <RadioButton x:Name="rbP02N" GroupName="p2" Margin="55,105,1207,401" />
+            <TextBox x:Name="tbP02Quais" Text="{Binding Cliente.Anamnese.P02Complemento}" Padding="0, -1, 0, 0" Margin="460,98,647,396" TextWrapping="Wrap"/>
+
+            <!--P03-->
+            <Label x:Name="label7" Content="03. Tem alergia a algum medicamento, Qual?" Margin="78,129,875,365" />
+            <RadioButton x:Name="rbP03S" IsChecked="{Binding Cliente.Anamnese.P03}" GroupName="p3" Margin="20,137,1242,370"/>
+            <RadioButton x:Name="rbP03N" GroupName="p3" Margin="0,137,1207,370" HorizontalAlignment="Right" Width="18" />
+            <TextBox x:Name="tbP03Qual" Text="{Binding Cliente.Anamnese.P03Complemento}" Padding="0, -1, 0, 0" Margin="405,129,647,365" TextWrapping="Wrap"/>
+
+            <!--P04-->
+            <Label x:Name="label8" Content="04. Tem gânglios doloridos em alguma região do corpo?" Margin="78,160,794,334" />
+            <RadioButton x:Name="rbP04S" IsChecked="{Binding Cliente.Anamnese.P04}" GroupName="p4" Margin="20,168,1242,339" />
+            <RadioButton x:Name="rbP04N" GroupName="p4" Margin="55,168,1207,339" />
+            <TextBox x:Name="tbP04Aux" Text="{Binding Cliente.Anamnese.P04Complemento}" Padding="0, -1, 0, 0" Margin="486,160,647,334" TextWrapping="Wrap"/>
+
+            <!--P05-->
+            <Label x:Name="label9" Content="05. Estâ grâvida no momento? " Margin="78,191,974,303"  />
+            <Label x:Name="textBlock" Margin="306,191,928,303" Content="Mês:" />
+            <RadioButton x:Name="rbP05S" IsChecked="{Binding Cliente.Anamnese.P05}" GroupName="p5" Margin="20,199,1242,308"/>
+            <RadioButton x:Name="rbP05N" GroupName="p5" Margin="55,199,1207,308" />
+            <TextBox x:Name="tbP05Mes" Text="{Binding Cliente.Anamnese.P05Complemento}" Padding="0, -1, 0, 0" Margin="352,191,647,303" TextWrapping="Wrap"/>
+
+            <!--P06-->
+            <Label x:Name="label10" Content="06. As feridas demoram para cicatrizar?" Margin="78,222,912,272" />
+            <RadioButton x:Name="rbP06S" IsChecked="{Binding Cliente.Anamnese.P06}" GroupName="p6" Margin="20,230,1242,277" />
+            <RadioButton x:Name="rbP06N" GroupName="p6" Margin="55,230,1207,277" />
+
+            <!--P07-->
+            <Label x:Name="label11" Content="07. Sangra muito quando se fere ou extrai dente?" Margin="78,253,843,241"/>
+            <RadioButton x:Name="rbP07S" IsChecked="{Binding Cliente.Anamnese.P07}" GroupName="p7" Margin="20,260,1242,247"/>
+            <RadioButton x:Name="rbP07N" GroupName="p7" Margin="55,260,1207,247" />
+
+            <!--P08-->
+            <Label x:Name="label12" Content="08. É fumante?" Margin="78,284,1088,212"/>
+            <RadioButton x:Name="rbP08S" IsChecked="{Binding Cliente.Anamnese.P08}" GroupName="p8" Margin="20,290,1242,215" />
+            <RadioButton x:Name="rbP08N" GroupName="p8" Margin="55,290,1207,215" />
+
+            <!--P09-->
+            <Label x:Name="label13" Content="09. Você tem Diabetes? Se tem, é compensada?" Margin="78,313,856,181"/>
+            <RadioButton x:Name="rbP09S" IsChecked="{Binding Cliente.Anamnese.P09}" GroupName="p9" Margin="20,321,1242,186" />
+            <RadioButton x:Name="rbP09N" GroupName="p9" Margin="55,321,1207,186" />
+            <TextBox x:Name="tbP09Aux" Text="{Binding Cliente.Anamnese.P09Complemento}" Padding="0, -1, 0, 0" Margin="424,313,647,181" TextWrapping="Wrap"/>
+
+            <!--P10-->
+            <Label x:Name="label14" Content="10. Tem dificuldade de digestão?" Margin="78,344,960,150"/>
+            <RadioButton x:Name="rbP10S" IsChecked="{Binding Cliente.Anamnese.P10}" GroupName="p10" Margin="20,351,1242,156"/>
+            <RadioButton x:Name="rbP10N" GroupName="p10" Margin="55,351,1207,156" />
+
+            <!--P11-->
+            <Label x:Name="label15" Content="11. Alguma vez já tomou Penicilina ou outro antibiótico?" Margin="78,375,794,119"/>
+            <RadioButton x:Name="rbP11S" IsChecked="{Binding Cliente.Anamnese.P11}" GroupName="p11" Margin="20,383,1242,124" />
+            <RadioButton x:Name="rbP11N" GroupName="p11" Margin="55,383,1207,124"/>
+
+            <!--P12-->
+            <Label x:Name="label16" Content="12. Teve alguma reação anormal?" Margin="78,406,957,88"/>
+            <RadioButton x:Name="rbP12S" IsChecked="{Binding Cliente.Anamnese.P12}" GroupName="p12" Margin="20,414,1242,91" />
+            <RadioButton x:Name="rbP12N" GroupName="p12" Margin="55,414,1207,91" />
+
+            <!--P13-->
+            <Label x:Name="label17" Content="13. Costuma sentir tontura ou desmaiar com frequência?" Margin="78,437,791,57"/>
+            <RadioButton x:Name="rbP13S" IsChecked="{Binding Cliente.Anamnese.P13}" GroupName="p13" Margin="20,444,1242,61" />
+            <RadioButton x:Name="rbP13N" GroupName="p13" Margin="55,444,1207,61" />
+
+            <!--P14-->
+            <Label x:Name="label18" Content="14. É portador de HIV (AIDS)?" Margin="78,468,982,26" />
+            <RadioButton x:Name="rbP14S" IsChecked="{Binding Cliente.Anamnese.P14}" GroupName="p14" Margin="20,474,1242,29"/>
+            <RadioButton x:Name="rbP14N" GroupName="p14" Margin="55,474,1207,29" />
+
+            <!--P15-->
+            <Label x:Name="label19" Content="15. Tem contato com pessoas portadoras  de AIDS?" Margin="723,36,184,458"/>
+            <RadioButton x:Name="rbP15S" IsChecked="{Binding Cliente.Anamnese.P15}" GroupName="p15" Margin="657,44,605,463" />
+            <RadioButton x:Name="rbP15N" GroupName="p15" Margin="700,44,562,463"/>
+
+            <!--P16-->
+            <Label x:Name="label20" Content="16. É portador de distúrbios cardíacos?" Margin="723,67,273,427"/>
+            <RadioButton x:Name="rbP16S" IsChecked="{Binding Cliente.Anamnese.P16}" GroupName="p16" Margin="657,74,605,433" />
+            <RadioButton x:Name="rbP16N" GroupName="p16" Margin="700,74,562,433"/>
+
+            <!--P17-->
+            <Label x:Name="label21" Content="17. Tem conhecimento de sua presão? Qual?" Margin="723,98,232,396" />
+            <RadioButton x:Name="rbP17S" IsChecked="{Binding Cliente.Anamnese.P17}" GroupName="p17" Margin="657,106,605,401" />
+            <RadioButton x:Name="rbP17N" GroupName="p17" Margin="700,106,562,401"/>
+            <TextBox x:Name="tbP17Aux" Text="{Binding Cliente.Anamnese.P17Complemento}" Padding="0, -1, 0, 0" Margin="1048,98,10,396" TextWrapping="Wrap"/>
+
+            <!--P18-->
+            <Label x:Name="label22" Content="18. Sua mandíbula estala quando mastiga?" Margin="723,129,242,365" />
+            <RadioButton x:Name="rbP18S" IsChecked="{Binding Cliente.Anamnese.P18}" GroupName="p18" Margin="657,137,605,370"/>
+            <RadioButton x:Name="rbP18N" GroupName="p18" Margin="700,137,562,370" />
+
+            <!--P19-->
+            <Label x:Name="label23" Content="19. Sente dor na articulação têmporo-mandibular (perto do ouvido)?" Margin="723,160,63,334"/>
+            <RadioButton x:Name="rbP19S" IsChecked="{Binding Cliente.Anamnese.P19}" GroupName="p19" Margin="657,168,605,339" />
+            <RadioButton x:Name="rbP19N" IsChecked="False" GroupName="p19" Margin="700,168,562,339"/>
+
+            <!--P20-->
+            <Label x:Name="label24" Content="20. Teve alguma reação anormal a anestesia local para tratar/extrair dente?" Margin="723,191,19,303"/>
+            <RadioButton x:Name="rbP20S" IsChecked="{Binding Cliente.Anamnese.P20}" GroupName="p20" Margin="657,199,605,308" />
+            <RadioButton x:Name="rbP20N" IsChecked="False" GroupName="p20" Margin="700,199,562,308" />
+
+            <!--P21-->
+            <Label x:Name="label25" Content="21. Teve convulsões alguma vez?" Margin="723,222,313,272"/>
+            <RadioButton x:Name="rbP21S" IsChecked="{Binding Cliente.Anamnese.P21}" GroupName="p21" Margin="657,230,605,275" />
+            <RadioButton x:Name="rbP21N" GroupName="p21" Margin="700,230,562,275" />
+
+            <!--P22-->
+            <Label x:Name="label26" Content="22. Tem problemas no Fígado ou Rim?" Margin="723,253,273,241"/>
+            <RadioButton x:Name="rbP22S" IsChecked="{Binding Cliente.Anamnese.P22}" GroupName="p22" Margin="657,260,605,243"/>
+            <RadioButton x:Name="rbP22N" GroupName="p22" Margin="700,260,562,243" />
+
+            <!--P23-->
+            <Label x:Name="label27" Content="23. Teve Hepatite?" Margin="723,284,418,212" />
+            <RadioButton x:Name="rbP23S" IsChecked="{Binding Cliente.Anamnese.P23}" GroupName="p23" Margin="657,290,605,213" />
+            <RadioButton x:Name="rbP23N" GroupName="p23" Margin="700,290,562,213" />
+
+            <!--P24-->
+            <Label x:Name="label28" Content="24. Tem Asma?" Margin="723,313,441,181"/>
+            <RadioButton x:Name="rbP24S" IsChecked="{Binding Cliente.Anamnese.P24}" GroupName="p24" Margin="657,321,605,186"/>
+            <RadioButton x:Name="rbP24N" GroupName="p24" Margin="700,321,562,186" />
+
+            <!--P25-->
+            <Label x:Name="label29" Content="25. Sente sua gengiva inchada ou sangrando?" Margin="723,344,222,150"/>
+            <RadioButton x:Name="rbP25S" IsChecked="{Binding Cliente.Anamnese.P25}" GroupName="p25" Margin="657,351,605,154"/>
+            <RadioButton x:Name="rbP25N" GroupName="p25" Margin="700,351,562,154"/>
+
+            <!--P26-->
+            <Label x:Name="label30" Content="26. Teve Sinusite?" Margin="723,375,418,119" />
+            <RadioButton x:Name="rbP26S" IsChecked="{Binding Cliente.Anamnese.P26}" GroupName="p26" Margin="657,383,605,120"/>
+            <RadioButton x:Name="rbP26N" GroupName="p26" Margin="700,383,562,120" />
+
+            <!--P27-->
+            <Label x:Name="label31" Content="27. Teve Febre Reumática?" Margin="723,406,362,88"/>
+            <RadioButton x:Name="rbP27S" IsChecked="{Binding Cliente.Anamnese.P27}" GroupName="p27" Margin="657,414,605,89"/>
+            <RadioButton x:Name="rbP27N" GroupName="p27" Margin="700,414,562,89" />
+
+            <!--Obs-->
+            <Label x:Name="label32" Content="OBS:" Margin="657,436,580,58" />
+            <TextBox x:Name="tbObs" Text="{Binding Cliente.Anamnese.Obs}" Padding="1, -1, 0, 0" Margin="700,437,10,41" TextWrapping="Wrap" Background="White" VerticalContentAlignment="Top"/>
+
+            <!--Não preencher-->
+            <Border BorderBrush="Black" BorderThickness="1" Margin="638,10,0,41" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="2"/>
+            <CheckBox x:Name="cbAnameneseNaoPreenchida" Content="Não preencher agora!" Margin="552,484,551,10" Visibility="{Binding VisibilidadeBtAnamnese}" IsChecked="{Binding AnamneseNaoPrenchida}"/>
+        </Grid>
+    </Grid>
+
+</Page>

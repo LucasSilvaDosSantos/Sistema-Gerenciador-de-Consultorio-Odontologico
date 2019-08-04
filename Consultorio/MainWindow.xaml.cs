@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using Consultorio.View;
+using Consultorio.View.Clientes;
+using Consultorio.View.Clientes.ClientePage;
 using Consultorio.ViewModel;
 
 namespace Consultorio
@@ -33,6 +35,15 @@ namespace Consultorio
                 MessageBox.Show("Verifique os dados", "Login Inválido!");
                 boxSenha.Password = "";
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WindowCliente window = new WindowCliente();
+            window.Show();
+
+             /*CadastroDeOdontogramaView cadastroDeOdontogramaView = new CadastroDeOdontogramaView(1);
+             cadastroDeOdontogramaView.Show();*/
         }
     }
 }

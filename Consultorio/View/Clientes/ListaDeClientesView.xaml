@@ -23,7 +23,7 @@
         <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="425,0,0,94" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="483,0,338,94" TextWrapping="Wrap" VerticalAlignment="Bottom" TextChanged="TbNome_TextChanged" Language="pt-br" />
 
-        <DataGrid x:Name="dgListaDeClientes" Margin="59,150,61,159" ItemsSource="{Binding ListaDeClientes}" IsReadOnly="True" SelectionMode="Single" FontSize="16" AutoGenerateColumns="False" SelectionChanged="DgListaDeClientes_SelectionChanged">
+        <DataGrid x:Name="dgListaDeClientes" Margin="59,150,61,159" ItemsSource="{Binding ListaDeClientes}" IsReadOnly="True" SelectionMode="Single" FontSize="16" AutoGenerateColumns="False" SelectionChanged="DgListaDeClientes_SelectionChanged" SelectedItem="{Binding ClienteSelecionado}">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontSize" Value="16"/>
