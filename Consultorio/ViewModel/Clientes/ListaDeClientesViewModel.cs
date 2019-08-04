@@ -90,12 +90,12 @@ namespace Consultorio.ViewModel.Clientes
             return true;
         }
 
-        public void AlteracaoDeCliente(int index, CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)
+        /*public void AlteracaoDeCliente(int index, CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)
         {
             Cliente cliente = ListaDeClientes[index];
 
             cadastroDeClienteBaseViewModel.Cliente = cliente;
-        }
+        }*/
 
         public void ListarTodosOsClientes()
         {
