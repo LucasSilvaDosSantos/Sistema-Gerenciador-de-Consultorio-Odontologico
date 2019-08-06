@@ -1,5 +1,5 @@
 ﻿using Consultorio.Model;
-using Consultorio.ViewModel.Ator;
+using Consultorio.ViewModel.Atores;
 using System.ComponentModel;
 
 namespace Consultorio.ViewModel
@@ -7,19 +7,20 @@ namespace Consultorio.ViewModel
     public class OpcoesViewModel : INotifyPropertyChanged
     {
         private string _Saudacao;
+        public string Saudacao
+        {
+            get { return _Saudacao; }
+            set { _Saudacao = value; OnPropertyChanged("Saudacao"); }
+        }
 
-        private bool _CrudClientes;
+        /*private bool _CrudClientes;
         private bool _CrudProdutos;
         private bool _Consultas;
         private bool _ClientesLista;
         private bool _NovoPagamento;
         private bool _Procedimentos;
         private bool _CadastroDeColaboradores;
-        public string Saudacao
-        {
-            get { return _Saudacao; }
-            set { _Saudacao = value; OnPropertyChanged("Saudacao"); }
-        }
+        
         public bool CrudClientes
         {
             get { return _CrudClientes; }
@@ -54,14 +55,20 @@ namespace Consultorio.ViewModel
         {
             get { return _CadastroDeColaboradores; }
             set { _CadastroDeColaboradores = value; OnPropertyChanged("CadastroDeColaboradores"); }
+        }*/
+
+        private Ator _AtorLogado;
+        public Ator AtorLogado
+        {
+            get { return _AtorLogado; }
+            set { _AtorLogado = value; OnPropertyChanged("AtorLogado"); }
         }
 
-
-        public SingletonAtorLogado AtorLogado { get; set; }
+        //public SingletonAtorLogado AtorLogado { get; set; }
 
         public OpcoesViewModel()
         {
-            AtorLogado = SingletonAtorLogado.Instancia;
+            AtorLogado = SingletonAtorLogado.Instancia.Ator;
 
             MensagemDeBoasVindas();
             AutorizacaoDeAcesso();
@@ -69,12 +76,14 @@ namespace Consultorio.ViewModel
 
         private void MensagemDeBoasVindas()
         {
-            var list = AtorLogado.Ator.Nome.Split(' ');
+            var list = AtorLogado.Nome.Split(' ');
             Saudacao = "Bem Vindo " + list[0] + "!";
         }
 
         private void AutorizacaoDeAcesso()
         {
+
+            /*
             int tipoDoAtor = TipoDoAtor();
             if (tipoDoAtor == 1)
             {
@@ -88,15 +97,15 @@ namespace Consultorio.ViewModel
             }
             else if (tipoDoAtor == 2)
             {
-                Secretaria secretaria = (Secretaria)AtorLogado.Ator;
+                /*Secretaria secretaria = (Secretaria)AtorLogado.Ator;
                 CrudClientes = secretaria.CrudClientes;
                 CrudProdutos = secretaria.CrudProdutos;
                 Consultas = true;
                 ClientesLista = true;
                 NovoPagamento = true;
                 Procedimentos = false;
-                CadastroDeColaboradores = true;
-            }
+                CadastroDeColaboradores = true;*/
+            /*}
             else if (tipoDoAtor == 3)
             {
                 CrudClientes = false;
@@ -106,10 +115,10 @@ namespace Consultorio.ViewModel
                 NovoPagamento = false;
                 Procedimentos = false;
                 CadastroDeColaboradores = false;
-            }
+            }*/
         }
 
-        private int TipoDoAtor()
+        /*private int TipoDoAtor()
         {
             if (AtorLogado.Ator.GetType().ToString() == "Consultorio.Model.Dentista")
             {
@@ -124,7 +133,7 @@ namespace Consultorio.ViewModel
                 return 3;
             }
             return 0;
-        }
+        }*/
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------

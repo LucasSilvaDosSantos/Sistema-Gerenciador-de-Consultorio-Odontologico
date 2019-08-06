@@ -72,11 +72,7 @@ namespace Consultorio.View.Consultas
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            string msg = MessageBox.Show("Deseja sair sem salvar?", "Aviso!", MessageBoxButton.OKCancel).ToString();
-            if(msg == "OK")
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

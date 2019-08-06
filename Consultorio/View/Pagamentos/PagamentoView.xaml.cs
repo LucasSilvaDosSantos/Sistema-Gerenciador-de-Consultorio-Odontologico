@@ -37,7 +37,7 @@ namespace Consultorio.View.Pagamentos
             PagamentosViewModel.Cliente = selecaoDeClienteView.SelecaoDeClienteViewModel.ClienteSelecionado;
             this.Visibility = Visibility.Visible;
 
-            PagamentosViewModel.SelecionarCliente();
+            PagamentosViewModel.CarregarValorDevido();
         }
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)

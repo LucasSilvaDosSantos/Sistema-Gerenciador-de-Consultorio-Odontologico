@@ -1,14 +1,14 @@
-﻿using Consultorio.Data.Ator;
+﻿using Consultorio.Data.Atores;
 using Consultorio.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace Consultorio.ViewModel.Ator
+namespace Consultorio.ViewModel.Atores
 {
     public class DentistaViewModel : INotifyPropertyChanged
     {
-        private Dentista _Dentista;
+        /*private Dentista _Dentista;
 
         public Dentista Dentista
         {
@@ -122,7 +122,7 @@ namespace Consultorio.ViewModel.Ator
                 msg = "Campos de senha não coincidem";
                 return false;
             }
-        }
+        }*/
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------

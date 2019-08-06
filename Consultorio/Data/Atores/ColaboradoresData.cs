@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Consultorio.Data.Ator
+namespace Consultorio.Data.Atores
 {
     class ColaboradoresData
     {
-        public static List<Atores> ListarAtores()
+        /*public static List<Atores> ListarAtores()
         {
             List<Atores> listaAtores = new List<Atores>();
             try
@@ -40,6 +40,6 @@ namespace Consultorio.Data.Ator
             {
                 return listaAtores;
             }
-        }
+        }*/
     }
 }

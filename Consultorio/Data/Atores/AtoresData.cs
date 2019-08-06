@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Consultorio.Data.Ator
+namespace Consultorio.Data.Atores
 {
     class AtoresData
     {
@@ -26,9 +26,9 @@ namespace Consultorio.Data.Ator
             return sBuilder.ToString();
         }
 
-        static public Atores BuscaAtorPorId(int id)
+        static public Ator BuscaAtorPorId(int id)
         {
-            Atores ator;
+            Ator ator;
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
@@ -36,17 +36,7 @@ namespace Consultorio.Data.Ator
 
                     if (id != 0)
                     {
-                        ator = ctx.Dentistas.Where(at => at.Id == id).FirstOrDefault();                        
-                        if (ator != null)
-                        {
-                            return ator;
-                        }
-                        ator = ctx.Secretarias.Where(at => at.Id == id).FirstOrDefault();
-                        if (ator != null)
-                        {
-                            return ator;
-                        }
-                        ator = ctx.GestoresDeEstoque.Where(at => at.Id == id).FirstOrDefault();
+                        ator = ctx.Atores.FirstOrDefault(at => at.Id == id);                        
                         if (ator != null)
                         {
                             return ator;

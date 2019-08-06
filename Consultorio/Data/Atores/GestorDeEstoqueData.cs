@@ -1,11 +1,11 @@
 ﻿using Consultorio.Model;
 using System;
 
-namespace Consultorio.Data.Ator
+namespace Consultorio.Data.Atores
 {
     class GestorDeEstoqueData
     {
-        public static string CadastroDeNovoGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
+        /*public static string CadastroDeNovoGestorDeEstoque(GestorDeEstoque gestorDeEstoque)
         {
             try
             {
@@ -51,6 +51,6 @@ namespace Consultorio.Data.Ator
             {
                 return ("error" + e.Message);
             }
-        }
+        }*/
     }
 }

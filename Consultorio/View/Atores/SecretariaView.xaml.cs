@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Consultorio.ViewModel.Ator;
+using Consultorio.ViewModel.Atores;
 
 namespace Consultorio.View.Atores
 {

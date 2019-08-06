@@ -5,22 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio"
         mc:Ignorable="d"
-        Title="Login" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="Login" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+    <Viewbox>
+        <Grid Height="694" Width="1280">
+            <Rectangle Fill="#FF7FBEE2" Margin="470,81,462,125" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
+            <Rectangle Fill="White" Margin="502,0,492,190" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="149" VerticalAlignment="Bottom"/>
+            <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Left" Margin="512,0,0,296" VerticalAlignment="Bottom" RenderTransformOrigin="0.667,-0.308"/>
+            <TextBox x:Name="boxlogin" Text="{Binding Login}" Padding="0, -1, 0, 0" Margin="566,0,507,296" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom"/>
 
-        <Rectangle Fill="#FFCACAE6" Stroke="Black"/>
+            <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Left" Margin="512,0,0,260" VerticalAlignment="Bottom"/>
+            <PasswordBox x:Name="boxSenha" Padding="0, -1, 0, 0" Margin="566,0,507,260" VerticalAlignment="Bottom" Height="31"/>
 
-        <Rectangle Fill="#FF7FBEE2" Margin="470,102,470,134" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-        <Rectangle Fill="White" Margin="502,0,492,190" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="149" VerticalAlignment="Bottom"/>
-        <Label x:Name="lbLogin" Content="Login" HorizontalAlignment="Left" Margin="512,0,0,296" VerticalAlignment="Bottom" RenderTransformOrigin="0.667,-0.308"/>
-        <TextBox x:Name="boxlogin" Text="{Binding Login}" Padding="0, -1, 0, 0" Margin="566,0,507,296" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom"/>
+            <Button x:Name="btEntrar" Content="Entrar" Margin="597,0,586,206" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
+            <Image x:Name="image" Margin="540,158,532,0" Source="Imagens\login.png" Height="180" VerticalAlignment="Top" />
 
-        <Label x:Name="lbSenha" Content="Senha" HorizontalAlignment="Left" Margin="512,0,0,260" VerticalAlignment="Bottom"/>
-        <PasswordBox x:Name="boxSenha" Padding="0, -1, 0, 0" Margin="566,0,507,260" VerticalAlignment="Bottom" Height="31"/>
-
-        <Button x:Name="btEntrar" Content="Entrar" Margin="597,0,586,206" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
-        <Image x:Name="image" Margin="540,158,532,0" Source="Imagens\login.png" Height="180" VerticalAlignment="Top" />
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Right" Margin="0,179,68,0" VerticalAlignment="Top" Width="75" d:LayoutOverrides="Height" Click="Button_Click"/>
-
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Window>

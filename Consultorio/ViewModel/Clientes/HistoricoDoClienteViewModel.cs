@@ -62,7 +62,6 @@ namespace Consultorio.ViewModel.Clientes
             double somaPagamentos = 0;
             double somaConsultas = 0;
 
-
             foreach (var i in ListaDePagamentos)
             {
                 somaPagamentos += i.Valor;

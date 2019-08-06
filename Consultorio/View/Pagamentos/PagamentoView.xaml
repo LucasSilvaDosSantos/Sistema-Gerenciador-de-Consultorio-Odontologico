@@ -7,37 +7,39 @@
         xml:lang="pt-br"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Pagamento" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinHeight="720" MinWidth="1280" FontSize="16" WindowStartupLocation="CenterScreen" Background="#FFCACAE6" >
-    <Grid>
-        <Rectangle Fill="#FF7FBEE2" Margin="47,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350"/>
-        <Label x:Name="lbProcedimento" Content="&gt;Cadastrar Pagamento" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="319"/>
-        <Rectangle Fill="#FF7FBEE2" Margin="0,0,324,198" RadiusY="50.0" RadiusX="50.0" Stroke="Black" HorizontalAlignment="Right" Width="621" Height="324" VerticalAlignment="Bottom"/>
-        <Label x:Name="label3" Content="Data de recebimento:" Margin="0,187,441,0" Height="29" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="162"/>
-        <wpfTool:MaskedTextBox x:Name="textBox" Padding="0, 4, 0, 0" Mask="00/00/0000" Margin="0,187,353,0" TextWrapping="Wrap" Text="{Binding DataAtual}" IsReadOnly="True" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="88"/>
+        Title="Pagamento" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
+    <Viewbox>
+        <Grid Height="694" Width="1280">
+            <Rectangle Fill="#FF7FBEE2" Margin="47,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350"/>
+            <Label x:Name="lbProcedimento" Content="&gt;Cadastrar Pagamento" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="319"/>
+            <Rectangle Fill="#FF7FBEE2" Margin="0,0,324,198" RadiusY="50.0" RadiusX="50.0" Stroke="Black" HorizontalAlignment="Right" Width="621" Height="324" VerticalAlignment="Bottom"/>
+            <Label x:Name="label3" Content="Data de recebimento:" Margin="0,187,441,0" Height="29" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="162"/>
+            <wpfTool:MaskedTextBox x:Name="textBox" Padding="0, 4, 0, 0" Mask="00/00/0000" Margin="0,187,353,0" TextWrapping="Wrap" Text="{Binding DataAtual}" IsReadOnly="True" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="88"/>
 
-        <Label x:Name="label" Content="Id do Cliente:" Margin="425,220,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="HorizontalAlignment"/>
-        <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="30" Margin="534,221,0,0" TextWrapping="Wrap" Text="{Binding Cliente.Id}" IsReadOnly="True" VerticalAlignment="Top" Width="62"/>
+            <Label x:Name="label" Content="Id do Cliente:" Margin="425,220,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="HorizontalAlignment"/>
+            <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="30" Margin="534,221,0,0" TextWrapping="Wrap" Text="{Binding Cliente.Id}" IsReadOnly="True" VerticalAlignment="Top" Width="62"/>
 
-        <Label x:Name="label2" Content="Cliente:" HorizontalAlignment="Left" Margin="356,265,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="30" Margin="445,265,353,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=Cliente.Nome}" IsReadOnly="True" GotFocus="TbNome_GotFocus" MouseDoubleClick="TbNome_MouseDoubleClick"/>
+            <Label x:Name="label2" Content="Cliente:" HorizontalAlignment="Left" Margin="356,265,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="30" Margin="445,265,353,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=Cliente.Nome}" IsReadOnly="True" GotFocus="TbNome_GotFocus" MouseDoubleClick="TbNome_MouseDoubleClick"/>
 
-        <Label x:Name="label6" Content="Valor total devido:" Margin="601,220,523,0" VerticalAlignment="Top" />
-        <TextBox x:Name="textBox1" HorizontalAlignment="Right" Height="31" Margin="0,220,414,0" TextWrapping="Wrap" Text="{Binding ValorDevidoPorCliente, StringFormat=c}" IsReadOnly="True" VerticalAlignment="Top" Width="109"/>
+            <Label x:Name="label6" Content="Valor total devido:" Margin="601,220,523,0" VerticalAlignment="Top" />
+            <TextBox x:Name="textBox1" HorizontalAlignment="Right" Height="31" Margin="0,220,414,0" TextWrapping="Wrap" Text="{Binding ValorDevidoPorCliente, StringFormat=c}" IsReadOnly="True" VerticalAlignment="Top" Width="109"/>
 
-        <Label x:Name="label1" Content="Recebedor:" HorizontalAlignment="Left" Margin="356,301,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbRecebedor" Padding="0, -1, 0, 0" Margin="445,301,353,0" TextWrapping="Wrap" Text="{Binding AtorLogado.Ator.Nome}" IsReadOnly="True" Height="32" VerticalAlignment="Top"/>
+            <Label x:Name="label1" Content="Recebedor:" HorizontalAlignment="Left" Margin="356,301,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbRecebedor" Padding="0, -1, 0, 0" Margin="445,301,353,0" TextWrapping="Wrap" Text="{Binding AtorLogado.Ator.Nome}" IsReadOnly="True" Height="32" VerticalAlignment="Top"/>
 
-        <Label x:Name="label_Copy" Content="Valor:     R$" HorizontalAlignment="Left" Margin="356,332,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Margin="445,335,0,0" TextWrapping="Wrap" Text="{Binding ValorPagamento, StringFormat=' {0:f2}'}" Width="111" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy" Content="Valor:     R$" HorizontalAlignment="Left" Margin="356,332,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbPreco" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Margin="445,335,0,0" TextWrapping="Wrap" Text="{Binding ValorPagamento, StringFormat=' {0:f2}'}" Width="111" VerticalAlignment="Top"/>
 
-        <Label x:Name="label4" Content="Forma de Pagamento:" Margin="556,333,544,315"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,333,353,316" ItemsSource="{Binding ListaFormaDePagamento}" SelectedItem="{Binding FormaDePagamento}" VerticalAlignment="Stretch" Width="191"/>
+            <Label x:Name="label4" Content="Forma de Pagamento:" Margin="556,332,559,331" d:LayoutOverrides="Width, Height" />
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,333,353,331" ItemsSource="{Binding ListaFormaDePagamento}" SelectedItem="{Binding FormaDePagamento}" VerticalAlignment="Stretch" Width="206"/>
 
-        <Label x:Name="label5" Content="Obs:" Margin="617,0,608,292" VerticalAlignment="Bottom" d:LayoutOverrides="Width"/>
-        <TextBox x:Name="textBox2" Height="84" Margin="356,0,353,213" Background="White" Padding="1, -1, 0, 0" TextWrapping="Wrap" Text="{Binding Obs}" VerticalAlignment="Bottom" BorderThickness="1, 1, 1, 1"/>
+            <Label x:Name="label5" Content="Obs:" Margin="617,0,608,292" VerticalAlignment="Bottom" d:LayoutOverrides="Width"/>
+            <TextBox x:Name="textBox2" Height="84" Margin="356,0,353,213" Background="White" Padding="1, -1, 0, 0" TextWrapping="Wrap" Text="{Binding Obs}" VerticalAlignment="Bottom" BorderThickness="1, 1, 1, 1"/>
 
-        <Button x:Name="btSalvar" Command="" Content="Salvar" Margin="0,0,145,30" VerticalAlignment="Bottom" Height="35" Grid.Row="1" HorizontalAlignment="Right" Width="90" Click="BtSalvar_Click"/>
-        <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Grid.Row="1" Click="BtCancelar_Click"/>
+            <Button x:Name="btSalvar" Command="" Content="Salvar" Margin="0,0,145,30" VerticalAlignment="Bottom" Height="35" Grid.Row="1" HorizontalAlignment="Right" Width="90" Click="BtSalvar_Click"/>
+            <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Grid.Row="1" Click="BtCancelar_Click"/>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Window>

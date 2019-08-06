@@ -1,6 +1,6 @@
 ﻿using Consultorio.Data.Clientes;
 using Consultorio.Model;
-using Consultorio.ViewModel.Ator;
+using Consultorio.ViewModel.Atores;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -74,20 +74,8 @@ namespace Consultorio.ViewModel.Clientes
 
         public bool AltorizacaoDeEdicao()
         {
-            string atorLogadoType = AtorLogado.Ator.GetType().Name;
-            if (atorLogadoType == "Secretaria")
-            {
-                Secretaria secretaria = (Secretaria)AtorLogado.Ator;
-                if (secretaria.CrudClientes == true)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return true;
+            Ator atorLogado = AtorLogado.Ator;
+            return atorLogado.CrudClientes;
         }
 
         /*public void AlteracaoDeCliente(int index, CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)

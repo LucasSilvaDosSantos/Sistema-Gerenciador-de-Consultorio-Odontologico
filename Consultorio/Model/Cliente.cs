@@ -42,8 +42,8 @@ namespace Consultorio.Model
         {
         }
 
-        public Cliente(string nome, DateTime nascimento, string cpf, string rg, string email, string telefone1,
-            string telefone2, string endereco, string bairro, string uf, string cidade, string cep)
+        public Cliente(string nome, DateTime nascimento, string cpf, string rg, string email, string telefone1, string telefone2, string endereco, string bairro, 
+            string uf, string cidade, string cep, string obs, Anamnese anamnese, Odontograma odontograma)
         {
             Nome = nome;
             Nascimento = nascimento;
@@ -57,6 +57,9 @@ namespace Consultorio.Model
             Uf = uf;
             Cidade = cidade;
             Cep = cep;
+            Obs = obs;
+            Anamnese = anamnese;
+            Odontograma = odontograma;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Consultorio.Model;
 using System.ComponentModel;
 
-namespace Consultorio.ViewModel.Ator
+namespace Consultorio.ViewModel.Atores
 {
     public class CadastroDeColaboradoresViewModel : INotifyPropertyChanged
     {
@@ -45,7 +45,7 @@ namespace Consultorio.ViewModel.Ator
 
         private void ControleDeAcesso()
         {
-            var atorLogadoType = AtorLogado.Ator.GetType();
+            /*var atorLogadoType = AtorLogado.Ator.GetType();
             if (atorLogadoType.Name == "Dentista")
             {
                 BtNovoGestorIsEnabled = true;
@@ -66,7 +66,7 @@ namespace Consultorio.ViewModel.Ator
                 {
                     BtNovaSecretariaIsEnabled = true;
                 }
-            }
+            }*/
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

@@ -3,12 +3,12 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Versaodente : DbMigration
+    public partial class teste : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Anamnese",
+                "dbo.Anamneses",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -52,6 +52,29 @@ namespace Consultorio.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Atores",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(nullable: false, unicode: false),
+                        Email = c.String(nullable: false, unicode: false),
+                        Telefone1 = c.String(nullable: false, unicode: false),
+                        Telefone2 = c.String(unicode: false),
+                        Crosp = c.String(unicode: false),
+                        Clinicar = c.Boolean(nullable: false),
+                        CrudClientes = c.Boolean(nullable: false),
+                        CrudConsultas = c.Boolean(nullable: false),
+                        CrudProdutos = c.Boolean(nullable: false),
+                        CadastroDeContasPagas = c.Boolean(nullable: false),
+                        VisualizarContabilidade = c.Boolean(nullable: false),
+                        ReceberDeClientes = c.Boolean(nullable: false),
+                        CrudAtores = c.Boolean(nullable: false),
+                        Login = c.String(nullable: false, unicode: false),
+                        Senha = c.String(nullable: false, unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Clientes",
                 c => new
                     {
@@ -73,7 +96,7 @@ namespace Consultorio.Migrations
                         Odontograma_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Anamnese", t => t.Anamnese_Id)
+                .ForeignKey("dbo.Anamneses", t => t.Anamnese_Id)
                 .ForeignKey("dbo.Odontogramas", t => t.Odontograma_Id)
                 .Index(t => t.Anamnese_Id)
                 .Index(t => t.Odontograma_Id);
@@ -162,20 +185,6 @@ namespace Consultorio.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Atores",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(nullable: false, unicode: false),
-                        Email = c.String(nullable: false, unicode: false),
-                        Telefone1 = c.String(nullable: false, unicode: false),
-                        Telefone2 = c.String(unicode: false),
-                        Login = c.String(nullable: false, unicode: false),
-                        Senha = c.String(nullable: false, unicode: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.Pagamentos",
                 c => new
                     {
@@ -206,49 +215,10 @@ namespace Consultorio.Migrations
                 .Index(t => t.Produto_Id)
                 .Index(t => t.Procedimento_Id);
             
-            CreateTable(
-                "dbo.Dentistas",
-                c => new
-                    {
-                        Id = c.Int(nullable: false),
-                        Crosp = c.String(nullable: false, unicode: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Atores", t => t.Id)
-                .Index(t => t.Id);
-            
-            CreateTable(
-                "dbo.GestoresDeEstoque",
-                c => new
-                    {
-                        Id = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Atores", t => t.Id)
-                .Index(t => t.Id);
-            
-            CreateTable(
-                "dbo.Secretarias",
-                c => new
-                    {
-                        Id = c.Int(nullable: false),
-                        Crosp = c.String(unicode: false),
-                        CrudClientes = c.Boolean(nullable: false),
-                        CrudSecretarias = c.Boolean(nullable: false),
-                        CrudProdutos = c.Boolean(nullable: false),
-                        CrudGestoresDeEstoque = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Atores", t => t.Id)
-                .Index(t => t.Id);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Secretarias", "Id", "dbo.Atores");
-            DropForeignKey("dbo.GestoresDeEstoque", "Id", "dbo.Atores");
-            DropForeignKey("dbo.Dentistas", "Id", "dbo.Atores");
             DropForeignKey("dbo.Pagamentos", "Recebedor_Id", "dbo.Atores");
             DropForeignKey("dbo.Pagamentos", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.Consultas", "Procedimento_Id", "dbo.Procedimentos");
@@ -256,10 +226,7 @@ namespace Consultorio.Migrations
             DropForeignKey("dbo.ProdutoProcedimentoes", "Produto_Id", "dbo.Produtos");
             DropForeignKey("dbo.Consultas", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.Clientes", "Odontograma_Id", "dbo.Odontogramas");
-            DropForeignKey("dbo.Clientes", "Anamnese_Id", "dbo.Anamnese");
-            DropIndex("dbo.Secretarias", new[] { "Id" });
-            DropIndex("dbo.GestoresDeEstoque", new[] { "Id" });
-            DropIndex("dbo.Dentistas", new[] { "Id" });
+            DropForeignKey("dbo.Clientes", "Anamnese_Id", "dbo.Anamneses");
             DropIndex("dbo.ProdutoProcedimentoes", new[] { "Procedimento_Id" });
             DropIndex("dbo.ProdutoProcedimentoes", new[] { "Produto_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Recebedor_Id" });
@@ -268,18 +235,15 @@ namespace Consultorio.Migrations
             DropIndex("dbo.Consultas", new[] { "Cliente_Id" });
             DropIndex("dbo.Clientes", new[] { "Odontograma_Id" });
             DropIndex("dbo.Clientes", new[] { "Anamnese_Id" });
-            DropTable("dbo.Secretarias");
-            DropTable("dbo.GestoresDeEstoque");
-            DropTable("dbo.Dentistas");
             DropTable("dbo.ProdutoProcedimentoes");
             DropTable("dbo.Pagamentos");
-            DropTable("dbo.Atores");
             DropTable("dbo.Produtos");
             DropTable("dbo.Procedimentos");
             DropTable("dbo.Consultas");
             DropTable("dbo.Odontogramas");
             DropTable("dbo.Clientes");
-            DropTable("dbo.Anamnese");
+            DropTable("dbo.Atores");
+            DropTable("dbo.Anamneses");
         }
     }
 }

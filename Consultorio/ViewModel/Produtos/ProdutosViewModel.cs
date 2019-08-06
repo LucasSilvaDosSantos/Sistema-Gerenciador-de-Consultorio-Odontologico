@@ -1,6 +1,6 @@
 ﻿using Consultorio.Data.Produtos;
 using Consultorio.Model;
-using Consultorio.ViewModel.Ator;
+using Consultorio.ViewModel.Atores;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -43,7 +43,7 @@ namespace Consultorio.ViewModel.Produtos
 
         public void DataGridSelect(int index)
         {
-            if (index > 0)
+            if (index >= 0)
             {
                 SelecionarProduto(index);
             }

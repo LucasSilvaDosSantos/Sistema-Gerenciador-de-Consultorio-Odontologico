@@ -1,4 +1,4 @@
-﻿using Consultorio.ViewModel.Ator;
+﻿using Consultorio.ViewModel.Atores;
 using System.Windows;
 
 namespace Consultorio.View.Atores
@@ -29,7 +29,7 @@ namespace Consultorio.View.Atores
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
-            bool salvo = DentistaViewModel.BtSalvar_Click(pbSenha.Password, pbSenhaConfirma.Password, out string msg);
+            /*bool salvo = DentistaViewModel.BtSalvar_Click(pbSenha.Password, pbSenhaConfirma.Password, out string msg);
 
             if (salvo == false)
             {
@@ -39,7 +39,7 @@ namespace Consultorio.View.Atores
             {
                 MessageBox.Show(msg, "Aviso!");
                 Voltar();
-            }   
+            }   */
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

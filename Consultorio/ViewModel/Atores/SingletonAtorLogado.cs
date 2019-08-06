@@ -1,6 +1,6 @@
 ﻿using Consultorio.Model;
 
-namespace Consultorio.ViewModel.Ator
+namespace Consultorio.ViewModel.Atores
 {
     public sealed class SingletonAtorLogado
     {
@@ -10,6 +10,6 @@ namespace Consultorio.ViewModel.Ator
             get { return _instancia ?? (_instancia = new SingletonAtorLogado()); }
         }
         private SingletonAtorLogado() { }
-        public Atores Ator { get; set; }
+        public Ator Ator { get; set; }
     }
 }

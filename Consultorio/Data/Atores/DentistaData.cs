@@ -2,11 +2,11 @@
 using System.Data.Entity;
 using Consultorio.Model;
 
-namespace Consultorio.Data.Ator
+namespace Consultorio.Data.Atores
 {
     class DentistaData
     {
-        public static string CadastroDeNovoDentista(Dentista dentista)
+        /*public static string CadastroDeNovoDentista(Dentista dentista)
         {
             try
             {
@@ -52,6 +52,6 @@ namespace Consultorio.Data.Ator
             {
                 return ("error" + e.Message);
             }
-        }
+        }*/
     }
 }

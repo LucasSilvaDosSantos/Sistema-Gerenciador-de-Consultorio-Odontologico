@@ -1,6 +1,6 @@
-﻿using Consultorio.Data.Ator;
+﻿using Consultorio.Data.Atores;
 using Consultorio.Model;
-using Consultorio.ViewModel.Ator;
+using Consultorio.ViewModel.Atores;
 using System.ComponentModel;
 
 namespace Consultorio.ViewModel
@@ -26,7 +26,7 @@ namespace Consultorio.ViewModel
 
         public bool VerificarEntrar()
         {
-            Atores atorRetorno = LoginData.BuscarAtores(Login, out bool atorEncontrado);
+            Ator atorRetorno = LoginData.BuscarAtores(Login, out bool atorEncontrado);
             if (atorEncontrado)
             {
                 string senhaCripitografada =  AtoresData.GerarHashMd5(Senha);

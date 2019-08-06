@@ -1,14 +1,14 @@
-﻿using Consultorio.Data.Ator;
+﻿using Consultorio.Data.Atores;
 using Consultorio.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Consultorio.ViewModel.Ator
+namespace Consultorio.ViewModel.Atores
 {
     public class ListaDeColaboradoresViewModel : INotifyPropertyChanged
     {
-        private List<Atores> _ListaDeAtores;
-        public List<Atores> ListaDeAtores
+        private List<Ator> _ListaDeAtores;
+        public List<Ator> ListaDeAtores
         {
             get { return _ListaDeAtores;  }
             set { _ListaDeAtores = value; OnPropertyChanged("ListaDeAtores"); }
@@ -18,13 +18,13 @@ namespace Consultorio.ViewModel.Ator
 
         public ListaDeColaboradoresViewModel()
         {
-            ListaDeAtores = ColaboradoresData.ListarAtores();
+            //ListaDeAtores = ColaboradoresData.ListarAtores();
             AtorLogado = SingletonAtorLogado.Instancia;
         }
 
-        public Atores _AtorSelecionado { get; set; }
+        /*public Ator _AtorSelecionado { get; set; }
 
-        public Atores AtorSelecionado
+        public Ator AtorSelecionado
         {
             get { return _AtorSelecionado; }
             set { _AtorSelecionado = value; OnPropertyChanged("AtorSelecionado"); }
@@ -49,7 +49,7 @@ namespace Consultorio.ViewModel.Ator
             // altorizações para secretarias
             if (atorLogadoGetType == "Secretaria")
             {
-                Secretaria secretaria = (Secretaria)AtorLogado.Ator;
+                Secretaria secretaria = AtorLogado.Ator;
 
                 if (AtorSelecionado.GetType().Name == "Dentista")
                 {
@@ -94,7 +94,7 @@ namespace Consultorio.ViewModel.Ator
             return false;
         }
 
-        public Dentista EdicaoDentista()
+        /*public Dentista EdicaoDentista()
         {
             return (Dentista)AtorSelecionado;
         }
@@ -107,7 +107,7 @@ namespace Consultorio.ViewModel.Ator
         public GestorDeEstoque EdicaoGestorDeEstoque()
         {
             return (GestorDeEstoque)AtorSelecionado;
-        }
+        }*/
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------

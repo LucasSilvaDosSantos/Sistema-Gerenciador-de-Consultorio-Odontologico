@@ -36,14 +36,5 @@ namespace Consultorio
                 boxSenha.Password = "";
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            WindowCliente window = new WindowCliente();
-            window.Show();
-
-             /*CadastroDeOdontogramaView cadastroDeOdontogramaView = new CadastroDeOdontogramaView(1);
-             cadastroDeOdontogramaView.Show();*/
-        }
     }
 }

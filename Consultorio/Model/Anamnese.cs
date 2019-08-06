@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Consultorio.Model
 {
+    [Table ("Anamneses")]
     public class Anamnese
     {
         //[Required] Not Null

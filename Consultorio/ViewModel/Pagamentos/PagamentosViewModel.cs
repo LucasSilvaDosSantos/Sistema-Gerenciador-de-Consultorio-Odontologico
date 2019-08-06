@@ -1,7 +1,7 @@
 ﻿using Consultorio.Data.Clientes;
 using Consultorio.Data.Pagamentos;
 using Consultorio.Model;
-using Consultorio.ViewModel.Ator;
+using Consultorio.ViewModel.Atores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,18 +81,18 @@ namespace Consultorio.ViewModel.Procedimentos
             return lista;
         }
 
-        public void SelecionarCliente()
+        /*public void AtualizarDivida()
         {
-            /*
-            lista
+            
+            //lista
 
-            var aux = listaClienteViewModel.Cliente;
+            var aux = istaClienteViewModel.Cliente;
             if (aux != null && aux.Id > 0 )
             {
                 Cliente = aux;
                 CarregarValorDevido();
-            }*/
-        }
+            }*
+        }*/
 
         public string SalvarNovoPagamento(out bool semErros)
         {
@@ -141,7 +141,7 @@ namespace Consultorio.ViewModel.Procedimentos
             return lista;
         }
 
-        private void CarregarValorDevido()
+        public void CarregarValorDevido()
         {
             var pagamentos = HistoricoDoClienteData.ListarPagamentosPorCliente(Cliente.Id);
             var consultas = HistoricoDoClienteData.ListarConsultaPorCliente(Cliente.Id);
@@ -164,7 +164,6 @@ namespace Consultorio.ViewModel.Procedimentos
             }
 
             ValorDevidoPorCliente = (somaConsultas - somaPagamentos);
-
 
             /*double soma = 0;
             var lista = HistoricoDoClienteData.ListarConsultaPorCliente(Cliente.Id);

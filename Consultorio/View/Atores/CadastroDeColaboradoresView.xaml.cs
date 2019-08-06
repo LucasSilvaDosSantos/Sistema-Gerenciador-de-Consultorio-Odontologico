@@ -1,4 +1,4 @@
-﻿using Consultorio.ViewModel.Ator;
+﻿using Consultorio.ViewModel.Atores;
 using System.Windows;
 
 namespace Consultorio.View.Atores

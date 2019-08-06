@@ -16,7 +16,7 @@ namespace Consultorio.Model
 
         public int Id { get; set; }
         [Required]
-        public Atores Recebedor { get; set; }
+        public Ator Recebedor { get; set; }
         [Required]
         public string FormaDePagamento { get; set; }
         [Required]
@@ -32,7 +32,7 @@ namespace Consultorio.Model
 
         }
 
-        public Pagamento(Atores recebedor, string formaDePagamento, DateTime dataDePagamento, double valor, Cliente cliente)
+        public Pagamento(Ator recebedor, string formaDePagamento, DateTime dataDePagamento, double valor, Cliente cliente)
         {
             Recebedor = recebedor;
             FormaDePagamento = formaDePagamento;

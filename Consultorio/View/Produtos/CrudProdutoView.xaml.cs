@@ -52,11 +52,7 @@ namespace Consultorio.View.Produtos
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
-            string confirmacao = MessageBox.Show("Deseja cancelar a operação?", "Alerta!", MessageBoxButton.OKCancel).ToString();
-            if (confirmacao == "OK")
-            {
-                this.Close();
-            }
+            this.Close();
         }
     }
 }

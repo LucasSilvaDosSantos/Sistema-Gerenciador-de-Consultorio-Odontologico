@@ -1,6 +1,6 @@
 ﻿using Consultorio.Data.Consultas;
 using Consultorio.Model;
-using Consultorio.ViewModel.Ator;
+using Consultorio.ViewModel.Atores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,6 @@ namespace Consultorio.ViewModel.Consultas
 {
     public class ConsultasViewModel : INotifyPropertyChanged
     {
-        public SingletonAtorLogado AtorLogado { get; set; }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Atributos**********-----------------------------------------------------------
@@ -51,7 +50,6 @@ namespace Consultorio.ViewModel.Consultas
         public ConsultasViewModel()
         {
             CalendarioAtivo = true;
-            AtorLogado = SingletonAtorLogado.Instancia;
             DataSelecionada = DateTime.Now;
             CarregarListaDeConsultasData();
         }
@@ -59,12 +57,6 @@ namespace Consultorio.ViewModel.Consultas
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-
-        /*public void Calendar_SelectedDatesChanged(DateTime data)
-        {
-            DataSelecionada = data;
-            CarregarListaDeConsultasData();
-        }*/
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------

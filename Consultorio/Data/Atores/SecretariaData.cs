@@ -2,7 +2,7 @@
 using System;
 using System.Data.Entity;
 
-namespace Consultorio.Data.Ator
+namespace Consultorio.Data.Atores
 {
     class SecretariaData
     {
@@ -12,9 +12,9 @@ namespace Consultorio.Data.Ator
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    secretaria.Senha = AtoresData.GerarHashMd5(secretaria.Senha);
+                    /*secretaria.Senha = AtoresData.GerarHashMd5(secretaria.Senha);
                     ctx.Secretarias.Add(secretaria);
-                    ctx.SaveChanges();
+                    ctx.SaveChanges();*/
                     return ("Salva nova Secretária!");
                 }
             }
@@ -31,7 +31,7 @@ namespace Consultorio.Data.Ator
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    Secretaria s = ctx.Secretarias.Find(secretaria.Id);
+                    /*Secretaria s = ctx.Secretarias.Find(secretaria.Id);
 
                     s.Nome = secretaria.Nome;
                     s.Email = secretaria.Email;
@@ -48,7 +48,7 @@ namespace Consultorio.Data.Ator
 
                     ctx.Entry(s).State = EntityState.Modified;
 
-                    ctx.SaveChanges();
+                    ctx.SaveChanges();*/
                     return ("Salvo alterações na secretária!");
                 }
             }

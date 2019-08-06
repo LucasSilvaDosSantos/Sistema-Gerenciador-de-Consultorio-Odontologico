@@ -40,41 +40,6 @@ namespace Consultorio.View.Clientes
 
         private void BtAlterar_Click(object sender, RoutedEventArgs e)
         {
-            AlterarCliente();
-        }
-
-        private void BtHistorico_Click(object sender, RoutedEventArgs e)
-        {
-            if (dgListaDeClientes.SelectedIndex >= 0)
-            {
-                HistoricoDoClienteView historicoDoClienteView = new HistoricoDoClienteView();
-                historicoDoClienteView.HistoricoDoClienteViewModel.IniciarViewModel(ListaDeClientesViewModel.ClienteSelecionadoNaLista(dgListaDeClientes.SelectedIndex));
-                historicoDoClienteView.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Nenhum Cliente Selecionado", "Aviso!");
-            }
-        }
-
-        private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            tbId.Text = "";
-            ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text);
-        }
-
-        private void TbId_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            tbNome.Text = "";
-            ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text);
-        }
-
-        //-----------------------------------------------------------------------------------------------------------------------------------
-        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
-        //-----------------------------------------------------------------------------------------------------------------------------------
-        private void AlterarCliente()
-        {
             if (dgListaDeClientes.SelectedIndex >= 0)
             {
                 bool altorizacao = ListaDeClientesViewModel.AltorizacaoDeEdicao();
@@ -107,5 +72,36 @@ namespace Consultorio.View.Clientes
                 MessageBox.Show("Nenhum Cliente Selecionado", "Aviso!");
             }
         }
+
+        private void BtHistorico_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgListaDeClientes.SelectedIndex >= 0)
+            {
+                HistoricoDoClienteView historicoDoClienteView = new HistoricoDoClienteView();
+                historicoDoClienteView.HistoricoDoClienteViewModel.IniciarViewModel(ListaDeClientesViewModel.ClienteSelecionadoNaLista(dgListaDeClientes.SelectedIndex));
+                historicoDoClienteView.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nenhum Cliente Selecionado", "Aviso!");
+            }
+        }
+
+        private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbId.Text = "";
+            ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text);
+        }
+
+        private void TbId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbNome.Text = "";
+            ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text);
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
     }
 }

@@ -1,19 +1,19 @@
-﻿using Consultorio.Data.Ator;
+﻿using Consultorio.Data.Atores;
 using Consultorio.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace Consultorio.ViewModel.Ator
+namespace Consultorio.ViewModel.Atores
 {
-    public class GestorDeEstoqueViewModel : INotifyPropertyChanged
+    public class SecretariaViewModel : INotifyPropertyChanged
     {
-        private GestorDeEstoque _GestorDeEstoque;
+        private Secretaria _Secretaria;
 
-        public GestorDeEstoque GestorDeEstoque
+        public Secretaria Secretaria
         {
-            get { return _GestorDeEstoque; }
-            set { _GestorDeEstoque = value; OnPropertyChanged("GestorDeEstoque"); }
+            get { return _Secretaria; }
+            set { _Secretaria = value; OnPropertyChanged("Secretaria"); }
         }
 
         private bool _TbIdIsEnable;
@@ -24,14 +24,16 @@ namespace Consultorio.ViewModel.Ator
             set { _TbIdIsEnable = value; OnPropertyChanged("TbIdIsEnable"); }
         }
 
-        public GestorDeEstoqueViewModel()
+        public SecretariaViewModel()
         {
-            GestorDeEstoque = new GestorDeEstoque();
+            Secretaria = new Secretaria();
+            TbIdIsEnable = false;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
         public bool BtSalvar_Click(string senha, string senhaConfirmacao, out string msgSaida)
         {
             bool salvo = SalvarUsuario(senha, senhaConfirmacao, out string msg);
@@ -60,14 +62,14 @@ namespace Consultorio.ViewModel.Ator
             }
             else
             {
-                GestorDeEstoque.Senha = senha;
-                if (GestorDeEstoque.Id != 0)
+                Secretaria.Senha = senha;
+                if (Secretaria.Id != 0)
                 {
-                    msg = GestorDeEstoqueData.AlterarGestor(GestorDeEstoque);
+                    msg = SecretariaData.AlterarSecretaria(Secretaria);
                 }
                 else
                 {
-                    msg = GestorDeEstoqueData.CadastroDeNovoGestorDeEstoque(GestorDeEstoque);
+                    msg = SecretariaData.CadastroDeNovaSecretaria(Secretaria);
                 }
                 return true;
             }
@@ -76,19 +78,23 @@ namespace Consultorio.ViewModel.Ator
         private List<string> ValidarCamposObrigatorios(string senha, string senhaConfirmacao)
         {
             List<string> lista = new List<string>();
-            if (GestorDeEstoque.Nome == null || GestorDeEstoque.Nome.Equals(""))
+            if (Secretaria.Nome == null || Secretaria.Nome.Equals(""))
             {
                 lista.Add("Nome");
             }
-            if (GestorDeEstoque.Email == null || GestorDeEstoque.Email.Equals(""))
+            if (Secretaria.Email == null || Secretaria.Email.Equals(""))
             {
                 lista.Add("Email");
             }
-            if (GestorDeEstoque.Telefone1 == null || GestorDeEstoque.Telefone1.Equals("(__)_____-____"))
+            if (Secretaria.Telefone1 == null || Secretaria.Telefone1.Equals("(__)_____-____"))
             {
                 lista.Add("Celular 1");
             }
-            if (GestorDeEstoque.Login == null || GestorDeEstoque.Login.Equals(""))
+            if (Secretaria.Crosp == null || Secretaria.Crosp.Equals(""))
+            {
+                lista.Add("Crosp");
+            }
+            if (Secretaria.Login == null || Secretaria.Login.Equals(""))
             {
                 lista.Add("Login");
             }
@@ -117,6 +123,7 @@ namespace Consultorio.ViewModel.Ator
                 return false;
             }
         }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------

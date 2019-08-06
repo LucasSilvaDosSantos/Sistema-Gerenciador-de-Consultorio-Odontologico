@@ -1,4 +1,4 @@
-﻿using Consultorio.ViewModel.Ator;
+﻿using Consultorio.ViewModel.Atores;
 using System.Windows;
 
 namespace Consultorio.View.Atores
@@ -12,7 +12,7 @@ namespace Consultorio.View.Atores
             DataContext = ListaDeColaboradoresViewModel;
             InitializeComponent();
         }
-
+        
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ namespace Consultorio.View.Atores
 
         private void BtEditar_Click(object sender, RoutedEventArgs e)
         {
-            if (dgListaAtores.SelectedIndex >= 0)
+            /*if (dgListaAtores.SelectedIndex >= 0)
             {
                 bool altorizacaoDeEdicao = ListaDeColaboradoresViewModel.AltorizacaoDeAcesso();
               
@@ -42,7 +42,7 @@ namespace Consultorio.View.Atores
             else
             {
                 MessageBox.Show("Nenhum colaborador selecionado!", "Erro!");
-            }
+            }*/
         }
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
@@ -50,7 +50,7 @@ namespace Consultorio.View.Atores
 
         private void EdicaoDeAtores()
         {
-            string tipoDeAtorSelecionado = ListaDeColaboradoresViewModel.TipoDeAtorSelecionado();
+            /*string tipoDeAtorSelecionado = ListaDeColaboradoresViewModel.TipoDeAtorSelecionado();
 
             this.Hide();
             if (tipoDeAtorSelecionado == "Dentista")
@@ -65,28 +65,28 @@ namespace Consultorio.View.Atores
             {
                 EditarGestor();
             }
-            this.Visibility = Visibility.Visible;
+            this.Visibility = Visibility.Visible;*/
         }
 
         private void EditarDentista()
         {
-            DentistaView dentistaView = new DentistaView();
+            /*DentistaView dentistaView = new DentistaView();
             dentistaView.DentistaViewModel.Dentista = ListaDeColaboradoresViewModel.EdicaoDentista();
-            dentistaView.ShowDialog();
+            dentistaView.ShowDialog();*/
         }
 
         private void EditarSecretaria()
         {
-            SecretariaView secretariaView = new SecretariaView();
+            /*SecretariaView secretariaView = new SecretariaView();
             secretariaView.SecretariaViewModel.Secretaria = ListaDeColaboradoresViewModel.EdicaoSecretaria();
-            secretariaView.ShowDialog();
+            secretariaView.ShowDialog();*/
         }
 
         private void EditarGestor()
         {
-            GestorDeEstoqueView gestorDeEstoqueView = new GestorDeEstoqueView();
+            /*GestorDeEstoqueView gestorDeEstoqueView = new GestorDeEstoqueView();
             gestorDeEstoqueView.GestorDeEstoqueViewModel.GestorDeEstoque = ListaDeColaboradoresViewModel.EdicaoGestorDeEstoque();
-            gestorDeEstoqueView.ShowDialog();
+            gestorDeEstoqueView.ShowDialog();*/
         }
     }
 }

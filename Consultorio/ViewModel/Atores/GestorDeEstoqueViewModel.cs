@@ -1,19 +1,19 @@
-﻿using Consultorio.Data.Ator;
+﻿using Consultorio.Data.Atores;
 using Consultorio.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace Consultorio.ViewModel.Ator
+namespace Consultorio.ViewModel.Atores
 {
-    public class SecretariaViewModel : INotifyPropertyChanged
+    public class GestorDeEstoqueViewModel : INotifyPropertyChanged
     {
-        private Secretaria _Secretaria;
+        /*private GestorDeEstoque _GestorDeEstoque;
 
-        public Secretaria Secretaria
+        public GestorDeEstoque GestorDeEstoque
         {
-            get { return _Secretaria; }
-            set { _Secretaria = value; OnPropertyChanged("Secretaria"); }
+            get { return _GestorDeEstoque; }
+            set { _GestorDeEstoque = value; OnPropertyChanged("GestorDeEstoque"); }
         }
 
         private bool _TbIdIsEnable;
@@ -24,16 +24,14 @@ namespace Consultorio.ViewModel.Ator
             set { _TbIdIsEnable = value; OnPropertyChanged("TbIdIsEnable"); }
         }
 
-        public SecretariaViewModel()
+        public GestorDeEstoqueViewModel()
         {
-            Secretaria = new Secretaria();
-            TbIdIsEnable = false;
+            GestorDeEstoque = new GestorDeEstoque();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-
         public bool BtSalvar_Click(string senha, string senhaConfirmacao, out string msgSaida)
         {
             bool salvo = SalvarUsuario(senha, senhaConfirmacao, out string msg);
@@ -62,14 +60,14 @@ namespace Consultorio.ViewModel.Ator
             }
             else
             {
-                Secretaria.Senha = senha;
-                if (Secretaria.Id != 0)
+                GestorDeEstoque.Senha = senha;
+                if (GestorDeEstoque.Id != 0)
                 {
-                    msg = SecretariaData.AlterarSecretaria(Secretaria);
+                    msg = GestorDeEstoqueData.AlterarGestor(GestorDeEstoque);
                 }
                 else
                 {
-                    msg = SecretariaData.CadastroDeNovaSecretaria(Secretaria);
+                    msg = GestorDeEstoqueData.CadastroDeNovoGestorDeEstoque(GestorDeEstoque);
                 }
                 return true;
             }
@@ -78,23 +76,19 @@ namespace Consultorio.ViewModel.Ator
         private List<string> ValidarCamposObrigatorios(string senha, string senhaConfirmacao)
         {
             List<string> lista = new List<string>();
-            if (Secretaria.Nome == null || Secretaria.Nome.Equals(""))
+            if (GestorDeEstoque.Nome == null || GestorDeEstoque.Nome.Equals(""))
             {
                 lista.Add("Nome");
             }
-            if (Secretaria.Email == null || Secretaria.Email.Equals(""))
+            if (GestorDeEstoque.Email == null || GestorDeEstoque.Email.Equals(""))
             {
                 lista.Add("Email");
             }
-            if (Secretaria.Telefone1 == null || Secretaria.Telefone1.Equals("(__)_____-____"))
+            if (GestorDeEstoque.Telefone1 == null || GestorDeEstoque.Telefone1.Equals("(__)_____-____"))
             {
                 lista.Add("Celular 1");
             }
-            if (Secretaria.Crosp == null || Secretaria.Crosp.Equals(""))
-            {
-                lista.Add("Crosp");
-            }
-            if (Secretaria.Login == null || Secretaria.Login.Equals(""))
+            if (GestorDeEstoque.Login == null || GestorDeEstoque.Login.Equals(""))
             {
                 lista.Add("Login");
             }
@@ -122,8 +116,7 @@ namespace Consultorio.ViewModel.Ator
                 msg = "Campos de senha não coincidem";
                 return false;
             }
-        }
-
+        }*/
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------

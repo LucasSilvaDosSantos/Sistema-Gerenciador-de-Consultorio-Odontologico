@@ -2,35 +2,23 @@
 using System;
 using System.Linq;
 
-namespace Consultorio.Data.Ator
+namespace Consultorio.Data.Atores
 {
     class LoginData
     {
-        public static Atores BuscarAtores(string entradaLogin, out bool encontrado)
+        public static Ator BuscarAtores(string entradaLogin, out bool encontrado)
         {
-            Atores a;
+            Ator a;
             try
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
-                {                    
-                    a = ctx.Dentistas.Where(d => d.Login.Equals(entradaLogin)).FirstOrDefault();
+                {
+                    a = ctx.Atores.FirstOrDefault(d => d.Login.Equals(entradaLogin));
                     if (a != null)
                     {
                         encontrado = true;
                         return a;
-                    }
-                    a = ctx.Secretarias.Where(d => d.Login.Equals(entradaLogin)).FirstOrDefault();
-                    if (a != null)
-                    {
-                        encontrado = true;
-                        return a;    
-                    }
-                    a = ctx.GestoresDeEstoque.Where(d => d.Login.Equals(entradaLogin)).FirstOrDefault();
-                    if (a != null)
-                    {
-                        encontrado = true;
-                        return a;
-                    }
+                    }                   
                 }
                 encontrado = false;
                 return a;

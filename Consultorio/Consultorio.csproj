@@ -106,11 +106,12 @@
     <Compile Include="Data\Clientes\CrudClienteData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
-    <Compile Include="Migrations\201907310128106_Versao dente.cs" />
-    <Compile Include="Migrations\201907310128106_Versao dente.Designer.cs">
-      <DependentUpon>201907310128106_Versao dente.cs</DependentUpon>
+    <Compile Include="Migrations\201908060048065_teste.cs" />
+    <Compile Include="Migrations\201908060048065_teste.Designer.cs">
+      <DependentUpon>201908060048065_teste.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
+    <Compile Include="Model\Ator.cs" />
     <Compile Include="Model\Atores.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Consulta.cs" />
@@ -134,9 +135,6 @@
     </Compile>
     <Compile Include="ViewModel\Procedimentos\ListaDeProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\Procedimentos\ProcedimentoViewModel.cs" />
-    <Compile Include="View\Clientes\OpcoesClienteView.xaml.cs">
-      <DependentUpon>OpcoesClienteView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Procedimentos\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
     </Compile>
@@ -155,22 +153,22 @@
     <Compile Include="Data\Procedimentos\ProcedimentoData.cs" />
     <Compile Include="Data\Produtos\ProdutoData.cs" />
     <Compile Include="Data\Atores\SecretariaData.cs" />
-    <Compile Include="ViewModel\Ator\CadastroDeColaboradoresViewModel.cs" />
+    <Compile Include="ViewModel\Atores\CadastroDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\Consultas\ConsultasViewModel.cs" />
     <Compile Include="ViewModel\Consultas\CrudConsultasViewModel.cs" />
     <Compile Include="ViewModel\Produtos\CrudProdutoViewModel.cs" />
-    <Compile Include="ViewModel\Ator\DentistaViewModel.cs" />
-    <Compile Include="ViewModel\Ator\GestorDeEstoqueViewModel.cs" />
+    <Compile Include="ViewModel\Atores\DentistaViewModel.cs" />
+    <Compile Include="ViewModel\Atores\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\Clientes\HistoricoDoClienteViewModel.cs" />
     <Compile Include="ViewModel\Clientes\ListaDeClientesViewModel.cs" />
-    <Compile Include="ViewModel\Ator\ListaDeColaboradoresViewModel.cs" />
+    <Compile Include="ViewModel\Atores\ListaDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\OpcoesViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\PagamentosViewModel.cs" />
     <Compile Include="ViewModel\Produtos\ProdutosViewModel.cs" />
-    <Compile Include="ViewModel\Ator\SecretariaViewModel.cs" />
+    <Compile Include="ViewModel\Atores\SecretariaViewModel.cs" />
     <Compile Include="ViewModel\Clientes\SelecaoDeClienteViewModel.cs" />
-    <Compile Include="ViewModel\Ator\SingletonAtorLogado.cs" />
+    <Compile Include="ViewModel\Atores\SingletonAtorLogado.cs" />
     <Compile Include="View\Atores\CadastroDeColaboradoresView.xaml.cs">
       <DependentUpon>CadastroDeColaboradoresView.xaml</DependentUpon>
     </Compile>
@@ -188,9 +186,6 @@
     </Compile>
     <Compile Include="View\Clientes\HistoricoDoClienteView.xaml.cs">
       <DependentUpon>HistoricoDoClienteView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Produtos\CrudProdutoView.xaml.cs">
-      <DependentUpon>CrudProdutoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Clientes\SelecaoDeClienteView.xaml.cs">
       <DependentUpon>SelecaoDeClienteView.xaml</DependentUpon>
@@ -210,6 +205,9 @@
     </Compile>
     <Compile Include="View\Procedimentos\ListaDeProcedimentoView.xaml.cs">
       <DependentUpon>ListaDeProcedimentoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produtos\CrudProdutoView.xaml.cs">
+      <DependentUpon>CrudProdutoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Produtos\ProdutoView.xaml.cs">
       <DependentUpon>ProdutoView.xaml</DependentUpon>
@@ -246,10 +244,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Clientes\OpcoesClienteView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Procedimentos\ProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,10 +272,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Produtos\CrudProdutoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Clientes\SelecaoDeClienteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -305,6 +295,10 @@
     <Page Include="View\Procedimentos\ListaDeProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Produtos\CrudProdutoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Produtos\ProdutoView.xaml">
       <SubType>Designer</SubType>
@@ -330,8 +324,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201907310128106_Versao dente.resx">
-      <DependentUpon>201907310128106_Versao dente.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908060048065_teste.resx">
+      <DependentUpon>201908060048065_teste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -11,15 +11,7 @@ namespace Consultorio.Data.Pagamentos
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    string tipoDeAtor = pagamento.Recebedor.GetType().Name;
-                    if (tipoDeAtor == "Dentista")
-                    {
-                        pagamento.Recebedor = ctx.Dentistas.Find(pagamento.Recebedor.Id);
-                    }
-                    else if (tipoDeAtor == "Secretaria")
-                    {
-                        pagamento.Recebedor = ctx.Secretarias.Find(pagamento.Recebedor.Id);
-                    }
+                    pagamento.Recebedor = ctx.Atores.Find(pagamento.Recebedor.Id);
                     pagamento.Cliente = ctx.Clientes.Find(pagamento.Cliente.Id);                    
                     ctx.Pagamentos.Add(pagamento);
                     ctx.SaveChanges();
