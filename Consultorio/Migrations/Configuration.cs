@@ -28,8 +28,8 @@ namespace Consultorio.Migrations
             Odontograma odontograma2 = new Odontograma("O", "X", "O", "O", "O", "O", "O", "O", "O", "O", "X", "O", "O", "O", "O", "O", "O", "O", "O", "O", "X", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "");
 
             //seed Cliente
-            Cliente cliente1 = new Cliente("Ana Maria de Jesus", DateTime.Parse("16/02/1995"), "703.841.360-01", "41.976.260-7", "Ana@email.com", "(31) 9998-9535", "91234-5678", "Rua: perna longa", "Vila abc", "SP", "Campos do Jordão", "12460-000", "obs", anamnese1, odontograma1);
-            Cliente cliente2 = new Cliente("José Roberto Silva", DateTime.Parse("01/02/2003"), "537.228.480-32", "", "jose@gmail.com", "(31) 91370-1903", "", "Rua: 123", "Vila 2", "SP", "Taubate", "12356-123", "obs2", anamnese2, odontograma2);
+            Cliente cliente1 = new Cliente("Ana Maria de Jesus", DateTime.Parse("16/02/1995"), "703.841.360-01", "41.976.260-7", "Ana@email.com", "(31)9998-9535", "(12)99124-5678", "Rua: perna longa", "Vila abc", "SP", "Campos do Jordão", "12460-000", "obs", anamnese1, odontograma1);
+            Cliente cliente2 = new Cliente("José Roberto Silva", DateTime.Parse("01/02/2003"), "537.228.480-32", "", "jose@gmail.com", "(31)91370-1903", "", "Rua: 123", "Vila 2", "SP", "Taubate", "12356-123", "obs2", anamnese2, odontograma2);
 
             //seed Dentista
             //Dentista dentista1 = new Dentista("Thiago Santos", "dentista@dentista.com", "(31) 7133-5723", "(31) 98666-5645", "Numero Crosp", "admin", "21232f297a57a5a743894a0e4a801fc3");
@@ -42,7 +42,7 @@ namespace Consultorio.Migrations
             //    true, true, true, true);
 
             //seed Ator
-            Ator ator1 = new Ator("Thiago Santos", "dentista@dentista.com", "(31) 7133 - 5723", "(31) 98666 - 5645", "Numero Crosp", true, true, true, true, true, true, true, true, "admin", "21232f297a57a5a743894a0e4a801fc3");
+            Ator ator1 = new Ator("Thiago Santos", "dentista@dentista.com", "(31)7133-5723", "(31)98666-5645", "Numero Crosp", true, true, true, true, true, true, true, true, "admin", "21232f297a57a5a743894a0e4a801fc3");
 
             //seed Produto
             Produto produto1 = new Produto("Luva M", 5, "Luva M para procedimentos em geral");

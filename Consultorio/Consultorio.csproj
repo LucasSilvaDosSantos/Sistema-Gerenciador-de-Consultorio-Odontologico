@@ -102,7 +102,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Clientes\ClienteOdontogramaData.cs" />
     <Compile Include="Data\Clientes\CrudClienteData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
@@ -112,15 +111,20 @@
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Ator.cs" />
-    <Compile Include="Model\Atores.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Consulta.cs" />
     <Compile Include="Model\Odontograma.cs" />
-    <Compile Include="Model\Dentista.cs" />
-    <Compile Include="Model\GestorDeEstoque.cs" />
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\Procedimento.cs" />
+    <Compile Include="ViewModel\Atores\CrudAtorViewModel.cs" />
+    <Compile Include="ViewModel\Atores\ListaDeAtoresViewModel.cs" />
     <Compile Include="ViewModel\Clientes\CrudClienteViewModel.cs" />
+    <Compile Include="View\Atores\CrudAtorView.xaml.cs">
+      <DependentUpon>CrudAtorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Atores\ListaDeAtoresView.xaml.cs">
+      <DependentUpon>ListaDeAtoresView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Clientes\ClientePage\AnamnesePage.xaml.cs">
       <DependentUpon>AnamnesePage.xaml</DependentUpon>
     </Compile>
@@ -135,25 +139,18 @@
     </Compile>
     <Compile Include="ViewModel\Procedimentos\ListaDeProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\Procedimentos\ProcedimentoViewModel.cs" />
+    <Compile Include="View\ConfiguracoesDeView.cs" />
     <Compile Include="View\Procedimentos\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Produto.cs" />
-    <Compile Include="Model\Secretaria.cs" />
-    <Compile Include="Data\Atores\AtoresData.cs" />
-    <Compile Include="Data\Clientes\CadastroDeClienteAnamneseData.cs" />
-    <Compile Include="Data\Clientes\CadastroDeClienteBaseData.cs" />
-    <Compile Include="Data\Atores\ColaboradoresData.cs" />
+    <Compile Include="Data\Atores\AtorData.cs" />
     <Compile Include="Data\Consultas\ConsultasData.cs" />
-    <Compile Include="Data\Atores\DentistaData.cs" />
-    <Compile Include="Data\Atores\GestorDeEstoqueData.cs" />
     <Compile Include="Data\Clientes\HistoricoDoClienteData.cs" />
     <Compile Include="Data\Consultas\ListaDeClienteParaConsultaData.cs" />
     <Compile Include="Data\Clientes\ListaDeClienteData.cs" />
     <Compile Include="Data\Procedimentos\ProcedimentoData.cs" />
     <Compile Include="Data\Produtos\ProdutoData.cs" />
-    <Compile Include="Data\Atores\SecretariaData.cs" />
-    <Compile Include="ViewModel\Atores\CadastroDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\Consultas\ConsultasViewModel.cs" />
     <Compile Include="ViewModel\Consultas\CrudConsultasViewModel.cs" />
     <Compile Include="ViewModel\Produtos\CrudProdutoViewModel.cs" />
@@ -161,7 +158,6 @@
     <Compile Include="ViewModel\Atores\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\Clientes\HistoricoDoClienteViewModel.cs" />
     <Compile Include="ViewModel\Clientes\ListaDeClientesViewModel.cs" />
-    <Compile Include="ViewModel\Atores\ListaDeColaboradoresViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\OpcoesViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\PagamentosViewModel.cs" />
@@ -169,20 +165,11 @@
     <Compile Include="ViewModel\Atores\SecretariaViewModel.cs" />
     <Compile Include="ViewModel\Clientes\SelecaoDeClienteViewModel.cs" />
     <Compile Include="ViewModel\Atores\SingletonAtorLogado.cs" />
-    <Compile Include="View\Atores\CadastroDeColaboradoresView.xaml.cs">
-      <DependentUpon>CadastroDeColaboradoresView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Consultas\ConsultasView.xaml.cs">
       <DependentUpon>ConsultasView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Consultas\CrudConsultasView.xaml.cs">
       <DependentUpon>CrudConsultasView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Atores\DentistaView.xaml.cs">
-      <DependentUpon>DentistaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Atores\GestorDeEstoqueView.xaml.cs">
-      <DependentUpon>GestorDeEstoqueView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Clientes\HistoricoDoClienteView.xaml.cs">
       <DependentUpon>HistoricoDoClienteView.xaml</DependentUpon>
@@ -192,9 +179,6 @@
     </Compile>
     <Compile Include="View\Clientes\ListaDeClientesView.xaml.cs">
       <DependentUpon>ListaDeClientesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Atores\ListaDeColaboradoresView.xaml.cs">
-      <DependentUpon>ListaDeColaboradoresView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OpcoesView.xaml.cs">
       <DependentUpon>OpcoesView.xaml</DependentUpon>
@@ -212,9 +196,6 @@
     <Compile Include="View\Produtos\ProdutoView.xaml.cs">
       <DependentUpon>ProdutoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Atores\SecretariaView.xaml.cs">
-      <DependentUpon>SecretariaView.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -228,6 +209,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Atores\CrudAtorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Atores\ListaDeAtoresView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Clientes\ClientePage\AnamnesePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -248,23 +237,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Atores\CadastroDeColaboradoresView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Consultas\ConsultasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Consultas\CrudConsultasView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Atores\DentistaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Atores\GestorDeEstoqueView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,10 +254,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Clientes\ListaDeClientesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Atores\ListaDeColaboradoresView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -301,10 +274,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Produtos\ProdutoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Atores\SecretariaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

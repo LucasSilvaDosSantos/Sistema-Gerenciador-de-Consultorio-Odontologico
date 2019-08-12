@@ -8,13 +8,13 @@ namespace Consultorio.ViewModel.Atores
 {
     public class SecretariaViewModel : INotifyPropertyChanged
     {
-        private Secretaria _Secretaria;
+        //private Secretaria _Secretaria;
 
-        public Secretaria Secretaria
+        /*public Secretaria Secretaria
         {
             get { return _Secretaria; }
             set { _Secretaria = value; OnPropertyChanged("Secretaria"); }
-        }
+        }*/
 
         private bool _TbIdIsEnable;
 
@@ -26,7 +26,7 @@ namespace Consultorio.ViewModel.Atores
 
         public SecretariaViewModel()
         {
-            Secretaria = new Secretaria();
+            //Secretaria = new Secretaria();
             TbIdIsEnable = false;
         }
 
@@ -34,7 +34,7 @@ namespace Consultorio.ViewModel.Atores
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public bool BtSalvar_Click(string senha, string senhaConfirmacao, out string msgSaida)
+        /*public bool BtSalvar_Click(string senha, string senhaConfirmacao, out string msgSaida)
         {
             bool salvo = SalvarUsuario(senha, senhaConfirmacao, out string msg);
             msgSaida = msg;
@@ -122,7 +122,7 @@ namespace Consultorio.ViewModel.Atores
                 msg = "Campos de senha não coincidem";
                 return false;
             }
-        }
+        }*/
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------

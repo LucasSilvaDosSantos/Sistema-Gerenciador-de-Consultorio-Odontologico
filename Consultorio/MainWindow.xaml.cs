@@ -27,6 +27,9 @@ namespace Consultorio
             if (loginValido)
             {
                 OpcoesView opcoesView = new OpcoesView();
+
+                ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
+                
                 opcoesView.Show();
                 this.Close();
             }

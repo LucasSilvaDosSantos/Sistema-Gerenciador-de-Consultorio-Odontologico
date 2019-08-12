@@ -32,9 +32,11 @@ namespace Consultorio.View.Pagamentos
         {
             this.Hide();
             SelecaoDeClienteView selecaoDeClienteView = new SelecaoDeClienteView();
+            ConfiguracoesDeView.ConfigurarWindow(this, selecaoDeClienteView);
             selecaoDeClienteView.ShowDialog();
 
             PagamentosViewModel.Cliente = selecaoDeClienteView.SelecaoDeClienteViewModel.ClienteSelecionado;
+            ConfiguracoesDeView.ConfigurarWindow(selecaoDeClienteView, this);
             this.Visibility = Visibility.Visible;
 
             PagamentosViewModel.CarregarValorDevido();
@@ -43,6 +45,7 @@ namespace Consultorio.View.Pagamentos
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
             OpcoesView opcoesView = new OpcoesView();
+            ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
             opcoesView.Show();
             this.Close();
         }
@@ -58,6 +61,7 @@ namespace Consultorio.View.Pagamentos
             {
                 MessageBox.Show(msg, "Aviso!");
                 OpcoesView opcoesView = new OpcoesView();
+                ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
                 opcoesView.Show();
                 this.Close();
             }

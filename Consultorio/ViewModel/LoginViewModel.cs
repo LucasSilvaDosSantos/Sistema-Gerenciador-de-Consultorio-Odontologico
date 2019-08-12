@@ -29,7 +29,7 @@ namespace Consultorio.ViewModel
             Ator atorRetorno = LoginData.BuscarAtores(Login, out bool atorEncontrado);
             if (atorEncontrado)
             {
-                string senhaCripitografada =  AtoresData.GerarHashMd5(Senha);
+                string senhaCripitografada =  AtorData.GerarHashMd5(Senha);
                 if(atorRetorno.Senha.Equals(senhaCripitografada)){
                     AtorLogado.Ator = atorRetorno;
                     return true;                  

@@ -83,10 +83,12 @@ namespace Consultorio.View.Consultas
         {
             this.Hide();
             SelecaoDeClienteView selecaoDeClienteView = new SelecaoDeClienteView();
+            ConfiguracoesDeView.ConfigurarWindow(this, selecaoDeClienteView);
             selecaoDeClienteView.ShowDialog();
 
             CrudConsultasViewModel.Consulta.Cliente = selecaoDeClienteView.SelecaoDeClienteViewModel.ClienteSelecionado;
             CrudConsultasViewModel.NotificarConsulta();
+            ConfiguracoesDeView.ConfigurarWindow(selecaoDeClienteView, this);
             this.Visibility = Visibility.Visible;
         }
     }

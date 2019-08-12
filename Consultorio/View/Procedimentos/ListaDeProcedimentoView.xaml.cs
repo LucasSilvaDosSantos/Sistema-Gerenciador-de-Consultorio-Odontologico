@@ -27,6 +27,7 @@ namespace Consultorio.View.Procedimentos
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             OpcoesView opcoesView = new OpcoesView();
+            ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
             opcoesView.Show();
             this.Close();
         }
@@ -42,8 +43,10 @@ namespace Consultorio.View.Procedimentos
             {
                 this.Hide();
                 ProcedimentoView procedimentoView = new ProcedimentoView(idProcedimento);
+                ConfiguracoesDeView.ConfigurarWindow(this, procedimentoView);
                 procedimentoView.ShowDialog();
                 RecarregarLista();
+                ConfiguracoesDeView.ConfigurarWindow(procedimentoView, this);
                 this.Visibility = Visibility.Visible;
             }            
         }
@@ -52,8 +55,10 @@ namespace Consultorio.View.Procedimentos
         {
             this.Hide();
             ProcedimentoView procedimentoView = new ProcedimentoView();
+            ConfiguracoesDeView.ConfigurarWindow(this, procedimentoView);
             procedimentoView.ShowDialog();
             RecarregarLista();
+            ConfiguracoesDeView.ConfigurarWindow(procedimentoView, this);
             this.Visibility = Visibility.Visible;
         }        
 

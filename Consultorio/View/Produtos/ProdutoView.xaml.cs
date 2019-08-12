@@ -25,6 +25,7 @@ namespace Consultorio.View.Produtos
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             OpcoesView opcoesView = new OpcoesView();
+            ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
             opcoesView.Show();
             this.Close();
         }
@@ -50,7 +51,9 @@ namespace Consultorio.View.Produtos
         {
             CrudProdutoView CrudProdutoView = new CrudProdutoView();
             this.Hide();
+            ConfiguracoesDeView.ConfigurarWindow(this, CrudProdutoView);
             CrudProdutoView.ShowDialog();
+            ConfiguracoesDeView.ConfigurarWindow(CrudProdutoView, this);
             this.Visibility = Visibility.Visible;
             ProdutosViewModel.RecarregarGrid();
         }
@@ -65,7 +68,9 @@ namespace Consultorio.View.Produtos
             }
             this.Hide();
             CrudProdutoView crudProdutoView = new CrudProdutoView(idProduto);
+            ConfiguracoesDeView.ConfigurarWindow(this, crudProdutoView);
             crudProdutoView.ShowDialog();
+            ConfiguracoesDeView.ConfigurarWindow(crudProdutoView, this);
             this.Visibility = Visibility.Visible;
             ProdutosViewModel.RecarregarGrid();
             ProdutosViewModel.ResetarTela();

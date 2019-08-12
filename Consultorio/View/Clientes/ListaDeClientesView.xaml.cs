@@ -22,6 +22,7 @@ namespace Consultorio.View.Clientes
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             OpcoesView opcoesView = new OpcoesView();
+            ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
             opcoesView.Show();
             this.Close();
         }
@@ -48,17 +49,12 @@ namespace Consultorio.View.Clientes
                 {
                     this.Hide();
 
-                    /*CadastroDeClienteBaseView cadastroDeClienteBaseView = new CadastroDeClienteBaseView();
-
-                    ListaDeClientesViewModel.AlteracaoDeCliente(dgListaDeClientes.SelectedIndex, cadastroDeClienteBaseView.CadastroViewModel);
-
-                    cadastroDeClienteBaseView.ShowDialog();*/
-
                     WindowCliente windowCliente = new WindowCliente(ListaDeClientesViewModel.ClienteSelecionado.Id);
+                    ConfiguracoesDeView.ConfigurarWindow(this, windowCliente);
                     windowCliente.ShowDialog();
 
                     ListaDeClientesViewModel.ListarTodosOsClientes();
-
+                    ConfiguracoesDeView.ConfigurarWindow(windowCliente, this);
                     this.Visibility = Visibility.Visible;
                 }
                 else
@@ -79,6 +75,7 @@ namespace Consultorio.View.Clientes
             {
                 HistoricoDoClienteView historicoDoClienteView = new HistoricoDoClienteView();
                 historicoDoClienteView.HistoricoDoClienteViewModel.IniciarViewModel(ListaDeClientesViewModel.ClienteSelecionadoNaLista(dgListaDeClientes.SelectedIndex));
+                ConfiguracoesDeView.ConfigurarWindow(this, historicoDoClienteView);
                 historicoDoClienteView.Show();
                 this.Close();
             }

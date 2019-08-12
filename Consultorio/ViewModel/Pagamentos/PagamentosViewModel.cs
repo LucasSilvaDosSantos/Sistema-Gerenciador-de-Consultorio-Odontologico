@@ -143,35 +143,29 @@ namespace Consultorio.ViewModel.Procedimentos
 
         public void CarregarValorDevido()
         {
-            var pagamentos = HistoricoDoClienteData.ListarPagamentosPorCliente(Cliente.Id);
-            var consultas = HistoricoDoClienteData.ListarConsultaPorCliente(Cliente.Id);
-
-            double somaPagamentos = 0;
-            double somaConsultas = 0;
-
-
-            foreach (var i in pagamentos)
+            if (Cliente != null)
             {
-                somaPagamentos += i.Valor;
-            }
+                var pagamentos = HistoricoDoClienteData.ListarPagamentosPorCliente(Cliente.Id);
+                var consultas = HistoricoDoClienteData.ListarConsultaPorCliente(Cliente.Id);
 
-            foreach (var i in consultas)
-            {
-                if (i.Realizada == true)
+                double somaPagamentos = 0;
+                double somaConsultas = 0;
+
+
+                foreach (var i in pagamentos)
                 {
-                    somaConsultas += i.ValorConsulta;
+                    somaPagamentos += i.Valor;
                 }
-            }
 
-            ValorDevidoPorCliente = (somaConsultas - somaPagamentos);
-
-            /*double soma = 0;
-            var lista = HistoricoDoClienteData.ListarConsultaPorCliente(Cliente.Id);
-            foreach(var i in lista)
-            {
-                soma += i.ValorConsulta;
-            }
-            ValorDevidoPorCliente = soma;*/
+                foreach (var i in consultas)
+                {
+                    if (i.Realizada == true)
+                    {
+                        somaConsultas += i.ValorConsulta;
+                    }
+                }
+                ValorDevidoPorCliente = (somaConsultas - somaPagamentos);
+            }           
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

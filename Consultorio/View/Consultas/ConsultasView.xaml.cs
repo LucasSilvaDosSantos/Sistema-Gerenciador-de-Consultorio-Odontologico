@@ -25,8 +25,9 @@ namespace Consultorio.View.Consultas
             this.Hide();
 
             CrudConsultasView crudConsultasView = new CrudConsultasView();
+            ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
             crudConsultasView.ShowDialog();
-
+            ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
             this.Visibility = Visibility.Visible;
             ConsultasViewModel.CarregarListaDeConsultasData();
         }
@@ -34,6 +35,7 @@ namespace Consultorio.View.Consultas
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             OpcoesView opcoesView = new OpcoesView();
+            ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
             opcoesView.Show();
             this.Close();
         }
@@ -49,8 +51,10 @@ namespace Consultorio.View.Consultas
             {
                 this.Hide();
                 CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionadaID());
+                ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
                 crudConsultasView.ShowDialog();
                 ConsultasViewModel.CarregarListaDeConsultasData();
+                ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
                 this.Visibility = Visibility.Visible;
             }
             else

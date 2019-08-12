@@ -24,6 +24,7 @@ namespace Consultorio.View.Clientes
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             ListaDeClientesView listaDeClientesView = new ListaDeClientesView();
+            ConfiguracoesDeView.ConfigurarWindow(this, listaDeClientesView);
             listaDeClientesView.Show();
             this.Close();
         }

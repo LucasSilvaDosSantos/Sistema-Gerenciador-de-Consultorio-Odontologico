@@ -1,0 +1,57 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Consultorio.View.Atores.CrudAtorView"
+        mc:Ignorable="d"
+        Title="CrudAtorView" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
+
+    <Viewbox>
+        <Grid Height="694" Width="1280">
+            <Rectangle Fill="#FF7FBEE2" Margin="28,50,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="324"/>
+
+            <Rectangle Fill="#FF7FBEE2" Margin="28,127,23,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
+            <Label x:Name="lbProcedimento" Content="{Binding TituloTela}" Margin="46,59,940,590" FontSize="30"/>
+            <Button x:Name="btSalvar" Content="Salvar" Margin="593,0,589,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click" />
+            <Button x:Name="btVoltar" Content="Voltar" Margin="1150,629,40,30" Height="Auto" Click="BtVoltar_Click" />
+            <Label x:Name="label" VerticalAlignment="Top" Margin="255,137,0,0" HorizontalAlignment="Left" FontSize="17" FontWeight="Bold" Content="Dados Pessoais"/>
+            <TextBox x:Name="tbId" Text="{Binding Ator.Id}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="88,137,1132,526" IsReadOnly="True"/>
+            <Label x:Name="label1" VerticalAlignment="Top" Margin="59,137,0,0" HorizontalAlignment="Left" Content="Id"/>
+            <Label x:Name="lbNome" VerticalAlignment="Top" Margin="64,207,0,0" HorizontalAlignment="Left" Content="Nome*:"/>
+            <TextBox x:Name="tbNome" Text="{Binding Ator.Nome}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="146,207,657,455"/>
+            <Label x:Name="lbEmail" VerticalAlignment="Top" Margin="64,244,0,0" HorizontalAlignment="Left" Content="Email*:"/>
+            <TextBox x:Name="tbEmail" Text="{Binding Ator.Email}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="146,244,657,419"/>
+            <Label x:Name="lbCelular1" VerticalAlignment="Top" Margin="64,280,0,0" HorizontalAlignment="Left" Content="Celular 1*:"/>
+            <xctk:MaskedTextBox x:Name="tbCelular1" Text="{Binding Ator.Telefone1}" Mask="(00)00000-0000" Margin="146,280,1014,383" Padding="0, 4, 0, 0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" RenderTransformOrigin="0.5,0.5"/>
+
+            <Label x:Name="lbCelular2" Content="Celular 2:" HorizontalAlignment="Left" Margin="64,316,0,0" VerticalAlignment="Top"/>
+            <xctk:MaskedTextBox x:Name="tbCelular2" Text="{Binding Ator.Telefone2, Mode=TwoWay}" Mask="(00)00000-0000" Padding="0, 4, 0, 0" Margin="146,316,1014,347" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1"/>
+
+            <Label x:Name="lbCROSP" Content="CROSP:" HorizontalAlignment="Left" Margin="64,0,0,311" Height="31" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="tbCROSP" Text="{Binding Ator.Crosp}" Padding="0, -1, 0, 0" Margin="139,352,912,311" TextWrapping="Wrap" RenderTransformOrigin="0.501,0.474"/>
+            <CheckBox x:Name="cbClinicar" Content="Clinicar (Iniciar e finalizar consultas, emitir atestados ...)" IsChecked="{Binding Ator.Clinicar}" Margin="655,208,217,455" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbCrudClientes" Content="Cadastrar e alterar clientes" IsChecked="{Binding Ator.CrudClientes}" Margin="655,244,416,0" VerticalAlignment="Top" Height="31" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbCrudConsulta" Content="Cadastrar e alterar consulta" IsChecked="{Binding Ator.CrudConsultas}" Margin="655,280,410,383" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbCrudProdutos" Content="Cadastrar e alterar Produtos" IsChecked="{Binding Ator.CrudProdutos}" Margin="655,316,405,347" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbCadastroDeContas" Content="Cadastrar contas pagas" IsChecked="{Binding Ator.CadastroDeContasPagas}" Margin="655,351,439,312" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbContabilidade" Content="Visualizar contabilidade" IsChecked="{Binding Ator.VisualizarContabilidade}" Margin="655,387,436,276" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbReceberPagamentos" Content="Receber pagamentos dos clientes" IsChecked="{Binding Ator.ReceberDeClientes}" Margin="655,423,367,240" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbCrudAtores" Content="Cadastrar e alterar colaboradores (Recomendado apenas um usuário no sistema)" IsChecked="{Binding Ator.CrudAtores}" Margin="655,459,35,204" d:LayoutOverrides="Width"/>
+            <Label x:Name="label2" FontStyle="Italic" FontSize="18" Content="Preencher todas as autorizações que o novo usuário terá acesso" Margin="695,169,82,491"/>
+
+            <GroupBox x:Name="gpDadosLogin" Header="Dados para Login" IsEnabled="{Binding AltararDadosDeLogin}" HorizontalAlignment="Left" Height="182" Margin="64,0,0,100" VerticalAlignment="Bottom" Width="559">
+                <Grid Width="541" Margin="0,0,0,0">
+                    <Label x:Name="lbUsuario" Margin="10,10,0,0" Content="Usuário:" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131" />
+                    <Label x:Name="lbSenha" Content="Senha:" HorizontalAlignment="Left" Margin="10,46,0,48" d:LayoutOverrides="Height" Width="131"/>
+                    <Label x:Name="label4" Content="Confirmar Senha:" HorizontalAlignment="Left" Margin="10,0,0,12" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbUsuario" Height="31" Text="{Binding Ator.Login}" Margin="141,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <PasswordBox x:Name="pbSenha" Margin="141,46,10,48"/>
+                    <PasswordBox x:Name="pbConfirmarSenha" VerticalAlignment="Bottom" Margin="141,0,10,12" Height="31"/>
+                </Grid>
+            </GroupBox>
+            <CheckBox x:Name="cbSenhaEnabled" Content="Alterar dados de login" IsChecked="{Binding AltararDadosDeLogin}" Padding="0, 0, 0, 0" Margin="448,381,657,282" />
+            <Label x:Name="label3" Content="* Campos obrigatórios" HorizontalAlignment="Left" Margin="64,0,0,54" FontSize="12" VerticalAlignment="Bottom"/>
+        </Grid>
+    </Viewbox>
+</Window>
