@@ -3,9 +3,6 @@ using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel.Atores
 {
@@ -50,6 +47,11 @@ namespace Consultorio.ViewModel.Atores
             {
                 return true;
             }
+        }
+
+        public void RecarregarDataGrid()
+        {
+            ListaDeAtores = AtorData.TodosOsAtores();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

@@ -23,7 +23,7 @@ namespace Consultorio.Data.Atores
                 encontrado = false;
                 return a;
             }
-            catch(Exception)
+            catch
             {
                 encontrado = false;
                 return a = null;

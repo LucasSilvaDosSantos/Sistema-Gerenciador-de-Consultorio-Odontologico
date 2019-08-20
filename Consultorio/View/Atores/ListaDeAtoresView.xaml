@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ListaDeAtoresView" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
+        Title="Lista de Colaboradores" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
     <Viewbox>
         <Grid Height="694" Width="1280">
             <Rectangle Fill="#FF7FBEE2" Margin="41,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="268"/>

@@ -97,6 +97,23 @@ namespace Consultorio.View.Clientes
             ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text);
         }
 
+        private void BtOrcamento_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgListaDeClientes.SelectedIndex >= 0)
+            {
+
+                OrcamentoView orcamento = new OrcamentoView(ListaDeClientesViewModel.ClienteSelecionado.Id);
+                ConfiguracoesDeView.ConfigurarWindow(this, orcamento);
+                this.Hide();
+                orcamento.ShowDialog();              
+                this.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Nenhum Cliente Selecionado", "Aviso!");
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------

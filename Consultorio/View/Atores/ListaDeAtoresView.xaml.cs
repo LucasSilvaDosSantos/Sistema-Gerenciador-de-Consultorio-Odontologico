@@ -27,7 +27,8 @@ namespace Consultorio.View.Atores
                 this.Hide();
                 crudAtorView.ShowDialog();
                 ConfiguracoesDeView.ConfigurarWindow(crudAtorView, this);
-                this.Visibility = Visibility.Visible;
+                RecarregarDataGrid();
+                this.Visibility = Visibility.Visible;               
             }
             else
             {
@@ -42,7 +43,9 @@ namespace Consultorio.View.Atores
             this.Hide();
             crudAtorView.ShowDialog();
             ConfiguracoesDeView.ConfigurarWindow(crudAtorView, this);
+            RecarregarDataGrid();
             this.Visibility = Visibility.Visible;
+            
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
@@ -51,6 +54,11 @@ namespace Consultorio.View.Atores
             ConfiguracoesDeView.ConfigurarWindow(this, opcoes);
             opcoes.Show();
             this.Close();
+        }
+
+        private void RecarregarDataGrid()
+        {
+            ListaDeAtoresViewModel.RecarregarDataGrid();
         }
     }
 }

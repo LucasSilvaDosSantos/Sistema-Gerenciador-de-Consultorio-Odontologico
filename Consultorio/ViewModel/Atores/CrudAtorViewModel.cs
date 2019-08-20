@@ -121,7 +121,7 @@ namespace Consultorio.ViewModel.Atores
             {
                 if (Ator.Crosp == "" || Ator.Crosp == null)
                 {
-                    lista.Add("Em caso de autorização para atuar na áreaclinica, deve ser preenchido o crosp do colaborador");
+                    lista.Add("Em caso de autorização para atuar na área clinica, deve ser preenchido o crosp do colaborador");
                 }
             }
                         

@@ -103,22 +103,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Clientes\CrudClienteData.cs" />
+    <Compile Include="Data\Clientes\OrcamentoData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
-    <Compile Include="Migrations\201908060048065_teste.cs" />
-    <Compile Include="Migrations\201908060048065_teste.Designer.cs">
-      <DependentUpon>201908060048065_teste.cs</DependentUpon>
+    <Compile Include="Migrations\201908200108436_a.cs" />
+    <Compile Include="Migrations\201908200108436_a.Designer.cs">
+      <DependentUpon>201908200108436_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908201938071_b.cs" />
+    <Compile Include="Migrations\201908201938071_b.Designer.cs">
+      <DependentUpon>201908201938071_b.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Ator.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Consulta.cs" />
     <Compile Include="Model\Odontograma.cs" />
+    <Compile Include="Model\Orcamento.cs" />
+    <Compile Include="Model\OrcamentosParaProcedimentos.cs" />
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\Procedimento.cs" />
     <Compile Include="ViewModel\Atores\CrudAtorViewModel.cs" />
     <Compile Include="ViewModel\Atores\ListaDeAtoresViewModel.cs" />
     <Compile Include="ViewModel\Clientes\CrudClienteViewModel.cs" />
+    <Compile Include="ViewModel\Clientes\OrcamentoViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
     </Compile>
@@ -139,6 +147,9 @@
     </Compile>
     <Compile Include="ViewModel\Procedimentos\ListaDeProcedimentoViewModel.cs" />
     <Compile Include="ViewModel\Procedimentos\ProcedimentoViewModel.cs" />
+    <Compile Include="View\Clientes\OrcamentoView.xaml.cs">
+      <DependentUpon>OrcamentoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ConfiguracoesDeView.cs" />
     <Compile Include="View\Procedimentos\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
@@ -233,6 +244,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Clientes\OrcamentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Procedimentos\ProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -293,8 +308,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201908060048065_teste.resx">
-      <DependentUpon>201908060048065_teste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908200108436_a.resx">
+      <DependentUpon>201908200108436_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201938071_b.resx">
+      <DependentUpon>201908201938071_b.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class teste : DbMigration
+    public partial class a : DbMigration
     {
         public override void Up()
         {
@@ -173,6 +173,38 @@ namespace Consultorio.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.OrcamentosParaProcedimentos",
+                c => new
+                    {
+                        OrcamentoID = c.Int(nullable: false),
+                        ProcedimentoID = c.Int(nullable: false),
+                        ColaboradorAlterouID = c.Int(nullable: false),
+                        QtdDeProcedimentos = c.Int(nullable: false),
+                        DataDeAdicao = c.DateTime(nullable: false, precision: 0),
+                        ValorTotalDoProcedimento = c.Double(nullable: false),
+                        DescontoEmProcentagem = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.OrcamentoID, t.ProcedimentoID })
+                .ForeignKey("dbo.Atores", t => t.ColaboradorAlterouID, cascadeDelete: true)
+                .ForeignKey("dbo.Orcamentos", t => t.OrcamentoID, cascadeDelete: true)
+                .ForeignKey("dbo.Procedimentos", t => t.ProcedimentoID, cascadeDelete: true)
+                .Index(t => t.OrcamentoID)
+                .Index(t => t.ProcedimentoID)
+                .Index(t => t.ColaboradorAlterouID);
+            
+            CreateTable(
+                "dbo.Orcamentos",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Obs = c.String(nullable: false, unicode: false),
+                        Cliente_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Clientes", t => t.Cliente_Id, cascadeDelete: true)
+                .Index(t => t.Cliente_Id);
+            
+            CreateTable(
                 "dbo.Produtos",
                 c => new
                     {
@@ -224,6 +256,10 @@ namespace Consultorio.Migrations
             DropForeignKey("dbo.Consultas", "Procedimento_Id", "dbo.Procedimentos");
             DropForeignKey("dbo.ProdutoProcedimentoes", "Procedimento_Id", "dbo.Procedimentos");
             DropForeignKey("dbo.ProdutoProcedimentoes", "Produto_Id", "dbo.Produtos");
+            DropForeignKey("dbo.OrcamentosParaProcedimentos", "ProcedimentoID", "dbo.Procedimentos");
+            DropForeignKey("dbo.OrcamentosParaProcedimentos", "OrcamentoID", "dbo.Orcamentos");
+            DropForeignKey("dbo.Orcamentos", "Cliente_Id", "dbo.Clientes");
+            DropForeignKey("dbo.OrcamentosParaProcedimentos", "ColaboradorAlterouID", "dbo.Atores");
             DropForeignKey("dbo.Consultas", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.Clientes", "Odontograma_Id", "dbo.Odontogramas");
             DropForeignKey("dbo.Clientes", "Anamnese_Id", "dbo.Anamneses");
@@ -231,6 +267,10 @@ namespace Consultorio.Migrations
             DropIndex("dbo.ProdutoProcedimentoes", new[] { "Produto_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Recebedor_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Cliente_Id" });
+            DropIndex("dbo.Orcamentos", new[] { "Cliente_Id" });
+            DropIndex("dbo.OrcamentosParaProcedimentos", new[] { "ColaboradorAlterouID" });
+            DropIndex("dbo.OrcamentosParaProcedimentos", new[] { "ProcedimentoID" });
+            DropIndex("dbo.OrcamentosParaProcedimentos", new[] { "OrcamentoID" });
             DropIndex("dbo.Consultas", new[] { "Procedimento_Id" });
             DropIndex("dbo.Consultas", new[] { "Cliente_Id" });
             DropIndex("dbo.Clientes", new[] { "Odontograma_Id" });
@@ -238,6 +278,8 @@ namespace Consultorio.Migrations
             DropTable("dbo.ProdutoProcedimentoes");
             DropTable("dbo.Pagamentos");
             DropTable("dbo.Produtos");
+            DropTable("dbo.Orcamentos");
+            DropTable("dbo.OrcamentosParaProcedimentos");
             DropTable("dbo.Procedimentos");
             DropTable("dbo.Consultas");
             DropTable("dbo.Odontogramas");

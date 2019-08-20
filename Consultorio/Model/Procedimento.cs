@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.Model
 {
@@ -21,8 +17,10 @@ namespace Consultorio.Model
         [Required]
         public double Preco { get; set; }
         public virtual ICollection<Produto> Produtos { get; set; }
+        public virtual ICollection<OrcamentosParaProcedimentos> OrcamentosParaProcedimentos { get; set; }
 
-        public bool Ativo { get; set; }
+
+        //public bool Ativo { get; set; }
 
         public Procedimento()
         {

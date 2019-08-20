@@ -24,18 +24,11 @@ namespace Consultorio.ViewModel.Clientes
             set { _BtCancelarIsEnabled = value; OnPropertyChanged("BtCancelarIsEnabled"); }
         }
 
-        private bool _BtHistoricoIsEnabled;
-        public bool BtHistoricoIsEnabled
+        private bool _BtEnabled;
+        public bool BtEnabled
         {
-            get { return _BtHistoricoIsEnabled; }
-            set { _BtHistoricoIsEnabled = value; OnPropertyChanged("BtHistoricoIsEnabled"); }
-        }
-
-        private bool _BtAlterarIsEnabled;
-        public bool BtAlterarIsEnabled
-        {
-            get { return _BtAlterarIsEnabled; }
-            set { _BtAlterarIsEnabled = value; OnPropertyChanged("BtAlterarIsEnabled"); }
+            get { return _BtEnabled; }
+            set { _BtEnabled = value; OnPropertyChanged("BtEnabled"); }
         }
 
         private List<Cliente> _ListaDeClientes;
@@ -58,8 +51,7 @@ namespace Consultorio.ViewModel.Clientes
 
         public void DgListaDeClientes_SelectionChanged()
         {
-            BtAlterarIsEnabled = true;
-            BtHistoricoIsEnabled = true;
+            BtEnabled = true;
         }
 
         public void BtCancelar_Click()
@@ -78,19 +70,10 @@ namespace Consultorio.ViewModel.Clientes
             return atorLogado.CrudClientes;
         }
 
-        /*public void AlteracaoDeCliente(int index, CadastroDeClienteBaseViewModel cadastroDeClienteBaseViewModel)
-        {
-            Cliente cliente = ListaDeClientes[index];
-
-            cadastroDeClienteBaseViewModel.Cliente = cliente;
-        }*/
-
         public void ListarTodosOsClientes()
         {
             ListaDeClientes = ListaDeClienteData.TodosClientes();
-            BtCancelarIsEnabled = false;
-            BtHistoricoIsEnabled = false;
-            BtAlterarIsEnabled = false;
+            BtEnabled = false;
         }
 
         public Cliente ClienteSelecionadoNaLista(int index)

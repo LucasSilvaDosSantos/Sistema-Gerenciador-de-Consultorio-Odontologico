@@ -42,6 +42,6 @@ namespace Consultorio.Data.Clientes
             {
                 return consultas;
             }
-        }
+        }        
     }
 }
