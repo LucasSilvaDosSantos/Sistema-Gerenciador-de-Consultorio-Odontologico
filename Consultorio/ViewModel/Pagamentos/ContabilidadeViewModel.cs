@@ -65,8 +65,14 @@ namespace Consultorio.ViewModel.Pagamentos
             get { return _SomaBalanco; }
             set { _SomaBalanco = value; OnPropertyChanged("SomaBalanco"); }
         }
-        
 
+        private double _LucroEmPorcentagem;
+        public double LucroEmPorcentagem
+        {
+            get { return _LucroEmPorcentagem; }
+            set { _LucroEmPorcentagem = value; OnPropertyChanged("LucroEmPorcentagem"); }
+        }
+        
         //Fim************************************************************Atributos De soma****************************************
 
         //*****************************************Atributos De Listas para data grid********************************************
@@ -221,6 +227,7 @@ namespace Consultorio.ViewModel.Pagamentos
 
             SomaGastos = SomaContasPagas + SomaDeProdutos;
             SomaBalanco = SomaPagamentos - SomaGastos;
+            LucroEmPorcentagem = (SomaPagamentos / 100) * SomaGastos;
         }
 
         //***************************************************Carregamento dos data grid********************************************

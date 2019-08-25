@@ -105,8 +105,8 @@
             <TextBlock x:Name="lbSomaPagamentos" Padding="0,6" Text="{Binding SomaPagamentos, StringFormat=' {0:C2}'}" Margin="636,509,0,154" HorizontalAlignment="Left" />
 
             <Label x:Name="label4" Content="Balanço:" HorizontalAlignment="Left" Margin="186,0,0,92" VerticalAlignment="Bottom"/>
-            <TextBlock x:Name="lbBalanco" Padding="0,6" Text="{Binding SomaBalanco, StringFormat=c}" HorizontalAlignment="Left" Margin="255,0,0,92" VerticalAlignment="Bottom" Height="31"/>
-
+            <TextBlock x:Name="lbBalanco" Padding="0,6" Text="{Binding SomaBalanco, StringFormat=R$ {0:f}}" HorizontalAlignment="Left" Margin="255,0,0,92" VerticalAlignment="Bottom" Height="31"/>
+            
             <Label x:Name="label3" Content="Total das contas pagas no período:" HorizontalAlignment="Right" Margin="0,0,199,185" VerticalAlignment="Bottom"/>
             <TextBlock x:Name="lbSomaContas" Text="{Binding SomaContasPagas, StringFormat=c, Mode=TwoWay}" Padding="0,6" HorizontalAlignment="Left" Margin="1132,0,0,185" VerticalAlignment="Bottom" Height="31"/>
 
@@ -117,6 +117,7 @@
             <TextBlock x:Name="lbSomaGastos" Padding="0,6" Text="{Binding SomaGastos, StringFormat=c}" HorizontalAlignment="Left" Margin="1132,0,0,123" VerticalAlignment="Bottom" Height="26" />
 
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,47,24" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click"/>
+            
 
 
         </Grid>
