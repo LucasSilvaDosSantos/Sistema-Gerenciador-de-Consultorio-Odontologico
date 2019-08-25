@@ -10,9 +10,9 @@
         Title="Produto" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
     <Viewbox>
         <Grid  Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="56,32,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276"/>
 
-            <Label x:Name="lbProduto" Content="{Binding NomeTela}" Margin="78,39,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="240"/>
+
+            <Label x:Name="lbProduto" Foreground="#FF7FBEE2" Content="{Binding NomeTela}" Margin="78,39,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="240"/>
             <Rectangle Fill="#FF7FBEE2" Margin="291,239,280,228" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
 
             <Label x:Name="label" IsEnabled="{Binding IdIsEnabled}" Width="28" Margin="603,276,0,0" HorizontalAlignment="Left" Content="ID" VerticalAlignment="Top"/>

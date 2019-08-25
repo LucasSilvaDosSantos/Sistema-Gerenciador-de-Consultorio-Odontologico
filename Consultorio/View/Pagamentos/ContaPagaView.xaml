@@ -8,8 +8,8 @@
         Title="Conta Paga" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="47,34,0,0"  RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="215"/>
-            <Label x:Name="lbContaPaga" Content="&gt;Conta Paga" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="203"/>
+            
+            <Label x:Name="lbContaPaga" Foreground="#FF7FBEE2" Content="&gt;Conta Paga" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="203"/>
 
             <Button x:Name="btSalvar" Command="" Content="Salvar" Margin="0,0,142,24" VerticalAlignment="Bottom" Height="35" HorizontalAlignment="Right" Width="90" Click="BtSalvar_Click"/>
             <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,47,24" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtCancelar_Click"/>

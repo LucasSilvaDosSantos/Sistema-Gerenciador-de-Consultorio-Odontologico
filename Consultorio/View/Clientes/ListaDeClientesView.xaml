@@ -8,9 +8,9 @@
         Title="Lista de clientes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="302"/>
+            
 
-            <Label x:Name="lbProcedimento" Content="&gt; Lista de Clientes" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="261"/>
+            <Label x:Name="lbProcedimento" Foreground="#FF7FBEE2" Content="&gt; Lista de Clientes" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="261"/>
             <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
             <Rectangle Fill="White" Margin="330,0,317,85" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="69" VerticalAlignment="Bottom"/>
 

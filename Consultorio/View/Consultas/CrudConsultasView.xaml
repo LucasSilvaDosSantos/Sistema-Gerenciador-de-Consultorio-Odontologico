@@ -11,8 +11,8 @@
     <Viewbox>
         <Grid Height="694" Width="1280">
             <Rectangle Fill="#FF7FBEE2" Margin="206,128,198,124" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-            <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="330"/>
-            <Label x:Name="lbDentista" Content="{Binding NomeTela}" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="286"/>
+
+            <Label x:Name="lbDentista" Foreground="#FF7FBEE2" Content="{Binding NomeTela}" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="286"/>
             <Calendar x:Name="cCalendario" Margin="237,150,0,154" HorizontalAlignment="Left" SelectedDatesChanged="Calendar_SelectedDatesChanged" SelectedDate="{Binding DataSelecionada}"/>
 
             <TextBox x:Name="tbCliente" Padding="0, -1, 0, 0" Height="31" Margin="634,245,260,0" TextWrapping="Wrap" Text="{Binding Consulta.Cliente.Nome}" IsReadOnly="True" VerticalAlignment="Top" GotFocus="TbCliente_GotFocus" MouseDoubleClick="TbCliente_MouseDoubleClick"/>

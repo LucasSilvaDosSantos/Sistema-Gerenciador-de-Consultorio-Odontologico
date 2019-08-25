@@ -9,8 +9,8 @@
         Title="Procedimentos" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="286"/>
-            <Label x:Name="lbProcedimento" Content="&gt; Procedimento" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="232"/>
+            
+            <Label x:Name="lbProcedimento" Foreground="#FF7FBEE2" Content="&gt; Procedimento" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="232"/>
             <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="38.5" RadiusX="38.5"/>
 
             <DataGrid x:Name="dgListaProcedimentos" ItemsSource="{Binding ListaDeProcedimentos}" SelectedItem="{Binding ProcedimentoSelecionado}" AutoGenerateColumns="False" Margin="59,150,516,128" IsReadOnly="True" SelectionMode="Single" FontSize="16">

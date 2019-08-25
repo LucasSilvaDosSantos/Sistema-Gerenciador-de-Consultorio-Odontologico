@@ -9,10 +9,9 @@
 
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="28,50,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="324"/>
 
             <Rectangle Fill="#FF7FBEE2" Margin="28,127,23,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-            <Label x:Name="lbProcedimento" Content="{Binding TituloTela}" Margin="46,59,940,590" FontSize="30"/>
+            <Label x:Name="lbProcedimento" Foreground="#FF7FBEE2" Content="{Binding TituloTela}" Margin="46,59,940,590" FontSize="30"/>
             <Button x:Name="btSalvar" Content="Salvar" Margin="593,0,589,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click" />
             <Button x:Name="btVoltar" Content="Voltar" Margin="1150,629,40,30" Height="Auto" Click="BtVoltar_Click" />
             <Label x:Name="label" VerticalAlignment="Top" Margin="255,137,0,0" HorizontalAlignment="Left" FontSize="17" FontWeight="Bold" Content="Dados Pessoais"/>

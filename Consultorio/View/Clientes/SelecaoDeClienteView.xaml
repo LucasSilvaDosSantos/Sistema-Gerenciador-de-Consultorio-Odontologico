@@ -8,8 +8,8 @@
         Title="Lista de clientes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="35,17,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="334"/>
-            <Label x:Name="lblista" Content="&gt; Selecione o cliente" Margin="59,23,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="302"/>
+            
+            <Label x:Name="lblista" Foreground="#FF7FBEE2" Content="&gt; Selecione o cliente" Margin="59,23,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="302"/>
             <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,257,19" VerticalAlignment="Bottom" Width="110" Height="35" FontSize="16" Click="BtCancelar_Click"/>
             <Button x:Name="btSelecionar" Content="Selecionar" Margin="576,0,567,19" VerticalAlignment="Bottom" Height="35" FontSize="16" Click="BtSelecionar_Click"/>
             <Rectangle Fill="#FF7FBEE2" Margin="35,95,35,73" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>

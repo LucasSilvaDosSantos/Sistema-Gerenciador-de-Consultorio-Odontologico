@@ -9,9 +9,9 @@
         Title="Produto" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="56,32,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="206"/>
+            
 
-            <Label x:Name="lbProduto" Content="&gt; Produto" Margin="78,39,1056,605" FontSize="30" />
+            <Label x:Name="lbProduto" Foreground="#FF7FBEE2" Content="&gt; Produto" Margin="78,39,1056,605" FontSize="30" />
             <Rectangle Fill="#FF7FBEE2" Margin="56,128,50,78" RadiusY="50.0" RadiusX="50.0" Stroke="Black"/>
 
             <DataGrid x:Name="dgProdutos" Margin="78,172,70,161" ItemsSource="{Binding TodosOsProdutos}" AutoGenerateColumns="False" IsReadOnly="True" FontSize="16" SelectionMode="Single" SelectionChanged="DgProdutos_SelectionChanged" >

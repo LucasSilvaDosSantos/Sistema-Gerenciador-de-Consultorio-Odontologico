@@ -7,11 +7,11 @@
         Title="Procedimento" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="35,34,0,0" Stroke="Black" RadiusY="17.167" RadiusX="17.167" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="346"/>
+            
             <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
             <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
 
-            <Label x:Name="lbProcedimento" Content="{Binding NomeDaTela}" Margin="42,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="378"/>
+            <Label x:Name="lbProcedimento" Foreground="#FF7FBEE2" Content="{Binding NomeDaTela}" Margin="42,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="378"/>
 
             <Label x:Name="lbId" Content="ID:" HorizontalAlignment="Left" Margin="57,139,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tbID" HorizontalAlignment="Left" Height="31" Margin="86,139,0,0" TextWrapping="Wrap" Text="{Binding Procedimento.Id}" VerticalAlignment="Top" Width="53" IsReadOnly="True"/>
