@@ -5,15 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Consultorio.View.Clientes.ClientePage"
       mc:Ignorable="d" 
-      d:DesignHeight="525" d:DesignWidth="1280" Background="#FFCACAE6" FontSize="16"
+      d:DesignHeight="525" d:DesignWidth="1280" Background="WhiteSmoke" FontSize="16"
       Title="Anamnese">
 
 
     <Grid Height="525" Width="1280">
         <Grid>
-
-
-
             <Label x:Name="label1" Content="Sim" Margin="10,10,1234,484" />
             <Label x:Name="label1_Copy" Content="Não" Margin="46,10,1195,484"/>
             <Label x:Name="label1_Copy1" Content="Sim" Margin="648,10,592,484" />

@@ -104,6 +104,8 @@
     </ApplicationDefinition>
     <Compile Include="Data\Clientes\CrudClienteData.cs" />
     <Compile Include="Data\Clientes\OrcamentoData.cs" />
+    <Compile Include="Data\Pagamentos\ContaPagaData.cs" />
+    <Compile Include="Data\Pagamentos\ContabilidadeData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
     <Compile Include="Migrations\201908200108436_a.cs" />
@@ -114,10 +116,24 @@
     <Compile Include="Migrations\201908201938071_b.Designer.cs">
       <DependentUpon>201908201938071_b.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908211827361_c.cs" />
+    <Compile Include="Migrations\201908211827361_c.Designer.cs">
+      <DependentUpon>201908211827361_c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908211834052_d.cs" />
+    <Compile Include="Migrations\201908211834052_d.Designer.cs">
+      <DependentUpon>201908211834052_d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908251314328_d1.cs" />
+    <Compile Include="Migrations\201908251314328_d1.Designer.cs">
+      <DependentUpon>201908251314328_d1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Ator.cs" />
     <Compile Include="Model\Cliente.cs" />
+    <Compile Include="Model\ProdutoCompra.cs" />
     <Compile Include="Model\Consulta.cs" />
+    <Compile Include="Model\ContaPaga.cs" />
     <Compile Include="Model\Odontograma.cs" />
     <Compile Include="Model\Orcamento.cs" />
     <Compile Include="Model\OrcamentosParaProcedimentos.cs" />
@@ -127,6 +143,8 @@
     <Compile Include="ViewModel\Atores\ListaDeAtoresViewModel.cs" />
     <Compile Include="ViewModel\Clientes\CrudClienteViewModel.cs" />
     <Compile Include="ViewModel\Clientes\OrcamentoViewModel.cs" />
+    <Compile Include="ViewModel\Pagamentos\ContaPagaViewModel.cs" />
+    <Compile Include="ViewModel\Pagamentos\ContabilidadeViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
     </Compile>
@@ -151,6 +169,12 @@
       <DependentUpon>OrcamentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ConfiguracoesDeView.cs" />
+    <Compile Include="View\Pagamentos\ContaPagaView.xaml.cs">
+      <DependentUpon>ContaPagaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pagamentos\ContabilidadeView.xaml.cs">
+      <DependentUpon>ContabilidadeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Procedimentos\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
     </Compile>
@@ -248,6 +272,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pagamentos\ContaPagaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pagamentos\ContabilidadeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Procedimentos\ProcedimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -313,6 +345,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908201938071_b.resx">
       <DependentUpon>201908201938071_b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211827361_c.resx">
+      <DependentUpon>201908211827361_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211834052_d.resx">
+      <DependentUpon>201908211834052_d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908251314328_d1.resx">
+      <DependentUpon>201908251314328_d1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

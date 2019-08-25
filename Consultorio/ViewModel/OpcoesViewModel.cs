@@ -71,7 +71,6 @@ namespace Consultorio.ViewModel
             AtorLogado = SingletonAtorLogado.Instancia.Ator;
 
             MensagemDeBoasVindas();
-            AutorizacaoDeAcesso();
         }
 
         private void MensagemDeBoasVindas()
@@ -79,62 +78,7 @@ namespace Consultorio.ViewModel
             var list = AtorLogado.Nome.Split(' ');
             Saudacao = "Bem Vindo " + list[0] + "!";
         }
-
-        private void AutorizacaoDeAcesso()
-        {
-
-            /*
-            int tipoDoAtor = TipoDoAtor();
-            if (tipoDoAtor == 1)
-            {
-                CrudClientes = true;
-                CrudProdutos = true;
-                Consultas = true;
-                ClientesLista = true;
-                NovoPagamento = true;
-                Procedimentos = true;
-                CadastroDeColaboradores = true;
-            }
-            else if (tipoDoAtor == 2)
-            {
-                /*Secretaria secretaria = (Secretaria)AtorLogado.Ator;
-                CrudClientes = secretaria.CrudClientes;
-                CrudProdutos = secretaria.CrudProdutos;
-                Consultas = true;
-                ClientesLista = true;
-                NovoPagamento = true;
-                Procedimentos = false;
-                CadastroDeColaboradores = true;*/
-            /*}
-            else if (tipoDoAtor == 3)
-            {
-                CrudClientes = false;
-                CrudProdutos = true;
-                Consultas = false;
-                ClientesLista = false;
-                NovoPagamento = false;
-                Procedimentos = false;
-                CadastroDeColaboradores = false;
-            }*/
-        }
-
-        /*private int TipoDoAtor()
-        {
-            if (AtorLogado.Ator.GetType().ToString() == "Consultorio.Model.Dentista")
-            {
-                return 1;
-            }
-            else if (AtorLogado.Ator.GetType().ToString() == "Consultorio.Model.Secretaria")
-            {
-                return 2;
-            }
-            else if (AtorLogado.Ator.GetType().ToString() == "Consultorio.Model.GestorDeEstoque")
-            {
-                return 3;
-            }
-            return 0;
-        }*/
-
+        
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------

@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace Consultorio.Model
 {
@@ -19,11 +14,10 @@ namespace Consultorio.Model
         public int? Id { get; set; }
         [Required]
         public string Nome { get; set; }
-        [Required]
         public int? Quantidade { get; set; }
         public string Descricao { get; set; }
 
-        public DateTime? Validade { get; set; }
+        public int MinimoDeEstoque { get; set; }
 
         public virtual ICollection<Procedimento> Procedimentos { get; set; }
         /*

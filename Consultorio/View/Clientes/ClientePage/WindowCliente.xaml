@@ -9,13 +9,16 @@
     <Viewbox>
         <Grid Height="720" Width="1324" Margin="0">
             <Frame x:Name="frameCliente" Content="" Margin="0,125,0,70" NavigationUIVisibility="Hidden" />
-            <Button x:Name="btGeral" Content="Geral" Margin="-2,93,1252,595" Height="Auto" Click="BtGeral_Click"/>
-            <Button x:Name="btAnamnese" Content="Anamnese" Margin="72,93,1149,595" Height="Auto" Click="BtAnamnese_Click"/>
-            <Button x:Name="btOdontograma" Content="Odontograma" Margin="175,93,1015,595" Click="BtOrtodongrama_Click"/>
+            <Button x:Name="btGeral" Content="Geral" Margin="36,93,1214,595" Height="Auto" Click="BtGeral_Click"/>
+            <Button x:Name="btAnamnese" Content="Anamnese" Margin="110,93,1111,595" Height="Auto" Click="BtAnamnese_Click"/>
+            <Button x:Name="btOdontograma" Content="Odontograma" Margin="213,93,977,595" Click="BtOrtodongrama_Click"/>
             <Button x:Name="btSalvar" Content="Salvar" Margin="0,0,145,30" VerticalAlignment="Bottom" Height="35" HorizontalAlignment="Right" Width="90" Click="BtSalvar_Click"/>
-            <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
-            <Label x:Name="label" Content="Cliente:" Margin="0,0,927,639" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            <Label x:Name="label1" Content="{Binding Cliente.Nome, Mode=OneWay}" Margin="402,31,346,639" FontSize="30"/>
+            <Button x:Name="btVoltar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
+            
+            <StackPanel Height="50" VerticalAlignment="Top" Margin="10,31,10,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="label" Content="Cliente:" Margin="0,0,0,0" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" d:LayoutOverrides="TopPosition, BottomPosition"/>
+                <Label x:Name="label1" Content="{Binding Cliente.Nome, Mode=OneWay}" Margin="0,0,0,0" FontSize="30" Height="50" d:LayoutOverrides="VerticalAlignment" Width="617"/>
+            </StackPanel>
 
         </Grid>
     </Viewbox>

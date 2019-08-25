@@ -6,43 +6,43 @@
       xmlns:local="clr-namespace:Consultorio.View.Clientes.ClientePage"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Consultorio.View.Clientes.ClientePage.GeralPage"
       mc:Ignorable="d" 
-      d:DesignHeight="525" d:DesignWidth="1280" Background="#FFCACAE6" FontSize="16"
+      d:DesignHeight="525" d:DesignWidth="1280" Background="WhiteSmoke" FontSize="16"
       Title="Geral" Loaded="Page_Loaded">
     <Viewbox>
         <Grid Height="525" Width="1280">
             <Grid>
-                <Label x:Name="label1" Content="Nome*:" Margin="0,0,1117,385" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label2" Content="Data de Nascimento*:" Margin="0,0,1017,349" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label3" Content="CPF*:" Margin="0,0,1134,313" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label4" Content="RG:" Margin="0,0,859,313" RenderTransformOrigin="-5.36,-0.192" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label5" Content="E-mail:" Margin="0,0,1123,277" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label8" Content="Endereço:" Margin="0,0,1102,205" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label9" Content="Bairro:" Margin="0,0,1126,169" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label10" Content="UF:" Margin="0,0,682,168" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label11" Content="Cidade:" Margin="0,0,1118,133" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label12" Content="CEP:" Margin="0,0,744,133" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <TextBox x:Name="tbId" Text="{Binding Cliente.Id}" Margin="0,0,1105,421" TextWrapping="Wrap" IsReadOnly="True" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="47"/>
-                <TextBox x:Name="tbNome" Text="{Binding  Path=Cliente.Nome, Mode=TwoWay}" Margin="0,0,646,385" Padding="0, -1, 0, 0" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="471"/>
-                <DatePicker x:Name="dataPiquerNascimento" SelectedDate="{Binding Cliente.Nascimento, StringFormat=d}" Margin="0,0,907,349" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="110" Height="31"/>
+                <Label x:Name="label1" Content="Nome*:" Margin="0,0,1206,385" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label2" Content="Data de Nascimento*:" Margin="0,0,1106,349" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label3" Content="CPF*:" Margin="0,0,1223,313" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label4" Content="RG:" Margin="0,0,1058,313" RenderTransformOrigin="-5.36,-0.192" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label5" Content="E-mail:" Margin="0,0,1212,277" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label8" Content="Endereço:" Margin="0,0,1191,205" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label9" Content="Bairro:" Margin="0,0,1215,169" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label10" Content="UF:" Margin="0,0,696,168" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label11" Content="Cidade:" Margin="0,0,1207,133" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label12" Content="CEP:" Margin="0,0,753,133" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <TextBox x:Name="tbId" Text="{Binding Cliente.Id}" Margin="0,0,1194,421" TextWrapping="Wrap" IsReadOnly="True" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="47"/>
+                <TextBox x:Name="tbNome" Text="{Binding  Path=Cliente.Nome, Mode=TwoWay}" Margin="0,0,660,385" Padding="0, -1, 0, 0" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="546"/>
+                <DatePicker x:Name="dataPiquerNascimento" SelectedDate="{Binding Cliente.Nascimento, StringFormat=d}" Margin="0,0,996,349" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="110" Height="31"/>
 
-                <xctk:MaskedTextBox x:Name="tbCpf" Text="{Binding Cliente.Cpf}" Mask="000\.000\.000-&gt;AA" Margin="0,0,1008,313" TextWrapping="Wrap" Background="#FFCACAE6" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="126" Padding="0,5" />
-                <TextBox x:Name="tbRg" Text="{Binding Cliente.Rg}" Padding="0, -1, 0, 0" Margin="0,0,646,313" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="213"/>
-                <TextBox x:Name="tbEmail" Text="{Binding Cliente.Email}" Padding="0, -1, 0, 0" Margin="0,0,646,277" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="477"/>
-                <xctk:MaskedTextBox x:Name="tbCelular1" Padding="0,5" Text="{Binding Cliente.Telefone1}" Mask="(00)00000-0000" Margin="0,0,979,241" TextWrapping="Wrap" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120"/>
-                <xctk:MaskedTextBox x:Name="tbCelular2" Padding="0,5" Text="{Binding Cliente.Telefone2}" Mask="(00)00000-0000" Margin="0,0,646,241" TextWrapping="Wrap" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" RenderTransformOrigin="0.493,0.517" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="122"/>
+                <xctk:MaskedTextBox x:Name="tbCpf" Text="{Binding Cliente.Cpf}" Mask="000\.000\.000-&gt;AA" Margin="0,0,1097,313" TextWrapping="Wrap" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="126" Padding="0,5" />
+                <TextBox x:Name="tbRg" Text="{Binding Cliente.Rg}" Padding="0, -1, 0, 0" Margin="0,0,845,313" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="213"/>
+                <TextBox x:Name="tbEmail" Text="{Binding Cliente.Email}" Padding="0, -1, 0, 0" Margin="0,0,660,277" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="552"/>
+                <xctk:MaskedTextBox x:Name="tbCelular1" Padding="0,5" Text="{Binding Cliente.Telefone1}" Mask="(00)00000-0000" Margin="0,0,1068,241" TextWrapping="Wrap" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120"/>
+                <xctk:MaskedTextBox x:Name="tbCelular2" Padding="0,5" Text="{Binding Cliente.Telefone2}" Mask="(00)00000-0000" Margin="0,0,866,242" TextWrapping="Wrap" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" RenderTransformOrigin="0.493,0.517" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="122"/>
 
-                <TextBox x:Name="tbEndereco" Text="{Binding Cliente.Endereco}" Padding="0, -1, 0, 0" Margin="0,0,646,205" TextWrapping="Wrap" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="461"/>
-                <TextBox x:Name="tbBairro" Text="{Binding Cliente.Bairro}" Padding="0, -1, 0, 0" Margin="0,0,719,169" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="407"/>
-                <xctk:MaskedTextBox x:Name="tbUf"  Mask=" &gt;AA" Margin="0,0,646,169" TextWrapping="Wrap" Text="" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="36"/>
-                <TextBox x:Name="tbCidade" Text="{Binding Cliente.Cidade}" Padding="0, -1, 0, 0" Margin="0,0,789,133" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="324"/>
-                <xctk:MaskedTextBox x:Name="tbCep" Padding="0,5" Text="{Binding Cliente.Cep}" Mask="00000-000" Margin="0,0,646,133" TextWrapping="Wrap" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="93"/>
+                <TextBox x:Name="tbEndereco" Text="{Binding Cliente.Endereco}" Padding="0, -1, 0, 0" Margin="0,0,660,205" TextWrapping="Wrap" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="531"/>
+                <TextBox x:Name="tbBairro" Text="{Binding Cliente.Bairro}" Padding="0, -1, 0, 0" Margin="0,0,728,169" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="487"/>
+                <xctk:MaskedTextBox x:Name="tbUf"  Mask=" &gt;AA" Margin="0,0,660,169" TextWrapping="Wrap" Text="" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="36"/>
+                <TextBox x:Name="tbCidade" Text="{Binding Cliente.Cidade}" Padding="0, -1, 0, 0" Margin="0,0,798,133" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="408"/>
+                <xctk:MaskedTextBox x:Name="tbCep" Padding="0,5" Text="{Binding Cliente.Cep}" Mask="00000-000" Margin="0,0,660,133" TextWrapping="Wrap" Background="Transparent" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="93"/>
 
-                <Label x:Name="label13" Content="OBS" Margin="0,0,322,421" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <TextBox x:Name="tbObs" Padding="1, -1, 0, 0" Margin="0,0,85,133" TextWrapping="Wrap" VerticalContentAlignment="Top" Text="" Background="White" Height="283" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="534"/>
-                <Label x:Name="label5_Copy" Content="Celular 1*:" Margin="0,0,1099,241" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label5_Copy1" Content="Celular 2:" Margin="437,253,768,241" />
-                <Label x:Name="lbId" Content="ID:" Margin="0,0,1152,421" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                <Label x:Name="label6" Content="* Campos Obrigatórios" Margin="0,0,1009,97" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label13" Content="OBS" Margin="0,0,300,421" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <TextBox x:Name="tbObs" Padding="1, -1, 0, 0" Margin="0,0,10,133" TextWrapping="Wrap" VerticalContentAlignment="Top" Text="" Background="White" Height="283" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="609"/>
+                <Label x:Name="label5_Copy" Content="Celular 1*:" Margin="0,0,1188,241" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label x:Name="label5_Copy1" Content="Celular 2:" Margin="217,253,988,241" />
+                <Label x:Name="lbId" Content="ID:" Margin="10,0,1241,421" VerticalAlignment="Bottom" d:LayoutOverrides="Width"/>
+                <Label x:Name="label6" Content="* Campos Obrigatórios" Margin="0,0,1098,97" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
             </Grid>
         </Grid>
     </Viewbox>

@@ -82,5 +82,23 @@ namespace Consultorio.View
             pagamento.Show();
             this.Close();
         }
+
+        private void BtContasPagas_Click(object sender, RoutedEventArgs e)
+        {
+            ContaPagaView contaPagaView = new ContaPagaView();
+            ConfiguracoesDeView.ConfigurarWindow(this, contaPagaView);
+            contaPagaView.Show();
+            this.Close();
+        }
+
+        private void BtContabilidade_Click(object sender, RoutedEventArgs e)
+        {
+            ContabilidadeView contabilidadeView = new ContabilidadeView();
+            ConfiguracoesDeView.ConfigurarWindow(this, contabilidadeView);
+            this.Hide();
+            contabilidadeView.ShowDialog();
+            ConfiguracoesDeView.ConfigurarWindow(contabilidadeView, this);
+            this.Visibility = Visibility.Visible;
+        }
     }
 }

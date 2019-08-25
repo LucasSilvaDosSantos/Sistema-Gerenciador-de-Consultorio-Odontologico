@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Consultorio.View.Clientes.ClientePage"
       mc:Ignorable="d" 
-      d:DesignHeight="525" d:DesignWidth="1280" Background="#FFCACAE6" FontSize="16"
+      d:DesignHeight="525" d:DesignWidth="1280" Background="WhiteSmoke" FontSize="16"
       Title="Odontograma" Loaded="Page_Loaded" >
 
     <Viewbox>
@@ -76,9 +76,9 @@
                     
                 </Grid>
                 <Grid>
-                    <Label x:Name="lbLegendaNaoMexido" Background="White" Content="     - Dente Inalterado" Margin="1044,441,73,63" Padding="0,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
-                    <Label x:Name="lbLegendaTratado" Background="White" Content="X - Dente Retirado" Margin="1044,483,73,20" Foreground="Red" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left" />
-                    <Label x:Name="lbLegendaRetirado" Background="White" Content="O - Dente Tratado" Margin="1044,462,73,42" Foreground="Green" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
+                    <Label x:Name="lbLegendaNaoMexido" Content="     - Dente Inalterado" Margin="1044,441,73,63" Padding="0,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
+                    <Label x:Name="lbLegendaTratado" Content="X - Dente Retirado" Margin="1044,483,73,20" Foreground="Red" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left" />
+                    <Label x:Name="lbLegendaRetirado" Content="O - Dente Tratado" Margin="1044,462,73,42" Foreground="Green" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
                 </Grid>
             </Grid>
         </Grid>

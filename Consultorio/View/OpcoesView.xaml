@@ -5,22 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         
-    Title="Opcoes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="Manual">
+    Title="Opcoes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="Manual" >
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Button x:Name="btProdutos" Content="Produtos" IsEnabled="{Binding AtorLogado.CrudProdutos}" HorizontalAlignment="Left" Margin="150,180,0,0" VerticalAlignment="Top" Width="400" Height="90" FontSize="30" Click="BtProdutos_Click"/>
-            <Button x:Name="btConsultas" Content="Consultas" IsEnabled="{Binding AtorLogado.CrudConsultas}" Margin="0,180,150,0" VerticalAlignment="Top" Height="90" FontSize="30" HorizontalAlignment="Right" Width="400" Click="BtConsultas_Click"/>
-            <Button x:Name="btClientes" Content="Clientes" IsEnabled="{Binding AtorLogado.CrudClientes}" Margin="150,319,0,285" FontSize="30" Height="Auto" Click="BtClientes_Click" HorizontalAlignment="Left" Width="400" d:LayoutOverrides="VerticalAlignment"/>
+            <Button x:Name="btProdutos" Content="Produtos" IsEnabled="{Binding AtorLogado.CrudProdutos}" HorizontalAlignment="Left" Margin="194,147,0,0" VerticalAlignment="Top" Width="400" Height="90" FontSize="30" Click="BtProdutos_Click"/>
+            <Button x:Name="btConsultas" Content="Consultas" IsEnabled="{Binding AtorLogado.CrudConsultas}" Margin="0,147,186,0" VerticalAlignment="Top" Height="90" FontSize="30" HorizontalAlignment="Right" Width="400" Click="BtConsultas_Click"/>
+            <Button x:Name="btClientes" Content="Clientes" IsEnabled="{Binding AtorLogado.CrudClientes}" Margin="194,265,0,339" FontSize="30" Height="Auto" Click="BtClientes_Click" HorizontalAlignment="Left" Width="400" d:LayoutOverrides="VerticalAlignment"/>
 
-            <Button x:Name="btNovoPagamento" Content="Pagamento"  IsEnabled="{Binding AtorLogado.ReceberDeClientes}" HorizontalAlignment="Right" Margin="0,319,150,285" Width="400" Height="Auto" FontSize="30" Click="BtNovoPagamento_Click"/>
+            <Button x:Name="btNovoPagamento" Content="Pagamento"  IsEnabled="{Binding AtorLogado.ReceberDeClientes}" HorizontalAlignment="Right" Margin="0,265,186,339" Width="400" Height="Auto" FontSize="30" Click="BtNovoPagamento_Click"/>
             <Label x:Name="label" Content="Consultório Odontológico" Margin="342,44,334,0" VerticalAlignment="Top" Height="98" FontSize="50"/>
 
-            <Border BorderBrush="Black" BorderThickness="1" Height="2" Margin="100,0,100,219" VerticalAlignment="Bottom"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="100,380,100,0" Height="1" VerticalAlignment="Top"/>
 
-            <Button x:Name="btProcedimento" Content="Procedimentos" IsEnabled="{Binding AtorLogado.Clinicar}" HorizontalAlignment="Left" Margin="100,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" d:LayoutOverrides="HorizontalAlignment" Click="BtCadastroDeProduto_Click"/>
-            <Button x:Name="btCadastroDeClientes" IsEnabled="{Binding AtorLogado.CrudClientes}" Content="Cadastro de Clientes" HorizontalAlignment="Left" Margin="468,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeClientes_Click"/>
-            <Button x:Name="btCadastroDeColaboradores" Content="Colaboradores" IsEnabled="{Binding AtorLogado.CrudAtores}" HorizontalAlignment="Left" Margin="837,0,0,91" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeColaboradores_Click"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="101,557,99,0" Height="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+
+            <Button x:Name="btProcedimento" Content="Procedimentos" IsEnabled="{Binding AtorLogado.Clinicar}" HorizontalAlignment="Left" Margin="100,0,0,191" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" d:LayoutOverrides="HorizontalAlignment" Click="BtCadastroDeProduto_Click"/>
+            <Button x:Name="btCadastroDeClientes" IsEnabled="{Binding AtorLogado.CrudClientes}" Content="Cadastro de Clientes" HorizontalAlignment="Left" Margin="468,0,0,191" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeClientes_Click"/>
+            <Button x:Name="btCadastroDeColaboradores" Content="Colaboradores" IsEnabled="{Binding AtorLogado.CrudAtores}" HorizontalAlignment="Left" Margin="837,0,0,191" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeColaboradores_Click"/>
             <Label x:Name="label1" Content="{Binding Saudacao}" HorizontalAlignment="Left" IsEnabled="{Binding AtorLogado.CrudAtores}" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="26" FontStyle="Italic" Foreground="#DD302E2E" ForceCursor="True" />
+            <Label x:Name="label2" Content="Outras Opções" Margin="100,0,0,136" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="117"/>
+            <Button x:Name="btContasPagas" Content="Cadastrar Conta Paga" IsEnabled="{Binding AtorLogado.CadastroDeContasPagas}" Margin="100,0,0,57" VerticalAlignment="Bottom" FontSize="20" Height="62" HorizontalAlignment="Left" Width="249" Click="BtContasPagas_Click" />
+            <Button x:Name="btContabilidade" Content="Contabilidade" HorizontalAlignment="Left" Margin="367,0,0,57" VerticalAlignment="Bottom" FontSize="20" Width="249" Height="62" Click="BtContabilidade_Click"/>
         </Grid>
     </Viewbox>
 </Window>

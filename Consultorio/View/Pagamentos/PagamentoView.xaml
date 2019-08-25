@@ -35,7 +35,7 @@
             <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,333,353,331" ItemsSource="{Binding ListaFormaDePagamento}" SelectedItem="{Binding FormaDePagamento}" VerticalAlignment="Stretch" Width="206"/>
 
             <Label x:Name="label5" Content="Obs:" Margin="617,0,608,292" VerticalAlignment="Bottom" d:LayoutOverrides="Width"/>
-            <TextBox x:Name="textBox2" Height="84" Margin="356,0,353,213" Background="White" Padding="1, -1, 0, 0" TextWrapping="Wrap" Text="{Binding Obs}" VerticalAlignment="Bottom" BorderThickness="1, 1, 1, 1"/>
+            <TextBox x:Name="textBox2" Height="84" Margin="356,0,353,213" Background="White" Padding="1, -1, 0, 0" TextWrapping="Wrap" Text="{Binding Obs}" VerticalContentAlignment="Top" VerticalAlignment="Bottom" BorderThickness="1, 1, 1, 1"/>
 
             <Button x:Name="btSalvar" Command="" Content="Salvar" Margin="0,0,145,30" VerticalAlignment="Bottom" Height="35" Grid.Row="1" HorizontalAlignment="Right" Width="90" Click="BtSalvar_Click"/>
             <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Grid.Row="1" Click="BtCancelar_Click"/>
