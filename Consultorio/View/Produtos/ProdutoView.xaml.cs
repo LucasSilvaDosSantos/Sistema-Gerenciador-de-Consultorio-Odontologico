@@ -30,11 +30,6 @@ namespace Consultorio.View.Produtos
             this.Close();
         }
 
-        private void DgProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ProdutosViewModel.DataGridSelect(dgProdutos.SelectedIndex);
-        }
-
         private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
         {
             tbId.Text = null;
@@ -60,20 +55,45 @@ namespace Consultorio.View.Produtos
 
         private void BtEditar_Click(object sender, RoutedEventArgs e)
         {
-            int idProduto = ProdutosViewModel.EditarProduto();
+            int idProduto = ProdutosViewModel.RetornaIdProdutoSelecionado();
             if (idProduto <= 0)
             {
                 MessageBox.Show("Selecione um produto", "Aviso!");
                 return;
             }
-            this.Hide();
-            CrudProdutoView crudProdutoView = new CrudProdutoView(idProduto);
-            ConfiguracoesDeView.ConfigurarWindow(this, crudProdutoView);
-            crudProdutoView.ShowDialog();
-            ConfiguracoesDeView.ConfigurarWindow(crudProdutoView, this);
-            this.Visibility = Visibility.Visible;
-            ProdutosViewModel.RecarregarGrid();
-            ProdutosViewModel.ResetarTela();
+            else
+            {
+                this.Hide();
+                CrudProdutoView crudProdutoView = new CrudProdutoView(idProduto);
+                ConfiguracoesDeView.ConfigurarWindow(this, crudProdutoView);
+                crudProdutoView.ShowDialog();
+                ConfiguracoesDeView.ConfigurarWindow(crudProdutoView, this);
+                this.Visibility = Visibility.Visible;
+                ProdutosViewModel.RecarregarGrid();
+                ProdutosViewModel.ResetarTela();
+            }            
+        }
+
+        private void BtCompra_Click(object sender, RoutedEventArgs e)
+        {
+            int idProduto = ProdutosViewModel.RetornaIdProdutoSelecionado();
+            if (idProduto <= 0)
+            {
+                MessageBox.Show("Selecione um produto", "Aviso!");
+                return;
+            }
+            else
+            {
+                this.Hide();
+
+                EntradaDeProdutoView entradaDeProdutoView = new EntradaDeProdutoView(idProduto);
+                ConfiguracoesDeView.ConfigurarWindow(this, entradaDeProdutoView);
+                entradaDeProdutoView.ShowDialog();
+                ConfiguracoesDeView.ConfigurarWindow(entradaDeProdutoView, this);
+                this.Visibility = Visibility.Visible;
+                ProdutosViewModel.RecarregarGrid();
+                ProdutosViewModel.ResetarTela();
+            }
         }
     }
 }

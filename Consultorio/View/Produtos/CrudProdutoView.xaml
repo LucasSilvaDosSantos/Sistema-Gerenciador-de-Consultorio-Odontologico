@@ -15,22 +15,16 @@
             <Label x:Name="lbProduto" Foreground="#FF7FBEE2" Content="{Binding NomeTela}" Margin="78,39,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="240"/>
             <Rectangle Fill="#FF7FBEE2" Margin="291,239,280,228" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
 
-            <Label x:Name="label" IsEnabled="{Binding IdIsEnabled}" Width="28" Margin="603,276,0,0" HorizontalAlignment="Left" Content="ID" VerticalAlignment="Top"/>
-            <TextBox x:Name="tbId" Text="{Binding Produto.Id}" IsEnabled="{Binding IdIsEnabled}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="0,276,596,0" IsReadOnly="True" HorizontalAlignment="Right" Width="40" Height="31" VerticalAlignment="Top"/>
-            <Label x:Name="label1" Width="57" VerticalAlignment="Top" Margin="305,307,0,0" HorizontalAlignment="Left" Content="Nome:"/>
-            <TextBox x:Name="tbNome" VerticalAlignment="Top" Text="{Binding Produto.Nome}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="396,307,305,0" Height="31"/>
-            <TextBox x:Name="tbDescricao" Text="{Binding Produto.Descricao}" Padding="0, -3, 0, 0" Margin="395,343,306,314" TextWrapping="Wrap" />
-
-            <Label x:Name="label2" Width="96" VerticalAlignment="Bottom" RenderTransformOrigin="0.25,0.577" Margin="444,0,0,277" HorizontalAlignment="Left" Content="Quantidade"/>
-            <TextBox x:Name="tbQuantidade" Width="60" VerticalAlignment="Bottom" Text="{Binding Produto.Quantidade}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="547,0,0,282" Height="31" HorizontalAlignment="Left"/>
-            <Label x:Name="label3" VerticalAlignment="Bottom" Margin="609,0,582,283" Content="Validade"/>
-            <DatePicker Margin="0,0,477,282" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="105" SelectedDate="{Binding Produto.Validade}"/>
-
-
-            <CheckBox x:Name="checkBoxValidade" Content="Não Aplicável" HorizontalAlignment="Left" Margin="808,0,0,283" VerticalAlignment="Bottom" Width="126" RenderTransformOrigin="0.5,0.5"/>
-            <Label x:Name="label4" Content="Descrição:" Padding="0, -3, 0, 0" Margin="309,343,0,314" HorizontalAlignment="Left" Width="86"/>
+            <Label x:Name="label" IsEnabled="{Binding IdIsEnabled}" Margin="617,276,635,0" Content="ID:" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbId" Text="{Binding Produto.Id}" IsEnabled="{Binding IdIsEnabled}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="0,276,595,0" IsReadOnly="True" Height="31" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40"/>
+            <Label x:Name="label1" Width="57" VerticalAlignment="Top" Margin="311,312,0,0" HorizontalAlignment="Left" Content="Nome:" Height="31"/>
+            <TextBox x:Name="tbNome" VerticalAlignment="Top" Text="{Binding Produto.Nome}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="396,312,305,0" Height="31"/>
+            <TextBox x:Name="tbDescricao" Text="{Binding Produto.Descricao}" Padding="0, -3, 0, 0" Margin="396,0,306,315" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" />
+            <Label x:Name="label4" Content="Descrição:"  Margin="311,0,0,315" HorizontalAlignment="Left" Width="82" Height="31" VerticalAlignment="Bottom"/>
             <Button x:Name="btSalvar" Content="Salvar" Margin="600,0,587,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click" />
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,32,30" VerticalAlignment="Bottom" Width="85" Height="35" Click="BtVoltar_Click" />
+            <TextBox x:Name="textBox" Height="31" Margin="0,0,389,279" TextWrapping="Wrap" Text="{Binding Produto.MinimoDeEstoque}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120"/>
+            <Label x:Name="label2" Content="Quantidade Minima de Estoque(Para ser notificado):" HorizontalAlignment="Left" Margin="394,0,0,279" VerticalAlignment="Bottom"/>
 
         </Grid>
     </Viewbox>

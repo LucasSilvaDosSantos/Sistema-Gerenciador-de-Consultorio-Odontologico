@@ -145,6 +145,7 @@
     <Compile Include="ViewModel\Clientes\OrcamentoViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContaPagaViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContabilidadeViewModel.cs" />
+    <Compile Include="ViewModel\Produtos\EntradaDeProdutoViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
     </Compile>
@@ -227,6 +228,9 @@
     </Compile>
     <Compile Include="View\Produtos\CrudProdutoView.xaml.cs">
       <DependentUpon>CrudProdutoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produtos\EntradaDeProdutoView.xaml.cs">
+      <DependentUpon>EntradaDeProdutoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Produtos\ProdutoView.xaml.cs">
       <DependentUpon>ProdutoView.xaml</DependentUpon>
@@ -319,6 +323,10 @@
     <Page Include="View\Produtos\CrudProdutoView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Produtos\EntradaDeProdutoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Produtos\ProdutoView.xaml">
       <SubType>Designer</SubType>

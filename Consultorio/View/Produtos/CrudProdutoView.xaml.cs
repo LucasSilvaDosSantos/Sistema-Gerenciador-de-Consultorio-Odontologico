@@ -37,10 +37,10 @@ namespace Consultorio.View.Produtos
                 StringBuilder sb = new StringBuilder();
                 foreach(string i in lista)
                 {
-                    sb.Append($"{i}, ");
+                    sb.Append($"{i}\n ");
                 }
                 string msg = sb.ToString();
-                MessageBox.Show(msg, "Campos não podem ficar em branco!");
+                MessageBox.Show(msg, "O campo não pode ficar em branco!");
             }
             else
             {

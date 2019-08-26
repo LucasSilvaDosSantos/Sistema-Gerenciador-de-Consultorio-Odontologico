@@ -139,5 +139,25 @@ namespace Consultorio.Data.Produtos
                 return e.Message;
             }          
         }
+
+        public static string CadastrarCompra(ProdutoCompra produtoCompra)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    produtoCompra.Produto = ctx.Produtos.Find(produtoCompra.Produto.Id);
+                    produtoCompra.QuemRegistrou = ctx.Atores.Find(produtoCompra.QuemRegistrou.Id);
+
+                    ctx.ProdutosCompras.Add(produtoCompra);
+                    ctx.SaveChanges();
+                    return "Compra cadastrada com Sucesso!";
+                }
+            }
+            catch
+            {
+                return "Erro em salvar a compra";
+            }
+        }
     }
 }

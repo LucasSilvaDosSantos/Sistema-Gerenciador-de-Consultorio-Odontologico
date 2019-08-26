@@ -23,16 +23,16 @@ namespace Consultorio.ViewModel.Produtos
             set { _TodosOsProdutos = value; OnPropertyChanged("TodosOsProdutos"); }
         }
 
-        private Produto _Produto;
-        public Produto Produto
+        private Produto _ProdutoSelecionado;
+        public Produto ProdutoSelecionado
         {
-            get { return _Produto; }
-            set { _Produto = value; OnPropertyChanged("Produto"); }
+            get { return _ProdutoSelecionado; }
+            set { _ProdutoSelecionado = value; OnPropertyChanged("ProdutoSelecionado"); }
         }
 
         public ProdutosViewModel()
         {
-            Produto = new Produto();
+            ProdutoSelecionado = new Produto();
             AtorLogado = SingletonAtorLogado.Instancia;
             CarregarTodosOsProdutos();
         }
@@ -41,17 +41,9 @@ namespace Consultorio.ViewModel.Produtos
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void DataGridSelect(int index)
+        public int RetornaIdProdutoSelecionado()
         {
-            if (index >= 0)
-            {
-                SelecionarProduto(index);
-            }
-        }
-
-        public int EditarProduto()
-        {
-            int.TryParse(Produto.Id.ToString(), out int id);
+            int.TryParse(ProdutoSelecionado.Id.ToString(), out int id);
             if (id != 0)
             {
                 return id;
@@ -75,12 +67,7 @@ namespace Consultorio.ViewModel.Produtos
 
         private void LimparCampos()
         {
-            Produto = new Produto();
-        }
-
-        private void SelecionarProduto(int i)
-        {
-            Produto = TodosOsProdutos[i];
+            ProdutoSelecionado = new Produto();
         }
 
         public void BuscarNome(string nome)

@@ -74,10 +74,6 @@ namespace Consultorio.ViewModel.Produtos
             {
                 lista.Add("Nome");
             }
-            if (Produto.Quantidade == 0 || Produto.Quantidade == null)
-            {
-                lista.Add("Quantidade");
-            }
 
             if (lista.Count > 0)
             {
@@ -96,10 +92,7 @@ namespace Consultorio.ViewModel.Produtos
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string NameProperty)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(NameProperty));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(NameProperty));
         }
     }
 }
