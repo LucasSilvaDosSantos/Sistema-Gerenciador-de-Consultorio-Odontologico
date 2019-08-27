@@ -128,9 +128,18 @@
     <Compile Include="Migrations\201908251314328_d1.Designer.cs">
       <DependentUpon>201908251314328_d1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908262307321_c1.cs" />
+    <Compile Include="Migrations\201908262307321_c1.Designer.cs">
+      <DependentUpon>201908262307321_c1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908262308318_logs.cs" />
+    <Compile Include="Migrations\201908262308318_logs.Designer.cs">
+      <DependentUpon>201908262308318_logs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Ator.cs" />
     <Compile Include="Model\Cliente.cs" />
+    <Compile Include="Model\Log.cs" />
     <Compile Include="Model\ProdutoCompra.cs" />
     <Compile Include="Model\Consulta.cs" />
     <Compile Include="Model\ContaPaga.cs" />
@@ -145,6 +154,7 @@
     <Compile Include="ViewModel\Clientes\OrcamentoViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContaPagaViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContabilidadeViewModel.cs" />
+    <Compile Include="ViewModel\Produtos\BaixaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Produtos\EntradaDeProdutoViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
@@ -225,6 +235,9 @@
     </Compile>
     <Compile Include="View\Procedimentos\ListaDeProcedimentoView.xaml.cs">
       <DependentUpon>ListaDeProcedimentoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produtos\BaixaDeProdutoView.xaml.cs">
+      <DependentUpon>BaixaDeProdutoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Produtos\CrudProdutoView.xaml.cs">
       <DependentUpon>CrudProdutoView.xaml</DependentUpon>
@@ -320,6 +333,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Produtos\BaixaDeProdutoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Produtos\CrudProdutoView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -362,6 +379,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908251314328_d1.resx">
       <DependentUpon>201908251314328_d1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908262307321_c1.resx">
+      <DependentUpon>201908262307321_c1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908262308318_logs.resx">
+      <DependentUpon>201908262308318_logs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

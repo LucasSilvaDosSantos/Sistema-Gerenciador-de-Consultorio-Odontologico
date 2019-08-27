@@ -2,6 +2,7 @@
 using Consultorio.Model;
 using Consultorio.ViewModel.Atores;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Consultorio.ViewModel.Produtos
@@ -26,6 +27,28 @@ namespace Consultorio.ViewModel.Produtos
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        public List<string> VerificarCampos(out bool erro)
+        {
+            List<string> lista = new List<string>();
+            if (ProdutoCompra.QuantidaDeComprada <= 0)
+            {
+                lista.Add("Quantidade comprada não pode ser 0 ou negativa");
+            }
+            if(ProdutoCompra.PrecoCompra < 0)
+            {
+                lista.Add("Preço de compra não pode ser negativo");
+            }
+            if (lista.Count > 0)
+            {
+                erro = true;
+            }
+            else
+            {
+                erro = false;
+            }
+            return lista;
+        }
+
         public string SalvarCompra()
         {
             return ProdutoData.CadastrarCompra(ProdutoCompra);

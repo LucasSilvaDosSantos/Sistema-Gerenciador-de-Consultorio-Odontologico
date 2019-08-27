@@ -95,5 +95,27 @@ namespace Consultorio.View.Produtos
                 ProdutosViewModel.ResetarTela();
             }
         }
+
+        private void BtRetirarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            int idProduto = ProdutosViewModel.RetornaIdProdutoSelecionado();
+            if (idProduto <= 0)
+            {
+                MessageBox.Show("Selecione um produto", "Aviso!");
+                return;
+            }
+            else
+            {
+                this.Hide();
+
+                BaixaDeProdutoView baixaDeProdutoView = new BaixaDeProdutoView(idProduto);
+                ConfiguracoesDeView.ConfigurarWindow(this, baixaDeProdutoView);
+                baixaDeProdutoView.ShowDialog();
+                ConfiguracoesDeView.ConfigurarWindow(baixaDeProdutoView, this);
+                this.Visibility = Visibility.Visible;
+                ProdutosViewModel.RecarregarGrid();
+                ProdutosViewModel.ResetarTela();
+            }
+        }
     }
 }

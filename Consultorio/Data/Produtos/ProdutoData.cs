@@ -1,8 +1,11 @@
 ﻿using Consultorio.Model;
+using Consultorio.ViewModel.Atores;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace Consultorio.Data.Produtos
 {
@@ -149,7 +152,12 @@ namespace Consultorio.Data.Produtos
                     produtoCompra.Produto = ctx.Produtos.Find(produtoCompra.Produto.Id);
                     produtoCompra.QuemRegistrou = ctx.Atores.Find(produtoCompra.QuemRegistrou.Id);
 
+                    produtoCompra.Produto.Quantidade += produtoCompra.QuantidaDeComprada;
+
+                    ctx.Entry(produtoCompra.Produto).State = EntityState.Modified;
+
                     ctx.ProdutosCompras.Add(produtoCompra);
+                    
                     ctx.SaveChanges();
                     return "Compra cadastrada com Sucesso!";
                 }
@@ -157,6 +165,35 @@ namespace Consultorio.Data.Produtos
             catch
             {
                 return "Erro em salvar a compra";
+            }
+        }
+
+        public static string RetiradaDeEstoque(Produto produto, string motivoRetirada)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    Log log = new Log();
+                    log.Ator = ctx.Atores.Find(SingletonAtorLogado.Instancia.Ator.Id);
+                    log.Date = DateTime.Now;
+
+                    Produto produtoAntigo = ctx.Produtos.Include(p => p.Procedimentos).Where(a => a.Id == produto.Id).SingleOrDefault();
+
+                    log.ComoEra = ($"Id:{produtoAntigo.Id}, Nome:{produtoAntigo.Nome}, Quantidade:{produtoAntigo.Quantidade}");
+                    log.ComoFicou = ($"Id:{produto.Id}, Nome:{produto.Nome}, Quantidade:{produto.Quantidade}, Motivo da retirada:{motivoRetirada}");
+
+                    produtoAntigo.Quantidade = produto.Quantidade;
+
+                    ctx.Logs.Add(log);
+                    ctx.SaveChanges();
+                    return "Alteração concluida";
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return "Não foi possivel salvar alterações";
             }
         }
     }

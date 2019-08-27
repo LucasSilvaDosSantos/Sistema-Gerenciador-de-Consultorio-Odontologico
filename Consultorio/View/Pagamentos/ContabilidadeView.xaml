@@ -19,7 +19,7 @@
             <Label x:Name="lbContabilidade" Foreground="#FF7FBEE2" Content="&gt;Contabilidade" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="233"/>
 
             <!--Data grid de contas pagas-->
-            <DataGrid x:Name="dtContasPagas" FontSize="16" Visibility="{Binding DgContasPagasIsEnabled, Converter={StaticResource Converter}}" IsReadOnly="True" AutoGenerateColumns="False" Margin="59,125,70,221" ItemsSource="{Binding TodasAsContas}">
+            <DataGrid x:Name="dtContasPagas" BorderThickness="1" BorderBrush="Gray" FontSize="16" Visibility="{Binding DgContasPagasIsEnabled, Converter={StaticResource Converter}}" IsReadOnly="True" AutoGenerateColumns="False" Margin="59,131,70,221" ItemsSource="{Binding TodasAsContas}">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>
@@ -36,7 +36,7 @@
             </DataGrid>
 
             <!--Data grid de consultas realizadas-->
-            <DataGrid x:Name="dgConsultasRealizadas" FontSize="16" IsReadOnly="True" AutoGenerateColumns="false" Visibility="{Binding DgConsultasRealizadasIsEnabled, Converter={StaticResource Converter}}" ItemsSource="{Binding TodasAsConsultas}" Margin="59,126,70,220">
+            <DataGrid x:Name="dgConsultasRealizadas" BorderThickness="1" BorderBrush="Gray" FontSize="16" IsReadOnly="True" AutoGenerateColumns="false" Visibility="{Binding DgConsultasRealizadasIsEnabled, Converter={StaticResource Converter}}" ItemsSource="{Binding TodasAsConsultas}" Margin="59,131,70,220">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>
@@ -53,7 +53,7 @@
             </DataGrid>
 
             <!--Data grid de Produtos Comprados-->
-            <DataGrid x:Name="dgProdutosComprados" FontSize="16" IsReadOnly="True" AutoGenerateColumns="false" Visibility="{Binding DgProdutosCompradosIsEnabled, Converter={StaticResource Converter}}" ItemsSource="{Binding TodosOsProdutosComprados}" Margin="59,125,70,221">
+            <DataGrid x:Name="dgProdutosComprados" BorderThickness="1" BorderBrush="Gray" FontSize="16" IsReadOnly="True" AutoGenerateColumns="false" Visibility="{Binding DgProdutosCompradosIsEnabled, Converter={StaticResource Converter}}" ItemsSource="{Binding TodosOsProdutosComprados}" Margin="59,131,70,221">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>
@@ -71,7 +71,7 @@
             </DataGrid>
 
             <!--Data grid de Pagamentos Recebidos-->
-            <DataGrid x:Name="dgPagamentosRecebidos" FontSize="16" IsReadOnly="True" AutoGenerateColumns="false" Visibility="{Binding DgPagamentosRecebidosIsEnabled, Converter={StaticResource Converter}}" ItemsSource="{Binding TodosOsPagamentosRecebidos}" Margin="59,125,70,221">
+            <DataGrid x:Name="dgPagamentosRecebidos" BorderThickness="1" BorderBrush="Gray" FontSize="16" IsReadOnly="True" AutoGenerateColumns="false" Visibility="{Binding DgPagamentosRecebidosIsEnabled, Converter={StaticResource Converter}}" ItemsSource="{Binding TodosOsPagamentosRecebidos}" Margin="59,131,70,221">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>

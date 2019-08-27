@@ -10,7 +10,7 @@
         <Grid Height="694" Width="1280">
 
             <Label x:Name="lbProduto" Foreground="#FF7FBEE2" Content="&gt; Entrada de Produto" Margin="78,39,0,605" FontSize="30" HorizontalAlignment="Left" Grid.ColumnSpan="2" />
-            <Label x:Name="label" Content="{Binding ProdutoCompra.Produto.Nome}" Margin="0,116,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="50" HorizontalAlignment="Left" Width="1280"/>
+            <Label x:Name="label" Content="{Binding ProdutoCompra.Produto.Nome}" Margin="0,237,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="1280" FontSize="20"/>
 
             <Label x:Name="label1" Content="Preço Pago (Unitário):" Margin="482,291,635,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
             <TextBox x:Name="tbPreço" Margin="0,291,508,0" TextWrapping="Wrap" Text="{Binding ProdutoCompra.PrecoCompra, StringFormat=c}" VerticalAlignment="Top" Height="31" HorizontalAlignment="Right" Width="127"/>

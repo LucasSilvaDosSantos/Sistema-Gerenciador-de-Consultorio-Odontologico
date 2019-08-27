@@ -16,6 +16,7 @@ namespace Consultorio.Data
         public DbSet<OrcamentosParaProcedimentos> OrcamentosParaProcedimentos { get; set; }
         public DbSet<ContaPaga> ContasPagas  { get; set; }
         public DbSet<ProdutoCompra> ProdutosCompras { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
 
         public ConsultorioContext()
