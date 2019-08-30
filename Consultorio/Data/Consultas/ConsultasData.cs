@@ -14,7 +14,7 @@ namespace Consultorio.Data.Consultas
             try {              
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    consultas = ctx.Consultas.Where(a => a.Inicio.Day == entrada.Day && a.Inicio.Month == entrada.Month && a.Inicio.Year == entrada.Year).Include(c => c.Cliente).Include(p => p.Procedimento).ToList();
+                    consultas = ctx.Consultas.Where(a => a.Inicio.Day == entrada.Day && a.Inicio.Month == entrada.Month && a.Inicio.Year == entrada.Year).Include(c => c.Cliente).Include(p => p.Procedimento).OrderBy(c => c.Inicio).ToList();
                     return consultas;
                 }
             }catch (Exception)
@@ -187,8 +187,7 @@ namespace Consultorio.Data.Consultas
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    consultas = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).Where(a => a.Id == id).ToList();
-
+                    consultas = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).Where(a => a.Cliente.Id == id).OrderBy(c => c.Inicio).ToList();
                     return consultas;
                 }
             }
@@ -206,7 +205,7 @@ namespace Consultorio.Data.Consultas
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
                     string var = nome;
-                    consultas = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).Where(c => c.Cliente.Nome.Contains(nome)).ToList();
+                    consultas = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).Where(c => c.Cliente.Nome.Contains(nome)).OrderBy(c => c.Inicio).ToList();
 
                     return consultas;
                 }

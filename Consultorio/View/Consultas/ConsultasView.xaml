@@ -6,42 +6,264 @@
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
         Title="Consultas" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#4D7FBEE2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <BooleanToVisibilityConverter x:Key="Converter" />
+    </Window.Resources>
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Label x:Name="lbDentista" Foreground="#FF7FBEE2" Content="&gt; Consultas" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="232"/>
-            <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-            <Calendar x:Name="cCalendario" SelectedDate="{Binding DataSelecionada}" Margin="46,169,0,162" HorizontalAlignment="Left" IsEnabled="{Binding CalendarioAtivo}" SelectedDatesChanged="Calendar_SelectedDatesChanged" />
 
-            <DataGrid x:Name="dgConsultas" Margin="347,148,62,166" IsReadOnly="True" ItemsSource="{Binding ListaDeConsultas}" SelectedItem="{Binding ConsultaSelecionada}" AutoGenerateColumns="False" SelectionMode="Single" FontSize="16" >
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="FontSize" Value="16"/>
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nome}" />
-                    <DataGridTextColumn Header="Data" Binding="{Binding Inicio, StringFormat=dd/MM/yyyy}" />
-                    <DataGridTextColumn Header="Hora Início" Binding="{Binding Inicio, StringFormat=t}" />
-                    <DataGridTextColumn Header="Hora Fim" Binding="{Binding Fim, StringFormat=t}" />
-                    <DataGridTextColumn Header="Procedimento" Binding="{Binding Procedimento.Nome}" />
-                    <DataGridTextColumn Header="Dente" Binding="{Binding Dente}" />
-                    <DataGridCheckBoxColumn Header="Realizada" Binding="{Binding Realizada}" />
-                </DataGrid.Columns>
-            </DataGrid>
+            <Label x:Name="lbDentista" Foreground="#FF7FBEE2" Content="&gt; Consultas" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" BorderThickness="0" Padding="0" HorizontalAlignment="Left" Width="232"/>
+            <ComboBox x:Name="cbSelecao" HorizontalAlignment="Right" Margin="0,58,22,0" ItemsSource="{Binding OpcoesDeVisualizacao}" SelectedItem="{Binding ItemEscolhidoParaExibicao}" VerticalAlignment="Top" Width="205"/>
 
-            <Rectangle Fill="White" Margin="255,0,247,89" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="68" VerticalAlignment="Bottom"/>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="35,141,0,200" Width="282">
+                <Calendar x:Name="cCalendario" BorderBrush="Black" SelectedDate="{Binding DataSelecionada}" Margin="1,-2,1,-5" IsEnabled="{Binding CalendarioAtivo}" SelectedDatesChanged="Calendar_SelectedDatesChanged" d:LayoutOverrides="Width" />
+            </Border>
 
-            <Label x:Name="label" Content="Nome do Cliente:" Margin="435,0,0,97" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="135"/>
+            <!-- Grid hora personalizado-->
+            <StackPanel Height="440" Margin="417,145,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="841">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h09m00" />
+                    <Label x:Name="h09m05" />
+                    <Label x:Name="h09m10" />
+                    <Label x:Name="h09m15" />
+                    <Label x:Name="h09m20" />
+                    <Label x:Name="h09m25" />
+                    <Label x:Name="h09m30" />
+                    <Label x:Name="h09m35" />
+                    <Label x:Name="h09m40" />
+                    <Label x:Name="h09m45" />
+                    <Label x:Name="h09m50" />
+                    <Label x:Name="h09m55" />
 
-            <Label x:Name="label_Copy" Content="ID do Cliente:" HorizontalAlignment="Left" Margin="264,0,0,95" VerticalAlignment="Bottom" Width="109"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h10m00"  />
+                    <Label x:Name="h10m05" />
+                    <Label x:Name="h10m10" />
+                    <Label x:Name="h10m15" />
+                    <Label x:Name="h10m20" />
+                    <Label x:Name="h10m25" />
+                    <Label x:Name="h10m30" />
+                    <Label x:Name="h10m35" />
+                    <Label x:Name="h10m40" />
+                    <Label x:Name="h10m45" />
+                    <Label x:Name="h10m50" />
+                    <Label x:Name="h10m55" />
 
-            <TextBox x:Name="tbClienteId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="27" Margin="378,0,0,99" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="52" Text="" TextChanged="TbId_TextChanged" />
-            <TextBox x:Name="tbClienteNome" Padding="0, -1, 0, 0" Height="27" Margin="570,0,267,99" TextWrapping="Wrap" VerticalAlignment="Bottom" TextChanged="TbClienteNome_TextChanged" />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h11m00" />
+                    <Label x:Name="h11m05" />
+                    <Label x:Name="h11m10" />
+                    <Label x:Name="h11m15" />
+                    <Label x:Name="h11m20" />
+                    <Label x:Name="h11m25" />
+                    <Label x:Name="h11m30" />
+                    <Label x:Name="h11m35" />
+                    <Label x:Name="h11m40" />
+                    <Label x:Name="h11m45" />
+                    <Label x:Name="h11m50" />
+                    <Label x:Name="h11m55" />
 
-            <Button x:Name="btCadastrarNovo" Content="Cadastrar" Margin="529,0,635,30" VerticalAlignment="Bottom" Height="35" Click="BtCadastrarNovo_Click" />
-            <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,39.983,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click"/>
-            <Button x:Name="btEditar" Content="Editar" HorizontalAlignment="Right" Margin="0,0,540,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtEditar_Click"/>
-            <Label x:Name="label2" Content="Busca" Margin="613,0,592,126" VerticalAlignment="Bottom" />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h12m00"  />
+                    <Label x:Name="h12m05" />
+                    <Label x:Name="h12m10" />
+                    <Label x:Name="h12m15" />
+                    <Label x:Name="h12m20" />
+                    <Label x:Name="h12m25" />
+                    <Label x:Name="h12m30" />
+                    <Label x:Name="h12m35" />
+                    <Label x:Name="h12m40" />
+                    <Label x:Name="h12m45" />
+                    <Label x:Name="h12m50" />
+                    <Label x:Name="h12m55" />
+
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h13m00"  />
+                    <Label x:Name="h13m05" />
+                    <Label x:Name="h13m10" />
+                    <Label x:Name="h13m15" />
+                    <Label x:Name="h13m20" />
+                    <Label x:Name="h13m25" />
+                    <Label x:Name="h13m30" />
+                    <Label x:Name="h13m35" />
+                    <Label x:Name="h13m40" />
+                    <Label x:Name="h13m45" />
+                    <Label x:Name="h13m50" />
+                    <Label x:Name="h13m55" />
+
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h14m00"  />
+                    <Label x:Name="h14m05" />
+                    <Label x:Name="h14m10" />
+                    <Label x:Name="h14m15" />
+                    <Label x:Name="h14m20" />
+                    <Label x:Name="h14m25" />
+                    <Label x:Name="h14m30" />
+                    <Label x:Name="h14m35" />
+                    <Label x:Name="h14m40" />
+                    <Label x:Name="h14m45" />
+                    <Label x:Name="h14m50" />
+                    <Label x:Name="h14m55" />
+
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h15m00"  />
+                    <Label x:Name="h15m05" />
+                    <Label x:Name="h15m10" />
+                    <Label x:Name="h15m15" />
+                    <Label x:Name="h15m20" />
+                    <Label x:Name="h15m25" />
+                    <Label x:Name="h15m30" />
+                    <Label x:Name="h15m35" />
+                    <Label x:Name="h15m40" />
+                    <Label x:Name="h15m45" />
+                    <Label x:Name="h15m50" />
+                    <Label x:Name="h15m55" />
+
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h16m00"  />
+                    <Label x:Name="h16m05" />
+                    <Label x:Name="h16m10" />
+                    <Label x:Name="h16m15" />
+                    <Label x:Name="h16m20" />
+                    <Label x:Name="h16m25" />
+                    <Label x:Name="h16m30" />
+                    <Label x:Name="h16m35" />
+                    <Label x:Name="h16m40" />
+                    <Label x:Name="h16m45" />
+                    <Label x:Name="h16m50" />
+                    <Label x:Name="h16m55" />
+
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h17m00"  />
+                    <Label x:Name="h17m05" />
+                    <Label x:Name="h17m10" />
+                    <Label x:Name="h17m15" />
+                    <Label x:Name="h17m20" />
+                    <Label x:Name="h17m25" />
+                    <Label x:Name="h17m30" />
+                    <Label x:Name="h17m35" />
+                    <Label x:Name="h17m40" />
+                    <Label x:Name="h17m45" />
+                    <Label x:Name="h17m50" />
+                    <Label x:Name="h17m55" />
+
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
+                    <Label x:Name="h18m00"  />
+                    <Label x:Name="h18m05" />
+                    <Label x:Name="h18m10" />
+                    <Label x:Name="h18m15" />
+                    <Label x:Name="h18m20" />
+                    <Label x:Name="h18m25" />
+                    <Label x:Name="h18m30" />
+                    <Label x:Name="h18m35" />
+                    <Label x:Name="h18m40" />
+                    <Label x:Name="h18m45" />
+                    <Label x:Name="h18m50" />
+                    <Label x:Name="h18m55" />
+
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Height="44" Margin="400,96,0,0" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Left" Width="841">
+                <Label Content="00" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="05" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="10" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="15" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="20" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="25" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="30" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="35" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="40" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="55" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="50" HorizontalContentAlignment="Left" BorderThickness="0"/>
+                <Label Content="55" HorizontalContentAlignment="Left" BorderThickness="0"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Margin="0,145,868,109" Width="50">
+                <Label Content="09" Width="Auto"/>
+                <Label Content="10" Width="Auto"/>
+                <Label Content="11" Width="Auto"/>
+                <Label Content="12" Width="Auto"/>
+                <Label Content="13" Width="Auto"/>
+                <Label Content="14" Width="Auto"/>
+                <Label Content="15" Width="Auto"/>
+                <Label Content="16" Width="Auto"/>
+                <Label Content="17" Width="Auto"/>
+                <Label Content="18" Width="Auto"/>
+            </StackPanel>
+            <Label x:Name="label_Copy1" Content="Hora" HorizontalAlignment="Left" Margin="355,122,0,0" VerticalAlignment="Top" Height="18" Width="31" FontSize="10" Padding="0" BorderThickness="0"/>
+            <Separator HorizontalAlignment="Left" Height="31" Margin="352,108,0,0" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="24.809"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Label x:Name="label1" Content="Minuto" HorizontalAlignment="Left" Margin="364,104,0,0" VerticalAlignment="Top" Height="18" Width="36" FontSize="10" Padding="0" BorderThickness="0"/>
+            <!-- Fim Grid hora personalizado-->
+
+            <!--Visibility="{Binding DgListaIsVisible, Converter={StaticResource Converter}}"-->
+            <Grid Margin="355,96,12,109" Background="WhiteSmoke" Visibility="{Binding DgListaIsVisible, Converter={StaticResource Converter}}">
+                <DataGrid x:Name="dgConsultas" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,96" IsReadOnly="True" ItemsSource="{Binding ListaDeConsultas}" SelectedItem="{Binding ConsultaSelecionada}" AutoGenerateColumns="False" SelectionMode="Single" FontSize="16" >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontSize" Value="16"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nome}" />
+                        <DataGridTextColumn Header="Data" Binding="{Binding Inicio, StringFormat=dd/MM/yyyy}" />
+                        <DataGridTextColumn Header="Hora Início" Binding="{Binding Inicio, StringFormat=t}" />
+                        <DataGridTextColumn Header="Hora Fim" Binding="{Binding Fim, StringFormat=t}" />
+                        <DataGridTextColumn Header="Procedimento" Binding="{Binding Procedimento.Nome}" />
+                        <DataGridTextColumn Header="Dente" Binding="{Binding Dente}" />
+                        <DataGridCheckBoxColumn Header="Realizada" Binding="{Binding Realizada}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Rectangle Fill="White" Margin="92,0,95,5" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="68" VerticalAlignment="Bottom"/>
+
+                <Label x:Name="label" FontSize="16" BorderThickness="0" Content="Nome do Cliente:" Margin="271,0,0,19" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="135" Height="32"/>
+
+                <Label x:Name="label_Copy" BorderThickness="0" FontSize="16" Content="ID do Cliente:" HorizontalAlignment="Left" Margin="105,0,0,19" VerticalAlignment="Bottom" Width="109" Height="32"/>
+
+                <TextBox x:Name="tbClienteId" Padding="0, -1, 0, 0" Height="32" Margin="214,0,0,19" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="" TextChanged="TbId_TextChanged" HorizontalAlignment="Left" Width="52" />
+                <TextBox x:Name="tbClienteNome" Padding="0, -1, 0, 0" Height="32" Margin="406,0,106,19" TextWrapping="Wrap" VerticalAlignment="Bottom" TextChanged="TbClienteNome_TextChanged" />
+
+                <Label x:Name="label2" FontSize="16" BorderThickness="0" Content="Busca" Margin="413,0,432,63" VerticalAlignment="Bottom" Width="Auto" />
+            </Grid>
+
+
+            <Button x:Name="btCadastrarNovo" Content="Cadastrar" Margin="529,0,635,30" VerticalAlignment="Bottom" Height="35" Click="BtCadastrarNovo_Click" Grid.Row="1" />
+            <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" Grid.Row="1"/>
+            <Button x:Name="btEditar" Content="Editar" HorizontalAlignment="Right" Margin="0,0,540,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtEditar_Click" Grid.Row="1"/>
+
+            <Label x:Name="label3" Content="" Background="#80009500" HorizontalAlignment="Left" Margin="35,0,0,151" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height"/>
+            <Label x:Name="label4" Content="" Background="#80ff0000" HorizontalAlignment="Left" Margin="35,0,0,102" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height"/>
+            <Label x:Name="label5" Content="" Background="#80ebeb00" HorizontalAlignment="Left" Margin="35,0,0,53" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height"/>
+            <Label x:Name="label6" Content="Disponível" BorderThickness="0" HorizontalAlignment="Left" Margin="110,0,0,151" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Width="107" />
+            <Label x:Name="label7" Content="Ocupado" BorderThickness="0" HorizontalAlignment="Left" Margin="110,0,0,102" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Width="96"/>
+            <Label x:Name="label8" Content="Horário de Almoço" BorderThickness="0" HorizontalAlignment="Left" Margin="110,0,0,53" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Width="181"/>
+            <Grid Background="WhiteSmoke" Visibility="{Binding DgListaIsVisible, Converter={StaticResource Converter}}" HorizontalAlignment="Left" Height="142" Margin="35,0,0,53" VerticalAlignment="Bottom" Width="282"/>
 
         </Grid>
     </Viewbox>

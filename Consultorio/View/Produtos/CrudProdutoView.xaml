@@ -13,7 +13,6 @@
 
 
             <Label x:Name="lbProduto" Foreground="#FF7FBEE2" Content="{Binding NomeTela}" Margin="78,39,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="240"/>
-            <Rectangle Fill="#FF7FBEE2" Margin="291,239,280,228" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
 
             <Label x:Name="label" IsEnabled="{Binding IdIsEnabled}" Margin="617,276,635,0" Content="ID:" VerticalAlignment="Top"/>
             <TextBox x:Name="tbId" Text="{Binding Produto.Id}" IsEnabled="{Binding IdIsEnabled}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="0,276,595,0" IsReadOnly="True" Height="31" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40"/>
