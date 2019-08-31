@@ -28,17 +28,43 @@ namespace Consultorio.View.Consultas
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        private void BtEditar_Click(object sender, RoutedEventArgs e)
+        {
+            if (ConsultasViewModel.ConsultaSelecionada != null)
+            {
+                //this.Hide();
+                
+                CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionadaID());
+                ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
+                
+                //crudConsultasView.ShowDialog();
+
+                crudConsultasView.Show();
+                
+                //ConsultasViewModel.CarregarListaDeConsultasData();
+                //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
+                //this.Visibility = Visibility.Visible;
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
+            }
+        }
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
 
             CrudConsultasView crudConsultasView = new CrudConsultasView();
             ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
-            crudConsultasView.ShowDialog();
-            ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
-            this.Visibility = Visibility.Visible;
-            ConsultasViewModel.CarregarListaDeConsultasData();
+            //crudConsultasView.ShowDialog();
+            crudConsultasView.Show();
+            //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
+            //this.Visibility = Visibility.Visible;
+            //ConsultasViewModel.CarregarListaDeConsultasData();
+            this.Close();
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
@@ -57,24 +83,6 @@ namespace Consultorio.View.Consultas
             {
                 CarregarCoresDeDisponibilidade();
             }         
-        }
-
-        private void BtEditar_Click(object sender, RoutedEventArgs e)
-        {
-            if (ConsultasViewModel.ConsultaSelecionada != null)
-            {
-                this.Hide();
-                CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionadaID());
-                ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
-                crudConsultasView.ShowDialog();
-                ConsultasViewModel.CarregarListaDeConsultasData();
-                ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
-                this.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
-            }           
         }
 
         private void TbId_TextChanged(object sender, TextChangedEventArgs e)

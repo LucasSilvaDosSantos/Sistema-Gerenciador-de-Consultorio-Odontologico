@@ -47,11 +47,19 @@ namespace Consultorio.View.Consultas
             {
                 string msg = CrudConsultasViewModel.SalVarClick();
                 MessageBox.Show(msg, "Aviso!");
+
+                ConsultasView consultasView = new ConsultasView();
+                ConfiguracoesDeView.ConfigurarWindow(this, consultasView);
+                consultasView.Show();
                 this.Close();
+            }
+            else if (campos == "Já existe uma consulta neste horário")
+            {
+                MessageBox.Show(campos, "Aviso! Horário inválido");
             }
             else
             {
-                MessageBox.Show(campos, "Aviso! Campos obrigatórios não preenchidos");
+                MessageBox.Show(campos, "Aviso! Campos obrigatórios não preenchidos ou inválidos");
             }
                       
         }
@@ -72,6 +80,9 @@ namespace Consultorio.View.Consultas
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
+            ConsultasView consultasView = new ConsultasView();
+            ConfiguracoesDeView.ConfigurarWindow(this, consultasView);
+            consultasView.Show();
             this.Close();
         }
 

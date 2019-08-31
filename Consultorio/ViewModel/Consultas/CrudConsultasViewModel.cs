@@ -1,6 +1,6 @@
 ﻿using Consultorio.Data.Consultas;
 using Consultorio.Model;
-using Consultorio.ViewModel.Atores;
+using Itenso.TimePeriod;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,7 +97,6 @@ namespace Consultorio.ViewModel.Consultas
 
         public CrudConsultasViewModel(int idConsulta)
         {
-
             PreencherHorarios();
 
             IfNovoCliente = false;
@@ -145,7 +144,7 @@ namespace Consultorio.ViewModel.Consultas
             Horas = new List<string>();
             Minutos = new List<string>();
 
-            for (int i = 8; i <= 20; i++)
+            for (int i = 9; i <= 18; i++)
             {
                 if (i.ToString().Count() == 1)
                 {
@@ -196,6 +195,36 @@ namespace Consultorio.ViewModel.Consultas
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        private bool HorarioDisponivel()
+        {
+            if (HoraInicio == null || Consulta.Fim == null || MinutoInicio == null || MinutoFim == null)
+            {
+                return true;
+            }
+
+            NormalizaDataTime();
+
+            List<Consulta> listaConsulta = ConsultasData.ListaDeConsultas(Consulta.Inicio.Date);
+            TimeRange timeRange1 = new TimeRange(Consulta.Inicio, Consulta.Fim);
+
+            foreach (var itemConsulta in listaConsulta)
+            {
+                if (itemConsulta.Id != Consulta.Id)
+                {
+                    TimeRange timeRange2 = new TimeRange(itemConsulta.Inicio, itemConsulta.Fim);
+
+                    //var a = timeRange1.GetRelation(timeRange2);
+
+                    bool horariosSeCruzao = timeRange1.OverlapsWith(timeRange2);
+
+                    if (horariosSeCruzao)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
         private void NormalizaDataTime()
         {
@@ -214,25 +243,35 @@ namespace Consultorio.ViewModel.Consultas
         public string CamposObrigatoriosPreenchidos()
         {
             Consulta.Procedimento = ProcedimentoSelecionado;
-            StringBuilder sb = new StringBuilder();
-            if (Consulta.Cliente == null)
+            if (HorarioDisponivel())
             {
-                sb.Append("Cliente, ");
+                StringBuilder sb = new StringBuilder();
+                if (Consulta.Cliente == null)
+                {
+                    sb.Append("Cliente\n");
+                }
+                if (HoraInicio == null || MinutoInicio == null)
+                {
+                    sb.Append("Horário de início\n");
+                }
+                if (HoraFim == null || MinutoFim == null)
+                {
+                    sb.Append("Horário de Término\n");
+                }
+                if (Consulta.Procedimento == null)
+                {
+                    sb.Append("Procedimento\n");
+                }
+                if (Consulta.Inicio > Consulta.Fim )
+                {
+                    sb.Append("Hora inicial não pode ser menor que hora final");
+                }
+                return sb.ToString();
             }
-            if (HoraInicio == null || MinutoInicio == null)
+            else
             {
-                sb.Append("Horário de início, ");
-            }
-            if(HoraFim == null || MinutoFim == null)
-            {
-                sb.Append("Horário de Término, ");
-            }
-            if (Consulta.Procedimento == null)
-            {
-                sb.Append("Procedimento, ");
-            }
-           
-            return sb.ToString();
+                return "Já existe uma consulta neste horário";
+            } 
         }
 
         private void IniciarTela()
