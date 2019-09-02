@@ -203,15 +203,12 @@
     <Compile Include="ViewModel\Consultas\ConsultasViewModel.cs" />
     <Compile Include="ViewModel\Consultas\CrudConsultasViewModel.cs" />
     <Compile Include="ViewModel\Produtos\CrudProdutoViewModel.cs" />
-    <Compile Include="ViewModel\Atores\DentistaViewModel.cs" />
-    <Compile Include="ViewModel\Atores\GestorDeEstoqueViewModel.cs" />
     <Compile Include="ViewModel\Clientes\HistoricoDoClienteViewModel.cs" />
     <Compile Include="ViewModel\Clientes\ListaDeClientesViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\OpcoesViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\PagamentosViewModel.cs" />
     <Compile Include="ViewModel\Produtos\ProdutosViewModel.cs" />
-    <Compile Include="ViewModel\Atores\SecretariaViewModel.cs" />
     <Compile Include="ViewModel\Clientes\SelecaoDeClienteViewModel.cs" />
     <Compile Include="ViewModel\Atores\SingletonAtorLogado.cs" />
     <Compile Include="View\Consultas\ConsultasView.xaml.cs">

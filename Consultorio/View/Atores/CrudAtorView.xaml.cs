@@ -60,7 +60,7 @@ namespace Consultorio.View.Atores
                 {
                     sb.Append($"{s}\n");
                 }
-                MessageBox.Show(sb.ToString(), "Este(s) campo(s) não podem fcar em branco!");
+                MessageBox.Show(sb.ToString(), "Este(s) campo(s) não podem ficar em branco!");
             }
         }
     }

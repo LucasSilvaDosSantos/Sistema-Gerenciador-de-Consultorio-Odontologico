@@ -94,9 +94,18 @@ namespace Consultorio.ViewModel.Atores
             {
                 lista.Add("Telefone 1");
             }
+
+            
             if (Ator.Login == "" || Ator.Login == null)
             {
                 lista.Add("Usuário");
+            }
+            else
+            {
+                bool loginValido = AtorData.VerificaDisponibilidadeDeNomeDeUsuario(Ator.Id, Ator.Login);
+                if (loginValido == false){
+                    lista.Add("Este nome de usuário já existe no sistema");
+                }
             }
 
             if (AltararDadosDeLogin)

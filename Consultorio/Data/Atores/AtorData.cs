@@ -100,5 +100,26 @@ namespace Consultorio.Data.Atores
                 return e.Message;
             }
         }
+
+        public static bool VerificaDisponibilidadeDeNomeDeUsuario(int idUsuarioEntrada, string tentativaDeLogin)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    Ator atorExiste = ctx.Atores.Where(b => b.Login == tentativaDeLogin).FirstOrDefault();
+;
+                    if (atorExiste == null || atorExiste.Id == idUsuarioEntrada)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
