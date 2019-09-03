@@ -1,7 +1,7 @@
-﻿using System.Drawing;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Consultorio.Model.Enums;
 using Consultorio.ViewModel.Consultas;
 using Brush = System.Windows.Media.Brush;
 
@@ -32,20 +32,27 @@ namespace Consultorio.View.Consultas
         {
             if (ConsultasViewModel.ConsultaSelecionada != null)
             {
-                //this.Hide();
+                if (ConsultasViewModel.ConsultaSelecionada.Status != StatusConsulta.Agendada)
+                {
+                    MessageBox.Show("Não é possível editar consultas com status de Realizada ou Iniciada", "Aviso!");
+                }
+                else
+                {
+                    //this.Hide();
                 
-                CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionadaID());
-                ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
+                    CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionadaID());
+                    ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
                 
-                //crudConsultasView.ShowDialog();
+                    //crudConsultasView.ShowDialog();
 
-                crudConsultasView.Show();
+                    crudConsultasView.Show();
                 
-                //ConsultasViewModel.CarregarListaDeConsultasData();
-                //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
-                //this.Visibility = Visibility.Visible;
+                    //ConsultasViewModel.CarregarListaDeConsultasData();
+                    //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
+                    //this.Visibility = Visibility.Visible;
 
-                this.Close();
+                    this.Close();
+                }
             }
             else
             {
@@ -277,6 +284,38 @@ namespace Consultorio.View.Consultas
             ArrayLabel[9, 9] = h18m45;
             ArrayLabel[9, 10] =h18m50;
             ArrayLabel[9, 11] =h18m55;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (ConsultasViewModel.ConsultaSelecionada != null)
+            {
+                if (ConsultasViewModel.ConsultaSelecionada.Status == StatusConsulta.Realizada)
+                {
+                    MessageBox.Show("Esta consulta já foi realizada e por isso não pode ser iniciada", "Aviso!");
+                }
+                else if (ConsultasViewModel.ConsultaSelecionada.Status == StatusConsulta.Iniciada)
+                {
+                    MessageBox.Show("Esta consulta já foi iniciada e por isso não pode ser iniciada novamente", "Aviso!");
+                }
+                else
+                {
+                    bool iniciada = ConsultasViewModel.IniciarConsulta();
+                    if (iniciada)
+                    {
+                        MessageBox.Show("Consulta Iniciada!", "Aviso!");
+                        ConsultasViewModel.CarregarListaDeConsultasData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro por favor tente novamente", "Aviso!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
+            }
         }
     }
 }

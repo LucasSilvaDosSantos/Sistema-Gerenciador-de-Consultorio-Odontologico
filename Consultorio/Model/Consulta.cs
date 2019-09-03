@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Consultorio.Model.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.Model
 {
@@ -20,22 +17,13 @@ namespace Consultorio.Model
         public Procedimento Procedimento { get; set; }
         public string Dente { get; set; }
         [Required]
-        public bool Realizada { get; set; }
-        [Required]
         public double ValorConsulta { get; set; }
+        public Ator QuemRealizou { get; set; }
+        [Required]
+        public StatusConsulta Status { get; set; }
 
         public Consulta()
         {
-        }
-
-        public Consulta(Cliente cliente, DateTime inicio, DateTime fim, Procedimento procedimento, double valorConsulta)
-        {
-            Cliente = cliente;
-            Inicio = inicio;
-            Fim = fim;
-            Procedimento = procedimento;
-            Realizada = false;
-            ValorConsulta = valorConsulta;
         }
     }
 }

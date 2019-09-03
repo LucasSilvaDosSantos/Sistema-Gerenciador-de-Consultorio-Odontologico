@@ -1,4 +1,5 @@
 ﻿using Consultorio.Model;
+using Consultorio.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -34,7 +35,7 @@ namespace Consultorio.Data.Pagamentos
                 {
                     //data vindo com hora zerada oque esta gerando problema, adicionado um dia para rezolução do mesmo 
                     fim = fim.AddDays(1);
-                    var a = ctx.Consultas.Include(b => b.Cliente).Include(c => c.Procedimento).Where(d => d.Realizada == true && d.Inicio >= inicio && d.Inicio <= fim).ToList();
+                    var a = ctx.Consultas.Include(b => b.Cliente).Include(c => c.Procedimento).Where(d => d.Status == StatusConsulta.Realizada && d.Inicio >= inicio && d.Inicio <= fim).ToList();
                     return a;
                 }
             }

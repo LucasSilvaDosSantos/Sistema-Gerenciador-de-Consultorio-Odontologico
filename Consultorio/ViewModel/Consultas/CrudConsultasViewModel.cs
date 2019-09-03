@@ -174,11 +174,12 @@ namespace Consultorio.ViewModel.Consultas
             DataSelecionada = data;
         }
 
-        public string SalVarClick()
+        public string SalvarClick()
         {
             Procedimento procedimento = ProcedimentoSelecionado;
             Consulta.Procedimento = ProcedimentoSelecionado;
             Consulta.ValorConsulta = procedimento.Preco;
+            Consulta.Status = Model.Enums.StatusConsulta.Agendada;
             NormalizaDataTime();
             string msg;
             if (IfNovoCliente == true)

@@ -1,5 +1,6 @@
 ﻿using Consultorio.Data.Consultas;
 using Consultorio.Model;
+using Consultorio.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,12 +80,21 @@ namespace Consultorio.ViewModel.Consultas
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
-        //--------------------------------------------*********Botoes**********--------------------------------------------------------------
-        //-----------------------------------------------------------------------------------------------------------------------------------
-
-        //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        public bool IniciarConsulta()
+        {
+            if (ConsultaSelecionada != null)
+            {
+                if (ConsultaSelecionada.Status == StatusConsulta.Agendada)
+                {
+                    bool salvo = ConsultasData.SalvarInicioDaConsulta(ConsultaSelecionada);
+                    return salvo;
+                }
+            }           
+            return false;
+        }
+
         private void MudarTela()
         {
             if (ItemEscolhidoParaExibicao == "Disponibilidade Diária")
@@ -170,39 +180,42 @@ namespace Consultorio.ViewModel.Consultas
 
                     TratarPosicaoArray(horaInicio, minutoInicio, out int horaSaidaInicio, out int minutoSaidaInicio);
                     TratarPosicaoArray(horafim, minutoFim, out int horaSaidaFim, out int minutoSaidaFim);
-
-                    for (int i = horaSaidaInicio; i <= horaSaidaFim; i++)
+                    if (!(horaSaidaInicio < 0) && !(horaSaidaFim < 0))
                     {
-                        if (i == horaSaidaFim)
+
+                        for (int i = horaSaidaInicio; i <= horaSaidaFim; i++)
                         {
-                            if (i == horaSaidaInicio)
+                            if (i == horaSaidaFim)
                             {
-                                for (int j = minutoSaidaInicio; j < minutoSaidaFim; j++)
+                                if (i == horaSaidaInicio)
+                                {
+                                    for (int j = minutoSaidaInicio; j < minutoSaidaFim; j++)
+                                    {
+                                        ArrayDisponibilidadeDeHorario[i, j] = item.Cliente.Id;
+                                    }
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < minutoSaidaFim; j++)
+                                    {
+                                        ArrayDisponibilidadeDeHorario[i, j] = item.Cliente.Id;
+                                    }
+                                }
+                            }
+                            else if (i == horaSaidaInicio)
+                            {
+                                //hora igual a inicial
+                                for (int j = minutoSaidaInicio; j < 12; j++)
                                 {
                                     ArrayDisponibilidadeDeHorario[i, j] = item.Cliente.Id;
                                 }
                             }
-                            else
+                            else if (i < horaSaidaFim)
                             {
-                                for (int j = 0; j < minutoSaidaFim; j++)
+                                for (int j = 0; j < 12; j++)
                                 {
                                     ArrayDisponibilidadeDeHorario[i, j] = item.Cliente.Id;
                                 }
-                            }
-                        }
-                        else if (i == horaSaidaInicio)
-                        {
-                            //hora igual a inicial
-                            for (int j = minutoSaidaInicio; j < 12; j++)
-                            {
-                                ArrayDisponibilidadeDeHorario[i, j] = item.Cliente.Id;
-                            }
-                        }
-                        else if (i < horaSaidaFim)
-                        {
-                            for (int j = 0; j < 12; j++)
-                            {
-                                ArrayDisponibilidadeDeHorario[i, j] = item.Cliente.Id;
                             }
                         }
                     }

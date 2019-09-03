@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using Consultorio.ViewModel.Atores;
+using Consultorio.Model.Enums;
 
 namespace Consultorio.Data.Consultas
 {
@@ -102,9 +104,9 @@ namespace Consultorio.Data.Consultas
                     msg = "Salva nova consulta";
                 }
             }
-            catch (Exception e)
+            catch
             {
-                msg = "Erro:" + e.Message;
+                msg = "Ocorreu um Erro e a consulta NÂO pode ser salva!";
             }
             return msg;
         }
@@ -213,6 +215,39 @@ namespace Consultorio.Data.Consultas
             catch (Exception)
             {
                 return consultas;
+            }
+        }
+
+        public static bool SalvarInicioDaConsulta(Consulta consultaEntrada)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    Ator atorLogado = ctx.Atores.Find(SingletonAtorLogado.Instancia.Ator.Id);
+
+                    consultaEntrada.Inicio = DateTime.Now;
+                    consultaEntrada.Status = StatusConsulta.Iniciada;
+                    consultaEntrada.QuemRealizou = atorLogado;
+                    ctx.Entry(consultaEntrada).State = EntityState.Modified;
+
+                    //Log 
+                    var log = new Log();
+                    log.Ator = atorLogado;
+                    log.ComoEra = "Nova Entrada";
+                    log.ComoFicou = $"Consulta Id:{consultaEntrada.Id}, Consulta iniciada em:{consultaEntrada.Inicio}";
+                    log.Date = DateTime.Now;
+                    
+                    ctx.Logs.Add(log);
+                    //Fim log
+
+                    ctx.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
     }

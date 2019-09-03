@@ -1,6 +1,7 @@
 ﻿using Consultorio.Data.Clientes;
 using Consultorio.Data.Pagamentos;
 using Consultorio.Model;
+using Consultorio.Model.Enums;
 using Consultorio.ViewModel.Atores;
 using System;
 using System.Collections.Generic;
@@ -159,7 +160,7 @@ namespace Consultorio.ViewModel.Procedimentos
 
                 foreach (var i in consultas)
                 {
-                    if (i.Realizada == true)
+                    if (i.Status == StatusConsulta.Realizada)
                     {
                         somaConsultas += i.ValorConsulta;
                     }

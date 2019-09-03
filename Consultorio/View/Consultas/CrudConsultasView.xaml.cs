@@ -45,7 +45,7 @@ namespace Consultorio.View.Consultas
             string campos = CrudConsultasViewModel.CamposObrigatoriosPreenchidos();
             if (campos == "")
             {
-                string msg = CrudConsultasViewModel.SalVarClick();
+                string msg = CrudConsultasViewModel.SalvarClick();
                 MessageBox.Show(msg, "Aviso!");
 
                 ConsultasView consultasView = new ConsultasView();
