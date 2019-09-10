@@ -7,13 +7,13 @@ namespace Consultorio.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class c : IMigrationMetadata
+    public sealed partial class b : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(c));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(b));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908211827361_c"; }
+            get { return "201909092257334_b"; }
         }
         
         string IMigrationMetadata.Source

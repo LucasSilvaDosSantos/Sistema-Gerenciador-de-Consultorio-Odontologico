@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +19,8 @@ namespace Consultorio.Model
         public int MinimoDeEstoque { get; set; }
 
         public virtual ICollection<Procedimento> Procedimentos { get; set; }
+        public virtual ICollection<ProdutoUtilizadoEmConsulta> ProdutoUtilizadoEmConsulta { get; set; }
+
         /*
         public bool Ativo { get; set; }*/
 

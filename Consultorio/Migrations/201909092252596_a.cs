@@ -138,6 +138,7 @@ namespace Consultorio.Migrations
                         Dente30 = c.String(unicode: false),
                         Dente31 = c.String(unicode: false),
                         Dente32 = c.String(unicode: false),
+                        Obs = c.String(unicode: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -148,17 +149,20 @@ namespace Consultorio.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Inicio = c.DateTime(nullable: false, precision: 0),
                         Fim = c.DateTime(nullable: false, precision: 0),
-                        Dente = c.String(unicode: false),
-                        Realizada = c.Boolean(nullable: false),
+                        Obs = c.String(unicode: false),
                         ValorConsulta = c.Double(nullable: false),
+                        Status = c.Int(nullable: false),
                         Cliente_Id = c.Int(nullable: false),
                         Procedimento_Id = c.Int(),
+                        QuemRealizou_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Clientes", t => t.Cliente_Id, cascadeDelete: true)
                 .ForeignKey("dbo.Procedimentos", t => t.Procedimento_Id)
+                .ForeignKey("dbo.Atores", t => t.QuemRealizou_Id)
                 .Index(t => t.Cliente_Id)
-                .Index(t => t.Procedimento_Id);
+                .Index(t => t.Procedimento_Id)
+                .Index(t => t.QuemRealizou_Id);
             
             CreateTable(
                 "dbo.Procedimentos",
@@ -168,7 +172,6 @@ namespace Consultorio.Migrations
                         Nome = c.String(nullable: false, unicode: false),
                         Descricao = c.String(unicode: false),
                         Preco = c.Double(nullable: false),
-                        Ativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -197,7 +200,7 @@ namespace Consultorio.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Obs = c.String(nullable: false, unicode: false),
+                        Obs = c.String(unicode: false),
                         Cliente_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -210,11 +213,54 @@ namespace Consultorio.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(nullable: false, unicode: false),
-                        Quantidade = c.Int(nullable: false),
+                        Quantidade = c.Int(),
                         Descricao = c.String(unicode: false),
-                        Validade = c.DateTime(precision: 0),
+                        MinimoDeEstoque = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.ProdutosUtilizadosEmconsultas",
+                c => new
+                    {
+                        ConsultaID = c.Int(nullable: false),
+                        ProdutoID = c.Int(nullable: false),
+                        QtdProdutoUtilizado = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.ConsultaID, t.ProdutoID })
+                .ForeignKey("dbo.Consultas", t => t.ConsultaID, cascadeDelete: true)
+                .ForeignKey("dbo.Produtos", t => t.ProdutoID, cascadeDelete: true)
+                .Index(t => t.ConsultaID)
+                .Index(t => t.ProdutoID);
+            
+            CreateTable(
+                "dbo.ContasPagas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(unicode: false),
+                        Valor = c.Double(nullable: false),
+                        DataDePagamento = c.DateTime(nullable: false, precision: 0),
+                        Obs = c.String(unicode: false),
+                        QuemCadastrou_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Atores", t => t.QuemCadastrou_Id)
+                .Index(t => t.QuemCadastrou_Id);
+            
+            CreateTable(
+                "dbo.Logs",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Date = c.DateTime(nullable: false, precision: 0),
+                        ComoEra = c.String(unicode: false),
+                        ComoFicou = c.String(unicode: false),
+                        Ator_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Atores", t => t.Ator_Id)
+                .Index(t => t.Ator_Id);
             
             CreateTable(
                 "dbo.Pagamentos",
@@ -235,6 +281,24 @@ namespace Consultorio.Migrations
                 .Index(t => t.Recebedor_Id);
             
             CreateTable(
+                "dbo.ProdutosCompras",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        PrecoCompra = c.Double(nullable: false),
+                        QuantidaDeComprada = c.Int(nullable: false),
+                        DataDeCompra = c.DateTime(nullable: false, precision: 0),
+                        Obs = c.String(unicode: false),
+                        Produto_Id = c.Int(),
+                        QuemRegistrou_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Produtos", t => t.Produto_Id)
+                .ForeignKey("dbo.Atores", t => t.QuemRegistrou_Id)
+                .Index(t => t.Produto_Id)
+                .Index(t => t.QuemRegistrou_Id);
+            
+            CreateTable(
                 "dbo.ProdutoProcedimentoes",
                 c => new
                     {
@@ -251,9 +315,16 @@ namespace Consultorio.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.ProdutosCompras", "QuemRegistrou_Id", "dbo.Atores");
+            DropForeignKey("dbo.ProdutosCompras", "Produto_Id", "dbo.Produtos");
             DropForeignKey("dbo.Pagamentos", "Recebedor_Id", "dbo.Atores");
             DropForeignKey("dbo.Pagamentos", "Cliente_Id", "dbo.Clientes");
+            DropForeignKey("dbo.Logs", "Ator_Id", "dbo.Atores");
+            DropForeignKey("dbo.ContasPagas", "QuemCadastrou_Id", "dbo.Atores");
+            DropForeignKey("dbo.Consultas", "QuemRealizou_Id", "dbo.Atores");
             DropForeignKey("dbo.Consultas", "Procedimento_Id", "dbo.Procedimentos");
+            DropForeignKey("dbo.ProdutosUtilizadosEmconsultas", "ProdutoID", "dbo.Produtos");
+            DropForeignKey("dbo.ProdutosUtilizadosEmconsultas", "ConsultaID", "dbo.Consultas");
             DropForeignKey("dbo.ProdutoProcedimentoes", "Procedimento_Id", "dbo.Procedimentos");
             DropForeignKey("dbo.ProdutoProcedimentoes", "Produto_Id", "dbo.Produtos");
             DropForeignKey("dbo.OrcamentosParaProcedimentos", "ProcedimentoID", "dbo.Procedimentos");
@@ -265,18 +336,29 @@ namespace Consultorio.Migrations
             DropForeignKey("dbo.Clientes", "Anamnese_Id", "dbo.Anamneses");
             DropIndex("dbo.ProdutoProcedimentoes", new[] { "Procedimento_Id" });
             DropIndex("dbo.ProdutoProcedimentoes", new[] { "Produto_Id" });
+            DropIndex("dbo.ProdutosCompras", new[] { "QuemRegistrou_Id" });
+            DropIndex("dbo.ProdutosCompras", new[] { "Produto_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Recebedor_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Cliente_Id" });
+            DropIndex("dbo.Logs", new[] { "Ator_Id" });
+            DropIndex("dbo.ContasPagas", new[] { "QuemCadastrou_Id" });
+            DropIndex("dbo.ProdutosUtilizadosEmconsultas", new[] { "ProdutoID" });
+            DropIndex("dbo.ProdutosUtilizadosEmconsultas", new[] { "ConsultaID" });
             DropIndex("dbo.Orcamentos", new[] { "Cliente_Id" });
             DropIndex("dbo.OrcamentosParaProcedimentos", new[] { "ColaboradorAlterouID" });
             DropIndex("dbo.OrcamentosParaProcedimentos", new[] { "ProcedimentoID" });
             DropIndex("dbo.OrcamentosParaProcedimentos", new[] { "OrcamentoID" });
+            DropIndex("dbo.Consultas", new[] { "QuemRealizou_Id" });
             DropIndex("dbo.Consultas", new[] { "Procedimento_Id" });
             DropIndex("dbo.Consultas", new[] { "Cliente_Id" });
             DropIndex("dbo.Clientes", new[] { "Odontograma_Id" });
             DropIndex("dbo.Clientes", new[] { "Anamnese_Id" });
             DropTable("dbo.ProdutoProcedimentoes");
+            DropTable("dbo.ProdutosCompras");
             DropTable("dbo.Pagamentos");
+            DropTable("dbo.Logs");
+            DropTable("dbo.ContasPagas");
+            DropTable("dbo.ProdutosUtilizadosEmconsultas");
             DropTable("dbo.Produtos");
             DropTable("dbo.Orcamentos");
             DropTable("dbo.OrcamentosParaProcedimentos");

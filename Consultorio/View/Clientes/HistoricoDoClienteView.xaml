@@ -38,8 +38,8 @@
                     <DataGridTextColumn Header="Fim" Binding="{Binding Fim, StringFormat=t}" />
                     <DataGridTextColumn Header="Procedimento" Binding="{Binding Procedimento.Nome}" />
                     <DataGridTextColumn Header="Valor" Binding="{Binding ValorConsulta, StringFormat=c}" />
-                    <DataGridTextColumn Header="Dente" Binding="{Binding Dente}" />
-                    <DataGridCheckBoxColumn Header="Realizada" Binding="{Binding Realizada}"/>
+                    <DataGridTextColumn Header="Obs" Binding="{Binding Obs}" />
+                    <DataGridCheckBoxColumn Header="Status" Binding="{Binding Status}"/>
                 </DataGrid.Columns>
             </DataGrid>
 

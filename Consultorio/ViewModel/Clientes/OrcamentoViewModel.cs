@@ -75,13 +75,6 @@ namespace Consultorio.ViewModel.Clientes
         //--------------------------------------------*********Construtor******--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        /*public OrcamentoViewModel()
-        {
-            AtorLogado = SingletonAtorLogado.Instancia.Ator;
-
-            CarregarTodosOsProcedimentos();
-        }*/
-
         public OrcamentoViewModel(int id)
         {
             AtorLogado = SingletonAtorLogado.Instancia.Ator;
@@ -93,9 +86,6 @@ namespace Consultorio.ViewModel.Clientes
             }
             else
             {
-                //Orcamento = new Orcamento();
-                //Orcamento.Cliente = CrudClienteData.BuscarClientePorId(id);
-
                 Orcamento = new Orcamento() { Cliente = CrudClienteData.BuscarClientePorId(id), OrcamentosParaProcedimentos = new List<OrcamentosParaProcedimentos>() };
                 OrcamentoData.SalvarNovoOrcamento(Orcamento);
 

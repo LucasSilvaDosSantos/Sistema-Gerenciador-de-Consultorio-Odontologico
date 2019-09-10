@@ -73,12 +73,14 @@
                     <Label x:Name="lbdente30" Margin="381,295,857,105" Content="{Binding Cliente.Odontograma.Dente30, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
                     <Label x:Name="lbdente31" Margin="329,295,909,105" Content="{Binding Cliente.Odontograma.Dente31, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
                     <Label x:Name="lbdente32" Margin="279,295,962,105" Content="{Binding Cliente.Odontograma.Dente32, Mode=TwoWay}" MouseLeftButtonDown="Lbdente_MouseLeftButtonDown"/>
-                    
+
                 </Grid>
                 <Grid>
                     <Label x:Name="lbLegendaNaoMexido" Content="     - Dente Inalterado" Margin="1044,441,73,63" Padding="0,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
                     <Label x:Name="lbLegendaTratado" Content="X - Dente Retirado" Margin="1044,483,73,20" Foreground="Red" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left" />
                     <Label x:Name="lbLegendaRetirado" Content="O - Dente Tratado" Margin="1044,462,73,42" Foreground="Green" Padding="5,0,0,0" Height="Auto" HorizontalContentAlignment="Left"/>
+                    <Label x:Name="label" Content="Obs:" HorizontalAlignment="Right" Margin="0,10,210,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Right" VerticalContentAlignment="Top" BorderThickness="1" Margin="0,10,10,0" TextWrapping="Wrap" Text="{Binding Cliente.Odontograma.Obs}" Width="200" Height="95" VerticalAlignment="Top"/>
                 </Grid>
             </Grid>
         </Grid>

@@ -286,7 +286,7 @@ namespace Consultorio.View.Consultas
             ArrayLabel[9, 11] =h18m55;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtIniciarConsulta_Click(object sender, RoutedEventArgs e)
         {
             if (ConsultasViewModel.ConsultaSelecionada != null)
             {
@@ -310,6 +310,35 @@ namespace Consultorio.View.Consultas
                     {
                         MessageBox.Show("Ocorreu um erro por favor tente novamente", "Aviso!");
                     }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
+            }
+        }
+
+        private void BtFinalizarConsulta_Click(object sender, RoutedEventArgs e)
+        {
+            if (ConsultasViewModel.ConsultaSelecionada != null)
+            {
+                if (ConsultasViewModel.ConsultaSelecionada.Status == StatusConsulta.Agendada)
+                {
+                    MessageBox.Show("A consulta selecionada ainda não foi Iniciada e nao pode ser finalizada", "Aviso");
+                }
+                else if (ConsultasViewModel.ConsultaSelecionada.Status == StatusConsulta.Realizada)
+                {
+                    MessageBox.Show("A consulta selecionada já foi finalizada", "Aviso");
+                }
+                else
+                {
+                    FinalizacaoConsultaView finalizacaoConsultaView = new FinalizacaoConsultaView(ConsultasViewModel.ConsultaSelecionada.Id);
+                    this.Hide();
+                    ConfiguracoesDeView.ConfigurarWindow(this, finalizacaoConsultaView);
+                    finalizacaoConsultaView.ShowDialog();
+                    ConsultasViewModel.CarregarListaDeConsultasData();
+                    ConfiguracoesDeView.ConfigurarWindow(finalizacaoConsultaView, this);
+                    this.Visibility = Visibility.Visible;
                 }
             }
             else

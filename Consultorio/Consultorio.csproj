@@ -107,49 +107,18 @@
     </ApplicationDefinition>
     <Compile Include="Data\Clientes\CrudClienteData.cs" />
     <Compile Include="Data\Clientes\OrcamentoData.cs" />
+    <Compile Include="Data\Consultas\FinalizarConsultaData.cs" />
     <Compile Include="Data\Pagamentos\ContaPagaData.cs" />
     <Compile Include="Data\Pagamentos\ContabilidadeData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
-    <Compile Include="Migrations\201908200108436_a.cs" />
-    <Compile Include="Migrations\201908200108436_a.Designer.cs">
-      <DependentUpon>201908200108436_a.cs</DependentUpon>
+    <Compile Include="Migrations\201909092252596_a.cs" />
+    <Compile Include="Migrations\201909092252596_a.Designer.cs">
+      <DependentUpon>201909092252596_a.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908201938071_b.cs" />
-    <Compile Include="Migrations\201908201938071_b.Designer.cs">
-      <DependentUpon>201908201938071_b.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211827361_c.cs" />
-    <Compile Include="Migrations\201908211827361_c.Designer.cs">
-      <DependentUpon>201908211827361_c.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211834052_d.cs" />
-    <Compile Include="Migrations\201908211834052_d.Designer.cs">
-      <DependentUpon>201908211834052_d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908251314328_d1.cs" />
-    <Compile Include="Migrations\201908251314328_d1.Designer.cs">
-      <DependentUpon>201908251314328_d1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908262307321_c1.cs" />
-    <Compile Include="Migrations\201908262307321_c1.Designer.cs">
-      <DependentUpon>201908262307321_c1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908262308318_logs.cs" />
-    <Compile Include="Migrations\201908262308318_logs.Designer.cs">
-      <DependentUpon>201908262308318_logs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909030039418_modificando consulta.cs" />
-    <Compile Include="Migrations\201909030039418_modificando consulta.Designer.cs">
-      <DependentUpon>201909030039418_modificando consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909030100233_modificando consulta 1.cs" />
-    <Compile Include="Migrations\201909030100233_modificando consulta 1.Designer.cs">
-      <DependentUpon>201909030100233_modificando consulta 1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909030227427_consulta modificada 3.cs" />
-    <Compile Include="Migrations\201909030227427_consulta modificada 3.Designer.cs">
-      <DependentUpon>201909030227427_consulta modificada 3.cs</DependentUpon>
+    <Compile Include="Migrations\201909092257334_b.cs" />
+    <Compile Include="Migrations\201909092257334_b.Designer.cs">
+      <DependentUpon>201909092257334_b.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Ator.cs" />
@@ -164,10 +133,12 @@
     <Compile Include="Model\OrcamentosParaProcedimentos.cs" />
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\Procedimento.cs" />
+    <Compile Include="Model\ProdutosUtilizadosEmConsulta.cs" />
     <Compile Include="ViewModel\Atores\CrudAtorViewModel.cs" />
     <Compile Include="ViewModel\Atores\ListaDeAtoresViewModel.cs" />
     <Compile Include="ViewModel\Clientes\CrudClienteViewModel.cs" />
     <Compile Include="ViewModel\Clientes\OrcamentoViewModel.cs" />
+    <Compile Include="ViewModel\Consultas\FinalizacaoConsultaViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContaPagaViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContabilidadeViewModel.cs" />
     <Compile Include="ViewModel\Produtos\BaixaDeProdutoViewModel.cs" />
@@ -196,6 +167,9 @@
       <DependentUpon>OrcamentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ConfiguracoesDeView.cs" />
+    <Compile Include="View\Consultas\FinalizacaoConsultaView.xaml.cs">
+      <DependentUpon>FinalizacaoConsultaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pagamentos\ContaPagaView.xaml.cs">
       <DependentUpon>ContaPagaView.xaml</DependentUpon>
     </Compile>
@@ -302,6 +276,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Consultas\FinalizacaoConsultaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pagamentos\ContaPagaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -378,35 +356,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201908200108436_a.resx">
-      <DependentUpon>201908200108436_a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909092252596_a.resx">
+      <DependentUpon>201909092252596_a.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908201938071_b.resx">
-      <DependentUpon>201908201938071_b.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211827361_c.resx">
-      <DependentUpon>201908211827361_c.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211834052_d.resx">
-      <DependentUpon>201908211834052_d.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908251314328_d1.resx">
-      <DependentUpon>201908251314328_d1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908262307321_c1.resx">
-      <DependentUpon>201908262307321_c1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908262308318_logs.resx">
-      <DependentUpon>201908262308318_logs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909030039418_modificando consulta.resx">
-      <DependentUpon>201909030039418_modificando consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909030100233_modificando consulta 1.resx">
-      <DependentUpon>201909030100233_modificando consulta 1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909030227427_consulta modificada 3.resx">
-      <DependentUpon>201909030227427_consulta modificada 3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909092257334_b.resx">
+      <DependentUpon>201909092257334_b.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

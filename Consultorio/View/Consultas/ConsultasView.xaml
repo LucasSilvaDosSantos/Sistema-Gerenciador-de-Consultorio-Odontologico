@@ -236,8 +236,8 @@
                         <DataGridTextColumn Header="Hora Início" Binding="{Binding Inicio, StringFormat=t}" />
                         <DataGridTextColumn Header="Hora Fim" Binding="{Binding Fim, StringFormat=t}" />
                         <DataGridTextColumn Header="Procedimento" Binding="{Binding Procedimento.Nome}" />
-                        <DataGridTextColumn Header="Dente" Binding="{Binding Dente}" />
                         <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                        <DataGridTextColumn Header="Obs" Binding="{Binding Obs}" />
                     </DataGrid.Columns>
                 </DataGrid>
 
@@ -265,8 +265,8 @@
             <Label x:Name="label7" Content="Ocupado" BorderThickness="0" HorizontalAlignment="Left" Margin="110,0,0,102" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Width="96"/>
             <Label x:Name="label8" Content="Horário de Almoço" BorderThickness="0" HorizontalAlignment="Left" Margin="110,0,0,53" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Width="181"/>
             <Grid Background="WhiteSmoke" Visibility="{Binding DgListaIsVisible, Converter={StaticResource Converter}}" HorizontalAlignment="Left" Height="165" Margin="35,0,0,30" VerticalAlignment="Bottom" Width="290">
-                <Button x:Name="button" Content="Iniciar Consulta" Margin="0,0,0,1" VerticalAlignment="Bottom" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="136" Click="Button_Click"/>
-                <Button x:Name="button1" Content="Finalizar Consulta" Margin="141,0,0,0" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+                <Button x:Name="btIniciarConsulta" Content="Iniciar Consulta" Margin="0,0,0,1" VerticalAlignment="Bottom" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="136" Click="BtIniciarConsulta_Click"/>
+                <Button x:Name="btFinalizarConsulta" Content="Finalizar Consulta" Margin="141,0,0,0" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Click="BtFinalizarConsulta_Click"/>
             </Grid>
 
         </Grid>

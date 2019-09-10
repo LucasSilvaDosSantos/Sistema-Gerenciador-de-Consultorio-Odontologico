@@ -172,7 +172,7 @@ namespace Consultorio.Data.Consultas
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
                     //c = ctx.Consultas.Find(id);
-                    c = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).SingleOrDefault(d => d.Id == id);
+                    c = ctx.Consultas.Include(a => a.Cliente).Include(b => b.Procedimento).Include(e => e.Procedimento.Produtos).SingleOrDefault(d => d.Id == id);
                     return c;
                 }
             }

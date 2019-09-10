@@ -50,6 +50,8 @@ namespace Consultorio.Model
         public string Dente31 { get; set; }
         public string Dente32 { get; set; }
 
+        public string Obs { get; set; }
+
         public Odontograma()
         {
         }
@@ -57,7 +59,7 @@ namespace Consultorio.Model
         public Odontograma(string dente01, string dente02, string dente03, string dente04, string dente05, string dente06, string dente07, string dente08, string dente09, 
             string dente10, string dente11, string dente12, string dente13, string dente14, string dente15, string dente16, string dente17, string dente18, string dente19, 
             string dente20, string dente21, string dente22, string dente23, string dente24, string dente25, string dente26, string dente27, string dente28, string dente29, 
-            string dente30, string dente31, string dente32)
+            string dente30, string dente31, string dente32, string obs)
         {
             Dente01 = dente01;
             Dente02 = dente02;
@@ -91,6 +93,7 @@ namespace Consultorio.Model
             Dente30 = dente30;
             Dente31 = dente31;
             Dente32 = dente32;
+            Obs = obs;
         }
     }
 }
