@@ -109,7 +109,7 @@
     <Compile Include="Data\Clientes\OrcamentoData.cs" />
     <Compile Include="Data\Consultas\FinalizarConsultaData.cs" />
     <Compile Include="Data\Pagamentos\ContaPagaData.cs" />
-    <Compile Include="Data\Pagamentos\ContabilidadeData.cs" />
+    <Compile Include="Data\Pagamentos\FinanceiroData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
     <Compile Include="Migrations\201909100337023_teste 0036.cs" />
@@ -141,7 +141,7 @@
     <Compile Include="ViewModel\Clientes\OrcamentoViewModel.cs" />
     <Compile Include="ViewModel\Consultas\FinalizacaoConsultaViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContaPagaViewModel.cs" />
-    <Compile Include="ViewModel\Pagamentos\ContabilidadeViewModel.cs" />
+    <Compile Include="ViewModel\Pagamentos\FinanceiroViewModel.cs" />
     <Compile Include="ViewModel\Produtos\BaixaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Produtos\EntradaDeProdutoViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
@@ -174,8 +174,8 @@
     <Compile Include="View\Pagamentos\ContaPagaView.xaml.cs">
       <DependentUpon>ContaPagaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pagamentos\ContabilidadeView.xaml.cs">
-      <DependentUpon>ContabilidadeView.xaml</DependentUpon>
+    <Compile Include="View\Pagamentos\FinanceiroView.xaml.cs">
+      <DependentUpon>FinanceiroView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Procedimentos\ProcedimentoView.xaml.cs">
       <DependentUpon>ProcedimentoView.xaml</DependentUpon>
@@ -285,7 +285,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pagamentos\ContabilidadeView.xaml">
+    <Page Include="View\Pagamentos\FinanceiroView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

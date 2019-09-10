@@ -27,7 +27,7 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                    <DataGridTextColumn Header="Tipo" Binding="{Binding Nome}" />
+                    <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo.Tipo}" />
                     <DataGridTextColumn Header="Valor" Binding="{Binding Valor, StringFormat=c}" />
                     <DataGridTextColumn Header="Data de Pagamento" Binding="{Binding DataDePagamento, StringFormat=d}" />
                     <DataGridTextColumn Header="Quem Cadastrou" Binding="{Binding QuemCadastrou.Nome}" />

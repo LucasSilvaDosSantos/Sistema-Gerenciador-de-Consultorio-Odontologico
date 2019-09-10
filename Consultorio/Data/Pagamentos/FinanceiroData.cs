@@ -15,7 +15,7 @@ namespace Consultorio.Data.Pagamentos
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    var a = ctx.ContasPagas.Include(b => b.QuemCadastrou).Where(c => c.DataDePagamento >= inicio && c.DataDePagamento <= fim).ToList();
+                    var a = ctx.ContasPagas.Include(b => b.QuemCadastrou).Include(d => d.Tipo).Where(c => c.DataDePagamento >= inicio && c.DataDePagamento <= fim).ToList();
                     return a;
                 }
             }

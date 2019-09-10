@@ -33,8 +33,6 @@
             <Label x:Name="label1" Content="*Recomendado adicionar um novo tipo de conta apenas em caso de contas recorrentes" HorizontalAlignment="Left" Margin="343,0,0,216" VerticalAlignment="Bottom"/>
             <Label x:Name="label" Content="Novo tipo de conta:" HorizontalAlignment="Left" Margin="364,0,0,180" VerticalAlignment="Bottom"/>
 
-
-
         </Grid>
     </Viewbox>
 </Window>
