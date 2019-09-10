@@ -1,6 +1,7 @@
 ﻿using Consultorio.Data.Consultas;
 using Consultorio.Model;
 using Consultorio.Model.Enums;
+using Consultorio.ViewModel.Atores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,8 @@ namespace Consultorio.ViewModel.Consultas
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Atributos**********-----------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        public Ator AtorLogado { get; set; }
+
         public int[,] ArrayDisponibilidadeDeHorario { get; set; } = new int[10, 12];
 
         private bool _DgListaIsVisible;
@@ -72,6 +75,8 @@ namespace Consultorio.ViewModel.Consultas
 
         public ConsultasViewModel()
         {
+            AtorLogado = SingletonAtorLogado.Instancia.Ator;
+
             CalendarioAtivo = true;
             DataSelecionada = DateTime.Now;
             CarregarListaDeConsultasData();

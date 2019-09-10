@@ -36,7 +36,7 @@ namespace Consultorio.Model
         [Required]
         public bool CadastroDeContasPagas { get; set; }
         [Required]
-        public bool VisualizarContabilidade { get; set; }
+        public bool VisualizarFinanceiro { get; set; }
         [Required]
         public bool ReceberDeClientes { get; set; }
         [Required]
@@ -49,7 +49,7 @@ namespace Consultorio.Model
         public string Senha { get; set; }
 
         public Ator(string nome, string email, string telefone1, string telefone2, string crosp, bool clinicar, bool crudClientes, bool crudConsultas, 
-            bool crudProdutos, bool cadastroDeContasPagas, bool visualizarContabilidade, bool receberDeClientes, bool crudAtores, string login, string senha)
+            bool crudProdutos, bool cadastroDeContasPagas, bool visualizarFinanceiro, bool receberDeClientes, bool crudAtores, string login, string senha)
         {
             Nome = nome;
             Email = email;
@@ -61,7 +61,7 @@ namespace Consultorio.Model
             CrudConsultas = crudConsultas;
             CrudProdutos = crudProdutos;
             CadastroDeContasPagas = cadastroDeContasPagas;
-            VisualizarContabilidade = visualizarContabilidade;
+            VisualizarFinanceiro = VisualizarFinanceiro;
             ReceberDeClientes = receberDeClientes;
             CrudAtores = crudAtores;
             Login = login;
