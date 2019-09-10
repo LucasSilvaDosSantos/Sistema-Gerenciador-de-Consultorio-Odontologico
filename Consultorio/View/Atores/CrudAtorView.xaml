@@ -34,7 +34,7 @@
             <CheckBox x:Name="cbCrudConsulta" Content="Cadastrar e alterar consulta" IsChecked="{Binding Ator.CrudConsultas}" Margin="655,280,410,383" d:LayoutOverrides="Width"/>
             <CheckBox x:Name="cbCrudProdutos" Content="Cadastrar e alterar Produtos" IsChecked="{Binding Ator.CrudProdutos}" Margin="655,316,405,347" d:LayoutOverrides="Width"/>
             <CheckBox x:Name="cbCadastroDeContas" Content="Cadastrar contas pagas" IsChecked="{Binding Ator.CadastroDeContasPagas}" Margin="655,351,439,312" d:LayoutOverrides="Width"/>
-            <CheckBox x:Name="cbContabilidade" Content="Visualizar contabilidade" IsChecked="{Binding Ator.VisualizarContabilidade}" Margin="655,387,436,276" d:LayoutOverrides="Width"/>
+            <CheckBox x:Name="cbFinanceiro" Content="Visualizar Financeiro" IsChecked="{Binding Ator.VisualizarFinanceiro}" Margin="655,387,449,276"/>
             <CheckBox x:Name="cbReceberPagamentos" Content="Receber pagamentos dos clientes" IsChecked="{Binding Ator.ReceberDeClientes}" Margin="655,423,367,240" d:LayoutOverrides="Width"/>
             <CheckBox x:Name="cbCrudAtores" Content="Cadastrar e alterar colaboradores (Recomendado apenas um usuário no sistema)" IsChecked="{Binding Ator.CrudAtores}" Margin="655,459,35,204" d:LayoutOverrides="Width"/>
             <Label x:Name="label2" FontStyle="Italic" FontSize="18" Content="Preencher todas as autorizações que o novo usuário terá acesso" Margin="695,169,82,491"/>

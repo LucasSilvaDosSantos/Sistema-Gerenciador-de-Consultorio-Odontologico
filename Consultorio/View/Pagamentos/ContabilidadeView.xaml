@@ -1,11 +1,11 @@
-﻿<Window x:Class="Consultorio.View.Pagamentos.ContabilidadeView"
+﻿<Window x:Class="Consultorio.View.Pagamentos.FinanceiroView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View.Pagamentos"
         mc:Ignorable="d"
-        Title="Contabilidade" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="Manual">
+        Title="Financeiro" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="Manual">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="Converter" />
@@ -16,7 +16,7 @@
         <Grid Height="694" Width="1280">
 
 
-            <Label x:Name="lbContabilidade" Foreground="#FF7FBEE2" Content="&gt;Contabilidade" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="233"/>
+            <Label x:Name="lbFinanceiro" Foreground="#FF7FBEE2" Content="&gt;Financeiro" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="173"/>
 
             <!--Data grid de contas pagas-->
             <DataGrid x:Name="dtContasPagas" BorderThickness="1" BorderBrush="Gray" FontSize="16" Visibility="{Binding DgContasPagasIsEnabled, Converter={StaticResource Converter}}" IsReadOnly="True" AutoGenerateColumns="False" Margin="59,131,70,221" ItemsSource="{Binding TodasAsContas}">

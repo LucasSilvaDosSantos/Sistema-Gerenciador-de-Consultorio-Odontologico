@@ -91,13 +91,13 @@ namespace Consultorio.View
             this.Close();
         }
 
-        private void BtContabilidade_Click(object sender, RoutedEventArgs e)
+        private void BtFinanceiro_Click(object sender, RoutedEventArgs e)
         {
-            ContabilidadeView contabilidadeView = new ContabilidadeView();
-            ConfiguracoesDeView.ConfigurarWindow(this, contabilidadeView);
+            FinanceiroView financeiroView = new FinanceiroView();
+            ConfiguracoesDeView.ConfigurarWindow(this, financeiroView);
             this.Hide();
-            contabilidadeView.ShowDialog();
-            ConfiguracoesDeView.ConfigurarWindow(contabilidadeView, this);
+            financeiroView.ShowDialog();
+            ConfiguracoesDeView.ConfigurarWindow(financeiroView, this);
             this.Visibility = Visibility.Visible;
         }
     }

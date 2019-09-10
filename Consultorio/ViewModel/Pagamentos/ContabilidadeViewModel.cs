@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace Consultorio.ViewModel.Pagamentos
 {
-    public class ContabilidadeViewModel : INotifyPropertyChanged
+    public class FinanceiroViewModel : INotifyPropertyChanged
     {
         public string TotalDeDiasSelecionados
         {
@@ -204,7 +204,7 @@ namespace Consultorio.ViewModel.Pagamentos
 
         //*****************************************Construtor********************************************
 
-        public ContabilidadeViewModel()
+        public FinanceiroViewModel()
         {
             DataFinal = DateTime.Now.Date;
             DataInicial = DataFinal.AddDays(-30).Date;
@@ -233,7 +233,7 @@ namespace Consultorio.ViewModel.Pagamentos
         //***************************************************Carregamento dos data grid********************************************
         private void CarregarTodasAsContasPagas()
         {
-            TodasAsContas = ContabilidadeData.TodasAsContas(DataInicial, DataFinal);
+            TodasAsContas = FinanceiroData.TodasAsContas(DataInicial, DataFinal);
 
             SomaContasPagas = 0;
 
@@ -245,7 +245,7 @@ namespace Consultorio.ViewModel.Pagamentos
 
         private void CarregarTodasASConsultasRealizadas()
         {
-            TodasAsConsultas = ContabilidadeData.TodasAsConsultasRealizadas(DataInicial, DataFinal);
+            TodasAsConsultas = FinanceiroData.TodasAsConsultasRealizadas(DataInicial, DataFinal);
 
             SomaConsulta = 0;
 
@@ -257,7 +257,7 @@ namespace Consultorio.ViewModel.Pagamentos
 
         private void CarregarTodosOsProdutosComprados()
         {
-            TodosOsProdutosComprados = ContabilidadeData.TodosOsProdutosComprados(DataInicial, DataFinal);
+            TodosOsProdutosComprados = FinanceiroData.TodosOsProdutosComprados(DataInicial, DataFinal);
 
             SomaDeProdutos = 0;
 
@@ -269,7 +269,7 @@ namespace Consultorio.ViewModel.Pagamentos
 
         private void CarregarTodosOsPagamentosRecebidos()
         {
-            TodosOsPagamentosRecebidos = ContabilidadeData.TodosOsPagamentosRecebidos(DataInicial, DataFinal);
+            TodosOsPagamentosRecebidos = FinanceiroData.TodosOsPagamentosRecebidos(DataInicial, DataFinal);
 
             SomaPagamentos = 0;
 

@@ -3,12 +3,11 @@ using Consultorio.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
 
 namespace Consultorio.Data.Pagamentos
 {
-    class ContabilidadeData
+    class FinanceiroData
     {
         static public List<ContaPaga> TodasAsContas(DateTime inicio, DateTime fim)
         {

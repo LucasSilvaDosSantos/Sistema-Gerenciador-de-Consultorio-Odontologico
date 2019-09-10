@@ -25,7 +25,7 @@
             <Label x:Name="label1" Content="{Binding Saudacao}" HorizontalAlignment="Left" IsEnabled="{Binding AtorLogado.CrudAtores}" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="26" FontStyle="Italic" Foreground="#DD302E2E" ForceCursor="True" />
             <Label x:Name="label2" Content="Outras Opções" Margin="100,0,0,136" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="117"/>
             <Button x:Name="btContasPagas" Content="Cadastrar Conta Paga" IsEnabled="{Binding AtorLogado.CadastroDeContasPagas}" Margin="100,0,0,57" VerticalAlignment="Bottom" FontSize="20" Height="62" HorizontalAlignment="Left" Width="249" Click="BtContasPagas_Click" />
-            <Button x:Name="btContabilidade" Content="Contabilidade" HorizontalAlignment="Left" IsEnabled="{Binding AtorLogado.VisualizarFinanceiro}" Margin="367,0,0,57" VerticalAlignment="Bottom" FontSize="20" Width="249" Height="62" Click="BtContabilidade_Click"/>
+            <Button x:Name="btFinanceiro" Content="Financeiro" HorizontalAlignment="Left" IsEnabled="{Binding AtorLogado.VisualizarFinanceiro}" Margin="367,0,0,57" VerticalAlignment="Bottom" FontSize="20" Width="249" Height="62" Click="BtFinanceiro_Click"/>
         </Grid>
     </Viewbox>
 </Window>
