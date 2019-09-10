@@ -122,7 +122,7 @@
 
                 </StackPanel>
                 <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Width="841" Height="44" VerticalAlignment="Bottom">
-                    <Label x:Name="h15m00"  />
+                    <Label x:Name="h15m00" />
                     <Label x:Name="h15m05" />
                     <Label x:Name="h15m10" />
                     <Label x:Name="h15m15" />
