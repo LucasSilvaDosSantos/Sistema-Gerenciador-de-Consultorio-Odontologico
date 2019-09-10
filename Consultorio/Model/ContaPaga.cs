@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Consultorio.Model
@@ -7,7 +8,8 @@ namespace Consultorio.Model
     public class ContaPaga
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
+        [Required]
+        public TipoDeContaPaga Tipo { get; set; }
         public Ator QuemCadastrou { get; set; }
         public double Valor { get; set; }
         public DateTime DataDePagamento { get; set; }

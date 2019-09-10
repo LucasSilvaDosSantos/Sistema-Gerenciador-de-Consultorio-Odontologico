@@ -18,7 +18,7 @@ namespace Consultorio.Data
         public DbSet<ProdutoCompra> ProdutosCompras { get; set; }
         public DbSet<Log> Logs { get; set; }
         public DbSet<ProdutoUtilizadoEmConsulta> ProdutoUtilizadoEmConsultas { get; set; }
-
+        public DbSet<TipoDeContaPaga> TiposDeContasPagas { get; set; }
 
         public ConsultorioContext()
             : base("name=ConsultorioContext")

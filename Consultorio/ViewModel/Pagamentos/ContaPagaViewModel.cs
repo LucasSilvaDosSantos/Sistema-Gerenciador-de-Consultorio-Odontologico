@@ -4,9 +4,7 @@ using Consultorio.ViewModel.Atores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.ViewModel.Pagamentos
 {
@@ -14,7 +12,14 @@ namespace Consultorio.ViewModel.Pagamentos
     {
         public ContaPaga ContaPaga{ get; set; }
 
-        public List<string> ListaDeNome { get; set; }
+        private List<TipoDeContaPaga> _ListaDeTipo;
+
+        public List<TipoDeContaPaga> ListaDeTipo
+        {
+            get { return _ListaDeTipo; }
+            set { _ListaDeTipo = value; OnPropertyChanged("ListaDeTipo"); }
+        }
+
 
         public ContaPagaViewModel()
         {
@@ -38,9 +43,9 @@ namespace Consultorio.ViewModel.Pagamentos
         public bool TodosOsCamposValidos(out string msg)
         {
             StringBuilder sb = new StringBuilder();
-            if (ContaPaga.Nome == "" || ContaPaga.Nome == null)
+            if (ContaPaga.Tipo == null)
             {
-                sb.Append("O nome não pode ficar em branco!\n");
+                sb.Append("O tipo não pode ficar em branco!\n");
             }
             if (ContaPaga.DataDePagamento > DateTime.Now)
             {
@@ -57,16 +62,31 @@ namespace Consultorio.ViewModel.Pagamentos
 
         private void IniciarListaDeNome()
         {
-            ListaDeNome = new List<string>
+            ListaDeTipo = ContaPagaData.TiposDeContaPaga();
+        }
+
+        public bool AdicionarNovoTipoDeDeConta(string novoTipo)
+        {
+            bool valido = VerificarCadastroDeNomeDoNovoTipoValido(novoTipo);
+            if (valido == true)
             {
-                "Água",
-                "Luz",
-                "Aluguel",
-                "Funcionário",
-                "Produtos de Limpeza",
-                "Internet",
-                "Outros"
-            };
+                var salvo = ContaPagaData.NovoTipoDeConta(novoTipo);
+                IniciarListaDeNome();
+                return salvo;
+            }
+            return false;
+        }
+
+        public bool VerificarCadastroDeNomeDoNovoTipoValido(string nomeNovotipo)
+        {
+            foreach (var item in ListaDeTipo)
+            {
+                if (item.Tipo == nomeNovotipo)
+                {
+                    return false;
+                }
+            }         
+            return true;
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

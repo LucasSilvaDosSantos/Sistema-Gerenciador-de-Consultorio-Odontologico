@@ -42,5 +42,28 @@ namespace Consultorio.View.Pagamentos
             opcoesView.Show();
             this.Close();
         }
+
+        private void BtSalvarNovoTipoDeConta_Click(object sender, RoutedEventArgs e)
+        {
+            bool valido = ContaPagaViewModel.VerificarCadastroDeNomeDoNovoTipoValido(tbNovoTipoDeConta.Text);
+            if (valido)
+            {
+                bool salvo = ContaPagaViewModel.AdicionarNovoTipoDeDeConta(tbNovoTipoDeConta.Text);
+                if (salvo)
+                {
+                    MessageBox.Show("Novo tipo de conta salva!", "Aviso!");
+                    tbNovoTipoDeConta.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Novo tipo de conta não pode ser salva devido a problema interno!", "Aviso!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Este tipo já existe!", "Aviso!");
+            }
+            
+        }
     }
 }

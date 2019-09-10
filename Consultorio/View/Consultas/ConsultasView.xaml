@@ -252,8 +252,7 @@
 
                 <Label x:Name="label2" FontSize="16" BorderThickness="0" Content="Busca" Margin="413,0,432,63" VerticalAlignment="Bottom" Width="Auto" />
             </Grid>
-
-
+            
             <Button x:Name="btCadastrarNovo" Content="Cadastrar" Margin="529,0,635,30" VerticalAlignment="Bottom" Height="35" Click="BtCadastrarNovo_Click" Grid.Row="1" />
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" Grid.Row="1"/>
             <Button x:Name="btEditar" Content="Editar" HorizontalAlignment="Right" Margin="0,0,540,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtEditar_Click" Grid.Row="1"/>
@@ -265,7 +264,7 @@
             <Label x:Name="label7" Content="Ocupado" BorderThickness="0" HorizontalAlignment="Left" Margin="110,0,0,102" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Width="96"/>
             <Label x:Name="label8" Content="Horário de Almoço" BorderThickness="0" HorizontalAlignment="Left" Margin="110,0,0,53" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Width="181"/>
             <Grid Background="WhiteSmoke" Visibility="{Binding DgListaIsVisible, Converter={StaticResource Converter}}" HorizontalAlignment="Left" Height="165" Margin="35,0,0,30" VerticalAlignment="Bottom" Width="290">
-                <Button x:Name="btIniciarConsulta" Content="Iniciar Consulta" Margin="0,0,0,1" VerticalAlignment="Bottom" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="136" Click="BtIniciarConsulta_Click"/>
+                <Button x:Name="btIniciarConsulta" Content="Iniciar Consulta" Margin="0,0,0,1" VerticalAlignment="Bottom"  d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="136" Click="BtIniciarConsulta_Click"/>
                 <Button x:Name="btFinalizarConsulta" Content="Finalizar Consulta" Margin="141,0,0,0" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Click="BtFinalizarConsulta_Click"/>
             </Grid>
 

@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class a : DbMigration
+    public partial class teste0036 : DbMigration
     {
         public override void Up()
         {
@@ -238,15 +238,26 @@ namespace Consultorio.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(unicode: false),
                         Valor = c.Double(nullable: false),
                         DataDePagamento = c.DateTime(nullable: false, precision: 0),
                         Obs = c.String(unicode: false),
                         QuemCadastrou_Id = c.Int(),
+                        Tipo_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Atores", t => t.QuemCadastrou_Id)
-                .Index(t => t.QuemCadastrou_Id);
+                .ForeignKey("dbo.TipoDeContaPagas", t => t.Tipo_Id, cascadeDelete: true)
+                .Index(t => t.QuemCadastrou_Id)
+                .Index(t => t.Tipo_Id);
+            
+            CreateTable(
+                "dbo.TipoDeContaPagas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Tipo = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Logs",
@@ -320,6 +331,7 @@ namespace Consultorio.Migrations
             DropForeignKey("dbo.Pagamentos", "Recebedor_Id", "dbo.Atores");
             DropForeignKey("dbo.Pagamentos", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.Logs", "Ator_Id", "dbo.Atores");
+            DropForeignKey("dbo.ContasPagas", "Tipo_Id", "dbo.TipoDeContaPagas");
             DropForeignKey("dbo.ContasPagas", "QuemCadastrou_Id", "dbo.Atores");
             DropForeignKey("dbo.Consultas", "QuemRealizou_Id", "dbo.Atores");
             DropForeignKey("dbo.Consultas", "Procedimento_Id", "dbo.Procedimentos");
@@ -341,6 +353,7 @@ namespace Consultorio.Migrations
             DropIndex("dbo.Pagamentos", new[] { "Recebedor_Id" });
             DropIndex("dbo.Pagamentos", new[] { "Cliente_Id" });
             DropIndex("dbo.Logs", new[] { "Ator_Id" });
+            DropIndex("dbo.ContasPagas", new[] { "Tipo_Id" });
             DropIndex("dbo.ContasPagas", new[] { "QuemCadastrou_Id" });
             DropIndex("dbo.ProdutosUtilizadosEmconsultas", new[] { "ProdutoID" });
             DropIndex("dbo.ProdutosUtilizadosEmconsultas", new[] { "ConsultaID" });
@@ -357,6 +370,7 @@ namespace Consultorio.Migrations
             DropTable("dbo.ProdutosCompras");
             DropTable("dbo.Pagamentos");
             DropTable("dbo.Logs");
+            DropTable("dbo.TipoDeContaPagas");
             DropTable("dbo.ContasPagas");
             DropTable("dbo.ProdutosUtilizadosEmconsultas");
             DropTable("dbo.Produtos");

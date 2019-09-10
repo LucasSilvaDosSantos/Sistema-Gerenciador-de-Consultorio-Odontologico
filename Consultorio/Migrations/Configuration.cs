@@ -54,6 +54,11 @@ namespace Consultorio.Migrations
             // seed Pagamentos
             Pagamento pagamento1 = new Pagamento(ator1, "Dinheiro", DateTime.Parse("24/06/2019 12:16"), 200.00, cliente1);
 
+            // seed tipoDeContaPaga
+            TipoDeContaPaga tipoDeContaPaga1 = new TipoDeContaPaga { Tipo = "Água" };
+            TipoDeContaPaga tipoDeContaPaga2 = new TipoDeContaPaga { Tipo = "Luz" };
+
+
             context.Anamneses.AddOrUpdate(anamnese1);
             context.Anamneses.AddOrUpdate(anamnese2);
             context.Clientes.AddOrUpdate(cliente1);
@@ -68,6 +73,8 @@ namespace Consultorio.Migrations
             context.Procedimentos.AddOrUpdate(procedimento4);
             context.Consultas.AddOrUpdate(consulta1);
             context.Pagamentos.AddOrUpdate(pagamento1);
+            context.TiposDeContasPagas.AddOrUpdate(tipoDeContaPaga1);
+            context.TiposDeContasPagas.AddOrUpdate(tipoDeContaPaga2);
             context.SaveChanges();*/
             
              
