@@ -196,5 +196,22 @@ namespace Consultorio.Data.Produtos
                 return "Não foi possivel salvar alterações";
             }
         }
+
+        public static List<Produto> BuscarProdutosEstoqueAbaixoDe(int qtdBusca)
+        {
+            List<Produto> listaDeProdutos = new List<Produto>();
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    listaDeProdutos = ctx.Produtos.Where(p => p.Quantidade <= qtdBusca).ToList();
+                    return listaDeProdutos;
+                }
+            }
+            catch
+            {
+                return listaDeProdutos;
+            }
+        }
     }
 }

@@ -46,7 +46,13 @@ namespace Consultorio.View.Produtos
             {
                 string msg = CrudProdutoViewModel.BotaoSalvarClick();
                 MessageBox.Show(msg, "Aviso!");
-                this.Close();
+
+                bool telaResetada = CrudProdutoViewModel.ResetarTela();
+
+                if (telaResetada == false)
+                {
+                    this.Close();
+                }
             } 
         }
 

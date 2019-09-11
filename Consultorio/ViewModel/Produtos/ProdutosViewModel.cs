@@ -13,7 +13,6 @@ namespace Consultorio.ViewModel.Produtos
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Atributos**********-----------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
-        
         public SingletonAtorLogado AtorLogado { get; set; }
 
         private List<Produto> _TodosOsProdutos;
@@ -34,7 +33,9 @@ namespace Consultorio.ViewModel.Produtos
         {
             ProdutoSelecionado = new Produto();
             AtorLogado = SingletonAtorLogado.Instancia;
-            CarregarTodosOsProdutos();
+
+            BuscaQtdEstoque("5");
+            //LimparListaDeProdutos();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -60,9 +61,23 @@ namespace Consultorio.ViewModel.Produtos
             LimparCampos();
         }
 
-        private void CarregarTodosOsProdutos()
+        public void BuscaQtdEstoque(string qtd)
         {
-            TodosOsProdutos = ProdutoData.ListarTodosProdutos();
+            var parceOk = int.TryParse(qtd, out int qtdInt);
+
+            if (parceOk)
+            {
+                TodosOsProdutos = ProdutoData.BuscarProdutosEstoqueAbaixoDe(qtdInt);
+            }
+            else
+            {
+                LimparListaDeProdutos();
+            }           
+        }
+
+        private void LimparListaDeProdutos()
+        {
+            TodosOsProdutos = new List<Produto>(); //ProdutoData.ListarTodosProdutos();
         }
 
         private void LimparCampos()
@@ -72,9 +87,9 @@ namespace Consultorio.ViewModel.Produtos
 
         public void BuscarNome(string nome)
         {
-            if (nome == "")
+            if (nome == "" || nome.Length < 3)
             {
-                CarregarTodosOsProdutos();
+                LimparListaDeProdutos();
                 return;
             }
             List<Produto> lista = ProdutoData.BuscarProdutosNome(nome, out bool encontrado);
@@ -92,7 +107,7 @@ namespace Consultorio.ViewModel.Produtos
         {
             if (id == "")
             {
-                CarregarTodosOsProdutos();
+                LimparListaDeProdutos();
                 return;
             }
             List<Produto> lista = ProdutoData.BuscarProdutosId(id, out bool encontrado);
@@ -108,7 +123,7 @@ namespace Consultorio.ViewModel.Produtos
 
         public void RecarregarGrid()
         {
-            CarregarTodosOsProdutos();
+            LimparListaDeProdutos();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

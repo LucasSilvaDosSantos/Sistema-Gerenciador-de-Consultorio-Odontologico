@@ -26,6 +26,9 @@
             <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedItem="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="0,240,258,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="335" Height="32"/>
             <TextBox x:Name="textBox" HorizontalAlignment="Right" Margin="0,339,447,324" TextWrapping="Wrap" Text="{Binding ProcedimentoSelecionado.Preco, StringFormat=c}" IsReadOnly="True" Width="82"/>
 
+            <Label x:Name="label8" Content="Tempo recomendado para este procedimento:" Margin="572,272,368,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="label9" Text="{Binding ProcedimentoSelecionado.TempoRecomendado, StringFormat=t}" BorderThickness="0" HorizontalAlignment="Right" Margin="0,272,258,0" VerticalAlignment="Top" Width="110" Height="31"/>
+
             <TextBox x:Name="tbDente" BorderThickness="1" Padding="0, -1, 0, 0" Margin="616,0,258,193" Background="White" VerticalContentAlignment="Top" TextWrapping="Wrap" Text="{Binding Consulta.Obs}" Height="126" VerticalAlignment="Bottom"/>
 
             <Label x:Name="label2" VerticalAlignment="Bottom" Margin="572,0,0,289" Height="30" Content="Obs:" HorizontalAlignment="Left" Width="44"/>
@@ -41,9 +44,7 @@
             <Label x:Name="label1" Content=":" HorizontalAlignment="Right" Margin="0,0,571,360" VerticalAlignment="Bottom" Height="31"/>
             <Label x:Name="label1_Copy" Content=":" HorizontalAlignment="Right" Margin="0,0,292,360" VerticalAlignment="Bottom"/>
             <Label x:Name="label7" Content="Valor do Procedimento:" Margin="0,339,529,324" HorizontalAlignment="Right" Width="179" d:LayoutOverrides="Height"/>
-            <Label x:Name="label8" Content="Tempo recomendado para este procedimento:" Margin="572,272,368,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="label9" Text="{Binding ProcedimentoSelecionado.TempoRecomendado, StringFormat=t}" BorderThickness="0" HorizontalAlignment="Right" Margin="0,272,258,0" VerticalAlignment="Top" Width="110" Height="31"/>
-
+            
 
         </Grid>
     </Viewbox>

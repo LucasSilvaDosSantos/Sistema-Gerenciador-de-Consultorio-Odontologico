@@ -17,6 +17,8 @@ namespace Consultorio.View.Produtos
             DataContext = ProdutosViewModel;
 
             InitializeComponent();
+
+            tbBuscaPorQtd.Text = "5";
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -33,13 +35,22 @@ namespace Consultorio.View.Produtos
         private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
         {
             tbId.Text = null;
+            tbBuscaPorQtd.Text = null;
             ProdutosViewModel.BuscarNome(tbNome.Text);
         }
 
         private void TbId_TextChanged(object sender, TextChangedEventArgs e)
         {
             tbNome.Text = "";
+            tbBuscaPorQtd.Text = null;
             ProdutosViewModel.BuscarId(tbId.Text);
+        }
+
+        private void TbBuscaPorQtd_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbNome.Text = "";
+            tbId.Text = null;
+            ProdutosViewModel.BuscaQtdEstoque(tbBuscaPorQtd.Text);
         }
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
@@ -116,6 +127,6 @@ namespace Consultorio.View.Produtos
                 ProdutosViewModel.RecarregarGrid();
                 ProdutosViewModel.ResetarTela();
             }
-        }
+        } 
     }
 }
