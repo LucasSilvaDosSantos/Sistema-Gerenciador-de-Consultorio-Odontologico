@@ -44,11 +44,14 @@ namespace Consultorio.ViewModel.Produtos
 
         public int RetornaIdProdutoSelecionado()
         {
-            int.TryParse(ProdutoSelecionado.Id.ToString(), out int id);
-            if (id != 0)
+            if (ProdutoSelecionado != null && ProdutoSelecionado.Id != null)
             {
-                return id;
-            }
+                int.TryParse(ProdutoSelecionado.Id.ToString(), out int id);
+                if (id != 0)
+                {
+                    return id;
+                }
+            }           
             return 0;
         }
 
@@ -76,7 +79,7 @@ namespace Consultorio.ViewModel.Produtos
         }
 
         private void LimparListaDeProdutos()
-        {
+        {           
             TodosOsProdutos = new List<Produto>(); //ProdutoData.ListarTodosProdutos();
         }
 

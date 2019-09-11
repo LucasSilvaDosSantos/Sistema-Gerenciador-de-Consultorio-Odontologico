@@ -61,7 +61,8 @@ namespace Consultorio.View.Produtos
             CrudProdutoView.ShowDialog();
             ConfiguracoesDeView.ConfigurarWindow(CrudProdutoView, this);
             this.Visibility = Visibility.Visible;
-            ProdutosViewModel.RecarregarGrid();
+
+            ProdutosViewModel.BuscaQtdEstoque(tbBuscaPorQtd.Text);//ProdutosViewModel.RecarregarGrid();
         }
 
         private void BtEditar_Click(object sender, RoutedEventArgs e)
@@ -80,8 +81,8 @@ namespace Consultorio.View.Produtos
                 crudProdutoView.ShowDialog();
                 ConfiguracoesDeView.ConfigurarWindow(crudProdutoView, this);
                 this.Visibility = Visibility.Visible;
-                ProdutosViewModel.RecarregarGrid();
-                ProdutosViewModel.ResetarTela();
+                ProdutosViewModel.BuscaQtdEstoque(tbBuscaPorQtd.Text);//ProdutosViewModel.RecarregarGrid();
+                //ProdutosViewModel.ResetarTela();
             }            
         }
 
@@ -102,8 +103,8 @@ namespace Consultorio.View.Produtos
                 entradaDeProdutoView.ShowDialog();
                 ConfiguracoesDeView.ConfigurarWindow(entradaDeProdutoView, this);
                 this.Visibility = Visibility.Visible;
-                ProdutosViewModel.RecarregarGrid();
-                ProdutosViewModel.ResetarTela();
+                ProdutosViewModel.BuscaQtdEstoque(tbBuscaPorQtd.Text);//.RecarregarGrid();
+                //ProdutosViewModel.ResetarTela();
             }
         }
 
@@ -124,8 +125,8 @@ namespace Consultorio.View.Produtos
                 baixaDeProdutoView.ShowDialog();
                 ConfiguracoesDeView.ConfigurarWindow(baixaDeProdutoView, this);
                 this.Visibility = Visibility.Visible;
-                ProdutosViewModel.RecarregarGrid();
-                ProdutosViewModel.ResetarTela();
+                ProdutosViewModel.BuscaQtdEstoque(tbBuscaPorQtd.Text);//ProdutosViewModel.RecarregarGrid();
+                //ProdutosViewModel.ResetarTela();
             }
         } 
     }
