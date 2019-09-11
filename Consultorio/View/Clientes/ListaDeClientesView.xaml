@@ -8,24 +8,26 @@
         Title="Lista de clientes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
     <Viewbox>
         <Grid Height="694" Width="1280">
-            
+
 
             <Label x:Name="lbProcedimento" Foreground="#FF7FBEE2" Content="&gt; Lista de Clientes" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="261"/>
-            <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-            <Rectangle Fill="White" Margin="330,0,317,85" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="69" VerticalAlignment="Bottom"/>
 
-            <Label x:Name="label" Content="ID" HorizontalAlignment="Left" Margin="342,0,0,94" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="31" Margin="372,0,0,94" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="48" TextChanged="TbId_TextChanged"/>
-            <Label x:Name="label1" Content="Nome" HorizontalAlignment="Left" Margin="425,0,0,94" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="483,0,338,94" TextWrapping="Wrap" VerticalAlignment="Bottom" TextChanged="TbNome_TextChanged" Language="pt-br" />
+            <Rectangle Fill="White" Margin="59,95,61,0" Stroke="Black" RadiusY="24.5" RadiusX="24.5" Height="69" VerticalAlignment="Top"/>
 
-            <Button x:Name="btOrcamento" IsEnabled="{Binding BtEnabled}" Content="Orçamento" HorizontalAlignment="Left" Margin="425,0,0,30" VerticalAlignment="Bottom" Width="107" d:LayoutOverrides="Height" Click="BtOrcamento_Click"/>
-            <Button x:Name="btHistorico" IsEnabled="{Binding BtEnabled}" Content="Histórico " Margin="537,0,0,29" VerticalAlignment="Bottom" Height="35" Click="BtHistorico_Click" HorizontalAlignment="Left" Width="98"/>
-            <Button x:Name="btAlterar" IsEnabled="{Binding BtEnabled}" Content="Alterar" Margin="0,0,545,29" VerticalAlignment="Bottom" Height="35" Click="BtAlterar_Click" HorizontalAlignment="Right" Width="95"/>
-            <Button x:Name="btCancelar" IsEnabled="{Binding BtCancelarIsEnabled}" Content="Cancelar" Margin="0,0,442,29" VerticalAlignment="Bottom" Height="35" Click="BtCancelar_Click" HorizontalAlignment="Right" Width="98"/>
+            <Label x:Name="label" Content="ID:" HorizontalAlignment="Right" Margin="0,121,130,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Right" Height="31" Margin="0,121,82,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" TextChanged="TbId_TextChanged"/>
+            <Label x:Name="label1" Content="Nome:" HorizontalAlignment="Left" Margin="71,121,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbNome" Padding="0, -1, 0, 0" Height="31" Margin="128,121,341,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TbNome_TextChanged" Language="pt-br" />
+
+            <Label x:Name="label3" Content="Cpf:" HorizontalAlignment="Right" Margin="0,121,303,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbCpf" HorizontalAlignment="Right" Height="31" Margin="0,121,164,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="139" TextChanged="TbCpf_TextChanged"/>
+
+            <Button x:Name="btOrcamento" IsEnabled="{Binding BtEnabled}" Content="Orçamento" HorizontalAlignment="Left" Margin="492,0,0,30" VerticalAlignment="Bottom" Width="107" d:LayoutOverrides="Height" Click="BtOrcamento_Click"/>
+            <Button x:Name="btHistorico" IsEnabled="{Binding BtEnabled}" Content="Histórico " Margin="604,0,578,29" VerticalAlignment="Bottom" Height="35" Click="BtHistorico_Click"/>
+            <Button x:Name="btAlterar" IsEnabled="{Binding BtEnabled}" Content="Alterar" Margin="0,0,478,29" VerticalAlignment="Bottom" Height="35" Click="BtAlterar_Click" HorizontalAlignment="Right" Width="95"/>
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,40,30" VerticalAlignment="Bottom" Width="90" Height="32" Click="BtVoltar_Click"/>
 
-            <DataGrid x:Name="dgListaDeClientes" Margin="59,150,61,159" ItemsSource="{Binding ListaDeClientes}" IsReadOnly="True" SelectionMode="Single" FontSize="16" AutoGenerateColumns="False" SelectionChanged="DgListaDeClientes_SelectionChanged" SelectedItem="{Binding ClienteSelecionado}">
+            <DataGrid x:Name="dgListaDeClientes" BorderThickness="1" Margin="59,169,61,90" ItemsSource="{Binding ListaDeClientes}" IsReadOnly="True" SelectionMode="Single" FontSize="16" AutoGenerateColumns="False" SelectionChanged="DgListaDeClientes_SelectionChanged" SelectedItem="{Binding ClienteSelecionado}">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>
@@ -42,8 +44,9 @@
                     <DataGridTextColumn Header="Obs" Binding="{Binding Obs}" />
                 </DataGrid.Columns>
             </DataGrid>
-            <Label x:Name="label2" Content="Busca" Margin="610,0,595,125" VerticalAlignment="Bottom" />
-            
+            <Label x:Name="label2" Content="Busca" HorizontalAlignment="Center" Margin="614,93,616,0" VerticalAlignment="Top" />
+
+
         </Grid>
     </Viewbox>
 </Window>

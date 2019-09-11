@@ -32,13 +32,6 @@ namespace Consultorio.View.Clientes
             ListaDeClientesViewModel.DgListaDeClientes_SelectionChanged();
         }
 
-        private void BtCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            ListaDeClientesViewModel.BtCancelar_Click();
-            tbId.Text = "";
-            tbNome.Text = "";
-        }
-
         private void BtAlterar_Click(object sender, RoutedEventArgs e)
         {
             if (dgListaDeClientes.SelectedIndex >= 0)
@@ -53,7 +46,7 @@ namespace Consultorio.View.Clientes
                     ConfiguracoesDeView.ConfigurarWindow(this, windowCliente);
                     windowCliente.ShowDialog();
 
-                    ListaDeClientesViewModel.ListarTodosOsClientes();
+                    BuscaCliente();//ListaDeClientesViewModel.ListarTodosOsClientes();
                     ConfiguracoesDeView.ConfigurarWindow(windowCliente, this);
                     this.Visibility = Visibility.Visible;
                 }
@@ -88,13 +81,27 @@ namespace Consultorio.View.Clientes
         private void TbNome_TextChanged(object sender, TextChangedEventArgs e)
         {
             tbId.Text = "";
-            ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text);
+            tbCpf.Text = "";
+            BuscaCliente();
         }
 
         private void TbId_TextChanged(object sender, TextChangedEventArgs e)
         {
             tbNome.Text = "";
-            ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text);
+            tbCpf.Text = "";
+            BuscaCliente();
+        }
+
+        private void TbCpf_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tbId.Text = "";
+            tbNome.Text = "";
+            BuscaCliente();
+        }
+
+        private void BuscaCliente()
+        {
+            ListaDeClientesViewModel.BuscarCliente(tbId.Text, tbNome.Text, tbCpf.Text);
         }
 
         private void BtOrcamento_Click(object sender, RoutedEventArgs e)
@@ -113,6 +120,8 @@ namespace Consultorio.View.Clientes
                 MessageBox.Show("Nenhum Cliente Selecionado", "Aviso!");
             }
         }
+
+        
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------

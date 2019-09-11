@@ -54,11 +54,6 @@ namespace Consultorio.ViewModel.Clientes
             BtEnabled = true;
         }
 
-        public void BtCancelar_Click()
-        {
-            ListarTodosOsClientes();
-        }
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -72,7 +67,7 @@ namespace Consultorio.ViewModel.Clientes
 
         public void ListarTodosOsClientes()
         {
-            ListaDeClientes = ListaDeClienteData.TodosClientes();
+            ListaDeClientes = new List<Cliente>(); //ListaDeClienteData.TodosClientes();
             BtEnabled = false;
         }
 
@@ -81,14 +76,17 @@ namespace Consultorio.ViewModel.Clientes
             return ListaDeClientes[index];
         }
 
-        public void BuscarCliente(string id, string nome)
+        public void BuscarCliente(string id, string nome, string cpf)
         {
             int.TryParse(id, out int idInt);
-            if (idInt != 0 || nome != "" )
+            if (nome.Length >= 3 || cpf.Length >= 3 || idInt > 0)
             {
-                ListaDeClientes = ListaDeClienteData.BuscarCliente(idInt, nome);
-                BtCancelarIsEnabled = true;
-            }
+                if (idInt != 0 || nome != "" || cpf != "")
+                {
+                    ListaDeClientes = ListaDeClienteData.BuscarCliente(idInt, nome, cpf);
+                    BtCancelarIsEnabled = true;
+                }
+            }           
             else
             {
                 ListarTodosOsClientes();
