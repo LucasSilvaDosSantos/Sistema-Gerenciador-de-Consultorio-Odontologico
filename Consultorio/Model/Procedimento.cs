@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,6 +17,7 @@ namespace Consultorio.Model
         public string Descricao { get; set; }
         [Required]
         public double Preco { get; set; }
+        public DateTime TempoRecomendado { get; set; }
         public virtual ICollection<Produto> Produtos { get; set; }
         public virtual ICollection<OrcamentosParaProcedimentos> OrcamentosParaProcedimentos { get; set; }
 
@@ -24,15 +26,6 @@ namespace Consultorio.Model
 
         public Procedimento()
         {
-        }
-
-        public Procedimento(string nome, string descricao, double preco)
-        {
-            Nome = nome;
-            Descricao = descricao;
-            Preco = preco;
-
-            Produtos = new HashSet<Produto>();
         }
     }
 }

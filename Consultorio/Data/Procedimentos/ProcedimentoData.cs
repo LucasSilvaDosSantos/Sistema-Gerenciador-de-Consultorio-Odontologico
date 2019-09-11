@@ -52,6 +52,7 @@ namespace Consultorio.Data.Procedimentos
                     p.Nome = procedimento.Nome;
                     p.Preco = procedimento.Preco;
                     p.Descricao = procedimento.Descricao;
+                    p.TempoRecomendado = procedimento.TempoRecomendado;
 
                     p.Produtos.Clear();
 
