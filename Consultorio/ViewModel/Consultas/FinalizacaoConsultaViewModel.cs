@@ -5,17 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 
 namespace Consultorio.ViewModel.Consultas
 {
     public class FinalizacaoConsultaViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Produto> _ListaDeProdutosFora = new ObservableCollection<Produto>();
-        public ObservableCollection<Produto> ListaDeProdutosFora
+        private ObservableCollection<Produto> _ListaDeProdutos = new ObservableCollection<Produto>();
+        public ObservableCollection<Produto> ListaDeProdutos
         {
-            get { return _ListaDeProdutosFora; }
-            set { _ListaDeProdutosFora = value; OnPropertyChanged("ListaDeProdutosFora"); }
+            get { return _ListaDeProdutos; }
+            set { _ListaDeProdutos = value; OnPropertyChanged("ListaDeProdutos"); }
         }
 
         private Consulta _Consulta;
@@ -60,8 +59,6 @@ namespace Consultorio.ViewModel.Consultas
             set { _ProcedimentoSelecionado = value; OnPropertyChanged("ProcedimentoSelecionado"); Consulta.Procedimento = value; }
         }
 
-        private readonly List<Produto> _TodosOsProdutos = new List<Produto>(ProdutoData.ListarTodosProdutos());
-
         public FinalizacaoConsultaViewModel(int idConsulta)
         {
             Consulta = ConsultasData.SelecionarConsulta(idConsulta);
@@ -75,12 +72,17 @@ namespace Consultorio.ViewModel.Consultas
 
             Consulta.Procedimento = TodosOsProcedimentos.Find(c => c.Id == Consulta.Procedimento.Id);
 
-            ListaDeProdutosFora = new ObservableCollection<Produto>(_TodosOsProdutos);
+            LimparlistaDeProdutos();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        private void LimparlistaDeProdutos()
+        {
+            ListaDeProdutos = new ObservableCollection<Produto>();
+        }
+
         public void AlterarValorDaConsulta()
         {
             Consulta.ValorConsulta = Consulta.Procedimento.Preco;
@@ -150,26 +152,27 @@ namespace Consultorio.ViewModel.Consultas
 
         public void BuscarIdTodosOsProdutos(string id)
         {
-            List<Produto> a = _TodosOsProdutos;
-
-            bool parceOk = int.TryParse(id, out int idInt);
-            if (parceOk)
+            int.TryParse(id, out int idInt);
+            if (idInt != 0)
             {
-                a = _TodosOsProdutos.FindAll(p => p.Id == idInt).ToList();
+                ListaDeProdutos = new ObservableCollection<Produto>(ProdutoData.BuscarProdutosId(id, out bool encontrado));
             }
-
-            ListaDeProdutosFora = new ObservableCollection<Produto>(a);
+            else
+            {
+                LimparlistaDeProdutos();
+            }         
         }
 
         public void BuscarNomeTodosOsProdutos(string nome)
         {
-            List<Produto> a = _TodosOsProdutos;
-            if (nome != "" || nome != null)
+            if (nome.Length >= 3)
             {
-                a = _TodosOsProdutos.FindAll(p => p.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
+                ListaDeProdutos = new ObservableCollection<Produto>(ProdutoData.BuscarProdutosNome(nome, out bool encontrado));
             }
-
-            ListaDeProdutosFora = new ObservableCollection<Produto>(a);
+            else
+            {
+                LimparlistaDeProdutos();
+            }
         }
 
         public bool SalvarConsulta()
@@ -178,7 +181,6 @@ namespace Consultorio.ViewModel.Consultas
             bool consultaSalva = FinalizarConsultaData.SalvarFinalizacaoDeConsulta(Consulta, ListaProdutosUtilizadoNaConsulta);
             return consultaSalva;
         }
-
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------

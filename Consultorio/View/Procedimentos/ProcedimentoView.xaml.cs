@@ -68,22 +68,34 @@ namespace Consultorio.View.Procedimentos
         private void BuscaProdutoPorId()
         {
             tbNomeBusca.Text = null;
-            ProcedimentoViewModel.BuscarIdTodosOsProdutos(tbIdBusca.Text);
+            ProcedimentoViewModel.BuscarPorIdProdutos(tbIdBusca.Text);
         }
 
         private void BuscaProdutoPorNome()
         {
             tbIdBusca.Text = null;
-            ProcedimentoViewModel.BuscarNomeTodosOsProdutos(tbNomeBusca.Text);
+            ProcedimentoViewModel.BuscarPorNomeProdutos(tbNomeBusca.Text);
         }
 
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
+            int flag = ProcedimentoViewModel.Procedimento.Id;
             string msg = ProcedimentoViewModel.SalvarProcedimento(out bool salvo);
             MessageBox.Show(msg, "Aviso!");
+            
             if (salvo)
             {
-                this.Close();
+                if (flag == 0)
+                {
+                    this.ProcedimentoViewModel = new ProcedimentoViewModel();
+                    this.DataContext = ProcedimentoViewModel;
+                    tbNome.Text = "";
+                    tbIdBusca.Text = "";
+                }
+                else
+                {
+                    this.Close();
+                }               
             }
         }
 

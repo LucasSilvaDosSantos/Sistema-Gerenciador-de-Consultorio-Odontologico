@@ -4,14 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Consultorio.Data.Produtos
 {
     class ProdutoData
     {
-        public static List<Produto> ListarTodosProdutos()
+        /*public static List<Produto> ListarTodosProdutos()
         {
             try
             {
@@ -26,7 +24,7 @@ namespace Consultorio.Data.Produtos
                 List<Produto> lista = null;
                 return lista;
             }            
-        }
+        }*/
 
         public static string AlterarProduto(Produto produtoChegada)
         {

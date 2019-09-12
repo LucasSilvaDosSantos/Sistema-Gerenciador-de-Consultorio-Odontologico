@@ -9,7 +9,7 @@ namespace Consultorio.Data.Consultas
 {
     class FinalizarConsultaData
     {
-        public static List<ProdutoUtilizadoEmConsulta> BuscarPodutosUtilizadosNaConsultaPorIdConsulta(int idConsulta)
+        /*public static List<ProdutoUtilizadoEmConsulta> BuscarPodutosUtilizadosNaConsultaPorIdConsulta(int idConsulta)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace Consultorio.Data.Consultas
             {
                 return new List<ProdutoUtilizadoEmConsulta>();
             }
-        }
+        }*/
 
         public static bool SalvarFinalizacaoDeConsulta(Consulta consultaEntrada, ICollection<ProdutoUtilizadoEmConsulta> listaDeProdutosUtilizados)
         {

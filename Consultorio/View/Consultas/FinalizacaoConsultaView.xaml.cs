@@ -86,12 +86,6 @@ namespace Consultorio.View.Consultas
             {
                 MessageBox.Show("Erro ao salvar finalização de consulta!", "Aviso!");
             }
-            /*string msg = ProcedimentoViewModel.SalvarProcedimento(out bool salvo);
-            MessageBox.Show(msg, "Aviso!");
-            if (salvo)
-            {
-                this.Close();
-            }*/
         }
 
         private void ComboBoxProcedimento_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

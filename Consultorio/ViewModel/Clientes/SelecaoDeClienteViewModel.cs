@@ -19,7 +19,7 @@ namespace Consultorio.ViewModel.Clientes
 
         public SelecaoDeClienteViewModel()
         {
-            ListarTodosOsClientes();
+            LimparListaDeCliente();
         }
 
 
@@ -43,13 +43,13 @@ namespace Consultorio.ViewModel.Clientes
         public void BuscarCliente(string id, string nome)
         {
             int.TryParse(id, out int idInt);
-            if (idInt != 0 || nome != "")
+            if (idInt != 0 || (nome != "" && nome.Length >= 3))
             {
                 ListaDeClientes = ListaDeClienteParaConsultaData.BuscarCliente(idInt, nome);
             }
             else
             {
-                ListarTodosOsClientes();
+                LimparListaDeCliente();
             }
         }
 
@@ -58,9 +58,9 @@ namespace Consultorio.ViewModel.Clientes
             ClienteSelecionado = ListaDeClientes[index];
         }
 
-        private void ListarTodosOsClientes()
+        private void LimparListaDeCliente()
         {
-            ListaDeClientes = ListaDeClienteParaConsultaData.ExibirCliente();
+            ListaDeClientes = new List<Cliente>();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

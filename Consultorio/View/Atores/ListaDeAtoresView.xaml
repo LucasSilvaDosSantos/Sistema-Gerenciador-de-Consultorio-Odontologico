@@ -7,8 +7,8 @@
         Title="Lista de Colaboradores" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="35,127,35,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
-            <DataGrid x:Name="dgListaAtores" Margin="59,154,61,119" ItemsSource="{Binding ListaDeAtores}" SelectedItem="{Binding AtorSelecionado}" AutoGenerateColumns="False" IsReadOnly="True" FontSize="16" SelectionMode="Single" >
+            
+            <DataGrid x:Name="dgListaAtores" Margin="59,111,59,95" BorderThickness="1" ItemsSource="{Binding ListaDeAtores}" SelectedItem="{Binding AtorSelecionado}" AutoGenerateColumns="False" IsReadOnly="True" FontSize="16" SelectionMode="Single" >
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>

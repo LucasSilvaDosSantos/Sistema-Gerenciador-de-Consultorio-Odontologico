@@ -1,17 +1,7 @@
 ﻿using Consultorio.ViewModel.Clientes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Consultorio.View.Clientes
 {
@@ -67,6 +57,7 @@ namespace Consultorio.View.Clientes
         {
             tbIdBusca.Text = "";
             OrcamentoViewModel.BuscarProcedimento(tbIdBusca.Text.ToString(), tbNomeBusca.Text.ToString());
+                    
         }
 
         private void TbIdBusca_GotFocus(object sender, RoutedEventArgs e)

@@ -8,10 +8,10 @@
         Title="Orçamento" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Rectangle Fill="#FF7FBEE2" Margin="10,10,10,62" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
+
             <Label x:Name="lbCliente" Content="Cliente:" HorizontalAlignment="Left" Margin="29,19,0,0" VerticalAlignment="Top"/>
 
-            <DataGrid x:Name="dataGrid1" ItemsSource="{Binding ListaDosProcedimentosAdicionados}" SelectedItem="{Binding ProcedimentoSelecionadoDosAdicionados}" SelectionChanged="DataGrid1_SelectionChanged" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" Margin="29,55,35,0" Height="272" VerticalAlignment="Top">
+            <DataGrid x:Name="dataGrid1" BorderThickness="1" ItemsSource="{Binding ListaDosProcedimentosAdicionados}" SelectedItem="{Binding ProcedimentoSelecionadoDosAdicionados}" SelectionChanged="DataGrid1_SelectionChanged" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" Margin="29,55,35,0" Height="272" VerticalAlignment="Top">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16 "/>
@@ -35,8 +35,8 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Label x:Name="lbTodosOsprocedimentos" Content="Todos os procedimentos" HorizontalAlignment="Right" Margin="0,327,785,336" d:LayoutOverrides="Height"/>
-            <DataGrid x:Name="dataGrid" ItemsSource="{Binding ListaDeTodosOsProcedimentos}" SelectedItem="{Binding ProcedimentoSelecionadoDeTodos}" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" Margin="29,0,504,147" Height="189" VerticalAlignment="Bottom">
+            <Label x:Name="lbTodosOsprocedimentos" Content="Procedimentos" HorizontalAlignment="Right" Margin="0,327,785,336" d:LayoutOverrides="Height"/>
+            <DataGrid x:Name="dataGrid" BorderThickness="1" ItemsSource="{Binding ListaDeTodosOsProcedimentos}" SelectedItem="{Binding ProcedimentoSelecionadoDeTodos}" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" Margin="29,0,504,147" Height="189" VerticalAlignment="Bottom">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>
@@ -67,13 +67,13 @@
             <Button x:Name="btSalvar" Content="Salvar" Margin="597,0,588,18" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click"/>
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,35,18" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
 
-            <Rectangle Fill="#FF7FBEE2" HorizontalAlignment="Left" Height="68" Margin="59,0,0,74" RadiusY="26.117" RadiusX="26.117" Stroke="Black" VerticalAlignment="Bottom" Width="575"/>
+            <Rectangle HorizontalAlignment="Left" Height="68" Margin="59,0,0,74" RadiusY="26.117" RadiusX="26.117" Stroke="Black" VerticalAlignment="Bottom" Width="575"/>
 
             <Label x:Name="label1" Content="ID:" HorizontalAlignment="Left" Margin="67,0,0,81" VerticalAlignment="Bottom"/>
             <Label x:Name="label2" Content="Nome:" HorizontalAlignment="Left" Margin="163,0,0,81" VerticalAlignment="Bottom" Width="auto"/>
             <TextBox x:Name="tbIdBusca" HorizontalAlignment="Left" Margin="96,0,0,81" TextWrapping="Wrap" Width="59" Height="31" VerticalAlignment="Bottom" TextChanged="TbIdBusca_TextChanged" GotFocus="TbIdBusca_GotFocus" />
             <TextBox x:Name="tbNomeBusca" Margin="225,0,0,81" TextWrapping="Wrap" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="393" TextChanged="TbNomeBusca_TextChanged" GotFocus="TbNomeBusca_GotFocus" />
-            <Label x:Name="label" Content="Buscar em todos os procedimentos" HorizontalAlignment="Left" Margin="217,0,0,112" VerticalAlignment="Bottom"/>
+            <Label x:Name="label" Content="Buscar Procedimentos" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="67,0,0,112" VerticalAlignment="Bottom" Width="551"/>
 
             <Label x:Name="label3" Content="Modificar desconto do procedimento selecionado" HorizontalAlignment="Right" Margin="0,0,88,306" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
             <Label x:Name="label4" Content="Desconto em %:" HorizontalAlignment="Right" Margin="0,0,288,233" VerticalAlignment="Bottom"/>
@@ -82,7 +82,7 @@
             <TextBox x:Name="tbDesconto" HorizontalAlignment="Right" Height="31" Margin="0,0,168,233" TextWrapping="Wrap" VerticalAlignment="Bottom"  Width="120" TextChanged="TbDesconto_TextChanged" />
             <Label x:Name="label6" Content="{Binding ProcedimentoSelecionadoDosAdicionados.Procedimento.Nome}" HorizontalAlignment="Right" Margin="0,0,88,270" VerticalAlignment="Bottom" Height="31" Width="214"/>
             <Label x:Name="label7" Content="{Binding Orcamento.Cliente.Nome}" Margin="91,19,35,0" VerticalAlignment="Top" Height="31"/>
-            <TextBox x:Name="textBox" HorizontalAlignment="Right" Height="81" Margin="0,0,35,147" TextWrapping="Wrap" Text="{Binding Orcamento.Obs}" Background="White" VerticalContentAlignment="Top" VerticalAlignment="Bottom" Width="393"/>
+            <TextBox x:Name="textBox" BorderThickness="1" HorizontalAlignment="Right" Height="81" Margin="0,0,35,147" TextWrapping="Wrap" Text="{Binding Orcamento.Obs}" Background="White" VerticalContentAlignment="Top" VerticalAlignment="Bottom" Width="393"/>
             <Label x:Name="label8" Content="Obs:" HorizontalAlignment="Right" Margin="0,0,448,197" VerticalAlignment="Bottom"/>
         </Grid>
     </Viewbox>

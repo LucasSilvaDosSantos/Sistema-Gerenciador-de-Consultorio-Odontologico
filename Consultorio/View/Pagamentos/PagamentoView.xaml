@@ -10,11 +10,11 @@
         Title="Pagamento" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
     <Viewbox>
         <Grid Height="694" Width="1280">
-            
+
             <Label x:Name="lbProcedimento" Foreground="#FF7FBEE2" Content="&gt;Cadastrar Pagamento" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" HorizontalAlignment="Left" Width="319"/>
-            <Rectangle Fill="#FF7FBEE2" Margin="0,0,324,198" RadiusY="50.0" RadiusX="50.0" Stroke="Black" HorizontalAlignment="Right" Width="621" Height="324" VerticalAlignment="Bottom"/>
+            <Rectangle Margin="0,0,324,175" RadiusY="50.0" RadiusX="50.0" Stroke="#FF7FBEE2" HorizontalAlignment="Right" Width="621" Height="347" VerticalAlignment="Bottom"/>
             <Label x:Name="label3" Content="Data de recebimento:" Margin="0,187,441,0" Height="29" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="162"/>
-            <wpfTool:MaskedTextBox x:Name="textBox" Padding="0, 4, 0, 0" Mask="00/00/0000" Margin="0,187,353,0" TextWrapping="Wrap" Text="{Binding DataAtual}" IsReadOnly="True" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="88"/>
+            <wpfTool:MaskedTextBox x:Name="textBox" Padding="0, 4, 0, 0" Mask="00/00/0000" Margin="0,187,353,0" TextWrapping="Wrap" Text="{Binding DataAtual}" IsReadOnly="True" Background="WhiteSmoke" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="88"/>
 
             <Label x:Name="label" Content="Id do Cliente:" Margin="425,220,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="HorizontalAlignment"/>
             <TextBox x:Name="tbId" Padding="0, -1, 0, 0" HorizontalAlignment="Left" Height="30" Margin="534,221,0,0" TextWrapping="Wrap" Text="{Binding Cliente.Id}" IsReadOnly="True" VerticalAlignment="Top" Width="62"/>

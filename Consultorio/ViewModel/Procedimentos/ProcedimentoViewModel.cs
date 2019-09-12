@@ -63,14 +63,12 @@ namespace Consultorio.ViewModel.Procedimentos
             set { _ListaDeProdutosAdd = value; OnPropertyChanged("ListaDeProdutosAdd"); }
         }
 
-        private ObservableCollection<Produto> _ListaDeProdutosFora = new ObservableCollection<Produto>();
-        public ObservableCollection<Produto> ListaDeProdutosFora
+        private ObservableCollection<Produto> _ProdutosForaLista = new ObservableCollection<Produto>();
+        public ObservableCollection<Produto> ProdutosForaLista
         {
-            get { return _ListaDeProdutosFora; }
-            set { _ListaDeProdutosFora = value; OnPropertyChanged("ListaDeProdutosFora"); }
+            get { return _ProdutosForaLista; }
+            set { _ProdutosForaLista = value; OnPropertyChanged("ProdutosForaLista"); }
         }
-
-        private List<Produto> _TodosOsProdutos = ProdutoData.ListarTodosProdutos();
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Construtor******--------------------------------------------------------------
@@ -81,7 +79,7 @@ namespace Consultorio.ViewModel.Procedimentos
             NomeDaTela = "> Novo Procedimento";
             Procedimento = new Procedimento();
     
-            CarregarListaProdutosFora();
+            //CarregarListaProdutosFora();
 
             HoraSelecionada = "00";
 
@@ -94,8 +92,6 @@ namespace Consultorio.ViewModel.Procedimentos
 
             NomeDaTela = "> Editar Procedimento";
 
-            CarregarProdutos();
-
             CarregarHoraAgendada();
         }
 
@@ -103,30 +99,29 @@ namespace Consultorio.ViewModel.Procedimentos
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
-        public void BuscarIdTodosOsProdutos(string id)
+        public void BuscarPorIdProdutos(string id)
         {
-            List<Produto> a = _TodosOsProdutos;
-
             bool parceOk = int.TryParse(id, out int idInt);
             if (parceOk)
             {
-                a = _TodosOsProdutos.FindAll(p => p.Id == idInt).ToList();                
+                ProdutosForaLista = new ObservableCollection<Produto>(ProdutoData.BuscarProdutosId(id, out bool encontrado));
             }
-
-            ListaDeProdutosFora = new ObservableCollection<Produto>(a);
-            TratarListaProdutosFora();
+            else
+            {
+                ProdutosForaLista = new ObservableCollection<Produto>();
+            }
         }
 
-        public void BuscarNomeTodosOsProdutos(string nome)
+        public void BuscarPorNomeProdutos(string nome)
         {
-            List<Produto> a = _TodosOsProdutos;
-            if (nome != "" || nome != null)
+            if ((nome != "" || nome != null) && nome.Length >= 3 )
             {
-                a = _TodosOsProdutos.FindAll(p => p.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
+                ProdutosForaLista = new ObservableCollection<Produto>(ProdutoData.BuscarProdutosNome(nome, out bool encontrado));
             }
-            
-            ListaDeProdutosFora = new ObservableCollection<Produto>(a);
-            TratarListaProdutosFora();
+            else
+            {
+                 ProdutosForaLista = new ObservableCollection<Produto>();                
+            }
         }
 
         public string SalvarProcedimento(out bool salvo)
@@ -188,47 +183,21 @@ namespace Consultorio.ViewModel.Procedimentos
 
         public void DeletarItemDaLista()
         {
-            ListaDeProdutosFora.Add(ProdutoSelecionadoParaRemover);
             ListaDeProdutosAdd.Remove(ProdutoSelecionadoParaRemover);
         }
 
         public void AddProduto()
-        {           
+        {
+            foreach (var p in ListaDeProdutosAdd)
+            {
+                if (p.Id == ProdutoSelecionadoParaAdd.Id)
+                {
+                    return;
+                }
+            }
+
             ListaDeProdutosAdd.Add(ProdutoSelecionadoParaAdd);
-            ListaDeProdutosFora.Remove(ProdutoSelecionadoParaAdd);
         }
-
-        private void CarregarProdutos()
-        {
-            CarregarListaProdutosFora();
-
-            ListaDeProdutosAdd = new ObservableCollection<Produto>();
-            foreach (Produto p in Procedimento.Produtos)
-            {
-                Produto a = ListaDeProdutosFora.FirstOrDefault(aux => aux.Id == p.Id);
-                ListaDeProdutosFora.Remove(a);
-                ListaDeProdutosAdd.Add(a);                
-            }                  
-        }
-
-        public void CarregarListaProdutosFora()
-        {
-            ListaDeProdutosFora = new ObservableCollection<Produto>();
-            foreach (Produto p in _TodosOsProdutos)
-            {
-                ListaDeProdutosFora.Add(p);
-            }
-        }
-
-        private void TratarListaProdutosFora()
-        {
-            foreach(Produto p in ListaDeProdutosAdd)
-            {
-                Produto produtoParaRetirar = ListaDeProdutosFora.FirstOrDefault(aux => aux.Id == p.Id);
-                ListaDeProdutosFora.Remove(produtoParaRetirar);
-            }
-        }
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********PropertyChanged**********-----------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------

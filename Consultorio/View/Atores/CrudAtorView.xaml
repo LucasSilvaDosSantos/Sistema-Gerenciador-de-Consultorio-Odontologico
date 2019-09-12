@@ -10,7 +10,7 @@
     <Viewbox>
         <Grid Height="694" Width="1280">
 
-            <Rectangle Fill="#FF7FBEE2" Margin="28,127,23,80" Stroke="Black" RadiusY="50.0" RadiusX="50.0"/>
+            
             <Label x:Name="lbProcedimento" Foreground="#FF7FBEE2" Content="{Binding TituloTela}" Margin="46,59,940,590" FontSize="30"/>
             <Button x:Name="btSalvar" Content="Salvar" Margin="593,0,589,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click" />
             <Button x:Name="btVoltar" Content="Voltar" Margin="1150,629,40,30" Height="Auto" Click="BtVoltar_Click" />
@@ -22,10 +22,10 @@
             <Label x:Name="lbEmail" VerticalAlignment="Top" Margin="64,244,0,0" HorizontalAlignment="Left" Content="Email*:"/>
             <TextBox x:Name="tbEmail" Text="{Binding Ator.Email}" TextWrapping="Wrap" Padding="0, -1, 0, 0" Margin="146,244,657,419"/>
             <Label x:Name="lbCelular1" VerticalAlignment="Top" Margin="64,280,0,0" HorizontalAlignment="Left" Content="Celular 1*:"/>
-            <xctk:MaskedTextBox x:Name="tbCelular1" Text="{Binding Ator.Telefone1}" Mask="(00)00000-0000" Margin="146,280,1014,383" Padding="0, 4, 0, 0" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" RenderTransformOrigin="0.5,0.5"/>
+            <xctk:MaskedTextBox x:Name="tbCelular1" Text="{Binding Ator.Telefone1}" Mask="(00)00000-0000" Margin="146,280,1014,383" Padding="0, 4, 0, 0" TextWrapping="Wrap" Background="WhiteSmoke" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1" RenderTransformOrigin="0.5,0.5"/>
 
             <Label x:Name="lbCelular2" Content="Celular 2:" HorizontalAlignment="Left" Margin="64,316,0,0" VerticalAlignment="Top"/>
-            <xctk:MaskedTextBox x:Name="tbCelular2" Text="{Binding Ator.Telefone2, Mode=TwoWay}" Mask="(00)00000-0000" Padding="0, 4, 0, 0" Margin="146,316,1014,347" TextWrapping="Wrap" Background="#7FBEE2" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1"/>
+            <xctk:MaskedTextBox x:Name="tbCelular2" Text="{Binding Ator.Telefone2, Mode=TwoWay}" Mask="(00)00000-0000" Padding="0, 4, 0, 0" Margin="146,316,1014,347" TextWrapping="Wrap" Background="WhiteSmoke" BorderBrush = "#3B5869" BorderThickness = "0, 0, 0, 1"/>
 
             <Label x:Name="lbCROSP" Content="CROSP:" HorizontalAlignment="Left" Margin="64,0,0,311" Height="31" VerticalAlignment="Bottom"/>
             <TextBox x:Name="tbCROSP" Text="{Binding Ator.Crosp}" Padding="0, -1, 0, 0" Margin="139,352,912,311" TextWrapping="Wrap" RenderTransformOrigin="0.501,0.474"/>

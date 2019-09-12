@@ -5,7 +5,6 @@ using Consultorio.Data.Clientes;
 using Consultorio.Data.Procedimentos;
 using Consultorio.ViewModel.Atores;
 using System.Collections.ObjectModel;
-using Consultorio.Data.Atores;
 using System.Collections.Generic;
 
 namespace Consultorio.ViewModel.Clientes
@@ -92,9 +91,9 @@ namespace Consultorio.ViewModel.Clientes
                 Orcamento = OrcamentoData.BuscarOrcamentoPorIdCliente(id);
                 ListaDosProcedimentosAdicionados = new ObservableCollection<OrcamentosParaProcedimentos>();
             }
-            
 
-            CarregarTodosOsProcedimentos();
+
+            LimparListaDeTodosOsProcedimentos();
 
             if (Orcamento == null)
             {
@@ -189,9 +188,9 @@ namespace Consultorio.ViewModel.Clientes
             }        
         }
 
-        private void CarregarTodosOsProcedimentos()
+        private void LimparListaDeTodosOsProcedimentos()
         {
-            ListaDeTodosOsProcedimentos = new ObservableCollection<Procedimento>(ListaDeProcedimentoData.ListarTodosProcedimentos());
+            ListaDeTodosOsProcedimentos = new ObservableCollection<Procedimento>();
             if (ProcedimentoSelecionadoDosAdicionados != null)
             {
                 CalcularPrecoDeItem();
@@ -203,13 +202,13 @@ namespace Consultorio.ViewModel.Clientes
         {
             int.TryParse(idString, out int id);
 
-            if (id != 0 || nome != "")
+            if (id != 0 || (nome != "" && nome.Length >=3 ))
             {
                 ListaDeTodosOsProcedimentos = new ObservableCollection<Procedimento>(ListaDeProcedimentoData.BuscarProcedimentos(id, nome));
             }
             else
             {
-                CarregarTodosOsProcedimentos();
+                LimparListaDeTodosOsProcedimentos();
             }            
         } 
 
