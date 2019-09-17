@@ -19,7 +19,7 @@ namespace Consultorio.Migrations
         protected override void Seed(Consultorio.Data.ConsultorioContext context)
         {
             //seed Ator
-            /*Ator ator1 = new Ator("Thiago Santos", "dentista@dentista.com", "(31)7133-5723", "(31)98666-5645", "Numero Crosp", true, true, true, true, true, true, true, true, "admin", "21232f297a57a5a743894a0e4a801fc3");
+            /*Ator ator1 = new Ator("Thiago Santos", "dentista@dentista.com", "(31)97133-5723", "(31)98666-5645", "Numero Crosp", true, true, true, true, true, true, true, true, "admin", "21232f297a57a5a743894a0e4a801fc3");
 
 
             //seed Anamnese

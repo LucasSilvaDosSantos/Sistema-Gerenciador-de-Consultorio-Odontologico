@@ -151,6 +151,7 @@
     <Compile Include="ViewModel\Atores\ListaDeAtoresViewModel.cs" />
     <Compile Include="ViewModel\Clientes\CrudClienteViewModel.cs" />
     <Compile Include="ViewModel\Clientes\OrcamentoViewModel.cs" />
+    <Compile Include="ViewModel\Consultas\CancelarConsultaViewModel.cs" />
     <Compile Include="ViewModel\Consultas\FinalizacaoConsultaViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\ContaPagaViewModel.cs" />
     <Compile Include="ViewModel\Pagamentos\FinanceiroViewModel.cs" />
@@ -180,6 +181,9 @@
       <DependentUpon>OrcamentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ConfiguracoesDeView.cs" />
+    <Compile Include="View\Consultas\CancelarConsultaView.xaml.cs">
+      <DependentUpon>CancelarConsultaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Consultas\FinalizacaoConsultaView.xaml.cs">
       <DependentUpon>FinalizacaoConsultaView.xaml</DependentUpon>
     </Compile>
@@ -286,6 +290,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Clientes\OrcamentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Consultas\CancelarConsultaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

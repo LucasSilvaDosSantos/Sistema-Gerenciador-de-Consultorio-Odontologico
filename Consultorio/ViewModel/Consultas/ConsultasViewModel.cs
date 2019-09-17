@@ -125,11 +125,6 @@ namespace Consultorio.ViewModel.Consultas
             ListaDeConsultas = ConsultasData.ListaDeConsultas(DataSelecionada);
         }
 
-        public int ConsultaSelecionadaID()
-        {
-            return ConsultaSelecionada.Id;
-        }
-
         public void BuscarConsultaId(string id)
         {
 

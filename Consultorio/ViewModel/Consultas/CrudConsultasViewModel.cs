@@ -101,13 +101,23 @@ namespace Consultorio.ViewModel.Consultas
 
             IfNovoCliente = false;
 
+            NomeTela = "> Editar Consulta";
+
             Consulta = ConsultasData.SelecionarConsulta(idConsulta);
-            
-            NomeTela = "> Editar Consulta";           
+
+            if (Consulta.Status == Model.Enums.StatusConsulta.Reagendada)
+            {
+                Consulta.Status = Model.Enums.StatusConsulta.Agendada;
+                Consulta.Id = 0;
+                NomeTela = "> Reagendar Consulta";
+                Consulta.Obs = "";
+            }
+                    
             IniciarTela();
             Procedimento procedimento = Procedimentos.Find(c => c.Id == Consulta.Procedimento.Id);
             ProcedimentoSelecionado = procedimento;
             DataSelecionada = Consulta.Inicio;
+           
             CarregarHoraAgendada();
         }
 
@@ -182,7 +192,7 @@ namespace Consultorio.ViewModel.Consultas
             Consulta.Status = Model.Enums.StatusConsulta.Agendada;
             NormalizaDataTime();
             string msg;
-            if (IfNovoCliente == true)
+            if (Consulta.Id == 0)
             {
                 msg = ConsultasData.SalvarNovaConsulta(Consulta);
             }

@@ -250,5 +250,36 @@ namespace Consultorio.Data.Consultas
                 return false;
             }
         }
+
+        public static bool SalvarStatusDeConsulta(Consulta consultaEntrada)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    Ator atorLogado = ctx.Atores.Find(SingletonAtorLogado.Instancia.Ator.Id);
+
+                    consultaEntrada.QuemRealizou = atorLogado;
+                    ctx.Entry(consultaEntrada).State = EntityState.Modified;
+
+                    //Log 
+                    var log = new Log();
+                    log.Ator = atorLogado;
+                    log.ComoEra = "Nova Entrada";
+                    log.ComoFicou = $"Consulta Id:{consultaEntrada.Id}, Consulta status em:{consultaEntrada.Status}";
+                    log.Date = DateTime.Now;
+
+                    ctx.Logs.Add(log);
+                    //Fim log
+
+                    ctx.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

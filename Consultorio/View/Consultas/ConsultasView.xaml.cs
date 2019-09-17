@@ -34,13 +34,13 @@ namespace Consultorio.View.Consultas
             {
                 if (ConsultasViewModel.ConsultaSelecionada.Status != StatusConsulta.Agendada)
                 {
-                    MessageBox.Show("Não é possível editar consultas com status de Realizada ou Iniciada", "Aviso!");
+                    MessageBox.Show("Não é possível editar esta consulta", "Aviso!");
                 }
                 else
                 {
                     //this.Hide();
                 
-                    CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionadaID());
+                    CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionada.Id);
                     ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
                 
                     //crudConsultasView.ShowDialog();
@@ -345,6 +345,71 @@ namespace Consultorio.View.Consultas
             {
                 MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
             }
+        }
+
+        private void BtCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            if (ConsultasViewModel.ConsultaSelecionada != null)
+            {
+                if ((ConsultasViewModel.ConsultaSelecionada.Status != StatusConsulta.Agendada || ConsultasViewModel.ConsultaSelecionada.Status == StatusConsulta.Iniciada))
+                {
+                    MessageBox.Show("A consulta selecionada não pode ser cancelada!", "Aviso");
+                }
+                else
+                {
+                    CancelarConsultaView cancelarConsultaView = new CancelarConsultaView(ConsultasViewModel.ConsultaSelecionada.Id);
+                    cancelarConsultaView.ShowDialog();
+
+                    if (cancelarConsultaView.ConsultaParaReagendar)
+                    {
+
+
+
+                        if (ConsultasViewModel.ConsultaSelecionada != null)
+                        {
+                            if (ConsultasViewModel.ConsultaSelecionada.Status != StatusConsulta.Agendada && ConsultasViewModel.ConsultaSelecionada.Status != StatusConsulta.Iniciada)
+                            {
+                                MessageBox.Show("Não é possível editar esta consulta", "Aviso!");
+                            }
+                            else
+                            {
+                                //this.Hide();
+
+                                /*ConsultasViewModel.CarregarListaDeConsultasData();
+                                ConsultasViewModel.ConsultaSelecionada = */
+
+                                CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionada.Id);
+                                ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
+
+                                //crudConsultasView.ShowDialog();
+
+                                crudConsultasView.Show();
+
+                                //ConsultasViewModel.CarregarListaDeConsultasData();
+                                //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
+                                //this.Visibility = Visibility.Visible;
+
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
+                        }
+
+
+
+
+
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
+            }
+            ConsultasViewModel.CarregarListaDeConsultasData();
         }
     }
 }
