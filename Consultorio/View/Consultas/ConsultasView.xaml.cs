@@ -37,19 +37,11 @@ namespace Consultorio.View.Consultas
                     MessageBox.Show("Não é possível editar esta consulta", "Aviso!");
                 }
                 else
-                {
-                    //this.Hide();
-                
+                {                
                     CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionada.Id);
-                    ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
-                
-                    //crudConsultasView.ShowDialog();
+                    ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);    
 
                     crudConsultasView.Show();
-                
-                    //ConsultasViewModel.CarregarListaDeConsultasData();
-                    //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
-                    //this.Visibility = Visibility.Visible;
 
                     this.Close();
                 }
@@ -62,15 +54,10 @@ namespace Consultorio.View.Consultas
 
         private void BtCadastrarNovo_Click(object sender, RoutedEventArgs e)
         {
-            //this.Hide();
-
             CrudConsultasView crudConsultasView = new CrudConsultasView();
             ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
-            //crudConsultasView.ShowDialog();
             crudConsultasView.Show();
-            //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
-            //this.Visibility = Visibility.Visible;
-            //ConsultasViewModel.CarregarListaDeConsultasData();
+
             this.Close();
         }
 
@@ -362,9 +349,6 @@ namespace Consultorio.View.Consultas
 
                     if (cancelarConsultaView.ConsultaParaReagendar)
                     {
-
-
-
                         if (ConsultasViewModel.ConsultaSelecionada != null)
                         {
                             if (ConsultasViewModel.ConsultaSelecionada.Status != StatusConsulta.Agendada && ConsultasViewModel.ConsultaSelecionada.Status != StatusConsulta.Iniciada)
@@ -373,21 +357,10 @@ namespace Consultorio.View.Consultas
                             }
                             else
                             {
-                                //this.Hide();
-
-                                /*ConsultasViewModel.CarregarListaDeConsultasData();
-                                ConsultasViewModel.ConsultaSelecionada = */
-
                                 CrudConsultasView crudConsultasView = new CrudConsultasView(ConsultasViewModel.ConsultaSelecionada.Id);
                                 ConfiguracoesDeView.ConfigurarWindow(this, crudConsultasView);
 
-                                //crudConsultasView.ShowDialog();
-
                                 crudConsultasView.Show();
-
-                                //ConsultasViewModel.CarregarListaDeConsultasData();
-                                //ConfiguracoesDeView.ConfigurarWindow(crudConsultasView, this);
-                                //this.Visibility = Visibility.Visible;
 
                                 this.Close();
                             }
@@ -396,12 +369,6 @@ namespace Consultorio.View.Consultas
                         {
                             MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
                         }
-
-
-
-
-
-
                     }
                 }
             }
