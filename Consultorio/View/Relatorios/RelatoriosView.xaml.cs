@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Consultorio.ViewModel.Relatorios;
+using System.Windows;
 
 namespace Consultorio.View.Relatorios
 {
@@ -7,8 +8,11 @@ namespace Consultorio.View.Relatorios
     /// </summary>
     public partial class RelatoriosView : Window
     {
+        public RelatoriosViewModel RelatoriosViewModel{ get; set; }
         public RelatoriosView()
         {
+            RelatoriosViewModel = new RelatoriosViewModel();
+            DataContext = RelatoriosViewModel;
             InitializeComponent();
         }
 

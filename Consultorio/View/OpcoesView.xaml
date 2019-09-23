@@ -6,27 +6,44 @@
         mc:Ignorable="d"
         
     Title="Opcoes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="Manual" >
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+
     <Viewbox>
         <Grid Height="694" Width="1280">
-            <Button x:Name="btProdutos" Content="Produtos" IsEnabled="{Binding AtorLogado.CrudProdutos}" HorizontalAlignment="Left" Margin="194,147,0,0" VerticalAlignment="Top" Width="400" Height="90" FontSize="30" Click="BtProdutos_Click"/>
-            <Button x:Name="btConsultas" Content="Consultas" IsEnabled="{Binding AtorLogado.CrudConsultas}" Margin="0,147,186,0" VerticalAlignment="Top" Height="90" FontSize="30" HorizontalAlignment="Right" Width="400" Click="BtConsultas_Click"/>
-            <Button x:Name="btClientes" Content="Clientes" IsEnabled="{Binding AtorLogado.CrudClientes}" Margin="194,265,0,339" FontSize="30" Height="Auto" Click="BtClientes_Click" HorizontalAlignment="Left" Width="400" d:LayoutOverrides="VerticalAlignment"/>
+            <Label x:Name="label1" Content="{Binding Saudacao}" HorizontalAlignment="Left" IsEnabled="{Binding AtorLogado.CrudAtores}" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="26" FontStyle="Italic" Foreground="#DD302E2E" ForceCursor="True" />
 
-            <Button x:Name="btNovoPagamento" Content="Pagamento"  IsEnabled="{Binding AtorLogado.ReceberDeClientes}" HorizontalAlignment="Right" Margin="0,265,186,339" Width="400" Height="Auto" FontSize="30" Click="BtNovoPagamento_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Margin="144,142,136,462">
+                <Button x:Name="btProdutos" Margin="50,0" Content="Produtos" Visibility="{Binding AtorLogado.CrudProdutos, Converter={StaticResource BooleanToVisibilityConverter}}" Width="400" Height="90" FontSize="30" Click="BtProdutos_Click"/>
+                <Button x:Name="btConsultas" Margin="50,0" Content="Consultas" Visibility="{Binding AtorLogado.CrudConsultas, Converter={StaticResource BooleanToVisibilityConverter}}" Height="90" FontSize="30" Width="400" Click="BtConsultas_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Margin="144,263,136,341">
+                <Button x:Name="btClientes" Content="Clientes" Visibility="{Binding AtorLogado.CrudClientes, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="50,0" FontSize="30" Height="Auto" Click="BtClientes_Click" Width="400"/>
+                <Button x:Name="btNovoPagamento" Content="Pagamento" Visibility="{Binding AtorLogado.ReceberDeClientes, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="50,0" Width="400" Height="Auto" FontSize="30" Click="BtNovoPagamento_Click"/>
+            </StackPanel>
+
             <Label x:Name="label" Content="Consultório Odontológico" Margin="342,44,334,0" VerticalAlignment="Top" Height="98" FontSize="50"/>
 
-            <Border BorderBrush="Black" BorderThickness="1" Margin="100,380,100,0" Height="1" VerticalAlignment="Top"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="100,380,100,0" VerticalAlignment="Top"/>
 
-            <Border BorderBrush="Black" BorderThickness="1" Margin="101,557,99,0" Height="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="101,557,99,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
 
-            <Button x:Name="btProcedimento" Content="Procedimentos" IsEnabled="{Binding AtorLogado.Clinicar}" HorizontalAlignment="Left" Margin="100,0,0,191" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" d:LayoutOverrides="HorizontalAlignment" Click="BtCadastroDeProduto_Click"/>
-            <Button x:Name="btCadastroDeClientes" IsEnabled="{Binding AtorLogado.CrudClientes}" Content="Cadastro de Clientes" HorizontalAlignment="Left" Margin="468,0,0,191" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeClientes_Click"/>
-            <Button x:Name="btCadastroDeColaboradores" Content="Colaboradores" IsEnabled="{Binding AtorLogado.CrudAtores}" HorizontalAlignment="Left" Margin="837,0,0,191" VerticalAlignment="Bottom" Width="345" Height="90" FontSize="25" Click="BtCadastroDeColaboradores_Click"/>
-            <Label x:Name="label1" Content="{Binding Saudacao}" HorizontalAlignment="Left" IsEnabled="{Binding AtorLogado.CrudAtores}" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="26" FontStyle="Italic" Foreground="#DD302E2E" ForceCursor="True" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="86,413,81,191">
+                <Button x:Name="btProcedimento" Content="Procedimentos" Visibility="{Binding AtorLogado.Clinicar, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="13,0" Width="345" Height="90" FontSize="25" Click="BtCadastroDeProduto_Click"/>
+                <Button x:Name="btCadastroDeClientes" Visibility="{Binding AtorLogado.CrudClientes, Converter={StaticResource BooleanToVisibilityConverter}}" Content="Cadastro de Clientes" Margin="13,0" Width="345" Height="90" FontSize="25" Click="BtCadastroDeClientes_Click"/>
+                <Button x:Name="btCadastroDeColaboradores" Content="Colaboradores" Visibility="{Binding AtorLogado.CrudAtores, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="13,0" Width="345" Height="90" FontSize="25" Click="BtCadastroDeColaboradores_Click"/>
+            </StackPanel>
+
             <Label x:Name="label2" Content="Outras Opções" Margin="100,0,0,136" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="117"/>
-            <Button x:Name="btContasPagas" Content="Cadastrar Conta Paga" IsEnabled="{Binding AtorLogado.CadastroDeContasPagas}" Margin="100,0,0,57" VerticalAlignment="Bottom" FontSize="20" Height="62" HorizontalAlignment="Left" Width="249" Click="BtContasPagas_Click" />
-            <Button x:Name="btFinanceiro" Content="Financeiro" HorizontalAlignment="Left" IsEnabled="{Binding AtorLogado.VisualizarFinanceiro}" Margin="367,0,0,57" VerticalAlignment="Bottom" FontSize="20" Width="249" Height="62" Click="BtFinanceiro_Click"/>
-            <Button x:Name="button" Content="Relatórios" FontSize="20" Margin="635,0,388,57" VerticalAlignment="Bottom" Height="62" Click="Button_Click"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="247,584,227,45" >
+                <Button x:Name="btContasPagas" Content="Cadastrar Conta Paga" Visibility="{Binding AtorLogado.CadastroDeContasPagas, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="13,0" FontSize="20" Height="62" Width="249" Click="BtContasPagas_Click" />
+                <Button x:Name="btFinanceiro" Content="Financeiro" HorizontalAlignment="Left"  Visibility="{Binding AtorLogado.VisualizarFinanceiro, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="13,0" FontSize="20" Width="249" Height="62" Click="BtFinanceiro_Click"/>
+                <Button x:Name="button" Content="Relatórios" FontSize="20" Margin="13,0" Height="62" Click="Button_Click" Width="249"/>
+            </StackPanel>
         </Grid>
     </Viewbox>
 </Window>

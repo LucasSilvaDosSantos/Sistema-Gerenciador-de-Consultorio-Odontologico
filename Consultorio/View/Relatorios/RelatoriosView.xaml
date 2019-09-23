@@ -6,10 +6,15 @@
         xmlns:local="clr-namespace:Consultorio.View.Relatorios"
         mc:Ignorable="d"
         Title="RelatoriosView" Style="{StaticResource JanelaPersonalizada}">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    
     <Viewbox>
         <Grid Height="694" Width="1280">
             <Label x:Name="label" Content="Relatórios" Margin="529,40,514,0" VerticalAlignment="Top" Height="98" FontSize="50"/>
-            <Button x:Name="button" Content="Consultas por período" Margin="130,181,0,0" VerticalAlignment="Top" FontSize="25" Height="61" HorizontalAlignment="Left" Width="313" Click="Button_Click"/>
+            <Button x:Name="button" Content="Consultas por período" Visibility="{Binding AtorLogado.CrudConsultas, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="130,181,0,0" VerticalAlignment="Top" FontSize="25" Height="61" HorizontalAlignment="Left" Width="313" Click="Button_Click"/>
             <Button x:Name="button1" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="Button1_Click"/>
 
         </Grid>

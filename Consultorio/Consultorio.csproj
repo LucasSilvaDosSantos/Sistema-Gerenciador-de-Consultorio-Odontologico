@@ -173,6 +173,7 @@
     <Compile Include="ViewModel\Produtos\BaixaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Produtos\EntradaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioConsultaPeriodoViewModel.cs" />
+    <Compile Include="ViewModel\Relatorios\RelatoriosViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
     </Compile>
