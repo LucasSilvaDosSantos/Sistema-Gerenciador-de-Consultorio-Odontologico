@@ -5,6 +5,7 @@ using Consultorio.View.Consultas;
 using Consultorio.View.Pagamentos;
 using Consultorio.View.Procedimentos;
 using Consultorio.View.Produtos;
+using Consultorio.View.Relatorios;
 using Consultorio.ViewModel;
 using System.Windows;
 
@@ -99,6 +100,14 @@ namespace Consultorio.View
             financeiroView.ShowDialog();
             ConfiguracoesDeView.ConfigurarWindow(financeiroView, this);
             this.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RelatoriosView relatoriosView = new RelatoriosView();
+            ConfiguracoesDeView.ConfigurarWindow(this, relatoriosView);
+            relatoriosView.Show();
+            this.Close();
         }
     }
 }

@@ -93,9 +93,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
     <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
@@ -170,6 +172,7 @@
     <Compile Include="ViewModel\Pagamentos\FinanceiroViewModel.cs" />
     <Compile Include="ViewModel\Produtos\BaixaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Produtos\EntradaDeProdutoViewModel.cs" />
+    <Compile Include="ViewModel\Relatorios\RelatorioConsultaPeriodoViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
     </Compile>
@@ -264,6 +267,12 @@
     </Compile>
     <Compile Include="View\Produtos\ProdutoView.xaml.cs">
       <DependentUpon>ProdutoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorios\RelatorioConsultaPeriodoView.xaml.cs">
+      <DependentUpon>RelatorioConsultaPeriodoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorios\RelatoriosView.xaml.cs">
+      <DependentUpon>RelatoriosView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -374,6 +383,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Relatorios\RelatorioConsultaPeriodoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Relatorios\RelatoriosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
@@ -411,7 +428,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\ConsultasPorData.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Consultorio.Model.Anamnese.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Ator.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Cliente.datasource" />
     <None Include="Properties\DataSources\Consultorio.Model.Consulta.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.ContaPaga.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Log.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Odontograma.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Orcamento.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.OrcamentosParaProcedimentos.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Pagamento.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Procedimento.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.Produto.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.ProdutoCompra.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.ProdutoUtilizadoEmConsulta.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Model.TipoDeContaPaga.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

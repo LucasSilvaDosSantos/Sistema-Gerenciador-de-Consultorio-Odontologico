@@ -281,5 +281,23 @@ namespace Consultorio.Data.Consultas
                 return false;
             }
         }
+
+        public static List<Consulta> BuscarConsultaPorPeriodo(DateTime inicio, DateTime fim)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    fim = fim.AddDays(1);
+                    var lista = ctx.Consultas.Where(a => (a.Inicio >= inicio && a.Fim <= fim)).Include(c => c.Cliente).Include(p => p.Procedimento).Include(m => m.QuemRealizou).ToList();
+
+                    return lista;
+                }
+            }
+            catch
+            {
+                return new List<Consulta>();
+            }
+        }
     }
 }
