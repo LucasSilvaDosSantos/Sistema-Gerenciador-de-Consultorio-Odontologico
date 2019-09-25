@@ -173,6 +173,7 @@
     <Compile Include="ViewModel\Produtos\BaixaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Produtos\EntradaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioConsultaPeriodoViewModel.cs" />
+    <Compile Include="ViewModel\Relatorios\RelatorioFinanceiroViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatoriosViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
@@ -271,6 +272,9 @@
     </Compile>
     <Compile Include="View\Relatorios\RelatorioConsultaPeriodoView.xaml.cs">
       <DependentUpon>RelatorioConsultaPeriodoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorios\RelatorioFinanceiroView.xaml.cs">
+      <DependentUpon>RelatorioFinanceiroView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Relatorios\RelatoriosView.xaml.cs">
       <DependentUpon>RelatoriosView.xaml</DependentUpon>
@@ -388,6 +392,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Relatorios\RelatorioFinanceiroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Relatorios\RelatoriosView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -428,6 +436,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\ConsultasPorData.rdlc" />
+    <EmbeddedResource Include="Relatorios\Financeiro.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Consultorio.Model.Anamnese.datasource" />
     <None Include="Properties\DataSources\Consultorio.Model.Ator.datasource" />

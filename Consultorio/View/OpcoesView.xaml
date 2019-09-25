@@ -41,7 +41,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="247,584,227,45" >
                 <Button x:Name="btContasPagas" Content="Cadastrar Conta Paga" Visibility="{Binding AtorLogado.CadastroDeContasPagas, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="13,0" FontSize="20" Height="62" Width="249" Click="BtContasPagas_Click" />
-                <Button x:Name="btFinanceiro" Content="Financeiro" HorizontalAlignment="Left"  Visibility="{Binding AtorLogado.VisualizarFinanceiro, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="13,0" FontSize="20" Width="249" Height="62" Click="BtFinanceiro_Click"/>
+                <Button x:Name="btFinanceiro" Content="Financeiro" Visibility="{Binding AtorLogado.VisualizarFinanceiro, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="13,0" FontSize="20" Width="249" Height="62" Click="BtFinanceiro_Click"/>
                 <Button x:Name="button" Content="Relatórios" FontSize="20" Margin="13,0" Height="62" Click="Button_Click" Width="249"/>
             </StackPanel>
         </Grid>

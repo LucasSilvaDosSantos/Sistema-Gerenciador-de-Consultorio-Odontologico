@@ -104,7 +104,7 @@ namespace Consultorio.View.Relatorios
             rvConsultas.LocalReport.SetParameters(new ReportParameter("fim", fimString));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             RelatoriosView relatoriosView = new RelatoriosView();
             ConfiguracoesDeView.ConfigurarWindow(this, relatoriosView);

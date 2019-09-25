@@ -16,7 +16,7 @@ namespace Consultorio.View.Relatorios
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtConsultasPorPeriodo_Click(object sender, RoutedEventArgs e)
         {
             RelatorioConsultaPeriodoView relatorioConsultaPeriodo = new RelatorioConsultaPeriodoView();
             ConfiguracoesDeView.ConfigurarWindow(this, relatorioConsultaPeriodo);
@@ -24,11 +24,19 @@ namespace Consultorio.View.Relatorios
             this.Close();
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             OpcoesView opcoesView = new OpcoesView();
             ConfiguracoesDeView.ConfigurarWindow(this, opcoesView);
             opcoesView.Show();
+            this.Close();
+        }
+
+        private void BtFinanceiro_Click(object sender, RoutedEventArgs e)
+        {
+            RelatorioFinanceiroView relatorioFinanceiroView = new RelatorioFinanceiroView();
+            ConfiguracoesDeView.ConfigurarWindow(this, relatorioFinanceiroView);
+            relatorioFinanceiroView.Show();
             this.Close();
         }
     }

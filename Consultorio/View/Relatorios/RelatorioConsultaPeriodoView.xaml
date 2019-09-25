@@ -33,7 +33,7 @@
             <ComboBox x:Name="cbOrdenarPor" Margin="0,41,460,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="132"/>
 
             <Button x:Name="btGerarRelatorio" Content="Gerar Relatório" HorizontalAlignment="Right" Margin="0,21,169,0" VerticalAlignment="Top" Width="146" Height="31" Click="BtGerarRelatorio_Click" />
-            <Button x:Name="button" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="Button_Click"/>
+            <Button x:Name="button" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="BtVoltar_Click"/>
         </Grid>
     </Viewbox>
 </Window>

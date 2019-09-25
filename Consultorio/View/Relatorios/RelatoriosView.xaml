@@ -10,12 +10,19 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
-    
+
     <Viewbox>
         <Grid Height="694" Width="1280">
             <Label x:Name="label" Content="Relatórios" Margin="529,40,514,0" VerticalAlignment="Top" Height="98" FontSize="50"/>
-            <Button x:Name="button" Content="Consultas por período" Visibility="{Binding AtorLogado.CrudConsultas, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="130,181,0,0" VerticalAlignment="Top" FontSize="25" Height="61" HorizontalAlignment="Left" Width="313" Click="Button_Click"/>
-            <Button x:Name="button1" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="Button1_Click"/>
+
+            <StackPanel Orientation="Horizontal" Margin="292,166,282,467" Height="61" HorizontalAlignment="Center">
+
+                <Button x:Name="btConsultasPorPeriodo" Margin="20,0" Content="Consultas" Visibility="{Binding AtorLogado.CrudConsultas, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="25" Height="61" Width="313" Click="BtConsultasPorPeriodo_Click"/>
+                <Button x:Name="btFinanceiro" Margin="20,0" Content="Financeiro" Visibility="{Binding AtorLogado.VisualizarFinanceiro, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="25" Width="313" Height="61" Click="BtFinanceiro_Click"/>
+
+            </StackPanel>
+
+            <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="BtVoltar_Click" />
 
         </Grid>
     </Viewbox>

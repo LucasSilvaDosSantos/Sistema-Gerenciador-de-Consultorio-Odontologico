@@ -2,7 +2,6 @@
 using Consultorio.Model;
 using Consultorio.ViewModel.Atores;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
@@ -10,8 +9,6 @@ namespace Consultorio.ViewModel.Relatorios
 {
     public class RelatorioConsultaPeriodoViewModel
     {
-        public string CampoParaOrdenar { get; set; } = "teste";
-
         public Ator AtorLogado { get; set; } = SingletonAtorLogado.Instancia.Ator;
 
         public int QtdConsultasRealizadas { get; set; }
@@ -22,7 +19,6 @@ namespace Consultorio.ViewModel.Relatorios
 
         public RelatorioConsultaPeriodoViewModel()
         {
-
         }
 
         public DataTable CarregaDataTable(DateTime inicio, DateTime fim, string orderBy, bool[] filtros)
