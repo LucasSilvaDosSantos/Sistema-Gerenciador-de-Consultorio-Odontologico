@@ -39,5 +39,13 @@ namespace Consultorio.View.Relatorios
             relatorioFinanceiroView.Show();
             this.Close();
         }
+
+        private void BtCliente_Click(object sender, RoutedEventArgs e)
+        {
+            RelatorioHistoricoDoClienteView relatorioHistoricoDoClienteView= new RelatorioHistoricoDoClienteView();
+            ConfiguracoesDeView.ConfigurarWindow(this, relatorioHistoricoDoClienteView);
+            relatorioHistoricoDoClienteView.Show();
+            this.Close();
+        }
     }
 }

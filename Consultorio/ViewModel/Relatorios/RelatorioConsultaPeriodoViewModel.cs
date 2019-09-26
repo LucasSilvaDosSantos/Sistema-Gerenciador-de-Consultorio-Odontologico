@@ -21,7 +21,7 @@ namespace Consultorio.ViewModel.Relatorios
         {
         }
 
-        public DataTable CarregaDataTable(DateTime inicio, DateTime fim, string orderBy, bool[] filtros)
+        public DataTable CarregaDataTable(DateTime inicio, DateTime fim, bool[] filtros)
         {
             QtdConsultasRealizadas = 0;
             QtdConsultasReagendadas = 0;
@@ -46,29 +46,7 @@ namespace Consultorio.ViewModel.Relatorios
             if (filtros[3] == false)
             {
                 listaConsulta = listaConsulta.Where(a => a.Status != Model.Enums.StatusConsulta.Realizada).ToList();
-            }
-
-            var listOrdenada = listaConsulta;
-            if (orderBy == "Id")
-            {
-                listOrdenada = listaConsulta.OrderBy(c => c.Id).ToList();
-            }
-            else if (orderBy == "Data")
-            {
-                listOrdenada = listaConsulta.OrderBy(c => c.Inicio.Date).ToList();
-            }
-            else if (orderBy == "Status")
-            {
-                listOrdenada = listaConsulta.OrderBy(c => c.Status).ToList();
-            }
-            else if (orderBy == "Cliente")
-            {
-                listOrdenada = listaConsulta.OrderBy(c => c.Cliente.Nome).ToList();
-            }
-            else if (orderBy == "Procedimento")
-            {
-                listOrdenada = listaConsulta.OrderBy(c => c.Procedimento.Nome).ToList();
-            }
+            }            
 
             var t1 = new DataTable();
             t1.Columns.Add("Id");
@@ -78,7 +56,7 @@ namespace Consultorio.ViewModel.Relatorios
             t1.Columns.Add("Procedimento");
             t1.Columns.Add("QuemRealizou");
 
-            foreach (var item in listOrdenada)
+            foreach (var item in listaConsulta)
             {
                 if (item.Status != Model.Enums.StatusConsulta.Iniciada)
                 {

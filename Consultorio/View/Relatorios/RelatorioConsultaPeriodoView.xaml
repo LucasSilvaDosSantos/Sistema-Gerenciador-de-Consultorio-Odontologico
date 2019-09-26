@@ -24,15 +24,12 @@
             <CheckBox x:Name="cbReagendada" IsChecked="True" Content="Reagendada" Margin="371,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <CheckBox x:Name="cbRealizada" IsChecked="True" Content="Realizada" Margin="486,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-            <Label x:Name="label" Content="Consultas de:" Margin="584,10,592,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
-            <DatePicker x:Name="dtInicio" Margin="0,10,485,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Right" Width="107"/>
-            <Label x:Name="label1" Content="até:" Margin="0,10,445,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="35"/>
-            <DatePicker x:Name="dtFim" Margin="0,10,338,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Right" Width="107"/>
+            <Label x:Name="label" Content="Consultas de:" Margin="587,20,589,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+            <DatePicker x:Name="dtInicio" Margin="0,20,482,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Right" Width="107"/>
+            <Label x:Name="label1" Content="até:" Margin="0,20,442,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="35"/>
+            <DatePicker x:Name="dtFim" Margin="0,20,335,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Right" Width="107"/>
 
-            <Label x:Name="label2" Content="Ordenar por:" Margin="588,42,592,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
-            <ComboBox x:Name="cbOrdenarPor" Margin="0,41,460,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="132"/>
-
-            <Button x:Name="btGerarRelatorio" Content="Gerar Relatório" HorizontalAlignment="Right" Margin="0,21,169,0" VerticalAlignment="Top" Width="146" Height="31" Click="BtGerarRelatorio_Click" />
+            <Button x:Name="btGerarRelatorio" Content="Gerar Relatório" HorizontalAlignment="Right" Margin="0,20,172,0" VerticalAlignment="Top" Width="146" Height="31" Click="BtGerarRelatorio_Click" />
             <Button x:Name="button" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="BtVoltar_Click"/>
         </Grid>
     </Viewbox>

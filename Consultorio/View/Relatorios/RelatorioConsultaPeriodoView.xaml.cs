@@ -18,9 +18,6 @@ namespace Consultorio.View.Relatorios
         public RelatorioConsultaPeriodoView()
         {
             InitializeComponent();
-            
-            cbOrdenarPor.ItemsSource = new List<string>() { "Id", "Data", "Status", "Cliente", "Procedimento"};
-            cbOrdenarPor.SelectedItem = "Id";
         }
 
         private void BtGerarRelatorio_Click(object sender, RoutedEventArgs e)
@@ -29,7 +26,7 @@ namespace Consultorio.View.Relatorios
             {
                 bool[] filtros = new bool[4] {(bool)cbAgendada.IsChecked, (bool)cbCancelada.IsChecked, (bool)cbReagendada.IsChecked, (bool)cbRealizada.IsChecked};
 
-                DataTable dataTableConsultas = RelatorioConsultaPeriodoViewModel.CarregaDataTable((DateTime)dtInicio.SelectedDate, (DateTime)dtFim.SelectedDate, cbOrdenarPor.SelectedValue.ToString(), filtros);
+                DataTable dataTableConsultas = RelatorioConsultaPeriodoViewModel.CarregaDataTable((DateTime)dtInicio.SelectedDate, (DateTime)dtFim.SelectedDate, filtros);
 
                 ReportDataSource dataSourceConsulta = new ReportDataSource("Consultas", dataTableConsultas);
 
