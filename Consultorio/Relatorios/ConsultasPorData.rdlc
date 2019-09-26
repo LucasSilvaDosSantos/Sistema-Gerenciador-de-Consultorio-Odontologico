@@ -1055,7 +1055,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.77639cm</Height>
+          <Height>1.51722cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1178,7 +1178,7 @@
               <rd:DefaultName>Textbox32</rd:DefaultName>
               <Top>0.17639cm</Top>
               <Left>15.18745cm</Left>
-              <Height>0.6cm</Height>
+              <Height>1.34083cm</Height>
               <Width>3.22625cm</Width>
               <ZIndex>2</ZIndex>
               <Style>

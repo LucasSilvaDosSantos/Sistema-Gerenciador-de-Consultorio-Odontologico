@@ -36,10 +36,10 @@
                     <DataGridTextColumn Header="Data" Binding="{Binding Inicio, StringFormat=dd/MM/yyyy}" />
                     <DataGridTextColumn Header="Início" Binding="{Binding Inicio, StringFormat=t}" />
                     <DataGridTextColumn Header="Fim" Binding="{Binding Fim, StringFormat=t}" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                     <DataGridTextColumn Header="Procedimento" Binding="{Binding Procedimento.Nome}" />
                     <DataGridTextColumn Header="Valor" Binding="{Binding ValorConsulta, StringFormat=c}" />
                     <DataGridTextColumn Header="Obs" Binding="{Binding Obs}" />
-                    <DataGridCheckBoxColumn Header="Status" Binding="{Binding Status}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
