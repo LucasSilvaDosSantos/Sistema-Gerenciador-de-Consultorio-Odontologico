@@ -299,5 +299,32 @@ namespace Consultorio.Data.Consultas
                 return new List<Consulta>();
             }
         }
+
+        public static void SalvarLogDeAtestadosGerados(Dictionary<string, string> dicionario)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    var log = new Log();
+                    var ator = ctx.Atores.Find(SingletonAtorLogado.Instancia.Ator.Id);
+                    log.Ator = ator;
+                    log.Date = DateTime.Now;
+                    log.ComoEra = ("Atestado");
+                    log.ComoFicou = ($"IdCliente={dicionario["Id"]}, " +
+                        $"FinalidadeDoAtestado={dicionario["Finalidade"]}, " +
+                        $"Comparecimento={dicionario["Inicio"]} até {dicionario["Fim"]}, " +
+                        $"Dia={dicionario["Data"]}, " +
+                        $"DiasAfastamento{dicionario["AfastamentoDias"]}, " +
+                        $"CID={dicionario["Cid"]}");
+                    ctx.Logs.Add(log);
+                    ctx.SaveChanges();
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }

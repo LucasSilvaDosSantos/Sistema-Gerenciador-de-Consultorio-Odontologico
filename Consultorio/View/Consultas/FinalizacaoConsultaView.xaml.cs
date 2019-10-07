@@ -92,5 +92,14 @@ namespace Consultorio.View.Consultas
         {
             FinalizacaoConsultaViewModel.AlterarValorDaConsulta();
         }
+
+        private void BtGerarAtestado_Click(object sender, RoutedEventArgs e)
+        {
+            AtestadoView atestadoView = new AtestadoView();
+            atestadoView.AtestadoViewModel.SetConsulta(FinalizacaoConsultaViewModel.Consulta);
+            atestadoView.IniciarTela();
+            ConfiguracoesDeView.ConfigurarWindow(this, atestadoView);
+            atestadoView.ShowDialog();
+        }
     }
 }

@@ -172,6 +172,7 @@
     <Compile Include="ViewModel\Pagamentos\FinanceiroViewModel.cs" />
     <Compile Include="ViewModel\Produtos\BaixaDeProdutoViewModel.cs" />
     <Compile Include="ViewModel\Produtos\EntradaDeProdutoViewModel.cs" />
+    <Compile Include="ViewModel\Consultas\AtestadoViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioConsultaPeriodoViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioFinanceiroViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioHistoricoDoClienteViewModel.cs" />
@@ -200,6 +201,9 @@
       <DependentUpon>OrcamentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ConfiguracoesDeView.cs" />
+    <Compile Include="View\Consultas\AtestadoView.xaml.cs">
+      <DependentUpon>AtestadoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Consultas\CancelarConsultaView.xaml.cs">
       <DependentUpon>CancelarConsultaView.xaml</DependentUpon>
     </Compile>
@@ -271,6 +275,9 @@
     <Compile Include="View\Produtos\ProdutoView.xaml.cs">
       <DependentUpon>ProdutoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Relatorios\RelatorioAtestadoView.xaml.cs">
+      <DependentUpon>RelatorioAtestadoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Relatorios\RelatorioConsultaPeriodoView.xaml.cs">
       <DependentUpon>RelatorioConsultaPeriodoView.xaml</DependentUpon>
     </Compile>
@@ -321,6 +328,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Clientes\OrcamentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Consultas\AtestadoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -392,6 +403,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Relatorios\RelatorioAtestadoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Relatorios\RelatorioConsultaPeriodoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -443,6 +458,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Atestado.rdlc" />
     <EmbeddedResource Include="Relatorios\Cliente.rdlc" />
     <EmbeddedResource Include="Relatorios\ConsultasPorData.rdlc" />
     <EmbeddedResource Include="Relatorios\Financeiro.rdlc" />
