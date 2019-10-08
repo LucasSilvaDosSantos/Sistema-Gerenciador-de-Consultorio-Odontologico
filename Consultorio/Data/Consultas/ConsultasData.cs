@@ -232,12 +232,14 @@ namespace Consultorio.Data.Consultas
                     ctx.Entry(consultaEntrada).State = EntityState.Modified;
 
                     //Log 
-                    var log = new Log();
-                    log.Ator = atorLogado;
-                    log.ComoEra = "Nova Entrada";
-                    log.ComoFicou = $"Consulta Id:{consultaEntrada.Id}, Consulta iniciada em:{consultaEntrada.Inicio}";
-                    log.Date = DateTime.Now;
-                    
+                    var log = new Log
+                    {
+                        Ator = atorLogado,
+                        ComoEra = "Nova Entrada",
+                        ComoFicou = $"Consulta Id:{consultaEntrada.Id}, Consulta iniciada em:{consultaEntrada.Inicio}",
+                        Date = DateTime.Now
+                    };
+
                     ctx.Logs.Add(log);
                     //Fim log
 
@@ -263,11 +265,13 @@ namespace Consultorio.Data.Consultas
                     ctx.Entry(consultaEntrada).State = EntityState.Modified;
 
                     //Log 
-                    var log = new Log();
-                    log.Ator = atorLogado;
-                    log.ComoEra = "Nova Entrada";
-                    log.ComoFicou = $"Consulta Id:{consultaEntrada.Id}, Consulta status em:{consultaEntrada.Status}";
-                    log.Date = DateTime.Now;
+                    var log = new Log
+                    {
+                        Ator = atorLogado,
+                        ComoEra = "Nova Entrada",
+                        ComoFicou = $"Consulta Id:{consultaEntrada.Id}, Consulta status em:{consultaEntrada.Status}",
+                        Date = DateTime.Now
+                    };
 
                     ctx.Logs.Add(log);
                     //Fim log
@@ -322,6 +326,28 @@ namespace Consultorio.Data.Consultas
                 }
             }
             catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public static void GerarLogDeReceituario(string receita)
+        {
+            try
+            {
+                using (ConsultorioContext ctx = new ConsultorioContext())
+                {
+                    var log = new Log();
+                    var ator = ctx.Atores.Find(SingletonAtorLogado.Instancia.Ator.Id);
+                    log.Ator = ator;
+                    log.Date = DateTime.Now;
+                    log.ComoEra = ("Receita");
+                    log.ComoFicou = ($"Receita={receita}");
+                    ctx.Logs.Add(log);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }

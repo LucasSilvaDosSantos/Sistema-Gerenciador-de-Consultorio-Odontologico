@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Consultas;
+﻿using Consultorio.View.Relatorios;
+using Consultorio.ViewModel.Consultas;
 using System.Windows;
 
 namespace Consultorio.View.Consultas
@@ -100,6 +101,13 @@ namespace Consultorio.View.Consultas
             atestadoView.IniciarTela();
             ConfiguracoesDeView.ConfigurarWindow(this, atestadoView);
             atestadoView.ShowDialog();
+        }
+
+        private void BtReceituario_Click(object sender, RoutedEventArgs e)
+        {
+            RelatorioReceitaMedicaView relatorioReceitaMedicaView = new RelatorioReceitaMedicaView();
+            ConfiguracoesDeView.ConfigurarWindow(this, relatorioReceitaMedicaView);
+            relatorioReceitaMedicaView.ShowDialog();
         }
     }
 }

@@ -176,6 +176,7 @@
     <Compile Include="ViewModel\Relatorios\RelatorioConsultaPeriodoViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioFinanceiroViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioHistoricoDoClienteViewModel.cs" />
+    <Compile Include="ViewModel\Relatorios\RelatorioReceitaMedicaViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatoriosViewModel.cs" />
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
@@ -286,6 +287,9 @@
     </Compile>
     <Compile Include="View\Relatorios\RelatorioHistoricoDoClienteView.xaml.cs">
       <DependentUpon>RelatorioHistoricoDoClienteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorios\RelatorioReceitaMedicaView.xaml.cs">
+      <DependentUpon>RelatorioReceitaMedicaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Relatorios\RelatoriosView.xaml.cs">
       <DependentUpon>RelatoriosView.xaml</DependentUpon>
@@ -419,6 +423,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Relatorios\RelatorioReceitaMedicaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Relatorios\RelatoriosView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -458,6 +466,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Receituario.rdlc" />
     <EmbeddedResource Include="Relatorios\Atestado.rdlc" />
     <EmbeddedResource Include="Relatorios\Cliente.rdlc" />
     <EmbeddedResource Include="Relatorios\ConsultasPorData.rdlc" />

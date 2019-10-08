@@ -24,18 +24,18 @@
 
             <Label x:Name="label5" Content="," HorizontalAlignment="Right" Margin="0,278,61,0" VerticalAlignment="Top"/>
             <Label x:Name="label6" Content="esteve sob tratamento odontológico neste consultório, no período das " HorizontalAlignment="Left" Margin="59,314,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label7" Content="às" HorizontalAlignment="Right" Margin="0,314,597,0" VerticalAlignment="Top"/>
+            <Label x:Name="label7" Content="às" Margin="627,314,628,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
 
-            <Label x:Name="label8" Content="horas do dia" HorizontalAlignment="Right" Margin="0,314,408,0" VerticalAlignment="Top"/>
-            <DatePicker x:Name="dpDiaDoAtestado" Margin="0,315,258,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145"/>
+            <Label x:Name="label8" Content="horas do dia" HorizontalAlignment="Right" Margin="0,314,464,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dpDiaDoAtestado" Margin="0,315,314,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145"/>
 
-            <Label x:Name="label9" Content=", necessitando o(a)" HorizontalAlignment="Right" Margin="0,314,112,0" VerticalAlignment="Top"/>
+            <Label x:Name="label9" Content=", necessitando o(a)" HorizontalAlignment="Right" Margin="0,314,168,0" VerticalAlignment="Top"/>
             <Label x:Name="label10" Content="mesmo(a) de " HorizontalAlignment="Left" Margin="59,0,0,313" VerticalAlignment="Bottom"/>
             <TextBox x:Name="tbDiasDeRepousoNumero" Height="31" Margin="165,0,0,313" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="107" />
 
             <Label x:Name="label11" Content="(" HorizontalAlignment="Left" Margin="272,0,0,313" VerticalAlignment="Bottom"/>
-            <Label x:Name="label12" Content=") dias de repouso." HorizontalAlignment="Right" Margin="0,0,288,313" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="tbDiasDeRepousoExtenso" Height="31" Margin="287,0,423,313" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+            <Label x:Name="label12" Content=") dias de repouso." HorizontalAlignment="Right" Margin="0,0,400,313" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="tbDiasDeRepousoExtenso" Height="31" Margin="287,0,535,313" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
 
             <Label x:Name="label13" Content="Campos do Jordão," HorizontalAlignment="Left" Margin="59,0,0,256" VerticalAlignment="Bottom"/>
             <DatePicker x:Name="dtDia" Margin="205,0,0,256" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="145" Height="31"/>
@@ -44,8 +44,8 @@
 
             <Button x:Name="btGerarAtestado" Content="Gerar Atestado" Margin="591,0,560,10" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Click="BtGerarAtestado_Click"/>
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="BtVoltar_Click"/>
-            <TextBox x:Name="tbHorarioInicio" Margin="579,315,0,0" TextWrapping="Wrap" Text="{Binding Consulta.Inicio, StringFormat=t}" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="61"/>
-            <TextBox x:Name="tbHorarioFim" Margin="0,314,536,0" TextWrapping="Wrap" Text="{Binding Consulta.Fim, StringFormat=t}" HorizontalAlignment="Right" Width="61" Height="31" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbHorarioInicio" Margin="566,315,0,0" TextWrapping="Wrap" Text="{Binding Consulta.Inicio, StringFormat=t}" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="61"/>
+            <TextBox x:Name="tbHorarioFim" Margin="0,314,567,0" TextWrapping="Wrap" Text="{Binding Consulta.Fim, StringFormat=t}" HorizontalAlignment="Right" Width="61" Height="31" VerticalAlignment="Top"/>
         </Grid>
     </Viewbox>
 </Window>

@@ -82,7 +82,8 @@
             </DataGrid>
             <Button x:Name="btSalvar" Content="Salvar" Margin="595,0,587,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click"/>
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,35,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
-            <Button x:Name="btGerarAtestado" Content="Gerar Atestado" HorizontalAlignment="Left" Margin="398,0,0,30" VerticalAlignment="Bottom" Width="136" Height="35" Click="BtGerarAtestado_Click"/>
+            <Button x:Name="btGerarAtestado" Content="Emitir Atestado" HorizontalAlignment="Left" Margin="334,0,0,30" VerticalAlignment="Bottom" Width="136" Height="35" Click="BtGerarAtestado_Click"/>
+            <Button x:Name="btReceituario" Content="Emitir Receita" HorizontalAlignment="Left" Margin="203,0,0,30" VerticalAlignment="Bottom" Width="126" Click="BtReceituario_Click" Height="35"/>
 
 
         </Grid>

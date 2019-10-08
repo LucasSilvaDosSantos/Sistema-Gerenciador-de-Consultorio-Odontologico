@@ -65,14 +65,16 @@ namespace Consultorio.View.Consultas
                     tbCid.Text
                 };
 
-                var dicionario = new Dictionary<string, string>();
-                dicionario.Add("Id", AtestadoViewModel.Consulta.Cliente.Id.ToString());
-                dicionario.Add("Finalidade", tbAtestadoParaFim.Text);
-                dicionario.Add("Inicio", tbHorarioInicio.Text);
-                dicionario.Add("Fim", tbHorarioFim.Text);
-                dicionario.Add("Data", dpDiaDoAtestado.SelectedDate.ToString());
-                dicionario.Add("AfastamentoDias", tbDiasDeRepousoNumero.Text);
-                dicionario.Add("Cid", tbCid.Text);
+                var dicionario = new Dictionary<string, string>
+                {
+                    { "Id", AtestadoViewModel.Consulta.Cliente.Id.ToString() },
+                    { "Finalidade", tbAtestadoParaFim.Text },
+                    { "Inicio", tbHorarioInicio.Text },
+                    { "Fim", tbHorarioFim.Text },
+                    { "Data", dpDiaDoAtestado.SelectedDate.ToString() },
+                    { "AfastamentoDias", tbDiasDeRepousoNumero.Text },
+                    { "Cid", tbCid.Text }
+                };
 
                 AtestadoViewModel.SalvarLog(dicionario);
 
@@ -126,35 +128,6 @@ namespace Consultorio.View.Consultas
                 return false;
             }
             return true;
-        }
-
-        private void ListaDeHorario(out List<string> listaHorasEntrada, out List<string> listaMinutosEntrada)
-        {
-            listaHorasEntrada = new List<string>();
-            listaMinutosEntrada = new List<string>();
-            for (int i = 9; i <= 18; i++)
-            {
-                if (i.ToString().Count() == 1)
-                {
-                    listaHorasEntrada.Add("0" + i.ToString());
-                }
-                else
-                {
-                    listaHorasEntrada.Add(i.ToString());
-                }
-
-            }
-            for (int i = 0; i < 60; i += 5)
-            {
-                if (i.ToString().Count() == 1)
-                {
-                    listaMinutosEntrada.Add("0" + i.ToString());
-                }
-                else
-                {
-                    listaMinutosEntrada.Add(i.ToString());
-                }
-            }
         }
     }
 }
