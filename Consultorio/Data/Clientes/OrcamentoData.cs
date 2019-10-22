@@ -16,7 +16,7 @@ namespace Consultorio.Data.Clientes
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
                     var orcamento = ctx.Orcamentos.Where(a => a.Cliente.Id == id).Include(b => b.OrcamentosParaProcedimentos.Select(c => c.Procedimento)).Include(e => e.OrcamentosParaProcedimentos.Select(f => f.ColaboradorAlterou)).Include(d => d.Cliente).FirstOrDefault();
-                    
+
                     return orcamento;
                 }
             }
@@ -32,13 +32,14 @@ namespace Consultorio.Data.Clientes
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
+
                     string msg = "";
 
                     //Para novos orçamentos
                     if (orcamentoEntrada.Id == 0)
                     {
                         ctx.Orcamentos.Add(orcamentoEntrada);
-                        
+
                         //orcamentoEntrada.Id = RecuperarIdOrcamento(orcamentoEntrada);
 
                         // Caso de procedimento esteja com itens
@@ -56,9 +57,10 @@ namespace Consultorio.Data.Clientes
                             }
                         }
                         msg = "Novo orçamento salvo";
-                        //fim Caso de procedimento esteja com itens
-                    } 
-                    
+
+                    }
+                    //fim Caso de procedimento esteja com itens
+
                     // fim Para novos orçamentos
                     else // Orcamento sendo atualizado
                     {
@@ -74,7 +76,7 @@ namespace Consultorio.Data.Clientes
                             //Feito assim para conseguir alterar a chave etrangeira do ator sem maior complicaçoes
                             item.ColaboradorAlterou = ctx.Atores.Find(item.ColaboradorAlterou.Id);
                             item.ColaboradorAlterouID = item.ColaboradorAlterou.Id;
-                        }                       
+                        }
 
                         foreach (var itemDoBanco in ctx.OrcamentosParaProcedimentos.Where(c => c.OrcamentoID == orcamentoEntrada.Id))
                         {
@@ -104,10 +106,11 @@ namespace Consultorio.Data.Clientes
                         }
                         msg = "Orçamento alterado!";
                     }
-                   
+
                     ctx.SaveChanges();
                     return msg;
                 }
+
             }
             catch (Exception e)
             {
@@ -127,8 +130,9 @@ namespace Consultorio.Data.Clientes
                     ctx.Orcamentos.Add(orcamento);
                     ctx.SaveChanges();
                 }
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }          
@@ -140,8 +144,8 @@ namespace Consultorio.Data.Clientes
             {
                 using (ConsultorioContext ctx = new ConsultorioContext())
                 {
-                    var orcamentosParaProcedimentos = ctx.OrcamentosParaProcedimentos.Where(c => c.OrcamentoID == idOrcamento).ToList();
-                    
+                    var orcamentosParaProcedimentos = ctx.OrcamentosParaProcedimentos.Where(c => c.OrcamentoID == idOrcamento).Include(d => d.Procedimento).Include( _ => _.Orcamento).ToList();
+
                     return orcamentosParaProcedimentos;
                 }
             }

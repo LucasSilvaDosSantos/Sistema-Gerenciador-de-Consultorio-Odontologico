@@ -1,8 +1,10 @@
-﻿using Consultorio.Data.Consultas;
+﻿using Consultorio.Data.Clientes;
+using Consultorio.Data.Consultas;
 using Consultorio.Model;
 using Itenso.TimePeriod;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -11,9 +13,27 @@ namespace Consultorio.ViewModel.Consultas
 {
     public class CrudConsultasViewModel : INotifyPropertyChanged
     {
+        private double _PrecoConsulta;
+        public double PrecoConsulta
+        {
+            get { return _PrecoConsulta; }
+            set { _PrecoConsulta = value; OnPropertyChanged("PrecoConsulta"); }
+        }
+
+        private List<OrcamentosParaProcedimentos> OrcamentosParaProcedimentos;
+
         public bool IfNovoCliente { get; set; }
 
-        public List<Procedimento> Procedimentos { get; set; }
+        public List<Procedimento> TodosOsProcedimentos { get; set; }
+        public List<Procedimento> ProcedimentosOrcamento { get; set; }
+
+        private ObservableCollection<Procedimento> _Procedimentos;
+
+        public ObservableCollection<Procedimento> Procedimentos
+        {
+            get { return _Procedimentos; }
+            set { _Procedimentos = value; OnPropertyChanged("Procedimentos"); }
+        }
 
         private DateTime _DataSelecionada;
 
@@ -95,7 +115,7 @@ namespace Consultorio.ViewModel.Consultas
             set { _Minutos = value; OnPropertyChanged("Minutos"); }
         }
 
-        public CrudConsultasViewModel(int idConsulta)
+        public CrudConsultasViewModel(int idConsulta, out bool procedimentoDaListaDeOrcamento, out string ProcedimentoSelecionadoNome)
         {
             PreencherHorarios();
 
@@ -114,8 +134,25 @@ namespace Consultorio.ViewModel.Consultas
             }
                     
             IniciarTela();
-            Procedimento procedimento = Procedimentos.Find(c => c.Id == Consulta.Procedimento.Id);
-            ProcedimentoSelecionado = procedimento;
+            CarregarOrcamento();
+            CarregarProcedimentos();
+
+            procedimentoDaListaDeOrcamento = false;
+            ProcedimentoSelecionadoNome = Consulta.Procedimento.Nome;
+            if (OrcamentosParaProcedimentos != null)
+            {
+                foreach (var item in OrcamentosParaProcedimentos)
+                {
+                    if (item.Procedimento.Id == Consulta.Procedimento.Id)
+                    {
+                        CarregarProcedimentosDeOrcamento();
+                        procedimentoDaListaDeOrcamento = true;
+                        ProcedimentoSelecionadoNome = Consulta.Procedimento.Nome;
+                        break;
+                    }
+                }
+            }
+                       
             DataSelecionada = Consulta.Inicio;
            
             CarregarHoraAgendada();
@@ -130,11 +167,25 @@ namespace Consultorio.ViewModel.Consultas
             Consulta = new Consulta();
             NomeTela = "> Cadastro Consulta";            
             IniciarTela();
+            CarregarProcedimentos();
         }
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+
+        public void CarregarProcedimentoSelecionado()
+        {
+            var procedimento = Procedimentos.FirstOrDefault(c => c.Id == Consulta.Procedimento.Id);
+            if (procedimento == null)
+            {
+                procedimento = TodosOsProcedimentos.Find(c => c.Id == Consulta.Procedimento.Id);
+            }
+            else
+            {
+                AlterarListaProcedimentos(true);
+            }
+            ProcedimentoSelecionado = procedimento;
+        }
 
         private void CarregarHoraAgendada()
         {
@@ -186,9 +237,9 @@ namespace Consultorio.ViewModel.Consultas
 
         public string SalvarClick()
         {
-            Procedimento procedimento = ProcedimentoSelecionado;
+            //Procedimento procedimento = ProcedimentoSelecionado;
             Consulta.Procedimento = ProcedimentoSelecionado;
-            Consulta.ValorConsulta = procedimento.Preco;
+            Consulta.ValorConsulta = PrecoConsulta;
             Consulta.Status = Model.Enums.StatusConsulta.Agendada;
             NormalizaDataTime();
             string msg;
@@ -206,6 +257,42 @@ namespace Consultorio.ViewModel.Consultas
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        public Procedimento ProcedimentoSelecionadoCarregar(string nomeProcedimentoEntrada)
+        {
+            return ProcedimentoSelecionado = Procedimentos.First(_ => _.Nome == nomeProcedimentoEntrada);
+        }
+
+        public void CalcularValorDaConsulta(bool procedimentoVeioDoOrcamento)
+        {
+            if (ProcedimentoSelecionado != null)
+            {
+                if (procedimentoVeioDoOrcamento == true)
+                {
+                    var orcamentosParaProcedimentos = OrcamentosParaProcedimentos.First(a => a.Procedimento.Id == ProcedimentoSelecionado.Id);
+                    PrecoConsulta = (orcamentosParaProcedimentos.ValorTotalDoProcedimento / orcamentosParaProcedimentos.QtdDeProcedimentos);
+                }
+                else
+                    PrecoConsulta = ProcedimentoSelecionado.Preco;
+            }
+        }
+
+        public void AlterarListaProcedimentos(bool produtosOrcamento)
+        {
+            if (produtosOrcamento)
+            {
+                CarregarProcedimentosDeOrcamento(); 
+            }
+            else
+            {
+                CarregarProcedimentosPelaListaDeTodos();
+            }
+        }
+
+        private void CarregarProcedimentosPelaListaDeTodos()
+        {
+            Procedimentos = new ObservableCollection<Procedimento>(TodosOsProcedimentos);
+        }
+
         private bool HorarioDisponivel()
         {
             if (HoraInicio == null || Consulta.Fim == null || MinutoInicio == null || MinutoFim == null)
@@ -288,7 +375,6 @@ namespace Consultorio.ViewModel.Consultas
         private void IniciarTela()
         {
             DataSelecionada = DateTime.Now;
-            CarregarProcedimentos();
         }
 
         // Erro na hora de notificar a tela sobre alteraçao na view
@@ -299,7 +385,37 @@ namespace Consultorio.ViewModel.Consultas
 
         private void CarregarProcedimentos()
         {
-            Procedimentos = ConsultasData.ListarTodosOsProcedimentos();
+            TodosOsProcedimentos = ConsultasData.ListarTodosOsProcedimentos();
+        }
+
+        private void CarregarProcedimentosDeOrcamento()
+        {
+            Procedimentos = new ObservableCollection<Procedimento>();
+
+            if (OrcamentosParaProcedimentos != null)
+            {
+                foreach (var item in OrcamentosParaProcedimentos)
+                {
+                    Procedimentos.Add(item.Procedimento);
+                }
+                OnPropertyChanged("Procedimentos");
+            }           
+        }
+
+        private void CarregarOrcamento()
+        {
+            OrcamentosParaProcedimentos = null;
+            if (Consulta != null && Consulta.Cliente != null)
+            {
+                var orcamento = OrcamentoData.BuscarOrcamentoPorIdCliente(Consulta.Cliente.Id);
+                if (orcamento != null)
+                    OrcamentosParaProcedimentos = OrcamentoData.BuscarListaOrcamentoParaProcedimentoPorIdOrcamento(orcamento.Id);
+            }
+        }
+
+        public void ProcedimentosParaAlterarCliente()
+        {
+            CarregarOrcamento();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

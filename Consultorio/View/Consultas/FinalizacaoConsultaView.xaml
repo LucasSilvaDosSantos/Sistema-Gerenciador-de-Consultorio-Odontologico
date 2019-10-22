@@ -21,10 +21,10 @@
             <TextBox x:Name="textBox3" Height="31" Margin="449,101,0,0" TextWrapping="Wrap" Text="{Binding Consulta.Fim, StringFormat=t}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="71"/>
 
             <Label x:Name="label5_Copy" Margin="75,137,0,0" Content="Procedimento:" VerticalAlignment="Top" HorizontalAlignment="Left" Width="116"/>
-            <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding TodosOsProcedimentos}" SelectedItem="{Binding Consulta.Procedimento}" DisplayMemberPath="Nome" Margin="191,136,0,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Left" Width="390" SelectionChanged="ComboBoxProcedimento_SelectionChanged"/>
+            <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedItem="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="191,136,0,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Left" Width="390" SelectionChanged="ComboBoxProcedimento_SelectionChanged"/>
 
             <Label x:Name="label7" Content="Valor da Consulta:" Margin="0,173,975,0" HorizontalAlignment="Right" Width="141" VerticalAlignment="Top"/>
-            <TextBox x:Name="textBox_Copy" Margin="305,173,0,0" TextWrapping="Wrap" Text="{Binding Consulta.ValorConsulta, StringFormat=c}" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
+            <TextBox x:Name="textBox_Copy" Margin="305,173,0,0" TextWrapping="Wrap" Text="{Binding ValorDaConsulta, StringFormat=c}" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
 
             <Label x:Name="label2_Copy" VerticalAlignment="Top" Margin="35,209,0,0" Height="30" Content="Obs:" HorizontalAlignment="Left" Width="44"/>
             <TextBox x:Name="tbDente" Padding="0, -1, 0, 0" Margin="85,209,0,0" BorderThickness="1" Background="White" VerticalContentAlignment="Top" TextWrapping="Wrap" Text="{Binding Consulta.Obs}" HorizontalAlignment="Left" Width="544" Height="62" VerticalAlignment="Top"/>
@@ -84,6 +84,8 @@
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,35,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
             <Button x:Name="btGerarAtestado" Content="Emitir Atestado" HorizontalAlignment="Left" Margin="334,0,0,30" VerticalAlignment="Bottom" Width="136" Height="35" Click="BtGerarAtestado_Click"/>
             <Button x:Name="btReceituario" Content="Emitir Receita" HorizontalAlignment="Left" Margin="203,0,0,30" VerticalAlignment="Bottom" Width="126" Click="BtReceituario_Click" Height="35"/>
+            <RadioButton x:Name="rbTodosProcedimentos" Content="Todos os procedimentos" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="638,21,441,0" VerticalAlignment="Top" Height="31" Checked="RbTodosProcedimentos_Checked" d:LayoutOverrides="Width"/>
+            <RadioButton x:Name="rbProcedimentosOrcamento" Content="Procedimentos do orçamento" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="0,21,192,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Right" Checked="RbProcedimentosOrcamento_Checked"/>
 
 
         </Grid>

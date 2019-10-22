@@ -13,11 +13,25 @@ namespace Consultorio.View.Consultas
 
         public FinalizacaoConsultaView(int idConsulta)
         {
-            FinalizacaoConsultaViewModel = new FinalizacaoConsultaViewModel(idConsulta);
+            FinalizacaoConsultaViewModel = new FinalizacaoConsultaViewModel(idConsulta, out bool procedimentoDaListaDeOrcamento, out string procedimentoDaListaDeOrcamentoNome);
 
             DataContext = FinalizacaoConsultaViewModel;
 
             InitializeComponent();
+
+            if (procedimentoDaListaDeOrcamento)
+            {
+                rbProcedimentosOrcamento.IsChecked = true;
+                rbTodosProcedimentos.IsChecked = false;
+            }
+            else
+            {
+                rbTodosProcedimentos.IsChecked = true;
+                rbProcedimentosOrcamento.IsChecked = false;
+            }
+            comboBoxProcedimento.SelectedItem = FinalizacaoConsultaViewModel.ProcedimentoSelecionado;
+            FinalizacaoConsultaViewModel.CalcularValorProcedimentoSelecionado(procedimentoDaListaDeOrcamento);
+
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -92,6 +106,7 @@ namespace Consultorio.View.Consultas
         private void ComboBoxProcedimento_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             FinalizacaoConsultaViewModel.AlterarValorDaConsulta();
+            FinalizacaoConsultaViewModel.CalcularValorProcedimentoSelecionado((bool)rbProcedimentosOrcamento.IsChecked);
         }
 
         private void BtGerarAtestado_Click(object sender, RoutedEventArgs e)
@@ -108,6 +123,24 @@ namespace Consultorio.View.Consultas
             RelatorioReceitaMedicaView relatorioReceitaMedicaView = new RelatorioReceitaMedicaView();
             ConfiguracoesDeView.ConfigurarWindow(this, relatorioReceitaMedicaView);
             relatorioReceitaMedicaView.ShowDialog();
+        }
+
+        private void RbTodosProcedimentos_Checked(object sender, RoutedEventArgs e)
+        {
+            CarregarProcedimentos();
+        }
+
+        private void RbProcedimentosOrcamento_Checked(object sender, RoutedEventArgs e)
+        {
+            CarregarProcedimentos();
+        }
+
+        private void CarregarProcedimentos()
+        {
+            if (rbProcedimentosOrcamento != null)
+                FinalizacaoConsultaViewModel.AlterarListaProcedimentos((bool)rbProcedimentosOrcamento.IsChecked);
+            else
+                FinalizacaoConsultaViewModel.AlterarListaProcedimentos(false);
         }
     }
 }

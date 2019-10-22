@@ -16,10 +16,23 @@ namespace Consultorio.View.Consultas
 
         public CrudConsultasView(int idConsulta)
         {
-            CrudConsultasViewModel = new CrudConsultasViewModel(idConsulta);
+            CrudConsultasViewModel = new CrudConsultasViewModel(idConsulta, out bool procedimentoDaListaDeOrcamento, out string procedimentoSelecionadoNome);
             DataContext = CrudConsultasViewModel;
 
             InitializeComponent();
+
+            if (procedimentoDaListaDeOrcamento == true)
+            {
+                rbTodosProcedimentos.IsChecked = false;
+                rbProcedimentosOrcamento.IsChecked = true;
+            }
+            else
+            {
+                rbTodosProcedimentos.IsChecked = true;
+                rbProcedimentosOrcamento.IsChecked = false;
+            }
+
+            comboBoxProcedimento.SelectedItem = CrudConsultasViewModel.ProcedimentoSelecionadoCarregar(procedimentoSelecionadoNome);
         }
 
         public CrudConsultasView()
@@ -33,6 +46,17 @@ namespace Consultorio.View.Consultas
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Botoes**********--------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        private void RbTodosProcedimentos_Checked(object sender, RoutedEventArgs e)
+        {
+            CarregarProcedimentos();
+            //CrudConsultasViewModel.AlterarListaProdutosOrcamento(false);
+        }
+
+        private void RbProcedimentosOrcamento_Checked(object sender, RoutedEventArgs e)
+        {
+            CarregarProcedimentos();
+            //CrudConsultasViewModel.AlterarListaProdutosOrcamento(true);
+        }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -67,15 +91,11 @@ namespace Consultorio.View.Consultas
         private void TbCliente_GotFocus(object sender, RoutedEventArgs e)
         {
             SelecionarCliente();
-
-            //CrudConsultasViewModel.AcessoAoCampoCliente(); //AbrirTelaDeCliente();
         }
 
         private void TbCliente_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             SelecionarCliente();
-
-            //CrudConsultasViewModel.AcessoAoCampoCliente(); //AbrirTelaDeCliente();
         }
 
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
@@ -90,6 +110,14 @@ namespace Consultorio.View.Consultas
         //--------------------------------------------*********Funçoes**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
 
+        private void CarregarProcedimentos()
+        {
+            if (rbProcedimentosOrcamento != null)
+                CrudConsultasViewModel.AlterarListaProcedimentos((bool)rbProcedimentosOrcamento.IsChecked);
+            else
+                CrudConsultasViewModel.AlterarListaProcedimentos(false);
+        }
+
         private void SelecionarCliente()
         {
             this.Hide();
@@ -98,9 +126,19 @@ namespace Consultorio.View.Consultas
             selecaoDeClienteView.ShowDialog();
 
             CrudConsultasViewModel.Consulta.Cliente = selecaoDeClienteView.SelecaoDeClienteViewModel.ClienteSelecionado;
+            CarregarProcedimentos();
             CrudConsultasViewModel.NotificarConsulta();
+            CrudConsultasViewModel.ProcedimentosParaAlterarCliente();
             ConfiguracoesDeView.ConfigurarWindow(selecaoDeClienteView, this);
             this.Visibility = Visibility.Visible;
+        }
+
+        private void Comboboxprocedimento_selectionchanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (rbProcedimentosOrcamento != null)
+                CrudConsultasViewModel.CalcularValorDaConsulta((bool)rbProcedimentosOrcamento.IsChecked);
+            else
+                CrudConsultasViewModel.CalcularValorDaConsulta(false);
         }
     }
 }

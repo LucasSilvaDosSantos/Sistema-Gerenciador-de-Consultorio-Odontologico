@@ -45,6 +45,16 @@ namespace Consultorio.Data.Consultas
                             ctx.ProdutoUtilizadoEmConsultas.Add(item);
                         }
                     }
+                    var orcamentoParaProcedimento = ctx.OrcamentosParaProcedimentos.SingleOrDefault(_ => _.Procedimento.Id == consultaEntrada.Procedimento.Id);
+                    if (orcamentoParaProcedimento != null)
+                    {
+                        if (orcamentoParaProcedimento.QtdDeProcedimentos > 1)
+                            orcamentoParaProcedimento.QtdDeProcedimentos -= 1;
+                        else
+                        {
+                            ctx.OrcamentosParaProcedimentos.Remove(orcamentoParaProcedimento);
+                        }
+                    }
 
                     consultaParaSalvar.QuemRealizou = ctx.Atores.Find(SingletonAtorLogado.Instancia.Ator.Id);
                     consultaParaSalvar.Procedimento = ctx.Procedimentos.Find(consultaEntrada.Procedimento.Id);

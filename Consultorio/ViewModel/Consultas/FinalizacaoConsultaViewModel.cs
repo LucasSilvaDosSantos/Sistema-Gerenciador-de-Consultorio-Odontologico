@@ -1,10 +1,12 @@
-﻿using Consultorio.Data.Consultas;
+﻿using Consultorio.Data.Clientes;
+using Consultorio.Data.Consultas;
 using Consultorio.Data.Produtos;
 using Consultorio.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Consultorio.ViewModel.Consultas
 {
@@ -24,11 +26,34 @@ namespace Consultorio.ViewModel.Consultas
             set { _Consulta = value; OnPropertyChanged("Consulta"); }
         }
 
+        private double _ValorDaConsulta;
+        public double ValorDaConsulta
+        {
+            get { return _ValorDaConsulta; }
+            set { _ValorDaConsulta = value; OnPropertyChanged("ValorDaConsulta"); }
+        }
+
+        private List<OrcamentosParaProcedimentos> OrcamentoProcedimentos;
+
         private List<Procedimento> _TodosOsProcedimentos;
         public List<Procedimento> TodosOsProcedimentos
         {
             get { return _TodosOsProcedimentos; }
             set { _TodosOsProcedimentos = value; OnPropertyChanged("TodosOsProcedimentos"); }
+        }
+
+        private List<Procedimento> _ProcedimentosEmOrcamento;
+        public List<Procedimento> ProcedimentosEmOrcamento
+        {
+            get { return _ProcedimentosEmOrcamento; }
+            set { _ProcedimentosEmOrcamento = value; OnPropertyChanged("ProcedimentosEmOrcamento"); }
+        }
+
+        private ObservableCollection<Procedimento> _Procedimentos;
+        public ObservableCollection<Procedimento> Procedimentos
+        {
+            get { return _Procedimentos; }
+            set { _Procedimentos = value; OnPropertyChanged("Procedimentos"); }
         }
 
         private ProdutoUtilizadoEmConsulta _ProdutoSelecionadoParaRemover;
@@ -59,25 +84,102 @@ namespace Consultorio.ViewModel.Consultas
             set { _ProcedimentoSelecionado = value; OnPropertyChanged("ProcedimentoSelecionado"); Consulta.Procedimento = value; }
         }
 
-        public FinalizacaoConsultaViewModel(int idConsulta)
+        public FinalizacaoConsultaViewModel(int idConsulta, out bool procedimentoDaListaDeOrcamento, out string procedimentoDaListaDeOrcamentoNome)
         {
-            Consulta = ConsultasData.SelecionarConsulta(idConsulta);
-            Consulta.Fim = DateTime.Now;
 
             TodosOsProcedimentos = ConsultasData.ListarTodosOsProcedimentos();
+            Consulta = ConsultasData.SelecionarConsulta(idConsulta);
+
+            var idProcedimentoDaConsulta = Consulta.Procedimento.Id;
+            Consulta.Fim = DateTime.Now;
+
+            
+
+            ProcedimentosEmOrcamento = CarregarProcedimentosDeOrcamento();
 
             ListaProdutosUtilizadoNaConsulta = new ObservableCollection<ProdutoUtilizadoEmConsulta>();
 
             CarregarProdutosDaConsulta();
 
-            Consulta.Procedimento = TodosOsProcedimentos.Find(c => c.Id == Consulta.Procedimento.Id);
-
+            ProcedimentoSelecionado = ProcedimentosEmOrcamento.FirstOrDefault(a => a.Id == idProcedimentoDaConsulta);
+            procedimentoDaListaDeOrcamento = false;
+            if (ProcedimentoSelecionado != null)
+            {
+                procedimentoDaListaDeOrcamento = true;
+            }
+            else
+            {
+                ProcedimentoSelecionado = TodosOsProcedimentos.First(_ => _.Id == idProcedimentoDaConsulta);
+            }
+            procedimentoDaListaDeOrcamentoNome = ProcedimentoSelecionado.Nome;
             LimparlistaDeProdutos();
         }
+
+
 
         //-----------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------*********Metodos**********-------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------------------------------------------
+        
+
+        private List<Procedimento> CarregarProcedimentosDeOrcamento()
+        {
+            var orcamento = OrcamentoData.BuscarOrcamentoPorIdCliente(Consulta.Cliente.Id);
+
+            var lista = new List<Procedimento>();
+
+            if (orcamento != null)
+            {
+
+                OrcamentoProcedimentos = OrcamentoData.BuscarListaOrcamentoParaProcedimentoPorIdOrcamento(orcamento.Id);
+
+                foreach (var item in OrcamentoProcedimentos)
+                {
+                    lista.Add(item.Procedimento);
+                }
+            }
+
+            return lista;
+        }
+
+        public void CalcularValorProcedimentoSelecionado(bool procedimentoDaListaDeOrcamento)
+        {
+            if (ProcedimentoSelecionado != null && OrcamentoProcedimentos != null)
+            {
+                var orcamentoProcedimento = OrcamentoProcedimentos.FirstOrDefault(_ => _.Procedimento.Id == ProcedimentoSelecionado.Id);
+                if (procedimentoDaListaDeOrcamento)
+                {
+                    ValorDaConsulta = (orcamentoProcedimento.ValorTotalDoProcedimento / orcamentoProcedimento.QtdDeProcedimentos);
+                }
+                else
+                {
+                    ValorDaConsulta = ProcedimentoSelecionado.Preco;
+                }
+            }
+        }
+
+        public void AlterarListaProcedimentos(bool produtosOrcamento)
+        {
+            if (produtosOrcamento)
+            {
+                CarregarProcedimentosPelaListaDeOrcamento();
+            }
+            else
+            {
+                CarregarProcedimentosPelaListaDeTodos();
+            }
+        }
+
+        public void CarregarProcedimentosPelaListaDeOrcamento()
+        {
+            Procedimentos = new ObservableCollection<Procedimento>(ProcedimentosEmOrcamento);
+        }
+
+        public void CarregarProcedimentosPelaListaDeTodos()
+        {
+            Procedimentos = new ObservableCollection<Procedimento>(TodosOsProcedimentos);
+        }
+
         private void LimparlistaDeProdutos()
         {
             ListaDeProdutos = new ObservableCollection<Produto>();
@@ -85,8 +187,10 @@ namespace Consultorio.ViewModel.Consultas
 
         public void AlterarValorDaConsulta()
         {
-            Consulta.ValorConsulta = Consulta.Procedimento.Preco;
-            OnPropertyChanged("Consulta");
+            if (ProcedimentoSelecionado != null)
+                ValorDaConsulta = ProcedimentoSelecionado.Preco;
+            else
+                ValorDaConsulta = 0;
         }
 
         public void DeletarItemDaLista()
@@ -177,6 +281,8 @@ namespace Consultorio.ViewModel.Consultas
 
         public bool SalvarConsulta()
         {
+            Consulta.ValorConsulta = ValorDaConsulta;
+            Consulta.Procedimento = ProcedimentoSelecionado;
             Consulta.ProdutoUtilizadoEmConsulta = new List<ProdutoUtilizadoEmConsulta>(ListaProdutosUtilizadoNaConsulta);
             bool consultaSalva = FinalizarConsultaData.SalvarFinalizacaoDeConsulta(Consulta, ListaProdutosUtilizadoNaConsulta);
             return consultaSalva;
