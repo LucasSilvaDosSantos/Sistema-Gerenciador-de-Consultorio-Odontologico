@@ -8,29 +8,33 @@
         Title="Finalização de Consulta" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
     <Viewbox>
         <Grid Height="694" Width="1280">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="131*"/>
+                <RowDefinition Height="216*"/>
+            </Grid.RowDefinitions>
             <Label x:Name="lbTitulo" Foreground="#FF7FBEE2" Content="&gt; Finalização de Consulta" Margin="35,21,0,0" VerticalAlignment="Top" FontSize="30" BorderThickness="0" Padding="0" HorizontalAlignment="Left" Width="339" Height="44"/>
-            <Label x:Name="label" Content="{Binding Consulta.Cliente.Nome}" FontSize="20" Margin="165,65,165,593" HorizontalContentAlignment="Center"/>
+            <Label x:Name="label" Content="{Binding Consulta.Cliente.Nome}" FontSize="20" Margin="165,65,165,160.887" HorizontalContentAlignment="Center"/>
 
-            <Label x:Name="label1" Content="Data:" HorizontalAlignment="Left" Margin="131,101,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="31" Margin="177,101,0,0" TextWrapping="Wrap" Text="{Binding Consulta.Inicio, StringFormat=d}" VerticalAlignment="Top" Width="101"/>
+            <Label x:Name="label1" Content="Data:" HorizontalAlignment="Left" Margin="131,101,0,129.887" d:LayoutOverrides="Height"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="177,101,0,129.887" TextWrapping="Wrap" Text="{Binding Consulta.Inicio, StringFormat=d}" Width="101"/>
 
-            <Label x:Name="label2" Content="Inicio:" HorizontalAlignment="Left" Margin="283,101,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="textBox1" Height="31" Margin="334,101,0,0" TextWrapping="Wrap" Text="{Binding Consulta.Inicio, StringFormat=t}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="71"/>
+            <Label x:Name="label2" Content="Inicio:" HorizontalAlignment="Left" Margin="283,101,0,129.887" d:LayoutOverrides="Height"/>
+            <TextBox x:Name="textBox1" Margin="334,101,0,129.887" TextWrapping="Wrap" Text="{Binding Consulta.Inicio, StringFormat=t}" HorizontalAlignment="Left" Width="71"/>
 
-            <Label x:Name="label5" Content="Fim:" HorizontalAlignment="Left" Margin="410,101,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="textBox3" Height="31" Margin="449,101,0,0" TextWrapping="Wrap" Text="{Binding Consulta.Fim, StringFormat=t}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="71"/>
+            <Label x:Name="label5" Content="Fim:" HorizontalAlignment="Left" Margin="410,101,0,129.887" d:LayoutOverrides="Height"/>
+            <TextBox x:Name="textBox3" Margin="449,101,0,129.887" TextWrapping="Wrap" Text="{Binding Consulta.Fim, StringFormat=t}" HorizontalAlignment="Left" Width="71"/>
 
-            <Label x:Name="label5_Copy" Margin="75,137,0,0" Content="Procedimento:" VerticalAlignment="Top" HorizontalAlignment="Left" Width="116"/>
-            <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedItem="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="191,136,0,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Left" Width="390" SelectionChanged="ComboBoxProcedimento_SelectionChanged"/>
+            <Label x:Name="label5_Copy" Margin="75,0,0,62.887" Content="Procedimento:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
+            <ComboBox x:Name="comboBoxProcedimento" Padding="0, +5, 0, 0" ItemsSource="{Binding Procedimentos}" SelectedItem="{Binding ProcedimentoSelecionado}" DisplayMemberPath="Nome" Margin="191,0,0,62.887" VerticalAlignment="Bottom" Height="32" HorizontalAlignment="Left" Width="390" SelectionChanged="ComboBoxProcedimento_SelectionChanged"/>
 
-            <Label x:Name="label7" Content="Valor da Consulta:" Margin="0,173,975,0" HorizontalAlignment="Right" Width="141" VerticalAlignment="Top"/>
-            <TextBox x:Name="textBox_Copy" Margin="305,173,0,0" TextWrapping="Wrap" Text="{Binding ValorDaConsulta, StringFormat=c}" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
+            <Label x:Name="label7" Content="Valor da Consulta:" Margin="0,0,974,26.887" HorizontalAlignment="Right" Width="141" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="textBox_Copy" Margin="306,0,0,26.887" TextWrapping="Wrap" Text="{Binding ValorDaConsulta, StringFormat=c}" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120"/>
 
-            <Label x:Name="label2_Copy" VerticalAlignment="Top" Margin="35,209,0,0" Height="30" Content="Obs:" HorizontalAlignment="Left" Width="44"/>
-            <TextBox x:Name="tbDente" Padding="0, -1, 0, 0" Margin="85,209,0,0" BorderThickness="1" Background="White" VerticalContentAlignment="Top" TextWrapping="Wrap" Text="{Binding Consulta.Obs}" HorizontalAlignment="Left" Width="544" Height="62" VerticalAlignment="Top"/>
+            <Label x:Name="label2_Copy" VerticalAlignment="Bottom" Margin="36,0,0,-8" Height="30" Content="Obs:" HorizontalAlignment="Left" Width="44"/>
+            <TextBox x:Name="tbDente" Padding="0, -1, 0, 0" Margin="85,-22,0,0" BorderThickness="1" Background="White" VerticalContentAlignment="Top" TextWrapping="Wrap" Text="{Binding Consulta.Obs}" HorizontalAlignment="Left" Width="544" Height="62" VerticalAlignment="Top" Grid.Row="1"/>
 
-            <Label x:Name="lbTabProdutos" HorizontalContentAlignment="Center" Content="Produtos utilizados para esta consulta" HorizontalAlignment="Left" Margin="48,271,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Width="581" />
-            <DataGrid x:Name="dtProdutosAdd" BorderThickness="1" Margin="35,302,0,75" ItemsSource="{Binding ListaProdutosUtilizadoNaConsulta}" SelectedItem="{Binding ProdutoSelecionadoParaRemover}" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Left" Width="594" >
+            <Label x:Name="lbTabProdutos" HorizontalContentAlignment="Center" Content="Produtos utilizados para esta consulta" HorizontalAlignment="Left" Margin="48,45,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Width="581" Grid.Row="1" />
+            <DataGrid x:Name="dtProdutosAdd" BorderThickness="1" Margin="35,76,0,75" ItemsSource="{Binding ListaProdutosUtilizadoNaConsulta}" SelectedItem="{Binding ProdutoSelecionadoParaRemover}" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Left" Width="594" Grid.Row="1" >
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>
@@ -52,15 +56,15 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Label x:Name="label_Copy" HorizontalContentAlignment="Center" Content="Todos os produtos" HorizontalAlignment="Right" Margin="0,101,35,0" VerticalAlignment="Top" Width="583"/>
+            <Label x:Name="label_Copy" HorizontalContentAlignment="Center" Content="Todos os produtos" HorizontalAlignment="Right" Margin="0,101,35,129.887" Width="583" d:LayoutOverrides="Height"/>
 
-            <Label x:Name="label1_Copy" Content="ID:" HorizontalAlignment="Right" Margin="0,132,589,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="tbIdBusca" HorizontalAlignment="Right" Margin="0,132,530,0" TextWrapping="Wrap" Width="59" Height="31" VerticalAlignment="Top" TextChanged="TbIdBusca_TextChanged" GotFocus="TbIdBusca_GotFocus" />
+            <Label x:Name="label1_Copy" Content="ID:" HorizontalAlignment="Right" Margin="0,0,589,98.887" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="tbIdBusca" HorizontalAlignment="Right" Margin="0,0,530,98.887" TextWrapping="Wrap" Width="59" Height="31" VerticalAlignment="Bottom" TextChanged="TbIdBusca_TextChanged" GotFocus="TbIdBusca_GotFocus" />
 
-            <Label x:Name="label2_Copy1" Content="Nome:" HorizontalAlignment="Right" Margin="0,132,468,0" VerticalAlignment="Top" Width="auto"/>
-            <TextBox x:Name="tbNomeBusca" HorizontalAlignment="Right" Margin="0,132,35,0" TextWrapping="Wrap" Width="433" Height="31" VerticalAlignment="Top" TextChanged="TbNomeBusca_TextChanged" GotFocus="TbNomeBusca_GotFocus"/>
+            <Label x:Name="label2_Copy1" Content="Nome:" HorizontalAlignment="Right" Margin="0,0,468,98.887" VerticalAlignment="Bottom" Width="auto"/>
+            <TextBox x:Name="tbNomeBusca" HorizontalAlignment="Right" Margin="0,0,35,98.887" TextWrapping="Wrap" Width="433" Height="31" VerticalAlignment="Bottom" TextChanged="TbNomeBusca_TextChanged" GotFocus="TbNomeBusca_GotFocus"/>
 
-            <DataGrid x:Name="dtTodosOsPRodutos" Margin="0,168,35,75" BorderThickness="1" ItemsSource="{Binding ListaDeProdutos}" SelectedItem="{Binding ProdutoSelecionadoParaAdd}" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Right" Width="583" >
+            <DataGrid x:Name="dtTodosOsPRodutos" Margin="0,-93.887,35,75" BorderThickness="1" ItemsSource="{Binding ListaDeProdutos}" SelectedItem="{Binding ProdutoSelecionadoParaAdd}" AutoGenerateColumns="False" FontSize="16" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Right" Width="583" Grid.Row="1" >
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontSize" Value="16"/>
@@ -80,12 +84,12 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="btSalvar" Content="Salvar" Margin="595,0,587,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click"/>
-            <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,35,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" />
-            <Button x:Name="btGerarAtestado" Content="Emitir Atestado" HorizontalAlignment="Left" Margin="334,0,0,30" VerticalAlignment="Bottom" Width="136" Height="35" Click="BtGerarAtestado_Click"/>
-            <Button x:Name="btReceituario" Content="Emitir Receita" HorizontalAlignment="Left" Margin="203,0,0,30" VerticalAlignment="Bottom" Width="126" Click="BtReceituario_Click" Height="35"/>
-            <RadioButton x:Name="rbTodosProcedimentos" Content="Todos os procedimentos" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="638,21,441,0" VerticalAlignment="Top" Height="31" Checked="RbTodosProcedimentos_Checked" d:LayoutOverrides="Width"/>
-            <RadioButton x:Name="rbProcedimentosOrcamento" Content="Procedimentos do orçamento" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="0,21,192,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Right" Checked="RbProcedimentosOrcamento_Checked"/>
+            <Button x:Name="btSalvar" Content="Salvar" Margin="595,0,587,30" VerticalAlignment="Bottom" Height="35" Click="BtSalvar_Click" Grid.Row="1"/>
+            <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,35,30" VerticalAlignment="Bottom" Width="90" Height="35" Click="BtVoltar_Click" Grid.Row="1" />
+            <Button x:Name="btGerarAtestado" Content="Emitir Atestado" HorizontalAlignment="Left" Margin="334,0,0,30" VerticalAlignment="Bottom" Width="136" Height="35" Click="BtGerarAtestado_Click" Grid.Row="1"/>
+            <Button x:Name="btReceituario" Content="Emitir Receita" HorizontalAlignment="Left" Margin="203,0,0,30" VerticalAlignment="Bottom" Width="126" Click="BtReceituario_Click" Height="35" Grid.Row="1"/>
+            <RadioButton x:Name="rbTodosProcedimentos" Content="Todos os procedimentos" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="105,0,0,93.887" VerticalAlignment="Bottom" Height="31" Checked="RbTodosProcedimentos_Checked" HorizontalAlignment="Left"/>
+            <RadioButton x:Name="rbProcedimentosOrcamento" Content="Procedimentos do orçamento" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="317,0,0,93.887" VerticalAlignment="Bottom" Height="31" HorizontalAlignment="Left" Checked="RbProcedimentosOrcamento_Checked"/>
 
 
         </Grid>
