@@ -90,6 +90,8 @@ namespace Consultorio.ViewModel.Procedimentos
         {
             Procedimento = ProcedimentoData.PegarProcedimento(id);
 
+            ListaDeProdutosAdd = new ObservableCollection<Produto>(Procedimento.Produtos);
+
             NomeDaTela = "> Editar Procedimento";
 
             CarregarHoraAgendada();

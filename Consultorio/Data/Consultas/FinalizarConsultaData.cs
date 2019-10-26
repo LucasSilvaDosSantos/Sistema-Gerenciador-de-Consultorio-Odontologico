@@ -9,23 +9,6 @@ namespace Consultorio.Data.Consultas
 {
     class FinalizarConsultaData
     {
-        /*public static List<ProdutoUtilizadoEmConsulta> BuscarPodutosUtilizadosNaConsultaPorIdConsulta(int idConsulta)
-        {
-            try
-            {
-                List<ProdutoUtilizadoEmConsulta> listaProdutosParaConsulta = new List<ProdutoUtilizadoEmConsulta>();
-                using (ConsultorioContext ctx = new ConsultorioContext())
-                {
-                    listaProdutosParaConsulta = ctx.ProdutoUtilizadoEmConsultas.Include(a => a.Consulta).Include(b => b.Produto).Where(p => p.ConsultaID == idConsulta).ToList();
-                }
-                return listaProdutosParaConsulta;
-            }
-            catch
-            {
-                return new List<ProdutoUtilizadoEmConsulta>();
-            }
-        }*/
-
         public static bool SalvarFinalizacaoDeConsulta(Consulta consultaEntrada, ICollection<ProdutoUtilizadoEmConsulta> listaDeProdutosUtilizados)
         {
             try

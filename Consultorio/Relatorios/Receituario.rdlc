@@ -55,7 +55,13 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Dr.[@Nome]</Value>
+                    <Value>Dr.</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!Nome.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -65,7 +71,6 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
-            <Top>0cm</Top>
             <Height>0.66027cm</Height>
             <Width>18.40047cm</Width>
             <ZIndex>2</ZIndex>
@@ -117,7 +122,13 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>CRO-SP[@Crosp]</Value>
+                    <Value>CRO-SP:</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!Crosp.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
