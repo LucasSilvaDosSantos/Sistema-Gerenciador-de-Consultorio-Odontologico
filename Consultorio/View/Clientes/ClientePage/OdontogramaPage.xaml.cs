@@ -27,7 +27,6 @@ namespace Consultorio.View.Clientes.ClientePage
             InitializeComponent();
         }
 
-
         public void CriarListaDeLabel()
         {
             Labels.Add(lbdente01);

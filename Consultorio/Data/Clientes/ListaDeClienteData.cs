@@ -7,24 +7,6 @@ namespace Consultorio.Data.Clientes
 {
     class ListaDeClienteData
     {
-        // lista todos os clientes do banco (descontinuado, implementado busca dinamica)
-        /*public static List<Cliente> TodosClientes()
-        {
-            try
-            {
-                using (ConsultorioContext ctx = new ConsultorioContext())
-                {
-                    var clientes = ctx.Clientes.ToList();
-                    return clientes;
-                }
-            }
-            catch (Exception)
-            {
-                List<Cliente> clientes = new List<Cliente>();
-                return clientes;
-            }
-        }*/
-
         // lista todos os clientes por id ou nome
         public static List<Cliente> BuscarCliente(int id, string nome, string cpf)
         {
