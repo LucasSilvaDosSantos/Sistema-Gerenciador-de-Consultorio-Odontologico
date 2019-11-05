@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Pagamentos;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Pagamentos;
 using System.Windows;
 
 namespace Consultorio.View.Pagamentos
@@ -19,6 +20,12 @@ namespace Consultorio.View.Pagamentos
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("FinanceiroView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

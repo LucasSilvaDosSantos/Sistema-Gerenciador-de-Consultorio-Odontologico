@@ -21,6 +21,7 @@
             </Grid>
             
             <Button x:Name="btVoltar" Content="Voltar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" d:LayoutOverrides="Height" Click="BtVoltar_Click"/>
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" Click="BtAjuda_Click" d:LayoutOverrides="Height"/>
         </Grid>
     </Viewbox>
 </Window>

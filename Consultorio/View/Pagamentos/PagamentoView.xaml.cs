@@ -1,4 +1,5 @@
 ﻿using Consultorio.View.Clientes;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel.Procedimentos;
 using System.Windows;
 
@@ -65,6 +66,12 @@ namespace Consultorio.View.Pagamentos
                 opcoesView.Show();
                 this.Close();
             }
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("PagamentoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

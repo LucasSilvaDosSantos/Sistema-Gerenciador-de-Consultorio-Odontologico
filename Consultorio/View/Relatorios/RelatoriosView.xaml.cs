@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Relatorios;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Relatorios;
 using System.Windows;
 
 namespace Consultorio.View.Relatorios
@@ -46,6 +47,12 @@ namespace Consultorio.View.Relatorios
             ConfiguracoesDeView.ConfigurarWindow(this, relatorioHistoricoDoClienteView);
             relatorioHistoricoDoClienteView.Show();
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("RelatoriosView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

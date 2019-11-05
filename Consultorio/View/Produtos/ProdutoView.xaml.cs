@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel.Produtos;
 
 namespace Consultorio.View.Produtos
@@ -128,6 +129,12 @@ namespace Consultorio.View.Produtos
                 ProdutosViewModel.BuscaQtdEstoque(tbBuscaPorQtd.Text);//ProdutosViewModel.RecarregarGrid();
                 //ProdutosViewModel.ResetarTela();
             }
-        } 
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("ProdutoView.mp4");
+            ajudaView.ShowDialog();
+        }
     }
 }

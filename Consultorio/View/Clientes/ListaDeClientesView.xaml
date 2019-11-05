@@ -45,6 +45,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Label x:Name="label2" Content="Busca" HorizontalAlignment="Center" Margin="614,93,616,0" VerticalAlignment="Top" />
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" Click="BtAjuda_Click" d:LayoutOverrides="Height"/>
 
 
         </Grid>

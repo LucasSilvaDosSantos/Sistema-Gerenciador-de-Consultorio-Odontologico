@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel.Clientes;
 
 namespace Consultorio.View.Clientes
@@ -57,6 +58,12 @@ namespace Consultorio.View.Clientes
         {
             tbNome.Text = "";
             SelecaoDeClienteViewModel.BuscarCliente(tbId.Text, tbNome.Text);
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("SelecaoDeClienteView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Relatorios;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Relatorios;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
@@ -73,6 +74,12 @@ namespace Consultorio.View.Relatorios
             rvFinanceiro.LocalReport.SetParameters(new ReportParameter("totalGastosComProdutos", RelatorioFinanceiroViewModel.TotalGastosComProdutos.ToString()));
 
             rvFinanceiro.LocalReport.SetParameters(new ReportParameter("usuario", RelatorioFinanceiroViewModel.AtorLogado.Nome));
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("RelatorioFinanceiroView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

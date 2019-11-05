@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Clientes;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Clientes;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -106,6 +107,12 @@ namespace Consultorio.View.Clientes
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("OrcamentoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

@@ -38,6 +38,7 @@
             <TextBox x:Name="tbNome" Height="31" Margin="486,0,335,84" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" TextChanged="TbNome_TextChanged"/>
             <Label x:Name="label2" Content="Busca" Margin="608,0,598,120" VerticalAlignment="Bottom" />
             <TextBox x:Name="IdClienteSelecionado" IsEnabled="False" Visibility="Hidden" HorizontalAlignment="Left" Height="55" Margin="303,248,0,0" TextWrapping="Wrap" Text="{Binding IdClienteSelecionado}" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" Click="BtAjuda_Click" d:LayoutOverrides="Height"/>
 
         </Grid>
     </Viewbox>

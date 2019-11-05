@@ -1,4 +1,5 @@
 ﻿using Consultorio.View.Clientes;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel.Relatorios;
 using Microsoft.Reporting.WinForms;
 using System;
@@ -102,6 +103,12 @@ namespace Consultorio.View.Relatorios
             RelatorioHistoricoDoClienteViewModel.Cliente = selecaoDeClienteView.SelecaoDeClienteViewModel.ClienteSelecionado;           
             ConfiguracoesDeView.ConfigurarWindow(selecaoDeClienteView, this);
             this.Visibility = Visibility.Visible;
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("RelatorioHistoricoDoClienteView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

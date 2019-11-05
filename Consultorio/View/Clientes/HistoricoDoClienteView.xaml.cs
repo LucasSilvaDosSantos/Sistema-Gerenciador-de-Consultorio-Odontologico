@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Clientes;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Clientes;
 using System.Windows;
 
 namespace Consultorio.View.Clientes
@@ -27,6 +28,12 @@ namespace Consultorio.View.Clientes
             ConfiguracoesDeView.ConfigurarWindow(this, listaDeClientesView);
             listaDeClientesView.Show();
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("HistoricoDoClienteView.mp4");
+            ajudaView.ShowDialog();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Produtos;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Produtos;
 using System.Text;
 using System.Windows;
 
@@ -41,6 +42,12 @@ namespace Consultorio.View.Produtos
                 }
                 MessageBox.Show(sb.ToString(), "Aviso!");
             }
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("BaixaDeProdutoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

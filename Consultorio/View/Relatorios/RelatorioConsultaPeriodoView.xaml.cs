@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Relatorios;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Relatorios;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
@@ -107,6 +108,12 @@ namespace Consultorio.View.Relatorios
             ConfiguracoesDeView.ConfigurarWindow(this, relatoriosView);
             relatoriosView.Show();
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("RelatorioConsultaPeriodoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

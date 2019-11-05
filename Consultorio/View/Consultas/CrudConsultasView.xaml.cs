@@ -1,4 +1,5 @@
 ﻿using Consultorio.View.Clientes;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel.Consultas;
 using System;
 using System.Windows;
@@ -139,6 +140,12 @@ namespace Consultorio.View.Consultas
                 CrudConsultasViewModel.CalcularValorDaConsulta((bool)rbProcedimentosOrcamento.IsChecked);
             else
                 CrudConsultasViewModel.CalcularValorDaConsulta(false);
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("CrudConsultasView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

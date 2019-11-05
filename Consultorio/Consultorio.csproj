@@ -178,6 +178,9 @@
     <Compile Include="ViewModel\Relatorios\RelatorioHistoricoDoClienteViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatorioReceitaMedicaViewModel.cs" />
     <Compile Include="ViewModel\Relatorios\RelatoriosViewModel.cs" />
+    <Compile Include="View\ManualDoUsuario\Ajuda.xaml.cs">
+      <DependentUpon>Ajuda.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Atores\CrudAtorView.xaml.cs">
       <DependentUpon>CrudAtorView.xaml</DependentUpon>
     </Compile>
@@ -307,6 +310,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ManualDoUsuario\Ajuda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Atores\CrudAtorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -515,6 +522,8 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="View\ManualDoUsuario\Videos\Gravar_2019_11_04_21_10_20_262.mp4" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

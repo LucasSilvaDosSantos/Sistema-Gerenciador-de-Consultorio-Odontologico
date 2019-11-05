@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using Consultorio.View.ManualDoUsuario;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -48,6 +49,12 @@ namespace Consultorio.View.Relatorios
             rvAtestado.LocalReport.SetParameters(new ReportParameter("diasExtenso", listaDeParametros[5]));
             rvAtestado.LocalReport.SetParameters(new ReportParameter("dia", listaDeParametros[6]));
             rvAtestado.LocalReport.SetParameters(new ReportParameter("cid", listaDeParametros[7]));
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("RelatorioAtestadoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

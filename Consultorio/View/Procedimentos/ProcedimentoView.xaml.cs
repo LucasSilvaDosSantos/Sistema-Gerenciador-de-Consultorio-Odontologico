@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Procedimentos;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Procedimentos;
 using System.Windows;
 
 namespace Consultorio.View.Procedimentos
@@ -102,6 +103,12 @@ namespace Consultorio.View.Procedimentos
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("ProcedimentoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

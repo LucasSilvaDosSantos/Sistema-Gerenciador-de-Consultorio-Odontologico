@@ -1,4 +1,5 @@
 ﻿using Consultorio.Data.Consultas;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.View.Relatorios;
 using Consultorio.ViewModel.Consultas;
 using Microsoft.Reporting.WinForms;
@@ -128,6 +129,12 @@ namespace Consultorio.View.Consultas
                 return false;
             }
             return true;
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("AtestadoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

@@ -47,6 +47,7 @@
             <Label x:Name="label1" Content=":" HorizontalAlignment="Right" Margin="0,0,571,315" VerticalAlignment="Bottom" Height="31" d:LayoutOverrides="VerticalAlignment"/>
             <Label x:Name="label1_Copy" Content=":" HorizontalAlignment="Right" Margin="0,0,293,315" VerticalAlignment="Bottom" d:LayoutOverrides="VerticalAlignment"/>
             <Label x:Name="label7" Content="Valor do Procedimento:" Margin="0,0,529,279" HorizontalAlignment="Right" Width="179" VerticalAlignment="Bottom"/>
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" Click="BtAjuda_Click" d:LayoutOverrides="Height"/>
         </Grid>
     </Viewbox>
 </Window>

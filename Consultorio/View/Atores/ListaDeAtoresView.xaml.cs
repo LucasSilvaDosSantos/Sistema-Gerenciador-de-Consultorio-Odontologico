@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Atores;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Atores;
 using System.Windows;
 
 namespace Consultorio.View.Atores
@@ -59,6 +60,12 @@ namespace Consultorio.View.Atores
         private void RecarregarDataGrid()
         {
             ListaDeAtoresViewModel.RecarregarDataGrid();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("ListaDeAtoresView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

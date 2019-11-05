@@ -2,6 +2,7 @@
 using Consultorio.View;
 using Consultorio.View.Clientes;
 using Consultorio.View.Clientes.ClientePage;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel;
 
 namespace Consultorio
@@ -38,6 +39,12 @@ namespace Consultorio
                 MessageBox.Show("Verifique os dados", "Login Inválido!");
                 boxSenha.Password = "";
             }
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("Gravar_2019_11_04_21_10_20_262.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

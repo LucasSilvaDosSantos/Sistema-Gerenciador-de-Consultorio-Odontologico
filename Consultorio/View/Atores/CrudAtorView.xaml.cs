@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Atores;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Atores;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -62,6 +63,12 @@ namespace Consultorio.View.Atores
                 }
                 MessageBox.Show(sb.ToString(), "Este(s) campo(s) não podem ficar em branco!");
             }
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("CrudAtorView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

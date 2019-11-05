@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Pagamentos;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Pagamentos;
 using System.Windows;
 
 namespace Consultorio.View.Pagamentos
@@ -64,6 +65,12 @@ namespace Consultorio.View.Pagamentos
                 MessageBox.Show("Este tipo já existe!", "Aviso!");
             }
             
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("ContaPaga.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

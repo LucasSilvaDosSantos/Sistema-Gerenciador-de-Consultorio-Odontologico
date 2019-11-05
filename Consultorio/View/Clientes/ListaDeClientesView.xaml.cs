@@ -1,4 +1,5 @@
 ﻿using Consultorio.View.Clientes.ClientePage;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel.Clientes;
 using System.Windows;
 using System.Windows.Controls;
@@ -119,6 +120,12 @@ namespace Consultorio.View.Clientes
             {
                 MessageBox.Show("Nenhum Cliente Selecionado", "Aviso!");
             }
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("ListaDeClientesView.mp4");
+            ajudaView.ShowDialog();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

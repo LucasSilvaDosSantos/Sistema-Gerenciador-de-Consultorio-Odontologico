@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Consultas;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Consultas;
 using System.Collections.Generic;
 using System.Windows;
 

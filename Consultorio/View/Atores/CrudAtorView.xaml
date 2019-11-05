@@ -50,6 +50,7 @@
             </GroupBox>
             <CheckBox x:Name="cbSenhaEnabled" Content="Alterar dados de login" IsChecked="{Binding AltararDadosDeLogin}" Padding="0, 0, 0, 0" Margin="448,381,657,282" />
             <Label x:Name="label3" Content="* Campos obrigatórios" HorizontalAlignment="Left" Margin="64,0,0,54" FontSize="12" VerticalAlignment="Bottom"/>
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" Click="BtAjuda_Click" d:LayoutOverrides="Height"/>
         </Grid>
     </Viewbox>
 </Window>

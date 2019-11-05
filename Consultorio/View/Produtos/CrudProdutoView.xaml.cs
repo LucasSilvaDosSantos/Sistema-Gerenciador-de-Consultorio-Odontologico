@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Produtos;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Produtos;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -59,6 +60,12 @@ namespace Consultorio.View.Produtos
         private void BtVoltar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("CrudProdutoView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

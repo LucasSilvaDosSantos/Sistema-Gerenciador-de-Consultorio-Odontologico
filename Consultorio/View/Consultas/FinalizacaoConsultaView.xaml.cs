@@ -1,4 +1,5 @@
-﻿using Consultorio.View.Relatorios;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.View.Relatorios;
 using Consultorio.ViewModel.Consultas;
 using System.Windows;
 
@@ -141,6 +142,12 @@ namespace Consultorio.View.Consultas
                 FinalizacaoConsultaViewModel.AlterarListaProcedimentos((bool)rbProcedimentosOrcamento.IsChecked);
             else
                 FinalizacaoConsultaViewModel.AlterarListaProcedimentos(false);
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("FinalizacaoConsultaView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

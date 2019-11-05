@@ -18,6 +18,7 @@
 
             <Button x:Name="btEntrar" Content="Entrar" Margin="597,0,586,206" VerticalAlignment="Bottom" Click="BtEntrar_Click" Height="35"/>
             <Image x:Name="image" Margin="540,158,532,0" Source="Imagens\login.png" Height="180" VerticalAlignment="Top" />
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" d:LayoutOverrides="Height" Click="BtAjuda_Click"/>
 
         </Grid>
     </Viewbox>

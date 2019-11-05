@@ -2,6 +2,7 @@
 using Consultorio.View.Clientes;
 using Consultorio.View.Clientes.ClientePage;
 using Consultorio.View.Consultas;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.View.Pagamentos;
 using Consultorio.View.Procedimentos;
 using Consultorio.View.Produtos;
@@ -108,6 +109,12 @@ namespace Consultorio.View
             ConfiguracoesDeView.ConfigurarWindow(this, relatoriosView);
             relatoriosView.Show();
             this.Close();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("OpcoesView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

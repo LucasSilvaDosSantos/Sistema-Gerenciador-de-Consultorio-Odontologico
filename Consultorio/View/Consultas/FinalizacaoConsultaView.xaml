@@ -90,6 +90,7 @@
             <Button x:Name="btReceituario" Content="Emitir Receita" HorizontalAlignment="Left" Margin="203,0,0,30" VerticalAlignment="Bottom" Width="126" Click="BtReceituario_Click" Height="35" Grid.Row="1"/>
             <RadioButton x:Name="rbTodosProcedimentos" Content="Todos os procedimentos" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="105,0,0,93.887" VerticalAlignment="Bottom" Height="31" Checked="RbTodosProcedimentos_Checked" HorizontalAlignment="Left"/>
             <RadioButton x:Name="rbProcedimentosOrcamento" Content="Procedimentos do orçamento" GroupName="gnLista" Padding="5, -3" VerticalContentAlignment="Center" Margin="317,0,0,93.887" VerticalAlignment="Bottom" Height="31" HorizontalAlignment="Left" Checked="RbProcedimentosOrcamento_Checked"/>
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" Click="BtAjuda_Click" d:LayoutOverrides="Height"/>
 
 
         </Grid>

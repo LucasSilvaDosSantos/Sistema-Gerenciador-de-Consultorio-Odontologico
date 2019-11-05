@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Procedimentos;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Procedimentos;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -72,6 +73,12 @@ namespace Consultorio.View.Procedimentos
         {
             tbNomeBusca.Text = "";
             ListaDeProcedimentoViewModel.BuscarProcedimento(tbIdBusca.Text, tbNomeBusca.Text);
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("ListaDeProcedimentoView.mp4");
+            ajudaView.ShowDialog();
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------

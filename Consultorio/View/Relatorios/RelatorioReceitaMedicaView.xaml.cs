@@ -1,4 +1,5 @@
-﻿using Consultorio.ViewModel.Relatorios;
+﻿using Consultorio.View.ManualDoUsuario;
+using Consultorio.ViewModel.Relatorios;
 using Microsoft.Reporting.WinForms;
 using System.Windows;
 
@@ -35,6 +36,12 @@ namespace Consultorio.View.Relatorios
             rvReceita.LocalReport.SetParameters(new ReportParameter("Crosp", RelatorioReceitaMedicaViewModel.AtorLogado.Crosp));
 
             rvReceita.RefreshReport();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("RelatorioReceitaMedicaView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

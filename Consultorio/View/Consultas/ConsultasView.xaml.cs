@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using Consultorio.Model.Enums;
+using Consultorio.View.ManualDoUsuario;
 using Consultorio.ViewModel.Consultas;
 using Brush = System.Windows.Media.Brush;
 
@@ -377,6 +378,12 @@ namespace Consultorio.View.Consultas
                 MessageBox.Show("Nenhuma consulta selecionada", "Aviso!");
             }
             ConsultasViewModel.CarregarListaDeConsultasData();
+        }
+
+        private void BtAjuda_Click(object sender, RoutedEventArgs e)
+        {
+            var ajudaView = new Ajuda("ConsultasView.mp4");
+            ajudaView.ShowDialog();
         }
     }
 }

@@ -81,9 +81,10 @@
             <Label x:Name="label5" Content="Procedimento:" HorizontalAlignment="Right" Margin="0,0,300,269" VerticalAlignment="Bottom"/>
             <TextBox x:Name="tbDesconto" HorizontalAlignment="Right" Height="31" Margin="0,0,168,233" TextWrapping="Wrap" VerticalAlignment="Bottom"  Width="120" TextChanged="TbDesconto_TextChanged" />
             <Label x:Name="label6" Content="{Binding ProcedimentoSelecionadoDosAdicionados.Procedimento.Nome}" HorizontalAlignment="Right" Margin="0,0,88,270" VerticalAlignment="Bottom" Height="31" Width="214"/>
-            <Label x:Name="label7" Content="{Binding Orcamento.Cliente.Nome}" Margin="91,19,35,0" VerticalAlignment="Top" Height="31"/>
+            <Label x:Name="label7" Content="{Binding Orcamento.Cliente.Nome}" Margin="91,19,66,0" VerticalAlignment="Top" Height="31"/>
             <TextBox x:Name="textBox" BorderThickness="1" HorizontalAlignment="Right" Height="81" Margin="0,0,35,147" TextWrapping="Wrap" Text="{Binding Orcamento.Obs}" Background="White" VerticalContentAlignment="Top" VerticalAlignment="Bottom" Width="393"/>
             <Label x:Name="label8" Content="Obs:" HorizontalAlignment="Right" Margin="0,0,448,197" VerticalAlignment="Bottom"/>
+            <Button x:Name="btAjuda" Content="?" HorizontalAlignment="Right" FontSize="19" Margin="0,10,10,0" VerticalAlignment="Top" Width="44" Click="BtAjuda_Click" d:LayoutOverrides="Height"/>
         </Grid>
     </Viewbox>
 </Window>
