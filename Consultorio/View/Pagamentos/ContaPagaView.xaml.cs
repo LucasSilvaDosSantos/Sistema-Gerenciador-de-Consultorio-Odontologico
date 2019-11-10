@@ -69,7 +69,7 @@ namespace Consultorio.View.Pagamentos
 
         private void BtAjuda_Click(object sender, RoutedEventArgs e)
         {
-            var ajudaView = new Ajuda("ContaPaga.mp4");
+            var ajudaView = new Ajuda("ContaPagaView.mp4");
             ajudaView.ShowDialog();
         }
     }
