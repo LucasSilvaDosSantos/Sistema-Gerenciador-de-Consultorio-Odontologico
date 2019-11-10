@@ -507,14 +507,13 @@
     <Content Include="View\ManualDoUsuario\Videos\FinalizacaoConsultaView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\FinanceiroView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\HistoricoDoClienteView.mp4" />
-    <Resource Include="View\ManualDoUsuario\Videos\lembrandop que as telas de colaboradores nao foi feito nenhum video .txt" />
-    <Content Include="View\ManualDoUsuario\Videos\ListaDeClienteView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ListaDeClientesView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\ListaDeUsuariosView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\LoginView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\OpcoesView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\OrcamentoView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\PagamentoView.mp4" />
-    <Content Include="View\ManualDoUsuario\Videos\ProcedimentosView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ListaDeProcedimentosView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\ProdutoView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\ReceitaMedicaView.mp4" />
     <Content Include="View\ManualDoUsuario\Videos\RelatorioConsultaView.mp4" />

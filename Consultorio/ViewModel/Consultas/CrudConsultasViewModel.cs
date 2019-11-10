@@ -364,6 +364,10 @@ namespace Consultorio.ViewModel.Consultas
                 {
                     sb.Append("Hora inicial não pode ser menor que hora final");
                 }
+                if (Consulta.Inicio <= DateTime.Now)
+                {
+                    sb.Append("A data da consulta não pode ser menor que a data atual");
+                }
                 return sb.ToString();
             }
             else

@@ -106,7 +106,7 @@ namespace Consultorio.View.Clientes.ClientePage
 
         private void BtAjuda_Click(object sender, RoutedEventArgs e)
         {
-            var ajudaView = new Ajuda("WindowCliente.mp4");
+            var ajudaView = new Ajuda("CrudClienteView.mp4");
             ajudaView.ShowDialog();
         }
     }
