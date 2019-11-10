@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Consultorio.View"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Consultas" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen"
+        Title="Consultas" Style="{StaticResource JanelaPersonalizada}" 
         Language="pt-br">
     <Viewbox>
         <Grid Height="694" Width="1280">

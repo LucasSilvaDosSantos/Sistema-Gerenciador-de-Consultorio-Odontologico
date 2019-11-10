@@ -7,7 +7,7 @@
         xml:lang="pt-br"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Pagamento" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
+        Title="Pagamento" Style="{StaticResource JanelaPersonalizada}" >
     <Viewbox>
         <Grid Height="694" Width="1280">
 

@@ -43,7 +43,7 @@ namespace Consultorio
 
         private void BtAjuda_Click(object sender, RoutedEventArgs e)
         {
-            var ajudaView = new Ajuda("Gravar_2019_11_04_21_10_20_262.mp4");
+            var ajudaView = new Ajuda("LoginView.mp4");
             ajudaView.ShowDialog();
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View.Pagamentos"
         mc:Ignorable="d"
-        Title="Financeiro" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="Manual">
+        Title="Financeiro" Style="{StaticResource JanelaPersonalizada}" >
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="Converter" />

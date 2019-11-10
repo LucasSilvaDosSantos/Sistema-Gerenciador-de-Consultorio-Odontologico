@@ -6,7 +6,7 @@
         xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Produto" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+        Title="Produto" Style="{StaticResource JanelaPersonalizada}" >
     <Viewbox>
         <Grid Height="694" Width="1280">
 

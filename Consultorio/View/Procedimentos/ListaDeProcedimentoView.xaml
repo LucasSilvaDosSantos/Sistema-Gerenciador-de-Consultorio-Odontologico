@@ -6,7 +6,7 @@
         xml:lang="pt-br"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Procedimentos" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
+        Title="Procedimentos" Style="{StaticResource JanelaPersonalizada}" >
     <Viewbox>
         <Grid Height="694" Width="1280">
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         
-    Title="Opcoes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="Manual" >
+    Title="Opcoes" Style="{StaticResource JanelaPersonalizada}">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />

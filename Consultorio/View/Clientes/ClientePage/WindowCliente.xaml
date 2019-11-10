@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View.Clientes.ClientePage"
         mc:Ignorable="d"
-        Title="WindowCliente" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+        Title="WindowCliente" Style="{StaticResource JanelaPersonalizada}">
     <Viewbox>
         <Grid Height="720" Width="1324" Margin="0">
             <Frame x:Name="frameCliente" Content="" Margin="0,125,0,70" NavigationUIVisibility="Hidden" />

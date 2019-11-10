@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Consultorio.View.Relatorios"
         mc:Ignorable="d"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="Receita Médica" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+        Title="Receita Médica" Style="{StaticResource JanelaPersonalizada}">
     <Viewbox>
         <Grid Height="694" Width="1280">
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Consultorio.View.Atores.CrudAtorView"
         mc:Ignorable="d"
-        Title="Colaborador" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen" >
+        Title="Colaborador" Style="{StaticResource JanelaPersonalizada}" >
 
     <Viewbox>
         <Grid Height="694" Width="1280">

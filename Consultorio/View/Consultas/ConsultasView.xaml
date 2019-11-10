@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Consultas" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+        Title="Consultas" Style="{StaticResource JanelaPersonalizada}">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="Height" Value="44"/>

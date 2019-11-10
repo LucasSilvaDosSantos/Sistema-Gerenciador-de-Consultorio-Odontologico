@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View.Consultas"
         mc:Ignorable="d"
-        Title="Atestado" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+        Title="Atestado" Style="{StaticResource JanelaPersonalizada}">
     <Viewbox>
         <Grid Height="694" Width="1280">
             <Label x:Name="lbAtestado" Foreground="#FF7FBEE2" Content="&gt; Atestado" Margin="59,40,0,0" VerticalAlignment="Top" FontSize="30" BorderThickness="0" Padding="0" HorizontalAlignment="Left" Width="163" Height="44"/>

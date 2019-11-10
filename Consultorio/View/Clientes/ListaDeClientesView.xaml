@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Consultorio.View"
         mc:Ignorable="d"
-        Title="Lista de clientes" Style="{StaticResource JanelaPersonalizada}" WindowStartupLocation="CenterScreen">
+        Title="Lista de clientes" Style="{StaticResource JanelaPersonalizada}">
     <Viewbox>
         <Grid Height="694" Width="1280">
 
