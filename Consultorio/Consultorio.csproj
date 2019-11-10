@@ -494,7 +494,34 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="View\ManualDoUsuario\Videos\Gravar_2019_11_04_21_10_20_262.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\AtestadoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\BaixaEmProdutoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ConsultasView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ContaPagaView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\CrudClienteView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\CrudConsultas.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\CrudProcedimentoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\CrudProdutoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\CrudUsuariosView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\EntradDeProdutoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\FinalizacaoConsultaView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\FinanceiroView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\HistoricoDoClienteView.mp4" />
+    <Resource Include="View\ManualDoUsuario\Videos\lembrandop que as telas de colaboradores nao foi feito nenhum video .txt" />
+    <Content Include="View\ManualDoUsuario\Videos\ListaDeClienteView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ListaDeUsuariosView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\LoginView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\OpcoesView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\OrcamentoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\PagamentoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ProcedimentosView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ProdutoView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\ReceitaMedicaView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\RelatorioConsultaView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\RelatorioFinanceiroView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\RelatorioHistoricoDeClienteView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\RelatoriosView.mp4" />
+    <Content Include="View\ManualDoUsuario\Videos\SelecaoDeClienteView.mp4" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
