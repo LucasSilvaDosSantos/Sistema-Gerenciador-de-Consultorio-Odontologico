@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultorio.Model
 {
@@ -48,8 +43,11 @@ namespace Consultorio.Model
         [Required]
         public string Senha { get; set; }
 
+        [Required]
+        public bool Ativo{ get; set; }
+
         public Ator(string nome, string email, string telefone1, string telefone2, string crosp, bool clinicar, bool crudClientes, bool crudConsultas, 
-            bool crudProdutos, bool cadastroDeContasPagas, bool visualizarFinanceiro, bool receberDeClientes, bool crudAtores, string login, string senha)
+            bool crudProdutos, bool cadastroDeContasPagas, bool visualizarFinanceiro, bool receberDeClientes, bool crudAtores, string login, string senha, bool ativo)
         {
             Nome = nome;
             Email = email;
@@ -66,6 +64,7 @@ namespace Consultorio.Model
             CrudAtores = crudAtores;
             Login = login;
             Senha = senha;
+            Ativo = ativo;
         }
 
         public Ator()

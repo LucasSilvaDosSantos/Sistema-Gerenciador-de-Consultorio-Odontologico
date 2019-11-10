@@ -19,11 +19,13 @@ namespace Consultorio.Migrations
         protected override void Seed(Consultorio.Data.ConsultorioContext context)
         {
             //seed Ator
-            /*Ator ator1 = new Ator("Thiago Santos", "dentista@dentista.com", "(31)97133-5723", "(31)98666-5645", "Numero Crosp", true, true, true, true, true, true, true, true, "admin", "21232f297a57a5a743894a0e4a801fc3");
+            Ator ator1 = new Ator("Admin", "admin@dentista.com", "(31)97133-5723", "(31)98666-5645", "", true, true, true, true, true, true, true, true, "admin", "21232f297a57a5a743894a0e4a801fc3", true);
+            context.Atores.AddOrUpdate(ator1);
+            context.SaveChanges();
 
 
             //seed Anamnese
-            Anamnese anamnese1 = new Anamnese(true, "p1 compl", "p1compl2", true, "p2comp", true, "p3Complemento", true, true, "p05Complemento", true, true, true, true,
+            /*Anamnese anamnese1 = new Anamnese(true, "p1 compl", "p1compl2", true, "p2comp", true, "p3Complemento", true, true, "p05Complemento", true, true, true, true,
                 "p09Compemeto", true, true, true, true, true, true, true, true, "p17comp", true, true, true, true, true, true, true, true, true, true, "Obs");
             Anamnese anamnese2 = new Anamnese(false, "", "", false, "", false, "", false, false, "", false, false, false, false,
                 "", false, false, false, false, false, false, false, false, "", false, false, false, false, false, false, false, false, false, false, "");

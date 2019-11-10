@@ -3,7 +3,7 @@ namespace Consultorio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class teste0036 : DbMigration
+    public partial class ReiniciandoBancodedados : DbMigration
     {
         public override void Up()
         {
@@ -66,11 +66,12 @@ namespace Consultorio.Migrations
                         CrudConsultas = c.Boolean(nullable: false),
                         CrudProdutos = c.Boolean(nullable: false),
                         CadastroDeContasPagas = c.Boolean(nullable: false),
-                        VisualizarContabilidade = c.Boolean(nullable: false),
+                        VisualizarFinanceiro = c.Boolean(nullable: false),
                         ReceberDeClientes = c.Boolean(nullable: false),
                         CrudAtores = c.Boolean(nullable: false),
                         Login = c.String(nullable: false, unicode: false),
                         Senha = c.String(nullable: false, unicode: false),
+                        Ativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -172,6 +173,7 @@ namespace Consultorio.Migrations
                         Nome = c.String(nullable: false, unicode: false),
                         Descricao = c.String(unicode: false),
                         Preco = c.Double(nullable: false),
+                        TempoRecomendado = c.DateTime(nullable: false, precision: 0),
                     })
                 .PrimaryKey(t => t.Id);
             

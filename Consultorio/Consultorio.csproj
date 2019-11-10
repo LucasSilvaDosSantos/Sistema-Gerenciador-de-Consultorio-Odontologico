@@ -126,25 +126,9 @@
     <Compile Include="Data\Pagamentos\FinanceiroData.cs" />
     <Compile Include="Data\Procedimentos\ListaDeProcedimentoData.cs" />
     <Compile Include="Data\Atores\LoginData.cs" />
-    <Compile Include="Migrations\201909100337023_teste 0036.cs" />
-    <Compile Include="Migrations\201909100337023_teste 0036.Designer.cs">
-      <DependentUpon>201909100337023_teste 0036.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909101838372_teste 1538.cs" />
-    <Compile Include="Migrations\201909101838372_teste 1538.Designer.cs">
-      <DependentUpon>201909101838372_teste 1538.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909102232121_teste 10091932.cs" />
-    <Compile Include="Migrations\201909102232121_teste 10091932.Designer.cs">
-      <DependentUpon>201909102232121_teste 10091932.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909102310021_10092009.cs" />
-    <Compile Include="Migrations\201909102310021_10092009.Designer.cs">
-      <DependentUpon>201909102310021_10092009.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909102310398_10092010.cs" />
-    <Compile Include="Migrations\201909102310398_10092010.Designer.cs">
-      <DependentUpon>201909102310398_10092010.cs</DependentUpon>
+    <Compile Include="Migrations\201911101937449_Reiniciando Banco de dados.cs" />
+    <Compile Include="Migrations\201911101937449_Reiniciando Banco de dados.Designer.cs">
+      <DependentUpon>201911101937449_Reiniciando Banco de dados.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnese.cs" />
     <Compile Include="Model\Ator.cs" />
@@ -454,20 +438,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201909100337023_teste 0036.resx">
-      <DependentUpon>201909100337023_teste 0036.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909101838372_teste 1538.resx">
-      <DependentUpon>201909101838372_teste 1538.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909102232121_teste 10091932.resx">
-      <DependentUpon>201909102232121_teste 10091932.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909102310021_10092009.resx">
-      <DependentUpon>201909102310021_10092009.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909102310398_10092010.resx">
-      <DependentUpon>201909102310398_10092010.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911101937449_Reiniciando Banco de dados.resx">
+      <DependentUpon>201911101937449_Reiniciando Banco de dados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

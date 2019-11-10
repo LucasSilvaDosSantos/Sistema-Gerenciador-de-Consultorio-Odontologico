@@ -29,8 +29,8 @@ namespace Consultorio.ViewModel
             Ator atorRetorno = LoginData.BuscarAtores(Login, out bool atorEncontrado);
             if (atorEncontrado)
             {
-                string senhaCripitografada =  AtorData.GerarHashMd5(Senha);
-                if(atorRetorno.Senha.Equals(senhaCripitografada)){
+                string senhaCripitografada = AtorData.GerarHashMd5(Senha);
+                if(atorRetorno.Senha.Equals(senhaCripitografada) && atorRetorno.Ativo){
                     AtorLogado.Ator = atorRetorno;
                     return true;                  
                 }
